@@ -1,0 +1,24 @@
+////////////////////////////////////////// https://secure.avaaz.org/campaign/en/japan_ivory_cites_loc/?wylLcdb ////////////////////////////////////////////
+<script>
+    window.fbAsyncInit = function() {
+        FB.init(
+            {
+                appId: '50824532548',
+                status: true,
+                version: 'v3.3'
+            }
+        );
+        window.FACEBOOK_API_VERSION = 'v3.3';
+        //you need use $(document).facebookReady(your_function);
+        //don't use $(document).bind("facebook:ready", your_function);
+        //it doesn't guarantee that your function will be called
+        $(document).trigger("facebook:ready");
+    };
+
+    (function() {
+        var e = document.createElement('script');
+        e.src = document.location.protocol + '//connect.facebook.net/en_US/sdk.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+    }());
+</script>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<link rel="stylesheet" href="windowBase.css">
+	<script src="HTMLElements.js" onload="Initialize();"></script>
+</head>
+<body >
+<Desktop id="Desktop1" class="Desktopc">
+	<!--
+	<Container>
+		<Window id="window2" style="width: 500px;">
+			<TitleBar>
+				<Box class="left">
+					<div style="float: left;">
+						<Bar></Bar>
+						<Bar></Bar>
+						<Bar></Bar>
+					</div>
+				</Box>
+				<Box class="middle">
+					<label>
+						<input type="text" onmousedown="textboxMouseDown(this)" >
+					</label>
+				</Box>
+				<Box class="right">
+					<DialogButton class="maximizeButton"></DialogButton>
+					<DialogButton class="restoreButton"></DialogButton>
+					<DialogButton class="minimizeButton"></DialogButton>
+				</Box>
+			</TitleBar>
+			<ToolBar>
+				<label>
+					<input type="text" value="http://www.w3schools.com">
+				</label>
+			</ToolBar>
+			<Box class="content" style="padding: 10px;">
+				<NorthBox>
+					<ContentHolder><h4>North Box</h4></ContentHolder>
+				</NorthBox>
+				<WestBox>
+					<ContentHolder><h4>West Box</h4></ContentHolder>
+				</WestBox>
+				<CenterBox>
+					<ContentHolder style="padding: 10px;">
+						<h3>Browser Window - Center Box</h3>
+						<p>How to create a detailed browser window look with CSS.</p>
+						jdhgf jha sdjh ga djs fgfj jhg asj hgj hsad gj hasd gj hasd fg jha sdf jha sdf jha
+						sdf jhdas jsadj fjas df j hasdf jhas df
+					</ContentHolder>
+				</CenterBox>
+				<SouthBox>
+					<ContentHolder>South Box</ContentHolder>
+				</SouthBox>
+				<EastBox>
+					<ContentHolder>East Box</ContentHolder>
+				</EastBox>
+			</Box>
+		</Window>
+	</Container>
+	<TaskBar>
+		<label>
+			<input type="text" value="DeskTop">
+		</label>
+	</TaskBar>
+	-->
+</Desktop>
+<script src="Test.js"></script>
+<script type="text/javascript" lang="js">
+	// Create a class for the element
+	class PopUpInfo extends HTMLElement {
+		constructor() {
+			// Always call super first in constructor
+			super();
+
+			// Create a shadow root
+			const shadow = this.attachShadow({ mode: 'open' });
+
+			// Create spans
+			const wrapper = document.createElement('span');
+			wrapper.setAttribute('class', 'wrapper');
+			const icon = document.createElement('span');
+			icon.setAttribute('class', 'icon');
+			icon.setAttribute('tabindex', 0);
+			const info = document.createElement('span');
+			info.setAttribute('class', 'info');
+
+			// Take attribute content and put it inside the info span
+			const text = this.getAttribute('text');
+			info.textContent = text;
+
+			// Insert icon
+			let imgUrl;
+			if (this.hasAttribute('img')) {
+				imgUrl = this.getAttribute('img');
+			} else {
+				imgUrl = 'img/default.png';
+			}
+			const img = document.createElement('img');
+			img.src = imgUrl;
+			icon.appendChild(img);
+
+			// Create some CSS to apply to the shadow dom
+			const style = document.createElement('style');
+
+			style.textContent = '.wrapper {' +
+				'position: relative;' +
+				'}' +
+				'.info {' +
+				'font-size: 0.8rem;' +
+				'width: 200px;' +
+				'display: inline-block;' +
+				'border: 1px solid black;' +
+				'padding: 10px;' +
+				'background: white;' +
+				'border-radius: 10px;' +
+				'opacity: 0;' +
+				'transition: 0.6s all;' +
+				'position: absolute;' +
+				'bottom: 20px;' +
+				'left: 10px;' +
+				'z-index: 3;' +
+				'}' +
+				'img {' +
+				'width: 1.2rem' +
+				'}' +
+				'.icon:hover + .info, .icon:focus + .info {' +
+				'opacity: 1;' +
+				'}';
+
+			// attach the created elements to the shadow dom
+
+			shadow.appendChild(style);
+			shadow.appendChild(wrapper);
+			wrapper.appendChild(icon);
+			wrapper.appendChild(info);
+		}
+	}
+
+	// Define the new element
+	customElements.define('popup-info', PopUpInfo);
+	//customElements.define('Test', Test);
+	alert("2");
+
+</script>
+</body>
+</html>

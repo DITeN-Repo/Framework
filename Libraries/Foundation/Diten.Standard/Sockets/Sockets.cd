@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Diten.Sockets.Asynchronous" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAEAQCAAAEAAAEAAAAAAAAAAgAAQAAAAABAgBCY=</HashCode>
+      <FileName>Sockets\Asynchronous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Sockets.DitenSynchronous" Collapsed="true">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAECAAAAAAAEAAAAAAAAAAAAAAAAAAIBAAAAA=</HashCode>
+      <FileName>Sockets\DitenSynchronous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Sockets.Synchronous" Collapsed="true">
+    <Position X="7.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQCAAAEAAIEAAAAIAAAAAAAAAAAAAAJAAAAA=</HashCode>
+      <FileName>Sockets\Synchronous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Diten.Sockets.Condition" Collapsed="true">
+    <Position X="7.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Sockets\Condition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,94 @@
+body { font-family: Arial, sans-serif }
+
+* { box-sizing: border-box; }
+
+desktop, container {
+	height: 1000px;
+	width: 100%;
+}
+
+/* The browser window */
+
+.container {
+	border: 3px solid #f1f1f1;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+/* Container for columns and the top "toolbar" */
+
+.row {
+	background: #f1f1f1;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	padding: 10px;
+}
+
+/* Create three unequal columns that floats next to each other */
+
+.column { float: left; }
+
+.left { width: 15%; }
+
+.right { width: 10%; }
+
+.middle { width: 75%; }
+
+/* Clear floats after the columns */
+
+header:after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+/* Three dots */
+
+.dot {
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	height: 12px;
+	margin-top: 4px;
+	width: 12px;
+}
+
+/* Style the input field */
+
+input[type=text] {
+	background-color: white;
+	border: none;
+	border-radius: 3px;
+	color: #666;
+	height: 25px;
+	margin-top: -8px;
+	padding: 5px;
+	width: 100%;
+}
+
+/* Three bars (hamburger menu) */
+
+.bar {
+	background-color: #aaa;
+	display: block;
+	height: 3px;
+	margin: 3px 0;
+	width: 17px;
+}
+
+/* Page content */
+
+.content { padding: 10px; }
+
+window {
+	background-color: #f1f1f1;
+	border: 1px solid #d3d3d3;
+	position: absolute;
+	text-align: center;
+	z-index: 9;
+}
+
+.window_header {
+	cursor: move;
+	z-index: 10;
+}

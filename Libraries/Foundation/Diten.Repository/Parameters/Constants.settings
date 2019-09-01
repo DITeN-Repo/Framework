@@ -1,0 +1,79 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
+              GeneratedClassNamespace="Diten.Parameters" GeneratedClassName="Constants">
+	<Profiles />
+	<Settings>
+		<Setting Name="InjectionCharactersGroup01" Description="Include [!@#$%]" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">!@#$%</Value>
+		</Setting>
+		<Setting Name="InjectionCharactersGroup02" Description="Include [^&amp;*()-=_+~`]" Type="System.String"
+		         Scope="Application">
+			<Value Profile="(Default)">^&amp;*()-=_+~`</Value>
+		</Setting>
+		<Setting Name="InjectionCharactersGroup03" Description="Include [{}[]:&quot;;'&lt;&gt;,.?/'\]" Type="System.String"
+		         Scope="Application">
+			<Value Profile="(Default)">{}[]:";'&lt;&gt;,.?/'\</Value>
+		</Setting>
+		<Setting Name="HexCharacters" Description="Include [ABCDEF1234567890]" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">ABCDEF1234567890</Value>
+		</Setting>
+		<Setting Name="PersianCultureDisplayName" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Persian (Iran)</Value>
+		</Setting>
+		<Setting Name="CultureName" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">sys-sys</Value>
+		</Setting>
+		<Setting Name="MaskDots" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">...</Value>
+		</Setting>
+		<Setting Name="DomainName" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">DITeN.Net</Value>
+		</Setting>
+		<Setting Name="ClientTalkingServicePort" Description="Default port is [101100]" Type="System.Int32"
+		         Scope="Application">
+			<Value Profile="(Default)">101100</Value>
+		</Setting>
+		<Setting Name="ClientListeningServicePort" Description="Default port is [101101]" Type="System.Int32"
+		         Scope="Application">
+			<Value Profile="(Default)">101101</Value>
+		</Setting>
+		<Setting Name="Password" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">9964D1A2B3FA4A3E9D5AB132576902831343AAE978BD42D7918A4B5D6F64C05B</Value>
+		</Setting>
+		<Setting Name="LocalIp" Description="localhost [127.0.0.1]" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">127.0.0.1</Value>
+		</Setting>
+		<Setting Name="DITeNFramework" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">DITeN Framework</Value>
+		</Setting>
+		<Setting Name="TempFolderItemExtention" Description="Value is [DTI]" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">DTI</Value>
+		</Setting>
+		<Setting Name="ManifestFileExtention" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">manifest</Value>
+		</Setting>
+		<Setting Name="InitializeMethodName" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Initialize</Value>
+		</Setting>
+		<Setting Name="Separator" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">▒</Value>
+		</Setting>
+		<Setting Name="CloudAppPhysicalPath" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Diten\Cloud</Value>
+		</Setting>
+		<Setting Name="BinFolder" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">bin</Value>
+		</Setting>
+		<Setting Name="ConfigFileExtention" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">config</Value>
+		</Setting>
+		<Setting Name="ServerVariables000" Description="Value is [HTTP_X_FORWARDED_FOR]" Type="System.String"
+		         Scope="Application">
+			<Value Profile="(Default)">HTTP_X_FORWARDED_FOR</Value>
+		</Setting>
+		<Setting Name="ServerVariables001" Description="Value is [REMOTE_ADDR]" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">REMOTE_ADDR</Value>
+		</Setting>
+	</Settings>
+</SettingsFile>

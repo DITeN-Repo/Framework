@@ -1,0 +1,2 @@
+"C:\Program Files (x86)\Log Parser 2.2\logparser" "SELECT * INTO W3SVC%1 FROM %2\W3SVC%1\*.log" -i:iisw3c -o:SQL -server:localhost -database:DTDB003V100 -username:IISLOGUSR -password:85kE47Ck6G67hJNyA3J6RDrR6mEpuJn4gNEyC9v3Ka6n68Tf5c -createTable: ON
+erase C:\inetpub\logs\LogFiles\W3SVC2\*.log

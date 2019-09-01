@@ -1,0 +1,128 @@
+body { font-family: Arial, serif }
+
+* { box-sizing: border-box; }
+
+/* The browser window */
+
+/* Page content */
+
+Desktop {
+	background-color: #FDD800;
+	height: 900px;
+	width: 500px;
+}
+
+
+
+Window {
+	background-color: Window;
+	border: 1px solid WindowFrame;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	color: WindowText;
+	position: absolute;
+}
+
+.windowHeaderLeftBox {
+	cursor: move;
+	z-index: 1;
+}
+
+/* Container for columns and the top "toolbar" */
+
+TitleBar {
+	background-color: WindowFrame;
+	clear: both;
+	content: "";
+	display: table;
+	padding: 5px;
+	width: 100%;
+}
+
+ToolBar {
+	background-color: ButtonFace;
+	clear: both;
+	content: "";
+	display: table;
+	padding: 5px;
+	width: 100%;
+}
+
+/* Create three unequal columns that floats next to each other */
+
+Box { float: left; }
+
+.left {
+	text-align: left;
+	width: 10%;
+}
+
+.right {
+	text-align: right;
+	width: 15%;
+}
+
+.middle {
+	text-align: center;
+	width: 75%;
+}
+
+/* Clear floats after the columns */
+
+
+/* Three dots */
+
+DialogButton {
+	background-color: ActiveBorder;
+	border-radius: 50%;
+	display: inline-block;
+	height: 12px;
+	margin-top: 4px;
+	width: 12px;
+}
+
+.maximizeButton { background-color: #ED594A; }
+
+.restoreButton { background-color: #FDD800; }
+
+.minimizeButton { background-color: #5AC05A; }
+
+/* Style the input field */
+
+input[type=text] {
+	background-color: Window;
+	border: 1px solid ActiveBorder;
+	border-radius: 3px;
+	color: WindowText;
+	height: 20px;
+	margin-top: -8px;
+	padding: 2px;
+	width: 100%;
+}
+
+TextBox {
+	background-color: Window;
+	border: 1px solid black;
+	border-radius: 3px;
+	color: WindowText;
+	font-family: Tahoma, serif;
+	font-size: 10pt;
+	height: 25px;
+	margin-top: -8px;
+	padding: 2px;
+	width: 100%;
+}
+
+/* Three bars (hamburger menu) */
+
+Bar {
+	background-color: ActiveBorder;
+	display: block;
+	height: 3px;
+	margin: 3px 0;
+	width: 17px;
+}
+
+/* Page content */
+
+.content { padding: 10px; }

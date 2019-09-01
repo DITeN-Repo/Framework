@@ -1,0 +1,230 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Diten</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Web\UI\Themes\Aria\Image.png" />
+    <None Remove="Web\UI\Themes\Aria\Main.css" />
+    <None Remove="Web\UI\Themes\CrispTouch\Image.png" />
+    <None Remove="Web\UI\Themes\CrispTouch\Main.css" />
+    <None Remove="Web\UI\Themes\Crisp\Image.png" />
+    <None Remove="Web\UI\Themes\Crisp\Main.css" />
+    <None Remove="Web\UI\Themes\Default\Icons.css" />
+    <None Remove="Web\UI\Themes\Default\Icons\Accounting.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Add.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Application.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\BankCheck.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Check.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Computer.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\CoursesInformation.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Cultures.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Default.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Delete.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Dictionary.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Diten.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Domain.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Error.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\File.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Folder.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Group.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\History.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Information.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\InvertSelection.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Minus.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Money.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\MoneySafe.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\PartitionManager.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Person.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Pin.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\PortableComputer.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Programs.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Properties.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Refresh.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Rename.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\SelectAll.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\SelectNone.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\SmartFolder.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Stats.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\SystemInstall.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\TimeDrive.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\User.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Warning.png" />
+    <None Remove="Web\UI\Themes\Default\Icons\Windows.png" />
+    <None Remove="Web\UI\Themes\Default\Image.png" />
+    <None Remove="Web\UI\Themes\Default\Main.css" />
+    <None Remove="Web\UI\Themes\Default\Main.js" />
+    <None Remove="Web\UI\Themes\Gray\Image.png" />
+    <None Remove="Web\UI\Themes\Gray\Main.css" />
+    <None Remove="Web\UI\Themes\Main.css" />
+    <None Remove="Web\UI\Themes\Neptune\Image.png" />
+    <None Remove="Web\UI\Themes\Neptune\Main.css" />
+    <None Remove="Web\UI\Themes\Triton\Image.png" />
+    <None Remove="Web\UI\Themes\Triton\Main.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Web\UI\Themes\Aria\Image.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Aria\Main.css" />
+    <EmbeddedResource Include="Web\UI\Themes\CrispTouch\Image.png" />
+    <EmbeddedResource Include="Web\UI\Themes\CrispTouch\Main.css" />
+    <EmbeddedResource Include="Web\UI\Themes\Crisp\Image.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Crisp\Main.css" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons.css" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Accounting.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Add.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Application.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\BankCheck.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Check.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Computer.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\CoursesInformation.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Cultures.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Default.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Delete.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Dictionary.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Diten.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Domain.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Error.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\File.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Folder.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Group.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\History.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Information.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\InvertSelection.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Minus.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Money.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\MoneySafe.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\PartitionManager.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Person.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Pin.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\PortableComputer.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Programs.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Properties.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Refresh.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Rename.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\SelectAll.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\SelectNone.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\SmartFolder.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Stats.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\SystemInstall.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\TimeDrive.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\User.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Warning.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Icons\Windows.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Image.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Main.css" />
+    <EmbeddedResource Include="Web\UI\Themes\Default\Main.js" />
+    <EmbeddedResource Include="Web\UI\Themes\Gray\Image.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Gray\Main.css" />
+    <EmbeddedResource Include="Web\UI\Themes\Main.css" />
+    <EmbeddedResource Include="Web\UI\Themes\Neptune\Image.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Neptune\Main.css" />
+    <EmbeddedResource Include="Web\UI\Themes\Triton\Image.png" />
+    <EmbeddedResource Include="Web\UI\Themes\Triton\Main.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IIS.Microsoft.Web.Adminstration" Version="8.5.9600.16384" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Configuration">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.configuration\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Parameters\Application.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Parameters\Constants.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Constants.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Parameters\Dictionary.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Dictionary.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Parameters\Exceptions.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Exceptions.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Parameters\Names.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Names.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Parameters\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Parameters\Session.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Session.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Parameters\System.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>System.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Parameters\Tags.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Tags.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Parameters\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Parameters\Application.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Application.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Parameters\Constants.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Constants.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Parameters\Dictionary.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Dictionary.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Parameters\Exceptions.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Exceptions.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Parameters\Names.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Names.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Parameters\Session.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Session.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Parameters\System.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>System.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Parameters\Tags.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Tags.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

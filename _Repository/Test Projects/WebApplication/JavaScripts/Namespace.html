@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>JavaScript Namespace</title>
+</head>
+<body>
+<a href="https://www.codeproject.com/Articles/829254/JavaScript-Namespace">JavaScript Namespace</a>
+<script>
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//declare a function
+	function calculateTax(item) {
+		return item.price * 1.40;
+	}
+
+	var product = function(cost) {
+
+		this.cost = cost;
+		this.getCost = function() {
+			return this.cost;
+		};
+	};
+
+	function doTaxCalculations() {
+
+		const p = new product(100);
+		alert(calculateTax(p.getCost()));
+	}
+
+	//JavaScript Sample Namespace
+	var MYAPPLICATION = {
+		calculateTax: function(item) {
+			return item * 1.40;
+		},
+		product: function(cost) {
+			this.cost = cost;
+			this.getCost = function() {
+				return this.cost;
+			};
+		},
+		doTaxCalculations: function() {
+			const p = new MYAPPLICATION.product(100);
+			alert(this.calculateTax(p.getCost()));
+		}
+	};
+
+	//var newProduct = new MYAPPLICATION.product(200);
+	//alert(p.getPrice());
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Nested JavaScript Namespace
+	var MYNESTEDAPPLICATION = {
+		MODEL: {
+			product: function(price) {
+				this.price = price;
+				this.getCost = function() {
+					return this.price;
+				};
+			}
+		},
+		LOGIC: {
+			calculateTax: function(item) {
+				return item * 1.40;
+			},
+			doCalculations: function() {
+				const p = new MYNESTEDAPPLICATION.MODEL.product(100);
+				alert(this.calculateTax(p.getCost()));
+			}
+		}
+	};
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Create Namespace If It Does Not Exist
+	// not safe, if there's another object with this name we will overwrite it
+	var MYSAMPLEAPP = {};
+
+	// We need check before we create the namespace
+	//if (typeof MYSAMPLEAPP === "undefined") {
+	//    var MYSAMPLEAPP = {};
+	//}
+	// shorter version
+	MYSAMPLEAPP = MYSAMPLEAPP || {};
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Function To Create Namespace
+	var MYNAMESPACE = MYNAMESPACE || {};
+
+	MYNAMESPACE.createNameSpace = function(namespace) {
+
+		//get the namespace string and split it
+		var namespaceArr = namespace.split(".");
+		var parent = MYNAMESPACE;
+
+		// excluding the parent
+		if (namespaceArr[0] === "MYNAMESPACE") {
+			namespaceArr = namespaceArr.slice(1);
+		}
+
+		// loop through the array and create a nested namespace 
+		for (let i = 0; i < namespaceArr.length; i++) {
+
+			const partname = namespaceArr[i];
+
+			// check if the current parent already has the namespace declared
+			// if it isn't, then create it
+			if (typeof parent[partname] === "undefined") {
+				parent[partname] = {};
+			}
+
+			// get a reference to the deepest element in the hierarchy so far
+			parent = parent[partname];
+		}
+		//  empty namespaces created and can be used.
+		return parent;
+	};
+
+	//Namespaces Aliasing
+	var newNamespace = MYNAMESPACE.createNameSpace("MYNAMESPACE.COUNTRY.STATES");
+
+	newNamespace.product = function(price) {
+		this.price = price;
+		this.getCost = function() {
+			return this.price;
+		};
+	};
+
+
+	//<code>MYNAMESPACE.createNameSpace("MYNAMESPACE.COUNTRY.STATES");</code>
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Namespaces Aliasing
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Using Module
+	newNamespace.product = function(cost) {
+
+		//cost is the private variable
+		var cost1 = cost;
+		return {
+			isTaxable: true,
+			getCost: function() {
+				return cost1;
+			}
+		};
+	};
+
+	//MYAPP.MODEL.PRODUCTS.product = function (cost) {
+	//        //everything  private
+	//        var cost1 = cost;
+	//        var isTaxable = true;
+	//        var getCost = function(){
+	//            return cost1;
+	//    };
+	//    //expose what you need
+	//    return {
+	//        isTaxable: isTaxable,
+	//        getCost: getCost
+	//    };
+	//};
+
+	alert(newNamespace.product(10).getCost());
+</script>
+</body>
+</html>

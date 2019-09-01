@@ -1,0 +1,299 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
+              GeneratedClassNamespace="Diten.Parameters" GeneratedClassName="Exceptions">
+	<Profiles />
+	<Settings>
+		<Setting Name="ApplicationModule_Application_ArgumentNullException" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">ApplicationModule must have one application. Please set Application property.</Value>
+		</Setting>
+		<Setting Name="ApplicationModule_Initialize_NullReferenceException" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">There is no application assigned to this module. Application property can not be null.</Value>
+		</Setting>
+		<Setting Name="Diten_Web_UI_Application_ApplicationName_Message" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Application name cannot be null.</Value>
+		</Setting>
+		<Setting Name="Diten_Web_UI_Application_ApplicationName_ParamName" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">ApplicationName</Value>
+		</Setting>
+		<Setting Name="Diten_Web_UI_WebControls_Button_XType" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Base type is null. This component is not inherited form an object.</Value>
+		</Setting>
+		<Setting Name="Diten_Variables_GetConfig_ArgumentException_KeyNotFound" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Key [{0}] not found.</Value>
+		</Setting>
+		<Setting Name="Diten_Variables_GetConfig_ArgumentException_ValueNotFound" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Value of key [{0}] is null.</Value>
+		</Setting>
+		<Setting Name="Diten_Web_ResourceProvider_GetFile" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Resource not found in [{}].</Value>
+		</Setting>
+		<Setting Name="Diten_ExtensionMethods_ExString_ToString_Hexadecimal" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Parameter [value] must be a hexadecimal string.</Value>
+		</Setting>
+		<Setting Name="Diten_ExtensionMethods_ExString_ToSafeString" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">A string can not contains [{0}] (UnsafeStringTag) in diten framework.</Value>
+		</Setting>
+		<Setting Name="Diten_Numeric_Number_CompareTo_PObject" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">The object of type [{0}] is not a [{1}] object.</Value>
+		</Setting>
+		<Setting Name="DebugMessage" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">DITeN Debug Message</Value>
+		</Setting>
+		<Setting Name="Diten_Exception_Exception" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">There is no frame in StackTrace.</Value>
+		</Setting>
+		<Setting Name="DIten_NoEOFTagInValue" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">There is no EOF tag inside of value property.</Value>
+		</Setting>
+		<Setting Name="InvalidCast_FromTo" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Invalid cast from [{0}] to [{1}].</Value>
+		</Setting>
+		<Setting Name="InvalidCast_DBNull" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Invalid cast to [DBNull]</Value>
+		</Setting>
+		<Setting Name="InvalidCast_Empty" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Invalid cast to [Empty]</Value>
+		</Setting>
+		<Setting Name="Argument_InvalidTypeWithPointersNotSupported" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Argument_DestinationTooShort" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Argument_OverlapAlignmentMismatch" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="NotSupported_Type" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">fg</Value>
+		</Setting>
+		<Setting Name="Argument_CannotExtractScalar" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_Index" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_NeedNonNegNum" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_Count" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Argument_AddingDuplicateWithKey" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_EnumFailedVersion" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_EnumOpCantHappen" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_NoValue" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_ConcurrentOperationsNotSupported" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_HandleIsNotInitialized" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_HandleIsNotPinned" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Argument_BadFormatSpecifier" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Argument_PrecisionTooLarge" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Argument_InvalidOffLen" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_WrongType" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_KeyNotFoundWithKey" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_EnumNotStarted" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_EnumEnded" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_TypeNotSupported" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_IndexCount" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_IndexCountBuffer" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_ArrayPlusOffTooSmall" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="NotSupported_ReadOnlyCollection" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_RankMultiDimNotSupported" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_NonZeroLowerBound" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_ListInsert" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_SmallCapacity" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_BiggerThanCollection" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Serialization_MissingKeys" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Serialization_NullKey" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="NotSupported_KeyCollectionSet" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="NotSupported_ValueCollectionSet" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_NullArray" Description="drth" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="TaskT_TransitionToFinal_AlreadyCompleted" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="TaskCompletionSourceT_TrySetException_NullException" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="TaskCompletionSourceT_TrySetException_NoExceptions" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="NotSupported_StringComparison" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ConcurrentCollection_SyncRoot_NotSupported" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_MultiTaskContinuation_NullTask" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_MultiTaskContinuation_EmptyTaskList" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_Start_TaskCompleted" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_WrongAsyncResultOrEndCalledMultiple" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_Start_Promise" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_Start_ContinuationTask" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_Start_AlreadyStarted" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_RunSynchronously_Continuation" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_RunSynchronously_Promise" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_RunSynchronously_TaskCompleted" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_RunSynchronously_AlreadyStarted" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="AsyncMethodBuilder_InstanceNotInitialized" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_ContinueWith_ESandLR" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_ContinueWith_NotOnAnything" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_Delay_InvalidDelay" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_Delay_InvalidMillisecondsDelay" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_Dispose_NotCompleted" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_ThrowIfDisposed" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Task_WaitMulti_NullTask" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentException_OtherNotArrayOfCorrectLength" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentNull_Array" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentNull_SafeHandle" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_EndIndexStartIndex" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_Enum" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="ArgumentOutOfRange_HugeArrayNotSupported" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Argument_AddingDuplicate" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Argument_InvalidArgumentForComparison" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_LowerBoundsMustMatch" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_MustBeType" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_Need1DArray" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_NeedAtLeast1Rank" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_Need2DArray" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_Need3DArray" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_RankIndices" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Arg_RanksAndBounds" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="InvalidOperation_IComparerFailed" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="NotSupported_FixedSizeCollection" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+		<Setting Name="Rank_MultiDimNotSupported" Type="System.String" Scope="Application">
+			<Value Profile="(Default)" />
+		</Setting>
+	</Settings>
+</SettingsFile>

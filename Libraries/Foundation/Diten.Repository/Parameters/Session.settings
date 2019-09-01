@@ -1,0 +1,38 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
+              GeneratedClassNamespace="Diten.Variables" GeneratedClassName="Session">
+	<Profiles />
+	<Settings>
+		<Setting Name="DomainId" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">DomainId</Value>
+		</Setting>
+		<Setting Name="EncryptionKey" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">EncryptionKey</Value>
+		</Setting>
+		<Setting Name="UserId" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">UserId</Value>
+		</Setting>
+		<Setting Name="CultureName" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">CultureName</Value>
+		</Setting>
+		<Setting Name="CultureId" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">CultureId</Value>
+		</Setting>
+		<Setting Name="EntityId" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">EntityId</Value>
+		</Setting>
+		<Setting Name="Theme" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Theme</Value>
+		</Setting>
+		<Setting Name="CaptchaCode" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">CaptchaCode</Value>
+		</Setting>
+		<Setting Name="AnalyzedControlsList" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">AnalyzedControlsList</Value>
+		</Setting>
+		<Setting Name="TempFolder" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">TempFolder</Value>
+		</Setting>
+	</Settings>
+</SettingsFile>

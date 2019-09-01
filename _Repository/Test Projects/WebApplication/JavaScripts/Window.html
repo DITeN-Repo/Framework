@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body { font-family: Arial }
+
+		* { box-sizing: border-box; }
+
+		/* The browser window */
+
+		.container {
+			border: 3px solid #f1f1f1;
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+		}
+
+		/* Container for columns and the top "toolbar" */
+
+		.row {
+			background: #f1f1f1;
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+			padding: 10px;
+		}
+
+		/* Create three unequal columns that floats next to each other */
+
+		.column { float: left; }
+
+		.left { width: 15%; }
+
+		.right { width: 10%; }
+
+		.middle { width: 75%; }
+
+		/* Clear floats after the columns */
+
+		.row:after {
+			clear: both;
+			content: "";
+			display: table;
+		}
+
+		/* Three dots */
+
+		.dot {
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+			height: 12px;
+			margin-top: 4px;
+			width: 12px;
+		}
+
+		/* Style the input field */
+
+		input[type=text] {
+			background-color: white;
+			border: none;
+			border-radius: 3px;
+			color: #666;
+			height: 25px;
+			margin-top: -8px;
+			padding: 5px;
+			width: 100%;
+		}
+
+		/* Three bars (hamburger menu) */
+
+		.bar {
+			background-color: #aaa;
+			display: block;
+			height: 3px;
+			margin: 3px 0;
+			width: 17px;
+		}
+
+		/* Page content */
+
+		.content { padding: 10px; }
+
+		.mydiv {
+			background-color: #f1f1f1;
+			border: 1px solid #d3d3d3;
+			position: absolute;
+			text-align: center;
+			z-index: 0;
+		}
+
+		.mydivheader {
+			cursor: move;
+			z-index: 1;
+		}
+	</style>
+	<script>
+		var topElement = null;
+		var elements = new Array();
+	</script>
+
+</head>
+<body id="BodyMain">
+<div id="mydiv" class="container mydiv">
+	<div class="row" onmousedown="dragElement('mydiv')">
+		<div id="mydivheader" class="column left mydivheader">
+			<span class="dot" style="background: #ED594A;"></span>
+			<span class="dot" style="background: #FDD800;"></span>
+			<span class="dot" style="background: #5AC05A;"></span>
+		</div>
+		<div class="column middle">
+			<input type="text" value="http://www.w3schools.com">
+		</div>
+		<div class="column right">
+			<div style="float: right">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+		</div>
+	</div>
+
+	<div id="content" class="content">
+		<h3>Browser Window</h3>
+		<p>How to create a detailed browser window look with CSS.</p>
+	</div>
+</div>
+<!--
+<div id="mydiv2" class="container mydiv">
+	<div class="row">
+		<div id="mydiv2header" class="column left mydivheader">
+			<span class="dot" style="background:#ED594A;"></span>
+			<span class="dot" style="background:#FDD800;"></span>
+			<span class="dot" style="background:#5AC05A;"></span>
+		</div>
+		<div class="column middle">
+			<input type="text" value="http://www.w3schools.com">
+		</div>
+		<div class="column right">
+			<div style="float:right">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+		</div>
+	</div>
+
+	<div id="content2" class="content">
+		<h3>Browser Window 2</h3>
+		<p>How to create a detailed browser window look with CSS.</p>
+	</div>
+</div>
+
+<div id="mydiv3" class="container mydiv">
+	<div class="row">
+		<div id="mydiv3header" class="column left mydivheader">
+			<span class="dot" style="background:#ED594A;"></span>
+			<span class="dot" style="background:#FDD800;"></span>
+			<span class="dot" style="background:#5AC05A;"></span>
+		</div>
+		<div class="column middle">
+			<input type="text" value="http://www.w3schools.com">
+		</div>
+		<div class="column right">
+			<div style="float:right">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+		</div>
+	</div>
+
+	<div id="content3" class="content">
+		<h3>Browser Window 3</h3>
+		<p>How to create a detailed browser window look with CSS.</p>
+	</div>
+</div>-->
+
+<script>
+	//String.prototype.replaceAll = function(search, replacement) {
+	//    var target = this;
+	//   return target.replace(new RegExp(search, 'g'), replacement);
+	// };
+
+
+	var component = "<div id='Window[0]' class='container mydiv'>" +
+		"<div class='row'>" +
+		"<div id='Window[0]Header' class='column left mydivheader'>" +
+		"<span class='dot' style='background:#ED594A;'>" +
+		"</span>" +
+		"<span class='dot' style='background:#FDD800;'>" +
+		"</span>" +
+		"<span class='dot' style='background:#5AC05A;'>" +
+		"</span>" +
+		"</div>" +
+		"<div class='column middle'>" +
+		"<input type='text' value='http://www.w3schools.com'>" +
+		"</div>" +
+		"<div class='column right'>" +
+		"<div style='float:right'>" +
+		"<span class='bar'>" +
+		"</span>" +
+		"<span class='bar'>" +
+		"</span>" +
+		"<span class='bar'>" +
+		"</span>" +
+		"</div>" +
+		"</div>" +
+		"</div>" +
+		"<div id='WindowContent[0]' class='content'>" +
+		"<h3>Browser Window [0]</h3>" +
+		"<p>How to create a detailed browser window look with CSS.</p>" +
+		"</div>" +
+		"</div>";
+
+	//initializeElements();
+	dragElement(document.getElementById('mydiv'));
+
+	function initializeElements() {
+
+		for (var i = 0; i < 3; i++) {
+			document.getElementById("BodyMain").innerHTML += component.replaceAll("\\[0\\]", i.toString());
+		}
+
+		for (var i = 0; i < 3; i++) {
+
+			dragElement(document.getElementById("Window[0]".replaceAll("\\[0\\]", i.toString())), i);
+		}
+
+	}
+
+	function dragElement(elmnt) {
+		var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+		///var elm = document.getElementById(elmnt);
+
+		//if (elmnt) {
+		/* if present, the header is where you move the DIV from:*/
+		//  elmnt.onmousedown = dragMouseDown;
+		// topElement = elmnt;
+		// } else {
+		/* otherwise, move the DIV from anywhere inside the DIV:*/
+
+		//  }
+
+		elmnt.onmousedown = dragMouseDown;
+		topElement = elmnt;
+
+		function dragMouseDown(e) {
+			e = e || window.event;
+			e.preventDefault();
+			// get the mouse cursor position at startup:
+			pos3 = e.clientX;
+			pos4 = e.clientY;
+
+			//if (elmnt.id !== topElement.id) {
+
+			// for (var i = 0; i < document.getElementsByTagNameNS(); i++) {
+
+			//   }
+
+			//   var elmntzIndex = elmnt.style.zIndex;
+			//   elmnt.style.zIndex = topElement.style.zIndex;
+			//   topElement.style.zIndex = elmntzIndex;
+			//   topElement = elmnt;
+			//var currentElement = topElement;
+			//currentElement.style.zIndex = parseInt(topElement.style.zIndex) - 1;
+			//elmnt.style.zIndex = parseInt(currentElement.style.zIndex) + 1;
+			//  document.title = elmnt.id + " - " + elmnt.style.zIndex;
+			// }
+
+
+			document.onmouseup = closeDragElement;
+			// call a function whenever the cursor moves:
+			document.onmousemove = elementDrag;
+
+		}
+
+		function elementDrag(e) {
+			e = e || window.event;
+			e.preventDefault();
+			// calculate the new cursor position:
+			pos1 = pos3 - e.clientX;
+			pos2 = pos4 - e.clientY;
+			pos3 = e.clientX;
+			pos4 = e.clientY;
+
+			// set the element's new position:
+			elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+			elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+		}
+
+		function closeDragElement() {
+			/* stop moving when mouse button is released:*/
+			document.onmouseup = null;
+			document.onmousemove = null;
+		}
+	}
+</script>
+</body>
+</html>

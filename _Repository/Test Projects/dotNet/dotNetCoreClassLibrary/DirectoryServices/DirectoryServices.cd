@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Enum Name="Diten.DirectoryServices.UserFlags" Collapsed="true">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIAABAgAAAAIQAAAAAAAAAAAQEAgFACEsgAAAACKAA=</HashCode>
+      <FileName>DirectoryServices\UserFlags.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

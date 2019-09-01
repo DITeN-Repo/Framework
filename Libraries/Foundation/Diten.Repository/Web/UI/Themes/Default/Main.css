@@ -1,0 +1,28 @@
+﻿.horizontal-menu .x-menu-item-link { line-height: 20px; }
+
+.horizontal-menu .x-menu-item-arrow { display: none; }
+
+.ExplorerDataViewItemSelector {
+	border: 2px solid #E0E0E0;
+	cursor: pointer;
+	float: left;
+	height: 100px;
+	margin: 10px;
+	text-align: center;
+	vertical-align: bottom !important;
+	width: 100px;
+}
+
+.ExplorerDataOverItemCls { border: 2px solid gray; }
+
+.ExplorerDataViewItemSelector h1 {
+	color: black;
+	font-size: 12px;
+	margin-top: 25px;
+}
+
+.MenuSeparator {
+	background-color: rgb(208, 222, 240);
+	border-color: rgb(208, 222, 240);
+	color: rgb(208, 222, 240);
+}

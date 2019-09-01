@@ -1,0 +1,256 @@
+﻿0,Null character,
+1,Start of Header,
+2,"End of Text, hearts card suit",&hearts;
+3,End of Text,
+4,"End of Transmission, diamonds card suit",&diams;
+5,"Enquiry, clubs card suit",&clubs;
+6,"Acknowledgement, spade card suit",&spades;
+7,Bell,
+8,Backspace,
+9,Horizontal Tab,
+10,Line feed,&NewLine;
+11,"Vertical Tab, male symbol, symbol for Mars",&male;
+12,"Form feed, female symbol, symbol for Venus",&female;
+13,Carriage return,
+14,Shift Out,
+15,Shift In,
+16,Data link escape,
+17,Device control 1,
+18,Device control 2,
+19,Device control 3,
+20,Device control 4,
+21,NAK Negative-acknowledge,
+22,Synchronous idle,
+23,End of transmission block,
+24,Cancel,
+25,End of medium,
+26,Substitute,
+27,Escape,
+28,File separator,
+29,Group separator,
+30,Record separator,
+31,Unit separator,
+32,Space,
+33,Exclamation mark,&excl;
+34,Double quotes ; Quotation mark ; speech marks,&quot;
+35,Number sign,&num;
+36,Dollar sign,&dollar;
+37,Percent sign,&percnt;
+38,Ampersand,&amp;
+39,Single quote or Apostrophe,&apos;
+40,"round brackets or parentheses, opening round bracket",&lpar;
+41,"parentheses or round brackets, closing parentheses",&rpar;
+42,Asterisk,&ast;
+43,Plus sign,&plus;
+44,Comma,&comma;
+45,"Hyphen , minus sign",
+46,Dot; full stop,&period;
+47,"Slash , forward slash , fraction bar , division slash",&frasl;
+48,number zero,
+49,number one,
+50,number two,
+51,number three,
+52,number four,
+53,number five,
+54,number six,
+55,number seven,
+56,number eight,
+57,number nine,
+58,Colon,&colon;
+59,Semicolon,&semi;
+60,Less-than sign,&lt;
+61,Equals sign,&equals;
+62,Greater-than sign; Inequality ,&gt;
+63,Question mark,&quest;
+64,At sign,&commat;
+65,Capital A,
+66,Capital B,
+67,Capital C,
+68,Capital D,
+69,Capital E,
+70,Capital F,
+71,Capital G,
+72,Capital H,
+73,Capital I,
+74,Capital J,
+75,Capital K,
+76,Capital L,
+77,Capital M,
+78,Capital N,
+79,Capital O,
+80,Capital P,
+81,Capital Q,
+82,Capital R,
+83,Capital S,
+84,Capital T,
+85,Capital U,
+86,Capital V,
+87,Capital W,
+88,Capital X,
+89,Capital Y,
+90,Capital Z,
+91,"square brackets or box brackets, opening bracket",&lbrack;
+92,"Backslash , reverse slash",&bsol;
+93,"box brackets or square brackets, closing bracket",&rbrack;
+94,Circumflex accent or Caret,&Hat;
+95,"underscore , understrike , underbar or low line",&lowbar;
+96,Grave accent,&grave;
+97,Lowercase  a ,
+98,Lowercase  b ,
+99,Lowercase  c ,
+100,Lowercase  d ,
+101,Lowercase  e ,
+102,Lowercase  f ,
+103,Lowercase  g ,
+104,Lowercase  h ,
+105,Lowercase  i ,
+106,Lowercase  j ,
+107,Lowercase  k ,
+108,Lowercase  l ,
+109,Lowercase  m ,
+110,Lowercase  n ,
+111,Lowercase  o ,
+112,Lowercase  p ,
+113,Lowercase  q ,
+114,Lowercase  r ,
+115,Lowercase  s ,
+116,Lowercase  t ,
+117,Lowercase  u ,
+118,Lowercase  v ,
+119,Lowercase  w ,
+120,Lowercase  x ,
+121,Lowercase  y ,
+122,Lowercase  z ,
+123,"braces or curly brackets, opening braces",&lbrace;
+124,"vertical-bar, vbar, vertical line or vertical slash",&vert;
+125,"curly brackets or braces, closing curly brackets",&rbrace;
+126,Tilde; swung dash,&tilde;
+127,Delete,
+128,Majuscule C-cedilla,
+129,"letter u with umlaut or diaeresis , u-umlaut",&uuml;
+130,letter e with acute accent or e-acute,&eacute;
+131,letter a with circumflex accent or a-circumflex,&acirc;
+132,"letter a with umlaut or diaeresis , a-umlaut",&auml;
+133,letter a with grave accent,&agrave;
+134,"letter ""a""  with a ring",
+135,Majuscule C-cedilla,&ccedil;
+136,letter e with circumflex accent or e-circumflex,&ecirc;
+137,letter e with umlaut or diaeresis ; e-umlauts,&euml;
+138,"letter ""e"" with grave accent",
+139,"letter ""i"" with umlaut or diaeresis; ""i-umlaut""",
+140,"letter ""i"" with circumflex accent or ""i-circumflex""",
+141,"letter ""i"" with grave accent",
+142,"letter ""A"" with umlaut or diaeresis; ""A-umlaut""",
+143,"Capital letter ""A""  with a ring",
+144,"Capital letter ""E"" with acute accent or ""E-acute""",
+145,"Latin diphthong ""ae"" in lowercase",
+146,"Latin diphthong ""AE"" in uppercase",
+147,"letter ""o"" with circumflex accent or ""o-circumflex""",
+148,"letter ""o"" with umlaut or diaeresis; ""o-umlaut""",
+149,"letter ""o"" with grave accent",
+150,"letter ""u"" with circumflex accent or ""u-circumflex""",
+151,"letter ""u"" with grave accent",
+152,"Lowercase letter ""y"" with diaeresis",
+153,"letter ""O"" with umlaut or diaeresis; ""O-umlaut""",
+154,"letter ""U"" with umlaut or diaeresis; ""U-umlaut""",
+155,slashed zero or empty set,
+156,Pound sign; symbol for the pound sterling,
+157,slashed zero or empty set,
+158,multiplication sign,
+159,function sign; f with hook sign; florin sign ,
+160,"letter ""a"" with acute accent or ""a-acute""",
+161,"letter ""i"" with acute accent or ""i-acute""",
+162,"letter ""o"" with acute accent or ""o-acute""",
+163,"letter ""u"" with acute accent or ""u-acute""",
+164,"letter ""n"" with tilde; enye",
+165,"letter ""N"" with tilde; enye",
+166,feminine ordinal indicator,
+167,masculine ordinal indicator,
+168,Inverted question marks,
+169,Registered trademark symbol,
+170,Logical negation symbol,
+171,One half,
+172,Quarter or  one fourth,
+173,Inverted exclamation marks,
+174,Angle quotes or guillemets,
+175,Guillemets or  angle quotes,
+176,Progress 1,
+177,Progress 2,
+178,Progress 3,
+179,Box drawing character,
+180,Box drawing character,
+181,"Capital letter ""A"" with acute accent or ""A-acute""",
+182,"letter ""A"" with circumflex accent or ""A-circumflex""",
+183,"letter ""A"" with grave accent",
+184,Copyright symbol,
+185,Box drawing character double line vertical and left,&boxVL;
+186,Box drawing character double vertical line,&boxV;
+187,Box drawing character double line upper right corner,&boxDL;
+188,Box drawing character double line lower right corner,&boxUL;
+189,Cent symbol,
+190,YEN and YUAN sign,
+191,Box drawing character,
+192,Box drawing character,
+193,Box drawing character,
+194,Box drawing character,
+195,Box drawing character,
+196,Box drawing character,
+197,Box drawing character,
+198,"Lowercase letter ""a"" with tilde or ""a-tilde""",
+199,"Capital letter ""A"" with tilde or ""A-tilde""",
+200,Box drawing character double line lower left corner,&boxUR;
+201,Box drawing character double line upper left corner,&boxDR;
+202,Box drawing character double line horizontal and up,&boxHU;
+203,Box drawing character double line horizontal down,&boxHD;
+204,Box drawing character double line vertical and right,&boxVR;
+205,Box drawing character double horizontal line,&boxH;
+206,Box drawing character double line horizontal vertical,&boxVH;
+207,generic currency sign,&curren;
+208,Lowercase letter eth,&eth;
+209,Capital letter Eth,&ETH;
+210,Letter E with circumflex accent or E-circumflex,&Ecirc;
+211,"letter ""E"" with umlaut or diaeresis; ""E-umlaut""",
+212,"letter ""E"" with grave accent",
+213,lowercase dot less i,
+214,"Capital letter ""I"" with acute accent or ""I-acute""",
+215,"letter ""I"" with circumflex accent or ""I-circumflex""",
+216,"letter ""I"" with umlaut or diaeresis; ""I-umlaut""",
+217,Box drawing character,
+218,Box drawing character,
+219,Block,
+220,Bottom half block,
+221,vertical broken bar,
+222,"letter ""I"" with grave accent",
+223,Top half block,
+224,"Capital letter ""O"" with acute accent or ""O-acute""",
+225,"letter ""Eszett""; ""scharfes S"" or ""sharp S""",
+226,"letter ""O"" with circumflex accent or ""O-circumflex""",
+227,"letter ""O"" with grave accent",
+228,"letter ""o"" with tilde or ""o-tilde""",
+229,"letter ""O"" with tilde or ""O-tilde""",
+230,"Lowercase letter ""Mu""; micro sign or micron",
+231,"Lowercase letter ""Thorn""",
+232,"Capital letter ""thorn""",
+233,"Capital letter ""U"" with acute accent or ""U-acute""",
+234,"letter ""U"" with circumflex accent or ""U-circumflex""",
+235,"letter ""U"" with grave accent",
+236,"Lowercase letter ""y"" with acute accent",
+237,"Capital letter ""Y"" with acute accent",
+238,macron symbol,
+239,Acute accent,
+240,Hyphen,
+241,Plus-minus sign,
+242,underline or underscore,
+243,three quarters,
+244,paragraph sign or pilcrow,
+245,Section sign,
+246,The division sign; Obelus,
+247,cedilla,
+248,degree symbol ,
+249,Diaeresis,
+250,Interpunct or space dot,
+251,superscript one,
+252,cube or superscript three,
+253,Square or superscript two,
+254,black square,
+255,non-breaking space or no-break space,

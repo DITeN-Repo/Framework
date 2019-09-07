@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 1:05 AM
@@ -8,7 +17,6 @@
 
 #region Used Directives
 
-using System.Net;
 using System.Net.Mail;
 
 #endregion
@@ -25,17 +33,18 @@ namespace Diten.Net.Mail
 			string subject,
 			string body)
 		{
-			var mailMessage = new MailMessage
-			{
-				From = new MailAddress(Parameters.Local.NoReplyMailAddress,
-					Variables.System.Default.DefaultMailDisplayName),
-				To = {to},
-				Subject = subject,
-				Body = body,
-				IsBodyHtml = true
-			};
+			//ToDo: Check Commented code.
+			//var mailMessage = new MailMessage
+			//{
+			//	From = new MailAddress(Parameters.Local.NoReplyMailAddress,
+			//		Parameters.SystemParams.Default.DefaultMailDisplayName),
+			//	To = {to},
+			//	Subject = subject,
+			//	Body = body,
+			//	IsBodyHtml = true
+			//};
 
-			MailMessage = mailMessage;
+			//MailMessage = mailMessage;
 		}
 
 		/// <summary>
@@ -48,15 +57,15 @@ namespace Diten.Net.Mail
 		/// </summary>
 		public void SendMail()
 		{
-			var smtpClient = new SmtpClient
-			{
-				Host = Parameters.Local.SmtpServerAddress,
-				Credentials =
-					new NetworkCredential(Parameters.Local.NoReplyMailAddress,
-						Parameters.Local.SmtpPassword)
-			};
+			//ToDo: Check Commented code.
+			//var smtpClient = new SmtpClient
+			//{
+			//	Host = Application.Default.Credentials =
+			//		new NetworkCredential(Parameters.Local.NoReplyMailAddress,
+			//			Parameters.Local.SmtpPassword)
+			//};
 
-			smtpClient.Send(MailMessage);
+			//smtpClient.Send(MailMessage);
 		}
 	}
 }

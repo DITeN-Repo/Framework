@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
@@ -26,16 +35,7 @@ namespace Diten
 		///    bits.
 		/// </param>
 		/// <returns>An <see cref="System.Array" /> of <see cref="bool" />s bits.</returns>
-		public static BitArray ToBits(this IEnumerable<byte> value)
-		{
-			return new BitArray(value.ToBytes());
-
-			//return value.Aggregate(new List<bool[]>(), (result, current) =>
-			//{
-			//	result.Add(current.ToBits());
-			//	return result;
-			//});
-		}
+		public static BitArray ToBits(this IEnumerable<byte> value) => new BitArray(value.ToBytes());
 
 		///// <summary>
 		///// Converting a <see cref="byte"/> into <see cref="bool"/>s (bits).
@@ -63,9 +63,6 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">A <see cref="byte" /> that represent source of <see cref="bool" />s (bits).</param>
 		/// <returns>An <see cref="System.Array" /> of <see cref="bool" />s (bits).</returns>
-		public static BitArray ToBitArray(this byte value)
-		{
-			return new BitArray(value);
-		}
+		public static BitArray ToBitArray(this byte value) => new BitArray(value);
 	}
 }

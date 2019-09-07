@@ -1,0 +1,61 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
+              GeneratedClassNamespace="Diten.Parameters" GeneratedClassName="System">
+	<Profiles />
+	<Settings>
+		<Setting Name="DefaultUser"
+		         Description="Get default user with normal user privilege for doing normal jobs. Value is [DTDU]"
+		         Type="System.String" Scope="Application">
+			<Value Profile="(Default)">DTDU</Value>
+		</Setting>
+		<Setting Name="DefaultUserPassword" Description="Get default user password." Type="System.String" Scope="Application">
+			<Value Profile="(Default)">kdcsvDELwRyUgZNkpGLgfN46GPX2v26pT9MhRj1gMLhnepCpUVhCWBt4FsGmUF04dcas2ewPF1mcuWuvjefsJFpkAD9CRrJUF7Jc</Value>
+		</Setting>
+		<Setting Name="AdminUser"
+		         Description="Get agmin user with administrators group privilege for doing normal jobs. Value is [DTAU]"
+		         Type="System.String" Scope="Application">
+			<Value Profile="(Default)">DTAU</Value>
+		</Setting>
+		<Setting Name="AdminUserPassword" Description="Get adminstrator user password." Type="System.String"
+		         Scope="Application">
+			<Value Profile="(Default)">3pvC6MK7kzn2WgRY61lWZcAystyZaJEIov0hZnpNWQ7CqBhXPOgLWsxo0ULsK5qtAtJzLQHAOlv2Ge2awacdGmW0DQpxRGOIfUKD</Value>
+		</Setting>
+		<Setting Name="GetFrameFunctionExtention" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">get_</Value>
+		</Setting>
+		<Setting Name="SetFrameFunctionExtention" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">set_</Value>
+		</Setting>
+		<Setting Name="AllDLLFiles" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">*.dll</Value>
+		</Setting>
+		<Setting Name="Win32Extention" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Win32_</Value>
+		</Setting>
+		<Setting Name="MongoDBProtocolExtention" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">mongodb://</Value>
+		</Setting>
+		<Setting Name="MaxUrlLength" Type="System.Int32" Scope="Application">
+			<Value Profile="(Default)">32768</Value>
+		</Setting>
+		<Setting Name="DefaultMailDisplayName" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">DITeN Server</Value>
+		</Setting>
+		<Setting Name="TempFolderPath" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">%ProgramFiles%\DITeN\Repository\Temp</Value>
+		</Setting>
+		<Setting Name="Microsoft_DNS" Description="Value is [\\{0} \root\microsoftdns]" Type="System.String"
+		         Scope="Application">
+			<Value Profile="(Default)">\\{0} \root\microsoftdns</Value>
+		</Setting>
+		<Setting Name="TemplatesFolder" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">Templates</Value>
+		</Setting>
+		<Setting Name="CMDTaskScheduler"
+		         Description="The 1'st parameter is the user, The 2'nd parameter is the password, The 3'rd parameter is the password, The 4'th parameter is the password of the user for executing the task. "
+		         Type="System.String" Scope="User">
+			<Value Profile="(Default)">schtasks /Create /RU "{0}" /RP "{1}" /TN "IIS Log parser for [{2}]" /XML "{3}"</Value>
+		</Setting>
+	</Settings>
+</SettingsFile>

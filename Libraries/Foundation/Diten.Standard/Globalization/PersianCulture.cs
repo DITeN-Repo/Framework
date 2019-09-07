@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:16 AM
@@ -20,7 +29,7 @@ namespace Diten.Globalization
 	/// <summary>
 	///    <Author>Aref Bozorgmehr</Author>
 	/// </summary>
-	public sealed class PersianCulture:CultureInfo
+	public sealed class PersianCulture : CultureInfo
 	{
 		public PersianCulture() : this("fa-IR", true)
 		{
@@ -32,10 +41,10 @@ namespace Diten.Globalization
 			bool useUserOverride) : base(cultureName, useUserOverride)
 		{
 			var persianCalendar = new PersianCalendar();
-			CultureName=cultureName;
+			CultureName = cultureName;
 
 			//Temporary Value for cal.
-			Calendar=base.OptionalCalendars[0];
+			Calendar = base.OptionalCalendars[0];
 
 			//populating new list of optional calendars.
 			var optionalCalendarsList = new List<Calendar>();
@@ -45,36 +54,36 @@ namespace Diten.Globalization
 			var dateTimeFormatInfoType = typeof(DateTimeFormatInfo);
 			var calendarType = typeof(Calendar);
 
-			var propertyInfo = calendarType.GetProperty("ID", BindingFlags.Instance|BindingFlags.NonPublic);
+			var propertyInfo = calendarType.GetProperty("ID", BindingFlags.Instance | BindingFlags.NonPublic);
 			var fieldInfo = dateTimeFormatInfoType.GetField("optionalCalendars",
-				BindingFlags.Instance|BindingFlags.NonPublic);
+				BindingFlags.Instance | BindingFlags.NonPublic);
 
 			//populating new list of optional calendar ids
 			var optionalCalendarIDs = new int[optionalCalendarsList.Count];
 			int i;
-			for(i=0; i<optionalCalendarIDs.Length; i++)
-				if(propertyInfo!=null)
-					optionalCalendarIDs[i]=(int)propertyInfo.GetValue(optionalCalendarsList[i], null);
+			for (i = 0; i < optionalCalendarIDs.Length; i++)
+				if (propertyInfo != null)
+					optionalCalendarIDs[i] = (int) propertyInfo.GetValue(optionalCalendarsList[i], null);
 
-			if(fieldInfo!=null)
+			if (fieldInfo != null)
 				fieldInfo.SetValue(DateTimeFormat, optionalCalendarIDs);
 
-			OptionalCalendars=optionalCalendarsList.ToArray();
-			Calendar=OptionalCalendars[0];
-			DateTimeFormat.Calendar=OptionalCalendars[0];
+			OptionalCalendars = optionalCalendarsList.ToArray();
+			Calendar = OptionalCalendars[0];
+			DateTimeFormat.Calendar = OptionalCalendars[0];
 
-			DateTimeFormat.MonthNames=DateTimeFormat.MonthGenitiveNames=DateTimeFormat.AbbreviatedMonthNames=
-				DateTimeFormat.AbbreviatedMonthGenitiveNames=persianCalendar.GetMonthsNameInYear().ToArray();
+			DateTimeFormat.MonthNames = DateTimeFormat.MonthGenitiveNames = DateTimeFormat.AbbreviatedMonthNames =
+				DateTimeFormat.AbbreviatedMonthGenitiveNames = persianCalendar.GetMonthsNameInYear().ToArray();
 
 			var dayShortNames = persianCalendar.GetDaysShortNameInWeek(ExPersianCalendar.Orders.Gregorian).ToArray();
 
-			DateTimeFormat.AbbreviatedDayNames=dayShortNames;
-			DateTimeFormat.ShortestDayNames=dayShortNames;
+			DateTimeFormat.AbbreviatedDayNames = dayShortNames;
+			DateTimeFormat.ShortestDayNames = dayShortNames;
 
-			DateTimeFormat.DayNames=persianCalendar.GetDaysNameInWeek(ExPersianCalendar.Orders.Gregorian).ToArray();
+			DateTimeFormat.DayNames = persianCalendar.GetDaysNameInWeek(ExPersianCalendar.Orders.Gregorian).ToArray();
 
-			DateTimeFormat.AMDesignator="ق.ظ";
-			DateTimeFormat.PMDesignator="ب.ظ";
+			DateTimeFormat.AMDesignator = "ق.ظ";
+			DateTimeFormat.PMDesignator = "ب.ظ";
 
 			/*
 			DateTimeFormat.ShortDatePattern = "yyyy/MM/dd";

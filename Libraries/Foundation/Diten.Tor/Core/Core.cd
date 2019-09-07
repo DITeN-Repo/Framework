@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Struct Name="Diten.Tor.Core.Bytes" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEkAIEAAAAAAAQAKAAEAAgAAAAAAA=</HashCode>
+      <FileName>Core\Bytes.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Diten.Tor.Core.Host" Collapsed="true">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAACAIAAIgKAAIAAAAAAAA=</HashCode>
+      <FileName>Core\Host.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Diten.Tor.Core.HostAuth" Collapsed="true">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgQAAAAEAAAAAAIAKAAIAAgAAAAA=</HashCode>
+      <FileName>Core\HostAuth.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

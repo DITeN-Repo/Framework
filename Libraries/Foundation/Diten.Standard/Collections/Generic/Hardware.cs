@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
@@ -8,12 +17,13 @@
 
 #region Used Directives
 
-using Diten.Security.Cryptography;
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Management;
 using System.Reflection;
+using Diten.Parameters;
+using Diten.Security.Cryptography;
 
 // ReSharper disable All
 
@@ -21,19 +31,19 @@ using System.Reflection;
 
 namespace Diten.Collections.Generic
 {
-	public class Hardware<THardware>:Hardware<THardware, SHA1>
-	//where THardware : IHardware<THardware, SHA1>
+	public class Hardware<THardware> : Hardware<THardware, SHA1>
+		//where THardware : IHardware<THardware, SHA1>
 	{
 	}
 
 
-	public abstract class Hardware<THardware, TKey>:Object<THardware>
+	public abstract class Hardware<THardware, TKey> : Object<THardware>
 		//where THardware:IHardware<THardware, TKey>
 		where TKey : ISHA
 	{
 		private static ManagementObjectCollection ManagementObjectCollection =>
 			new ManagementClass(
-					$@"{Variables.System.Default.Win32Extention}{typeof(THardware).ToString().Split(".".ToCharArray()).Last()}")
+					$@"{SystemParams.Default.Win32Extention}{typeof(THardware).ToString().Split(".".ToCharArray()).Last()}")
 				.GetInstances();
 
 		/// <summary>
@@ -52,31 +62,31 @@ namespace Diten.Collections.Generic
 		{
 			var _return = new List<THardware>();
 
-			foreach(var managementBaseObject in ManagementObjectCollection)
+			foreach (var managementBaseObject in ManagementObjectCollection)
 			{
-				var instance = (THardware)Activator.CreateInstance(typeof(THardware));
+				var instance = (THardware) Activator.CreateInstance(typeof(THardware));
 				var instanceProperties = instance.GetType().GetProperties().ToList();
 
-				foreach(var propertyData in managementBaseObject.Properties)
+				foreach (var propertyData in managementBaseObject.Properties)
 				{
-					if(instanceProperties.Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper())))
+					if (instanceProperties.Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper())))
 					{
 						instanceProperties.FirstOrDefault(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper()))
-							?.SetValue(instance, propertyData.Value??string.Empty);
+							?.SetValue(instance, propertyData.Value ?? string.Empty);
 
 						continue;
 					}
 
-					if(instanceProperties.Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper()))||
-						 instance.GetType().GetRuntimeProperties().ToList()
-							 .Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper())))
+					if (instanceProperties.Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper())) ||
+					    instance.GetType().GetRuntimeProperties().ToList()
+						    .Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper())))
 						continue;
 
 					var dic = instance.GetType().GetProperty(Enum.GetName(Enum.PropertyNames.Dictionary))
 						?.GetValue(instance);
 					dic?.GetType().GetMethod(Enum.GetName(Enum.MethodNames.Add))?.Invoke(
 						dic, BindingFlags.Public, null,
-						new[] { propertyData.Name, propertyData.Value },
+						new[] {propertyData.Name, propertyData.Value},
 						CultureInfo.CurrentCulture);
 				}
 

@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
@@ -8,7 +17,6 @@
 
 #region Used Directives
 
-using Diten.Security.Cryptography;
 using System;
 using System.Collections;
 using System.Drawing;
@@ -16,6 +24,8 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
+using Diten.Parameters;
+using Diten.Security.Cryptography;
 
 #endregion
 
@@ -46,19 +56,13 @@ namespace Diten.Security
 
 		private byte[] _value;
 
-		public Key(string key)
-		{
-			Value=Decrypt(key);
-		}
+		public Key(string key) => Value = Decrypt(key);
 
 		/// <summary>
 		///    Constructor.
 		/// </summary>
 		/// <param name="length" default="512 bytes key">Length of the ke that must be generated.</param>
-		public Key(LengthTypes length = LengthTypes.K512)
-		{
-			LengthType=length;
-		}
+		public Key(LengthTypes length = LengthTypes.K512) => LengthType = length;
 
 		/// <summary>
 		///    Length of the key value.
@@ -67,7 +71,7 @@ namespace Diten.Security
 
 		private LengthTypes LengthType { get; }
 
-		private Random Random => _random??(_random=new Random());
+		private Random Random => _random ?? (_random = new Random());
 
 		/// <summary>
 		///    Value of the key.
@@ -78,17 +82,17 @@ namespace Diten.Security
 			{
 				byte[] Output()
 				{
-					var holder = new byte[(int)LengthType*2];
+					var holder = new byte[(int) LengthType * 2];
 
-					for(var i = 0; i<=holder.Length-1; i++)
-						holder[i]+=BitConverter.GetBytes(Random.Next(0, 255))[0];
+					for (var i = 0; i <= holder.Length - 1; i++)
+						holder[i] += BitConverter.GetBytes(Random.Next(0, 255))[0];
 
 					return holder;
 				}
 
-				return _value??(_value=Output());
+				return _value ?? (_value = Output());
 			}
-			set => _value=value;
+			set => _value = value;
 		}
 
 		/// <summary>
@@ -102,31 +106,31 @@ namespace Diten.Security
 			{
 				var val = Task.Factory.StartNew(() => value.Value);
 
-				for(var i = 0; i<val.Result.Length; i+=4)
+				for (var i = 0; i < val.Result.Length; i += 4)
 				{
 					var tmp1 = new short[4];
 					var tmp2 = new short[4];
 
-					for(var j = 0; j<4; j++)
+					for (var j = 0; j < 4; j++)
 					{
-						tmp1[j]=Value[i+j];
-						tmp2[j]=(short)Random.Next(0, 255);
+						tmp1[j] = Value[i + j];
+						tmp2[j] = (short) Random.Next(0, 255);
 					}
 
-					using(var tmpBitmap1 = new Bitmap(1, 1))
+					using (var tmpBitmap1 = new Bitmap(1, 1))
 					{
 						tmpBitmap1.SetPixel(0, 0, Color.FromArgb(tmp1[0], tmp1[1], tmp1[2], tmp1[3]));
 
-						using(var tmpBitmap2 = new Bitmap(1, 1))
+						using (var tmpBitmap2 = new Bitmap(1, 1))
 						{
 							tmpBitmap1.SetPixel(0, 0,
 								Color.FromArgb(tmp2[0], tmp2[1], tmp2[2], tmp2[3]));
 							Graphics.FromImage(tmpBitmap1).DrawImageUnscaled(tmpBitmap2, 0, 0);
 							var color = tmpBitmap1.GetPixel(0, 0);
-							Value[i]=color.A;
-							Value[i+1]=color.R;
-							Value[i+2]=color.G;
-							Value[i+3]=color.B;
+							Value[i] = color.A;
+							Value[i + 1] = color.R;
+							Value[i + 2] = color.G;
+							Value[i + 3] = color.B;
 						}
 					}
 				}
@@ -140,9 +144,8 @@ namespace Diten.Security
 		/// </summary>
 		/// <param name="value">Base64Text encrypted text.</param>
 		/// <returns>A byte array.</returns>
-		public static byte[] Decrypt(string value)
-		{
-			return new GZipStream(new MemoryStream(Encoding.Unicode.GetBytes(Rc4.Decrypt(
+		public static byte[] Decrypt(string value) =>
+			new GZipStream(new MemoryStream(Encoding.Unicode.GetBytes(Rc4.Decrypt(
 					Encoding
 						.Unicode
 						.GetBytes(Constants.Default.Password),
@@ -151,31 +154,24 @@ namespace Diten.Security
 						.GetBytes(Base64Text
 							.Decrypt(value))))),
 				CompressionMode.Decompress).BaseStream.ToBytes();
-		}
 
 		/// <summary>
 		///    Encrypt current value of the key.
 		/// </summary>
 		/// <returns>A Base64Text encrypted text.</returns>
-		public string Encrypt()
-		{
-			return
-				Base64Text.Encrypt(Rc4
-					.Encrypt(Encoding.Unicode.GetBytes(Constants.Default.Password),
-						new GZipStream(new MemoryStream(Value),
-								CompressionMode.Compress)
-							.BaseStream.ToBytes()));
-		}
+		public string Encrypt() =>
+			Base64Text.Encrypt(Rc4
+				.Encrypt(Encoding.Unicode.GetBytes(Constants.Default.Password),
+					new GZipStream(new MemoryStream(Value),
+							CompressionMode.Compress)
+						.BaseStream.ToBytes()));
 
 		/// <summary>
 		///    Control equality with a key.
 		/// </summary>
 		/// <param name="value">Source key to control.</param>
 		/// <returns>True if the source key is equal.</returns>
-		public bool Equals(Key value)
-		{
-			return Equals(value, this);
-		}
+		public bool Equals(Key value) => Equals(value, this);
 
 		/// <summary>
 		///    Control equality between two keys.
@@ -184,18 +180,13 @@ namespace Diten.Security
 		/// <param name="secondary">Secondary key to control.</param>
 		/// <returns>True if the keys are equal.</returns>
 		public bool Equals(Key primary,
-			Key secondary)
-		{
-			return StructuralComparisons.StructuralEqualityComparer.Equals(primary.Value, secondary.Value);
-		}
+			Key secondary) =>
+			StructuralComparisons.StructuralEqualityComparer.Equals(primary.Value, secondary.Value);
 
 		/// <summary>
 		///    Converting ke to hex.
 		/// </summary>
 		/// <returns>A hex string number.</returns>
-		public string ToHex()
-		{
-			return BitConverter.ToInt32(Value, 0).ToHexadecimal();
-		}
+		public string ToHex() => BitConverter.ToInt32(Value, 0).ToHexadecimal();
 	}
 }

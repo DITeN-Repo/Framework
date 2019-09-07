@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
@@ -14,10 +23,10 @@ using Diten.Collections.Generic;
 
 namespace Diten.Management.Hardware
 {
-	public class DisplayAdapter:Hardware<DisplayAdapter>
+	public class DisplayAdapter : Hardware<DisplayAdapter>
 	{
 		public double ClockSpeed { get; set; }
-		public string ID { get; set; }
+		public string HardwareID { get; set; }
 		public string Info { get; set; }
 		public string Model { get; set; }
 	}

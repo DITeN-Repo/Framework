@@ -233,9 +233,9 @@ namespace Diten.Parameters {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("خصوصیات")]
-        public string Properties {
+        public string PropertiesText {
             get {
-                return ((string)(this["Properties"]));
+                return ((string)(this["PropertiesText"]));
             }
         }
     }

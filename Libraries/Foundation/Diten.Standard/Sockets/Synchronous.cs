@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:07 AM
@@ -8,11 +17,11 @@
 
 #region Used Directives
 
-using Diten.Net.NetworkInformation;
 using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Diten.Net.NetworkInformation;
 
 #endregion
 
@@ -20,7 +29,7 @@ namespace Diten.Sockets
 {
 	/// <inheritdoc />
 	// ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
-	public class Synchronous:Socket
+	public class Synchronous : Socket
 	{
 		// ReSharper disable once UnusedMember.Local
 		private int[] _officialPorts =
@@ -369,11 +378,11 @@ namespace Diten.Sockets
 			SocketType.Stream,
 			ProtocolType.Tcp)
 		{
-			Response=new Byte();
+			Response = new Byte();
 
 			var iPEndPoint = new IPEndPoint(serverIp, port);
 
-			switch(condition)
+			switch (condition)
 			{
 				case Condition.Send:
 					Connect(iPEndPoint);
@@ -408,20 +417,20 @@ namespace Diten.Sockets
 		public void Listen()
 		{
 			// Start listening for connections.  
-			while(true)
+			while (true)
 			{
 				var handler = Accept();
 
-				while(true)
+				while (true)
 				{
 					var bytes = new byte[1024];
 					var bytesRec = handler.Receive(bytes);
 
 					Response.Append(bytes);
 
-					if(Encoding.ASCII.GetString(bytes, 0, bytesRec)
-							 .IndexOf(Char.ReservedChars.EndOfMedium.ToChar().ToString(), StringComparison.Ordinal)<=
-						 -1)
+					if (Encoding.ASCII.GetString(bytes, 0, bytesRec)
+						    .IndexOf(Char.ReservedChars.EndOfMedium.ToChar().ToString(), StringComparison.Ordinal) <=
+					    -1)
 						continue;
 
 					break;
@@ -460,7 +469,7 @@ namespace Diten.Sockets
 
 				return true;
 			}
-			catch(Exception)
+			catch (Exception)
 			{
 				return false;
 			}
@@ -476,10 +485,7 @@ namespace Diten.Sockets
 
 		public class ReceiveDoneEventArgs
 		{
-			public ReceiveDoneEventArgs(Byte response)
-			{
-				Response=response;
-			}
+			public ReceiveDoneEventArgs(Byte response) => Response = response;
 
 			public Byte Response { get; set; }
 		}

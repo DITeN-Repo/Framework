@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:51 AM
@@ -10,6 +19,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Diten.Diagnostics;
+using Diten.Parameters;
 using Microsoft.Web.Administration;
 
 #endregion
@@ -50,16 +60,15 @@ namespace Diten.Web.Administration
 			string password)
 		{
 			var system32FolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.SystemX86);
+
 			Process.ExecuteCommand(
-				$"{system32FolderPath}\\inetsrv\\appcmd.exe set config -section:ODBCLogging -datasource:\"{odbcDataSource}\" " +
+				$"{system32FolderPath}\\inetsrv\\appcmd.exe set config -section:ODBCLogging -datasource:\"{odbcDataSource}\"" +
 				$"-tableName:\"InternetLog\" -username:\"{username}\" -password:\"{password}\"",
-				Resources.SysAdminUser,
-				Resources.SysAdminUserPassword);
+				SystemParams.Default.AdminUser, SystemParams.Default.AdminUserPassword);
 			Process.ExecuteCommand(
 				$"{system32FolderPath}\\inetsrv\\appcmd.exe set sites \"{site.Name}\" -logFile.logFormat:\"Custom\" " +
 				"-logFile.customLogPluginClsid:\"{FF16065B-DE82-11CF-BC0A-00AA006111E0}\"",
-				Resources.SysAdminUser,
-				Resources.SysAdminUserPassword);
+				SystemParams.Default.AdminUser, SystemParams.Default.AdminUserPassword);
 		}
 	}
 }

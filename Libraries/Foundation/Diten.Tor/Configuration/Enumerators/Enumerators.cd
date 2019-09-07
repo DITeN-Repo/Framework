@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Enum Name="Diten.Tor.Configuration.Enumerators.ConfigurationNames" Collapsed="true">
+    <Position X="12" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACACFAAQAAUACAJQEAJACAABAAABYhIAIxFAiDBAA=</HashCode>
+      <FileName>Configuration\Enumerators\ConfigurationNames.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Diten.Tor.Configuration.Enumerators.ConfigurationValidation" Collapsed="true">
+    <Position X="13.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAACAAAAAAAAAAEAAABAAAAAAEAAAAAAABEAAAA=</HashCode>
+      <FileName>Configuration\Enumerators\ConfigurationValidation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

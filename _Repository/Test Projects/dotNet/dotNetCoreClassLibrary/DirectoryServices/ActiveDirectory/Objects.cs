@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
@@ -70,8 +79,10 @@ namespace Diten.DirectoryServices.ActiveDirectory
 
 			while (en.MoveNext())
 			{
-				if (en.Current == null) continue;
-				if (valuesCollection.Contains(en.Current.ToString())) continue;
+				if (en.Current == null)
+					continue;
+				if (valuesCollection.Contains(en.Current.ToString()))
+					continue;
 
 				valuesCollection.Add(en.Current.ToString());
 
@@ -177,10 +188,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="objectPath">Path of the object in AD.</param>
 		/// <returns>True if object exist.</returns>
-		public static bool Exists(string objectPath)
-		{
-			return DirectoryEntry.Exists($"LDAP://{objectPath}");
-		}
+		public static bool Exists(string objectPath) => DirectoryEntry.Exists($"LDAP://{objectPath}");
 
 		/// <summary>
 		///    Get an Object DistinguishedName.

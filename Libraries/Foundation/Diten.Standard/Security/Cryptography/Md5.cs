@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
@@ -28,10 +37,7 @@ namespace Diten.Security.Cryptography
 		/// <returns>MD5 hashed text.</returns>
 		public static string Encrypt(string data)
 		{
-			using(var md5Hash = MD5.Create())
-			{
-				return GetMd5Hash(md5Hash, data);
-			}
+			using (var md5Hash = MD5.Create()) return GetMd5Hash(md5Hash, data);
 		}
 
 		private static string GetMd5Hash(HashAlgorithm md5Hash,
@@ -46,7 +52,7 @@ namespace Diten.Security.Cryptography
 
 			// Loop through each byte of the hashed data 
 			// and format each one as a hexadecimal string.
-			foreach(var t in data)
+			foreach (var t in data)
 				sBuilder.Append(t.ToString("x2"));
 
 			// Return the hexadecimal string.
@@ -63,7 +69,7 @@ namespace Diten.Security.Cryptography
 			// Create a StringComparer an compare the hashes.
 			var comparer = StringComparer.OrdinalIgnoreCase;
 
-			return 0==comparer.Compare(hashOfInput, hash);
+			return 0 == comparer.Compare(hashOfInput, hash);
 		}
 	}
 }

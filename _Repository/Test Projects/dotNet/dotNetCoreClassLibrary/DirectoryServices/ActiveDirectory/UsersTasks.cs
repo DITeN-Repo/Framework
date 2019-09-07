@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
@@ -11,6 +20,7 @@
 using System;
 using System.Collections;
 using System.DirectoryServices;
+using Microsoft.AspNetCore.Http;
 
 #endregion
 
@@ -183,6 +193,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 			user.Close();
 		}
 
+
 		/// <summary>
 		///    Get User Group Memberships of the Logged in User from ASP.NET.
 		/// </summary>
@@ -190,9 +201,12 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		public ArrayList GetGroups()
 		{
 			var groups = new ArrayList();
+			typeof(HttpContext).
 
-			if (HttpContext.Current.Request.LogonUserIdentity == null) return groups;
-			if (HttpContext.Current.Request.LogonUserIdentity.Groups == null) return groups;
+			if (HttpContext.Current.Request.LogonUserIdentity == null)
+				return groups;
+			if (HttpContext.Current.Request.LogonUserIdentity.Groups == null)
+				return groups;
 
 			foreach (var group in HttpContext.Current.Request.LogonUserIdentity.Groups)
 				groups.Add(group.Translate(typeof(NTAccount)).ToString());

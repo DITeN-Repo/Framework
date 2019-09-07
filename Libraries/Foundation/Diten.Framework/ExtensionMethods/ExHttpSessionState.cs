@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:14 AM
@@ -94,10 +103,8 @@ namespace Diten
 		/// <param name="key">The key of the item in session state.</param>
 		/// <param name="func">Function that must be executed during getting session state item.</param>
 		/// <returns><see cref="System.Object" /> type value of the entity in session state.</returns>
-		public static object GetValue(this HttpSessionState httpSessionState, string key, Func<object, object> func)
-		{
-			return GetValue<object>(httpSessionState, key, func);
-		}
+		public static object GetValue(this HttpSessionState httpSessionState, string key, Func<object, object> func) =>
+			GetValue<object>(httpSessionState, key, func);
 
 		/// <summary>
 		///    Getting value of the current entity in the session state (sessionState).
@@ -129,11 +136,9 @@ namespace Diten
 		/// <param name="key">The key of the item in session state.</param>
 		/// <param name="func">Function that must be executed during getting session state item.</param>
 		/// <returns><see cref="T" /> type value of the entity in session state.</returns>
-		public static T GetValue<T>(this HttpSessionState httpSessionState, string key, Func<object, object> func)
-		{
-			return (T) (httpSessionState[key] ??
-			            (httpSessionState[key] = func.Invoke(func.GetMethodInfo().GetParameters())));
-		}
+		public static T GetValue<T>(this HttpSessionState httpSessionState, string key, Func<object, object> func) =>
+			(T) (httpSessionState[key] ??
+			     (httpSessionState[key] = func.Invoke(func.GetMethodInfo().GetParameters())));
 
 		#endregion
 	}

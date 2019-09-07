@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 1:10 AM
@@ -21,7 +30,7 @@ using System.Web.Configuration;
 namespace Diten.Parameters
 {
 	/// <summary>
-	///    The const variables.
+	///    The const Parameters.
 	/// </summary>
 	public class Parameters : Constants
 	{
@@ -64,13 +73,13 @@ namespace Diten.Parameters
 						return customSetting.Value;
 
 					throw new ArgumentException(
-						global::System.String.Format(
+						System.String.Format(
 							Exceptions.Default.Diten_Variables_GetConfig_ArgumentException_ValueNotFound,
 							key));
 				}
 				catch (ArgumentException)
 				{
-					return global::System.String.Empty;
+					return System.String.Empty;
 				}
 			}
 
@@ -111,18 +120,18 @@ namespace Diten.Parameters
 			/// <summary>
 			///    System standard no reply mail address.
 			/// </summary>
-			public static string NoReplyMailAddress => Application.GetConfig(GetFrameName());
+			public static string NoReplyMailAddress => Application.GetConfig(typeof(object).GetFrameName());
 
 			/// <summary>
 			///    System SMTP mail password.
 			/// </summary>
-			public static string SmtpPassword => Application.GetConfig(GetFrameName());
+			public static string SmtpPassword => Application.GetConfig(typeof(object).GetFrameName());
 
 			/// <summary>
 			///    System database server address in web.config file.
 			/// </summary>
 			public static string DatabaseServerAddress =>
-				Application.GetConfig(Names.Default.SystemDatabaseServerAddress).Equals(global::System.String.Empty)
+				Application.GetConfig(Names.Default.SystemDatabaseServerAddress).Equals(string.Empty)
 					? Default.LocalIp
 					: Application.GetConfig(Names.Default.SystemDatabaseServerAddress);
 
@@ -135,7 +144,7 @@ namespace Diten.Parameters
 			///    System physical path address.
 			/// </summary>
 			public static string PhysicalPath =>
-				$@"{Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles)}\{Default.CloudAppPhysicalPath}";
+				$@"{System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFiles)}\{Default.CloudAppPhysicalPath}";
 
 
 			/// <summary>
@@ -146,8 +155,9 @@ namespace Diten.Parameters
 				get
 				{
 					var holder =
-						$@"{HttpRuntime.BinDirectory.Replace($@"\\{Default.BinFolder.ToLower()}", global::System.String.Empty)}{Names.Default.Temp.ToUpper()}";
-					if (!Directory.Exists(holder)) Directory.CreateDirectory(holder);
+						$@"{HttpRuntime.BinDirectory.Replace($@"\\{Default.BinFolder.ToLower()}", System.String.Empty)}{Names.Default.Temp.ToUpper()}";
+					if (!Directory.Exists(holder))
+						Directory.CreateDirectory(holder);
 
 					return holder;
 				}
@@ -161,8 +171,9 @@ namespace Diten.Parameters
 				get
 				{
 					var holder =
-						$@"{HttpRuntime.BinDirectory.Replace($@"\\{Default.BinFolder.ToLower()}", global::System.String.Empty)}{Names.Default.Cache.ToUpper()}";
-					if (!Directory.Exists(holder)) Directory.CreateDirectory(holder);
+						$@"{HttpRuntime.BinDirectory.Replace($@"\\{Default.BinFolder.ToLower()}", System.String.Empty)}{Names.Default.Cache.ToUpper()}";
+					if (!Directory.Exists(holder))
+						Directory.CreateDirectory(holder);
 
 					return holder;
 				}
@@ -171,23 +182,23 @@ namespace Diten.Parameters
 			/// <summary>
 			///    System smtp server address in web.config file.
 			/// </summary>
-			public static string SmtpServerAddress => Application.GetConfig(GetFrameName());
+			public static string SmtpServerAddress => Application.GetConfig(typeof(object).GetFrameName());
 
 			/// <summary>
 			///    System web address in web.config file.
 			/// </summary>
-			public static string WebAddress => Application.GetConfig(GetFrameName());
+			public static string WebAddress => Application.GetConfig(typeof(object).GetFrameName());
 		}
 
 		/// <summary>
 		///    Diten parameters
 		/// </summary>
-		public struct Diten
+		public struct DitenParams
 		{
 			/// <summary>
 			///    Diten services server.
 			/// </summary>
-			public static string ServicesServer => Application.GetConfig(GetFrameName());
+			public static string ServicesServer => Application.GetConfig(typeof(object).GetFrameName());
 
 			/// <summary>
 			///    Diten handler service.

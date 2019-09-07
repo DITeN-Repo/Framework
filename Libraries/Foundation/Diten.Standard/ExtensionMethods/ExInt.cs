@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
@@ -8,9 +17,9 @@
 
 #region Used Directives
 
-using Diten.Numeric;
 using System;
 using System.Net;
+using Diten.Numeric;
 
 #endregion
 
@@ -21,49 +30,39 @@ namespace Diten
 		/// <summary>
 		///    Converting integer address into IP address.
 		/// </summary>
-		/// <param name="value">An <see cref="int" />
+		/// <param name="value">
+		///    An <see cref="int" />
 		///    <para>value</para>
 		///    that must be converted.
 		/// </param>
 		/// <returns>IP address.</returns>
-		public static IPAddress ToIpAddress(this int value)
-		{
-			return new IPAddress(ToBytes(value));
-		}
+		public static IPAddress ToIpAddress(this int value) => new IPAddress(ToBytes(value));
 
 
 		/// <summary>
 		///    Converting <see cref="int" /> into <see cref="byte" /> <see cref="Array" />.
 		/// </summary>
-		/// <param name="value">An <see cref="int" />
+		/// <param name="value">
+		///    An <see cref="int" />
 		///    <para>value</para>
 		///    that must be converted.
 		/// </param>
 		/// <returns>An <see cref="Array" /> of <see cref="byte" /></returns>
-		public static byte[] ToBytes(this int value)
-		{
-			return BitConverter.GetBytes(value);
-		}
+		public static byte[] ToBytes(this int value) => BitConverter.GetBytes(value);
 
 		/// <summary>
 		///    Convert to vigesimal (base 26, A-Z).
 		/// </summary>
 		/// <param name="value">Integer value.</param>
 		/// <returns>A string that contains a vigesimal string.</returns>
-		public static string ToVigesimal(this int value)
-		{
-			return ToString(value, Vigesimal.Characters.ToArray());
-		}
+		public static string ToVigesimal(this int value) => ToString(value, Vigesimal.Characters.ToArray());
 
 		/// <summary>
 		///    Convert to vigesimal (base 26, A-Z).
 		/// </summary>
 		/// <param name="value">Integer value.</param>
 		/// <returns>A string that contains a vigesimal string.</returns>
-		public static string ToDuosexagesimal(this int value)
-		{
-			return ToString(value, Duosexagesimal.Characters.ToArray());
-		}
+		public static string ToDuosexagesimal(this int value) => ToString(value, Duosexagesimal.Characters.ToArray());
 
 
 		/// <summary>
@@ -71,10 +70,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Integer number.</param>
 		/// <returns>A hexadecimal number.</returns>
-		public static string ToHexadecimal(this int value)
-		{
-			return value.ToString("X");
-		}
+		public static string ToHexadecimal(this int value) => value.ToString("X");
 
 
 		/// <summary>
@@ -82,17 +78,15 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Integer value.</param>
 		/// <returns>A string that contains a sexagesimal string.</returns>
-		public static string ToSexagesimal(this int value)
-		{
-			return ToString(value);
-		}
+		public static string ToSexagesimal(this int value) => ToString(value);
 
 		/// <summary>
 		///    Convert an <see cref="int" /> to <see cref="string" />.
 		/// </summary>
 		/// <param name="value"><see cref="int" /> value.</param>
 		/// <param name="baseChars">Characters that must be used in conversion.</param>
-		/// <returns>A <see cref="string" /> that represented by <see cref="int" />
+		/// <returns>
+		///    A <see cref="string" /> that represented by <see cref="int" />
 		///    <para>value</para>
 		///    .
 		/// </returns>
@@ -103,9 +97,9 @@ namespace Diten
 
 			do
 			{
-				result=baseChars[value%baseCharsLength]+result;
-				value/=baseCharsLength;
-			} while(value>0);
+				result = baseChars[value % baseCharsLength] + result;
+				value /= baseCharsLength;
+			} while (value > 0);
 
 			return result;
 		}
@@ -114,14 +108,12 @@ namespace Diten
 		///    Convert an <see cref="int" /> to <see cref="string" />.
 		/// </summary>
 		/// <param name="value"><see cref="int" /> value.</param>
-		/// <returns>A <see cref="string" /> that represented by <see cref="int" />
+		/// <returns>
+		///    A <see cref="string" /> that represented by <see cref="int" />
 		///    <para>value</para>
 		///    .
 		/// </returns>
-		public static string ToString(this int value)
-		{
-			return ToString(value, Duosexagesimal.Characters.ToArray());
-		}
+		public static string ToString(this int value) => ToString(value, Duosexagesimal.Characters.ToArray());
 
 		/// <summary>
 		///    Convert an integer to string.
@@ -141,12 +133,12 @@ namespace Diten
 
 			do
 			{
-				buffer[--i]=baseChars[value%targetBase];
-				value/=targetBase;
-			} while(value>0);
+				buffer[--i] = baseChars[value % targetBase];
+				value /= targetBase;
+			} while (value > 0);
 
-			var result = new char[32-i];
-			Array.Copy(buffer, i, result, 0, 32-i);
+			var result = new char[32 - i];
+			Array.Copy(buffer, i, result, 0, 32 - i);
 
 			return new string(result);
 		}

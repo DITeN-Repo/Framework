@@ -256,5 +256,14 @@ namespace Diten.Parameters {
                 return ((string)(this["Type_VirtualPath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Diten")]
+        public string Diten {
+            get {
+                return ((string)(this["Diten"]));
+            }
+        }
     }
 }

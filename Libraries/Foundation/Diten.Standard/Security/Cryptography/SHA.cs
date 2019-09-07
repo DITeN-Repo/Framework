@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
@@ -35,20 +44,14 @@ namespace Diten.Security.Cryptography
 		/// </summary>
 		/// <param name="data">Data for encryption.</param>
 		/// <returns>An SHA of type T encrypted data.</returns>
-		public static string Encrypt(string data)
-		{
-			return Encrypt(new Byte(data.ToBytes()));
-		}
+		public static string Encrypt(string data) => Encrypt(new Byte(data.ToBytes()));
 
 		/// <summary>
 		///    Get SHA of type T hashed text.
 		/// </summary>
 		/// <param name="data">Data for encryption.</param>
 		/// <returns>An SHA of type T encrypted data.</returns>
-		public static string Encrypt(object data)
-		{
-			return Encrypt(new Byte(data.ToBytes()));
-		}
+		public static string Encrypt(object data) => Encrypt(new Byte(data.ToBytes()));
 
 		/// <summary>
 		///    Get SHA of type T hashed text.
@@ -65,16 +68,16 @@ namespace Diten.Security.Cryptography
 			var holder = sha?.GetType().GetMethod(Enum.GetName(Enum.MethodNames.ComputeHash));
 
 			//convert the input text to array of bytes
-			var hashData = (byte[])holder?.Invoke(holder, new object[] { data.Value });
+			var hashData = (byte[]) holder?.Invoke(holder, new object[] {data.Value});
 
 			//create new instance of StringBuilder to save hashed data
 			var returnValue = new StringBuilder();
 
-			if(hashData==null)
+			if (hashData == null)
 				return string.Empty;
 
 			//loop for each byte and add it to StringBuilder
-			foreach(var t in hashData)
+			foreach (var t in hashData)
 				returnValue.Append(t.ToString());
 
 			// return hexadecimal string
@@ -86,7 +89,7 @@ namespace Diten.Security.Cryptography
 	///    SHA1 encryption.
 	/// </summary>
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA1:SHA<System.Security.Cryptography.SHA1>, ISHA
+	public abstract class SHA1 : SHA<System.Security.Cryptography.SHA1>, ISHA
 	{
 	}
 
@@ -94,7 +97,7 @@ namespace Diten.Security.Cryptography
 	///    SHA256 encryption.
 	/// </summary>
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA256:SHA<SHA256Managed>, ISHA
+	public abstract class SHA256 : SHA<SHA256Managed>, ISHA
 	{
 	}
 
@@ -102,7 +105,7 @@ namespace Diten.Security.Cryptography
 	///    SHA384 encryption.
 	/// </summary>
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA384:SHA<SHA384Managed>, ISHA
+	public abstract class SHA384 : SHA<SHA384Managed>, ISHA
 	{
 	}
 
@@ -110,7 +113,7 @@ namespace Diten.Security.Cryptography
 	///    SHA512 encryption.
 	/// </summary>
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA512:SHA<SHA512Managed>, ISHA
+	public abstract class SHA512 : SHA<SHA512Managed>, ISHA
 	{
 	}
 }

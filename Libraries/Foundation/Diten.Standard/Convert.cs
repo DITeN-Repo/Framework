@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
@@ -8,7 +17,6 @@
 
 #region Used Directives
 
-using Diten.Parameters;
 using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
@@ -19,6 +27,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
+using Diten.Parameters;
 using EN = Diten.Environment;
 
 // ReSharper disable UnusedMember.Global
@@ -63,52 +72,52 @@ namespace Diten
 			Type targetType,
 			IFormatProvider provider)
 		{
-			if(targetType==null)
+			if (targetType == null)
 				throw new ArgumentNullException(nameof(targetType));
 			var runtimeType = targetType;
-			if(runtimeType==null)
+			if (runtimeType == null)
 				throw new InvalidCastException(Environment.GetResourceString("InvalidCast_FromTo",
 					value.GetType().FullName,
 					targetType.FullName));
-			if(value.GetType()==targetType)
+			if (value.GetType() == targetType)
 				return value;
-			if(runtimeType==ConvertTypes[3])
+			if (runtimeType == ConvertTypes[3])
 				return value.ToBoolean(provider);
-			if(runtimeType==ConvertTypes[4])
+			if (runtimeType == ConvertTypes[4])
 				return value.ToChar(provider);
-			if(runtimeType==ConvertTypes[5])
+			if (runtimeType == ConvertTypes[5])
 				return value.ToSByte(provider);
-			if(runtimeType==ConvertTypes[6])
+			if (runtimeType == ConvertTypes[6])
 				return value.ToByte(provider);
-			if(runtimeType==ConvertTypes[7])
+			if (runtimeType == ConvertTypes[7])
 				return value.ToInt16(provider);
-			if(runtimeType==ConvertTypes[8])
+			if (runtimeType == ConvertTypes[8])
 				return value.ToUInt16(provider);
-			if(runtimeType==ConvertTypes[9])
+			if (runtimeType == ConvertTypes[9])
 				return value.ToInt32(provider);
-			if(runtimeType==ConvertTypes[10])
+			if (runtimeType == ConvertTypes[10])
 				return value.ToUInt32(provider);
-			if(runtimeType==ConvertTypes[11])
+			if (runtimeType == ConvertTypes[11])
 				return value.ToInt64(provider);
-			if(runtimeType==ConvertTypes[12])
+			if (runtimeType == ConvertTypes[12])
 				return value.ToUInt64(provider);
-			if(runtimeType==ConvertTypes[13])
+			if (runtimeType == ConvertTypes[13])
 				return value.ToSingle(provider);
-			if(runtimeType==ConvertTypes[14])
+			if (runtimeType == ConvertTypes[14])
 				return value.ToDouble(provider);
-			if(runtimeType==ConvertTypes[15])
+			if (runtimeType == ConvertTypes[15])
 				return value.ToDecimal(provider);
-			if(runtimeType==ConvertTypes[16])
+			if (runtimeType == ConvertTypes[16])
 				return value.ToDateTime(provider);
-			if(runtimeType==ConvertTypes[18])
+			if (runtimeType == ConvertTypes[18])
 				return value.ToString(provider);
-			if(runtimeType==ConvertTypes[1])
+			if (runtimeType == ConvertTypes[1])
 				return value;
-			if(runtimeType==EnumType)
-				return (System.Enum)value;
-			if(runtimeType==ConvertTypes[2])
+			if (runtimeType == EnumType)
+				return (System.Enum) value;
+			if (runtimeType == ConvertTypes[2])
 				throw new InvalidCastException(EN.GetResourceString(Exceptions.Default.InvalidCast_DBNull));
-			if(runtimeType==ConvertTypes[0])
+			if (runtimeType == ConvertTypes[0])
 				throw new InvalidCastException(EN.GetResourceString(Exceptions.Default.InvalidCast_Empty));
 
 			throw new InvalidCastException(EN.GetResourceString(Exceptions.Default.InvalidCast_FromTo,
@@ -124,13 +133,13 @@ namespace Diten
 		/// <returns>A type in diten framework.</returns>
 		public static Type ToDitenDataType(string typeName)
 		{
-			if(string.IsNullOrEmpty(typeName)||string.IsNullOrWhiteSpace(typeName))
+			if (string.IsNullOrEmpty(typeName) || string.IsNullOrWhiteSpace(typeName))
 				throw new ArgumentOutOfRangeException(nameof(typeName), typeName,
 					@"Type name can not be null or empty.");
 
 			var type = Assembly.GetExecutingAssembly().GetType(typeName, false, true);
 
-			if(type==null)
+			if (type == null)
 				throw new ArgumentOutOfRangeException(nameof(typeName), typeName, @"Type not found.");
 
 			return type;
@@ -143,92 +152,68 @@ namespace Diten
 		/// <param name="data">An eight bytes array of data for conversion.</param>
 		/// <returns>A double.</returns>
 		public static double ToDouble(this byte[] data,
-			int index = 0)
-		{
-			return BitConverter.ToDouble(data, index);
-		}
+			int index = 0) =>
+			BitConverter.ToDouble(data, index);
 
 		/// <summary>
 		///    Convert DistinguishedName to ObjectGUID
 		/// </summary>
 		/// <param name="objectDn">Distinguished name</param>
 		/// <returns>Guid of object.</returns>
-		public static Guid ToGuid(this string objectDn)
-		{
-			return new DirectoryEntry(objectDn).Guid;
-		}
+		public static Guid ToGuid(this string objectDn) => new DirectoryEntry(objectDn).Guid;
 
 		/// <summary>
 		///    Converting a TimeSpan into HH:MM format.
 		/// </summary>
 		/// <param name="time">a TimeSpan.</param>
 		/// <returns>A string of time in HH:MM format.</returns>
-		public static string ToHHMM(this TimeSpan time)
-		{
-			return time.ToString("hh\\:mm");
-		}
+		public static string ToHHMM(this TimeSpan time) => time.ToString("hh\\:mm");
 
 		/// <summary>
 		///    Converting a TimeSpan into HH:MM:SS format.
 		/// </summary>
 		/// <param name="time">a TimeSpan.</param>
 		/// <returns>A string of time in HH:MM:SS format.</returns>
-		public static string ToHHMMSS(this TimeSpan time)
-		{
-			return time.ToString("hh\\:mm\\:ss");
-		}
+		public static string ToHHMMSS(this TimeSpan time) => time.ToString("hh\\:mm\\:ss");
 
 		/// <summary>
 		///    Converting hexadecimal number into integer.
 		/// </summary>
 		/// <param name="hexValue">Hexadecimal number.</param>
 		/// <returns>An integer.</returns>
-		public static int ToInt(string hexValue)
-		{
-			return int.Parse(hexValue, NumberStyles.HexNumber);
-		}
+		public static int ToInt(string hexValue) => int.Parse(hexValue, NumberStyles.HexNumber);
 
 		/// <summary>
 		///    Converting IP address to integer.
 		/// </summary>
 		/// <param name="address">IP Address.</param>
 		/// <returns>An integer address.</returns>
-		public static int ToInt(IPAddress address)
-		{
-			return BitConverter.ToInt32(address.GetAddressBytes(), 0);
-		}
+		public static int ToInt(IPAddress address) => BitConverter.ToInt32(address.GetAddressBytes(), 0);
 
 		/// <summary>
 		///    Converting a TimeSpan into integer.
 		/// </summary>
 		/// <param name="time">A TimeSpan.</param>
 		/// <returns>An integer that represent time.</returns>
-		public static int ToInteger(this TimeSpan time)
-		{
-			return int.Parse(
-				time.Hours+time.Minutes.ToString().PadLeft(2, '0')+
+		public static int ToInteger(this TimeSpan time) =>
+			int.Parse(
+				time.Hours + time.Minutes.ToString().PadLeft(2, '0') +
 				time.Seconds.ToString().PadLeft(2, '0'));
-		}
 
 		/// <summary>
 		///    Translate the Friendly Domain Name to Fully Qualified Domain.
 		/// </summary>
 		/// <param name="domainName">Friendly domain name.</param>
 		/// <returns>LDAP domain name.</returns>
-		public static string ToLdapDomain(string domainName)
-		{
-			return Domain.GetDomain(new DirectoryContext(DirectoryContextType.Domain, domainName)).Name;
-		}
+		public static string ToLdapDomain(string domainName) =>
+			Domain.GetDomain(new DirectoryContext(DirectoryContextType.Domain, domainName)).Name;
 
 		/// <summary>
 		///    Converting a separated string into list of strings.
 		/// </summary>
 		/// <param name="data">Separated string by main separator.</param>
 		/// <returns>A list of separated values of string.</returns>
-		public static List<string> ToList(string data)
-		{
-			return data.ToArray().ToList();
-		}
+		public static List<string> ToList(string data) => data.ToArray().ToList();
 
 		/// <summary>
 		///    Converting byte array into object.
@@ -237,7 +222,7 @@ namespace Diten
 		/// <returns></returns>
 		public static object ToObject(this byte[] data)
 		{
-			using(var memStream = new MemoryStream())
+			using (var memStream = new MemoryStream())
 			{
 				var binForm = new BinaryFormatter();
 				memStream.Write(data, 0, data.Length);
@@ -257,13 +242,11 @@ namespace Diten
 		{
 			return objectGuid.ToByteArray()
 				.Aggregate(string.Empty, (current,
-						b) => current+$@"\{b:x2}");
+						b) => current + $@"\{b:x2}");
 		}
 
-		public static short ToShort(this TimeSpan time)
-		{
-			return short.Parse(time.Hours+time.Minutes.ToString().PadLeft(2, '0'));
-		}
+		public static short ToShort(this TimeSpan time) =>
+			short.Parse(time.Hours + time.Minutes.ToString().PadLeft(2, '0'));
 
 		/// <summary>
 		///    Get splitted data from a dictionary.
@@ -276,12 +259,12 @@ namespace Diten
 		{
 			var _return = string.Empty;
 
-			return data==null
+			return data == null
 				? _return
 				: data.Aggregate(_return,
 					(current,
-							_string) => current+_string.Key+EN.ValueSeparator+_string.Value+
-											EN.Separator);
+							_string) => current + _string.Key + Char.ReservedChars.Equals.ToChar() + _string.Value +
+							            Char.ReservedChars.Semicolon.ToChar());
 		}
 
 		/// <summary>
@@ -290,11 +273,9 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">A list of string for making separated value string.</param>
 		/// <returns>Separated values string.</returns>
-		public static string ToSplittedData(IEnumerable<string> data)
-		{
-			return data.Aggregate(string.Empty, (current,
-					_string) => current+_string+EN.Separator);
-		}
+		public static string ToSplittedData(IEnumerable<string> data) =>
+			data.Aggregate(string.Empty, (current,
+					_string) => current + _string + Char.ReservedChars.Semicolon.ToChar());
 
 		/// <summary>
 		///    Get splitted data from a string.
@@ -302,11 +283,9 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">An array of string for making separated value string.</param>
 		/// <returns>Separated values string.</returns>
-		public static string ToSplittedData(string[] data)
-		{
-			return data.Aggregate(string.Empty, (current,
-					_string) => current+_string+EN.Separator);
-		}
+		public static string ToSplittedData(string[] data) =>
+			data.Aggregate(string.Empty, (current,
+					_string) => current + _string + EN.TextValuingSeparator);
 
 		/// <summary>
 		///    Converting memory stream into string.
@@ -316,11 +295,11 @@ namespace Diten
 		public static string ToString(MemoryStream memoryStream)
 		{
 			var position = memoryStream.Position;
-			memoryStream.Position=0;
+			memoryStream.Position = 0;
 
 			var _return = new StreamReader(memoryStream).ReadToEnd();
 
-			memoryStream.Position=position;
+			memoryStream.Position = position;
 
 			return _return;
 		}
@@ -335,8 +314,8 @@ namespace Diten
 		{
 			var _return = new string[value.Length];
 
-			for(var i = 0; i<value.Length; i++)
-				_return[i]=value[i].Value;
+			for (var i = 0; i < value.Length; i++)
+				_return[i] = value[i].Value;
 
 			return _return;
 		}
@@ -348,10 +327,7 @@ namespace Diten
 		/// <param name="typeName">Type name for conversion.</param>
 		/// <param name="isReferenced">True if type is in referenced assembly.</param>
 		/// <returns>A n array that contains types who has the type name parameter value in it's name.</returns>
-		public static Type[] ToType(string typeName, bool isReferenced = true)
-		{
-			return ToType(typeName, isReferenced, true);
-		}
+		public static Type[] ToType(string typeName, bool isReferenced = true) => ToType(typeName, isReferenced, true);
 
 		/// <summary>
 		///    Converting a string type name into type.
@@ -364,7 +340,7 @@ namespace Diten
 			bool isReferenced,
 			bool isGac)
 		{
-			if(string.IsNullOrEmpty(typeName)||!isReferenced&&!isGac)
+			if (string.IsNullOrEmpty(typeName) || !isReferenced && !isGac)
 				return new Type[] { };
 
 			var currentAssembly = Assembly.GetExecutingAssembly();
@@ -372,23 +348,23 @@ namespace Diten
 			var assemblyFullNames = new List<string>();
 			var types = new List<Type>();
 
-			if(isReferenced)
-				foreach(var assemblyName in currentAssembly.GetReferencedAssemblies())
+			if (isReferenced)
+				foreach (var assemblyName in currentAssembly.GetReferencedAssemblies())
 				{
 					var assembly = Assembly.Load(assemblyName.FullName);
 					var type = assembly.GetType(typeName, false, true);
 
-					if(type==null||assemblyFullNames.Contains(assembly.FullName))
+					if (type == null || assemblyFullNames.Contains(assembly.FullName))
 						continue;
 
 					types.Add(type);
 					assemblyFullNames.Add(assembly.FullName);
 				}
 
-			if(!isGac)
+			if (!isGac)
 				return types.ToArray();
 			{
-				foreach(var file in Constants.GetGlobalAssemblyCacheFiles(
+				foreach (var file in Constants.GetGlobalAssemblyCacheFiles(
 					$@"{System.Environment
 						.GetFolderPath(System.Environment.SpecialFolder
 							// ReSharper disable once StringLiteralTypo
@@ -399,7 +375,7 @@ namespace Diten
 						var assembly = Assembly.ReflectionOnlyLoadFrom(file);
 						var type = assembly.GetType(typeName, false, true);
 
-						if(type==null||assemblyFullNames.Contains(assembly.FullName))
+						if (type == null || assemblyFullNames.Contains(assembly.FullName))
 							continue;
 						types.Add(type);
 						assemblyFullNames.Add(assembly.FullName);

@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:20 AM
@@ -8,11 +17,11 @@
 
 #region Used Directives
 
-using Diten.Collections.Generic;
 using System;
 using System.Linq;
 using System.Management;
 using System.Net;
+using Diten.Collections.Generic;
 
 #endregion
 
@@ -37,7 +46,7 @@ namespace Diten.Net
 				d.CreateNewZone("testzone.uk.nullify.net.", Dns.NewZoneType.Primary);
 				Console.WriteLine("OK");
 			}
-			catch(Exception)
+			catch (Exception)
 			{
 				Console.WriteLine("Failed to create a new zone, it probably exists.");
 			}
@@ -50,29 +59,29 @@ namespace Diten.Net
 					"test1.testzone.uk.nullify.net. IN CNAME xerxes.nullify.net.");
 				Console.WriteLine("OK");
 			}
-			catch(Exception)
+			catch (Exception)
 			{
 				Console.WriteLine("Failed to create a new resource record, it probably exists");
 			}
 
 			Console.WriteLine("Getting a list of domains:");
 
-			foreach(var domain in d.GetListOfDomains())
+			foreach (var domain in d.GetListOfDomains())
 			{
-				Console.WriteLine(@"	"+domain.Name+@" ("+domain.ZoneType+")");
+				Console.WriteLine(@"	" + domain.Name + @" (" + domain.ZoneType + ")");
 
 				//and a list of all the records in the domain:-
-				foreach(var record in d.GetRecordsForDomain(domain.Name))
-					Console.WriteLine(@"		"+record);
+				foreach (var record in d.GetRecordsForDomain(domain.Name))
+					Console.WriteLine(@"		" + record);
 			}
 
 			Console.WriteLine("Fetching existing named entry (can be really slow, read the warning):-");
 			var records = d.GetExistingDnsRecords("test1.testzone.uk.nullify.net.");
 
-			foreach(var record in records)
+			foreach (var record in records)
 			{
-				Console.WriteLine("\t\t"+record);
-				record.Target="shodan.nullify.net.";
+				Console.WriteLine("\t\t" + record);
+				record.Target = "shodan.nullify.net.";
 				record.SaveChanges();
 			}
 		}
@@ -102,7 +111,7 @@ namespace Diten.Net
 		public Dns(string server)
 		{
 			var co = new ConnectionOptions();
-			_scope=new ManagementScope($@"\\{server}\Root\MicrosoftDNS", co);
+			_scope = new ManagementScope($@"\\{server}\Root\MicrosoftDNS", co);
 			_scope.Connect(); //no disconnect method appears to exist so we do not need to manage the 
 
 			//persistence of this connection and tidy up
@@ -120,11 +129,11 @@ namespace Diten.Net
 		{
 			var co = new ConnectionOptions
 			{
-				Username=username,
-				Password=password,
-				Impersonation=ImpersonationLevel.Impersonate
+				Username = username,
+				Password = password,
+				Impersonation = ImpersonationLevel.Impersonate
 			};
-			_scope=new ManagementScope($@"\\{server}\Root\MicrosoftDNS", co);
+			_scope = new ManagementScope($@"\\{server}\Root\MicrosoftDNS", co);
 			_scope.Connect();
 		}
 
@@ -148,17 +157,17 @@ namespace Diten.Net
 					null);
 				mc.Get();
 				var parameters = mc.GetMethodParameters("CreateInstanceFromTextRepresentation");
-				parameters["ContainerName"]=zone;
-				parameters["DnsServerName"]=Server;
-				parameters["TextRepresentation"]=bindStyleHostEntry;
+				parameters["ContainerName"] = zone;
+				parameters["DnsServerName"] = Server;
+				parameters["TextRepresentation"] = bindStyleHostEntry;
 
 				//ManagementBaseObject createdEntry = mc.InvokeMethod("CreateInstanceFromTextRepresentation", parameters, null);
 				//return createdEntry; (no reason unless you changed your mind and wanted to delete it?!)
 			}
-			catch(ManagementException) //the details on this exception appear useless.
+			catch (ManagementException) //the details on this exception appear useless.
 			{
-				throw new ApplicationException("Unable to create the record "+bindStyleHostEntry+", please check"+
-														 " the format and that it does not already exist.");
+				throw new ApplicationException("Unable to create the record " + bindStyleHostEntry + ", please check" +
+				                               " the format and that it does not already exist.");
 			}
 		}
 
@@ -197,20 +206,20 @@ namespace Diten.Net
 				[in, optional]  string AdminEmailName,
 				*/
 
-				parameters["ZoneName"]=zoneName;
-				parameters["ZoneType"]=(uint)zoneType;
-				parameters["DsIntegrated"]=0; //false
+				parameters["ZoneName"] = zoneName;
+				parameters["ZoneType"] = (uint) zoneType;
+				parameters["DsIntegrated"] = 0; //false
 				var createdEntry = mc.InvokeMethod("CreateZone", parameters, null);
 				var dnsDomain = new DnsDomain(zoneName, createdEntry, this);
 
 				return dnsDomain;
 			}
-			catch(ManagementException)
+			catch (ManagementException)
 
-			//returns generic error when it already exists, I'm guessing this is a generic answer!
+				//returns generic error when it already exists, I'm guessing this is a generic answer!
 			{
-				throw new ApplicationException("Unable to create the zone "+zoneName+", please check "+
-														 "the format of the name and that it does not already exist.");
+				throw new ApplicationException("Unable to create the zone " + zoneName + ", please check " +
+				                               "the format of the name and that it does not already exist.");
 			}
 		}
 
@@ -282,10 +291,7 @@ namespace Diten.Net
 				.ToArray();
 		}
 
-		public static List<IPAddress> GetLocalIpAddresses()
-		{
-			return GetHostAddresses(System.Net.Dns.GetHostName());
-		}
+		public static List<IPAddress> GetLocalIpAddresses() => GetHostAddresses(System.Net.Dns.GetHostName());
 
 		/// <summary>
 		///    Return a list of records for a domain, note that it may include records
@@ -304,10 +310,7 @@ namespace Diten.Net
 			return (from ManagementObject p in collection select new DnsRecord(p)).ToArray();
 		}
 
-		public override string ToString()
-		{
-			return Server;
-		}
+		public override string ToString() => Server;
 
 		#region Supporting classes
 
@@ -356,9 +359,9 @@ namespace Diten.Net
 				ManagementBaseObject wmiObject,
 				Dns server)
 			{
-				Name=name;
-				_wmiObject=wmiObject;
-				_server=server;
+				Name = name;
+				_wmiObject = wmiObject;
+				_server = server;
 			}
 
 			/// <summary>
@@ -369,12 +372,12 @@ namespace Diten.Net
 			/// <summary>
 			///    Is this a reverse DNS zone?
 			/// </summary>
-			public bool ReverseZone => _wmiObject["Reverse"].ToString()=="1";
+			public bool ReverseZone => _wmiObject["Reverse"].ToString() == "1";
 
 			/// <summary>
 			///    The zone type
 			/// </summary>
-			public ZoneType ZoneType => (ZoneType)System.Convert.ToInt32(_wmiObject["ZoneType"]);
+			public ZoneType ZoneType => (ZoneType) System.Convert.ToInt32(_wmiObject["ZoneType"]);
 
 			/// <summary>
 			///    Create a new DNS host record
@@ -389,15 +392,9 @@ namespace Diten.Net
 			///    Get a list of all objects at the base of this zone
 			/// </summary>
 			/// <returns>A list of <see cref="DnsRecord" /></returns>
-			public DnsRecord[] GetAllRecords()
-			{
-				return _server.GetRecordsForDomain(Name);
-			}
+			public DnsRecord[] GetAllRecords() => _server.GetRecordsForDomain(Name);
 
-			public override string ToString()
-			{
-				return Name;
-			}
+			public override string ToString() => Name;
 		}
 
 		/// <summary>
@@ -433,10 +430,10 @@ namespace Diten.Net
 				string target,
 				TimeSpan ttl)
 			{
-				DomainHost=domain;
-				Ttl1=ttl;
-				Target=target;
-				RecordType=recordType;
+				DomainHost = domain;
+				Ttl1 = ttl;
+				Target = target;
+				RecordType = recordType;
 			}
 
 			/// <summary>
@@ -445,13 +442,13 @@ namespace Diten.Net
 			/// <param name="wmiObject"></param>
 			public DnsRecord(ManagementObject wmiObject)
 			{
-				_wmiObject=wmiObject;
-				DomainHost=wmiObject["OwnerName"].ToString();
-				Target=wmiObject["RecordData"].ToString();
+				_wmiObject = wmiObject;
+				DomainHost = wmiObject["OwnerName"].ToString();
+				Target = wmiObject["RecordData"].ToString();
 				var recordParts = wmiObject["TextRepresentation"].ToString().Split(' ', '\t');
-				if(recordParts.Length>2)
-					RecordType=new DnsRecordType(recordParts[2]);
-				Ttl1=new TimeSpan(0, 0, System.Convert.ToInt32(wmiObject["TTL"]));
+				if (recordParts.Length > 2)
+					RecordType = new DnsRecordType(recordParts[2]);
+				Ttl1 = new TimeSpan(0, 0, System.Convert.ToInt32(wmiObject["TTL"]));
 			}
 
 			/// <summary>
@@ -476,7 +473,7 @@ namespace Diten.Net
 			public TimeSpan Ttl
 			{
 				get => Ttl1;
-				set => Ttl1=value;
+				set => Ttl1 = value;
 			}
 
 			// ReSharper disable once MemberInitializerValueIgnored
@@ -500,10 +497,7 @@ namespace Diten.Net
 			///    unknown type, potentially partially filled for known types)
 			/// </param>
 			/// <returns>An array of filled in parameters, or null if the parameters are unknown</returns>
-			public virtual ManagementBaseObject OnSaveChanges(ManagementBaseObject parametersIn)
-			{
-				return null;
-			}
+			public virtual ManagementBaseObject OnSaveChanges(ManagementBaseObject parametersIn) => null;
 
 			/// <summary>
 			///    Save the changes to the resource record
@@ -519,47 +513,47 @@ namespace Diten.Net
 				//This is a cludge based on the various types that are implemented by MS as they didn't stick to a simple value
 
 				//To add more, please refer to 
-				if(RecordType.TextRepresentation=="A")
+				if (RecordType.TextRepresentation == "A")
 				{
-					parameters["IPAddress"]=Target;
-					parameters["TTL"]=Ttl1.TotalSeconds;
-					supported=true;
+					parameters["IPAddress"] = Target;
+					parameters["TTL"] = Ttl1.TotalSeconds;
+					supported = true;
 				}
 
-				if(RecordType.TextRepresentation=="AAAA")
+				if (RecordType.TextRepresentation == "AAAA")
 				{
-					parameters["IPv6Address"]=Target;
-					parameters["TTL"]=Ttl1.TotalSeconds;
-					supported=true;
+					parameters["IPv6Address"] = Target;
+					parameters["TTL"] = Ttl1.TotalSeconds;
+					supported = true;
 				}
 
-				if(RecordType.TextRepresentation=="CNAME")
+				if (RecordType.TextRepresentation == "CNAME")
 				{
-					parameters["PrimaryName"]=Target;
-					parameters["TTL"]=Ttl1.TotalSeconds;
-					supported=true;
+					parameters["PrimaryName"] = Target;
+					parameters["TTL"] = Ttl1.TotalSeconds;
+					supported = true;
 				}
 
-				if(RecordType.TextRepresentation=="TXT")
+				if (RecordType.TextRepresentation == "TXT")
 				{
-					parameters["DescriptiveText"]=Target;
-					parameters["TTL"]=Ttl1.TotalSeconds;
-					supported=true;
+					parameters["DescriptiveText"] = Target;
+					parameters["TTL"] = Ttl1.TotalSeconds;
+					supported = true;
 				}
 
-				if(RecordType.TextRepresentation=="MX")
+				if (RecordType.TextRepresentation == "MX")
 				{
 					var components = Target.Trim().Split(' ', '\t');
 
-					if(components.Length>1)
+					if (components.Length > 1)
 					{
-						parameters["Preference"]=System.Convert.ToUInt16(components[0]);
+						parameters["Preference"] = System.Convert.ToUInt16(components[0]);
 
 						//the preference is a UINT16 in MS DNS Server
-						parameters["MailExchange"]=components[1]; //the actual host name
+						parameters["MailExchange"] = components[1]; //the actual host name
 
 						//NOT SUPPORTED BY MX ACCORDING TO THE DOCUMENTATION!? parameters["TTL"] = _ttl;
-						supported=true;
+						supported = true;
 					}
 				}
 
@@ -570,68 +564,65 @@ namespace Diten.Net
 					//This supports improving this classes implementation of this method and adding 
 					var lastDitchParameters = OnSaveChanges(parameters);
 
-					if(lastDitchParameters!=null)
+					if (lastDitchParameters != null)
 					{
-						parameters=lastDitchParameters;
-						supported=true;
+						parameters = lastDitchParameters;
+						supported = true;
 					}
 				}
-				catch(Exception ex)
+				catch (Exception ex)
 
-				//catch all as we do not know what someone will modify OnSaveChanges() to throw or cause
+					//catch all as we do not know what someone will modify OnSaveChanges() to throw or cause
 				{
-					if(!supported)
+					if (!supported)
 
 						//if we support the data type already then we don't care about exceptions as at worst case
 						throw;
-					temporaryException=ex;
+					temporaryException = ex;
 				}
 
-				if(supported)
+				if (supported)
 				{
 					try
 					{
-						_wmiObject=(ManagementObject)_wmiObject.InvokeMethod("Modify", parameters, null);
+						_wmiObject = (ManagementObject) _wmiObject.InvokeMethod("Modify", parameters, null);
 					}
-					catch(Exception ex)
+					catch (Exception ex)
 					{
-						if(temporaryException!=null)
-							throw new ApplicationException("There were two exceptions, the primary failure"+
-																	 " was an exception that is encapsulated in this message however additionaly "+
-																	 "a virtual method that was optional to functionality also threw an exception "+
-																	 "but this was withheld till after the operation failed. Please examine the"+
-																	 " InnerException property for copy of the virtual methods exception.  The "+
-																	 "virtual methods exception message was: "+
-																	 temporaryException.Message+".  "+
-																	 "The primary exceptions message (a "+
-																	 ex.GetType().FullName+
-																	 ") "+
-																	 "was: "+ex.Message, temporaryException);
+						if (temporaryException != null)
+							throw new ApplicationException("There were two exceptions, the primary failure" +
+							                               " was an exception that is encapsulated in this message however additionaly " +
+							                               "a virtual method that was optional to functionality also threw an exception " +
+							                               "but this was withheld till after the operation failed. Please examine the" +
+							                               " InnerException property for copy of the virtual methods exception.  The " +
+							                               "virtual methods exception message was: " +
+							                               temporaryException.Message + ".  " +
+							                               "The primary exceptions message (a " +
+							                               ex.GetType().FullName +
+							                               ") " +
+							                               "was: " + ex.Message, temporaryException);
 
 						throw;
 					}
 
-					if(temporaryException!=null)
-						throw new ApplicationException("A virtual method that was optional to functionality "+
-																 "threw an exception but this was withheld till after the operation completed "+
-																 "successfully, please examine the InnerException property for a full copy of this "+
-																 "exception.  The message was: "+temporaryException.Message,
+					if (temporaryException != null)
+						throw new ApplicationException("A virtual method that was optional to functionality " +
+						                               "threw an exception but this was withheld till after the operation completed " +
+						                               "successfully, please examine the InnerException property for a full copy of this " +
+						                               "exception.  The message was: " + temporaryException.Message,
 							temporaryException);
 				}
 				else
 				{
-					throw new NotSupportedException("The data type you attmpted to use ("+
-															  RecordType.TextRepresentation+
-															  ") was not supported, please implement support for"+
-															  "it by overriding the method OnSaveChanges() and returning an array of filled WMI parameters "+
-															  "or by updating this implementation.");
+					throw new NotSupportedException("The data type you attmpted to use (" +
+					                                RecordType.TextRepresentation +
+					                                ") was not supported, please implement support for" +
+					                                "it by overriding the method OnSaveChanges() and returning an array of filled WMI parameters " +
+					                                "or by updating this implementation.");
 				}
 			}
 
-			public override string ToString()
-			{
-				return DomainHost+" "+RecordType+" "+Target;
-			}
+			public override string ToString() => DomainHost + " " + RecordType + " " + Target;
 		}
 
 		/// <summary>
@@ -645,10 +636,7 @@ namespace Diten.Net
 			///    Create a new DNS record type
 			/// </summary>
 			/// <param name="textRepresentation">The type to create</param>
-			public DnsRecordType(string textRepresentation)
-			{
-				_textRepresentation=textRepresentation;
-			}
+			public DnsRecordType(string textRepresentation) => _textRepresentation = textRepresentation;
 
 			/// <summary>
 			///    The mode of the record, usually IN but could oneday be something else like OUT
@@ -660,10 +648,7 @@ namespace Diten.Net
 			/// </summary>
 			public string TextRepresentation => _textRepresentation.ToUpper();
 
-			public override string ToString()
-			{
-				return RecordMode+" "+_textRepresentation;
-			}
+			public override string ToString() => RecordMode + " " + _textRepresentation;
 
 			#region Some Defaults!
 

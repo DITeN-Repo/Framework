@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Enum Name="Diten.Tor.Controller.Enumerators.StatusCode" Collapsed="true">
+    <Position X="8.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAIAAABAEACAAAQAAAgAAASgAQAAAIgAEABAIAAABA=</HashCode>
+      <FileName>Controller\Enumerators\StatusCode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

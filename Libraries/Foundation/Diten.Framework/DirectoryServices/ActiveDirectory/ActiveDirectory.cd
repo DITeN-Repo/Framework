@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Diten.DirectoryServices.ActiveDirectory.DirectoryEntryConfiguration" Collapsed="true">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAABAAAAACAAAAQAAAAAAAAIEAAAAAAAEgAAAAA=</HashCode>
+      <FileName>DirectoryServices\ActiveDirectory\DirectoryEntryConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.DirectoryServices.ActiveDirectory.Management" Collapsed="true">
+    <Position X="8.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAABAAAAAAAEAAAAEAAAAAAAAAiAQAAAAAAAAA=</HashCode>
+      <FileName>DirectoryServices\ActiveDirectory\Management.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.DirectoryServices.ActiveDirectory.Objects" Collapsed="true">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAEAAAAAAAIAAAAAAEAAAADAwAAAAEAABQ=</HashCode>
+      <FileName>DirectoryServices\ActiveDirectory\Objects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.DirectoryServices.ActiveDirectory.UsersTasks" Collapsed="true">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAQAAAAAAACAIAAAAAACAIAAAAAAAAGAREoAAAAgAA=</HashCode>
+      <FileName>DirectoryServices\ActiveDirectory\UsersTasks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

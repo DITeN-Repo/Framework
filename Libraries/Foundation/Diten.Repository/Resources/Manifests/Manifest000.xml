@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+	<RegistrationInfo>
+		<Date>2017-03-05T15:55:05.0461087</Date>
+		<Author>DITeN Corporation.</Author>
+		<Version>1.0.0</Version>
+		<Description>Import %SiteName% IIS logs into database.</Description>
+	</RegistrationInfo>
+	<Triggers>
+		<CalendarTrigger>
+			<StartBoundary>2017-03-05T00:01:00</StartBoundary>
+			<Enabled>true</Enabled>
+			<ScheduleByDay>
+				<DaysInterval>1</DaysInterval>
+			</ScheduleByDay>
+		</CalendarTrigger>
+	</Triggers>
+	<Principals>
+		<Principal id="Author">
+			<RunLevel>LeastPrivilege</RunLevel>
+			<UserId>%UserId%</UserId>
+		</Principal>
+	</Principals>
+	<Settings>
+		<MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+		<DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+		<StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+		<AllowHardTerminate>true</AllowHardTerminate>
+		<StartWhenAvailable>false</StartWhenAvailable>
+		<RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+		<IdleSettings>
+			<StopOnIdleEnd>true</StopOnIdleEnd>
+			<RestartOnIdle>false</RestartOnIdle>
+		</IdleSettings>
+		<AllowStartOnDemand>true</AllowStartOnDemand>
+		<Enabled>true</Enabled>
+		<Hidden>false</Hidden>
+		<RunOnlyIfIdle>false</RunOnlyIfIdle>
+		<WakeToRun>false</WakeToRun>
+		<ExecutionTimeLimit>P3D</ExecutionTimeLimit>
+		<Priority>7</Priority>
+	</Settings>
+	<Actions>
+		<Exec>
+			<Command>"%Command%"</Command>
+			<Arguments>%Arguments%</Arguments>
+		</Exec>
+	</Actions>
+</Task>

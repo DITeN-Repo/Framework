@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
@@ -20,8 +29,8 @@ namespace Diten
 		{
 			var type = source.GetType();
 
-			foreach(var entry in cases)
-				if(entry.IsDefault||type==entry.Target)
+			foreach (var entry in cases)
+				if (entry.IsDefault || type == entry.Target)
 				{
 					entry.Action(source);
 
@@ -33,9 +42,9 @@ namespace Diten
 		{
 			return new CaseInfo
 			{
-				Action=x => action(),
+				Action = x => action(),
 
-				Target=typeof(T)
+				Target = typeof(T)
 			};
 		}
 
@@ -43,9 +52,9 @@ namespace Diten
 		{
 			return new CaseInfo
 			{
-				Action=x => action((T)x),
+				Action = x => action((T) x),
 
-				Target=typeof(T)
+				Target = typeof(T)
 			};
 		}
 
@@ -53,9 +62,9 @@ namespace Diten
 		{
 			return new CaseInfo
 			{
-				Action=x => action(),
+				Action = x => action(),
 
-				IsDefault=true
+				IsDefault = true
 			};
 		}
 

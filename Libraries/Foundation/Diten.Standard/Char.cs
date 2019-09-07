@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
@@ -8,9 +17,9 @@
 
 #region Used Directives
 
-using Diten.Numeric;
 using System.Collections.Generic;
 using System.Linq;
+using Diten.Numeric;
 
 #endregion
 
@@ -612,8 +621,9 @@ namespace Diten
 
 				return holder.OrderBy(c => c.Ascii.ToInt());
 
+				//todo: Check commented code
 				//return Resources.AsciiTable.Split(ReservedChars.LineFeed.ToChar()).Aggregate(
-				//	new List<(char Ascii, string Character, string Descriptionn)>(),
+				//	new List<(char Ascii, string Character, string Description)>(),
 				//	(result, current) =>
 				//	{
 				//		var holder = current.Split(',');
@@ -644,7 +654,7 @@ namespace Diten
 		{
 			get
 			{
-				var holder00 = Duosexagesimal.Characters.Where(c => c>=65&&c<=90).ToList();
+				var holder00 = Duosexagesimal.Characters.Where(c => c >= 65 && c <= 90).ToList();
 
 				return PrintableChars.Where(printableChar => holder00.Contains(printableChar.Ascii)).ToList();
 			}
@@ -657,7 +667,7 @@ namespace Diten
 		{
 			get
 			{
-				var holder00 = Duosexagesimal.Characters.Where(c => c>=97&&c<=122).ToList();
+				var holder00 = Duosexagesimal.Characters.Where(c => c >= 97 && c <= 122).ToList();
 
 				return PrintableChars.Where(printableChar => holder00.Contains(printableChar.Ascii)).ToList();
 			}
@@ -670,7 +680,7 @@ namespace Diten
 		{
 			get
 			{
-				var holder00 = Duosexagesimal.Characters.Where(c => c>=48&&c<=57).ToList();
+				var holder00 = Duosexagesimal.Characters.Where(c => c >= 48 && c <= 57).ToList();
 
 				return PrintableChars.Where(printableChar => holder00.Contains(printableChar.Ascii)).ToList();
 			}
@@ -681,19 +691,19 @@ namespace Diten
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> FrequentlyUsed =>
 			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(164)&&v.Ascii.ToInt().Equals(164)&&v.Ascii.ToInt().Equals(165)&&
-				v.Ascii.ToInt().Equals(64)&&v.Ascii.ToInt().Equals(168)&&v.Ascii.ToInt().Equals(63)&&
-				v.Ascii.ToInt().Equals(173)&&v.Ascii.ToInt().Equals(33)&&v.Ascii.ToInt().Equals(58)&&
-				v.Ascii.ToInt().Equals(47)&&v.Ascii.ToInt().Equals(92));
+				v.Ascii.ToInt().Equals(164) && v.Ascii.ToInt().Equals(164) && v.Ascii.ToInt().Equals(165) &&
+				v.Ascii.ToInt().Equals(64) && v.Ascii.ToInt().Equals(168) && v.Ascii.ToInt().Equals(63) &&
+				v.Ascii.ToInt().Equals(173) && v.Ascii.ToInt().Equals(33) && v.Ascii.ToInt().Equals(58) &&
+				v.Ascii.ToInt().Equals(47) && v.Ascii.ToInt().Equals(92));
 
 		/// <summary>
 		///    Get vowels acute accent.
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> VowelsAcuteAccent =>
 			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(160)&&v.Ascii.ToInt().Equals(130)&&v.Ascii.ToInt().Equals(161)&&
-				v.Ascii.ToInt().Equals(162)&&v.Ascii.ToInt().Equals(163)&&v.Ascii.ToInt().Equals(181)&&
-				v.Ascii.ToInt().Equals(144)&&v.Ascii.ToInt().Equals(214)&&v.Ascii.ToInt().Equals(224)&&
+				v.Ascii.ToInt().Equals(160) && v.Ascii.ToInt().Equals(130) && v.Ascii.ToInt().Equals(161) &&
+				v.Ascii.ToInt().Equals(162) && v.Ascii.ToInt().Equals(163) && v.Ascii.ToInt().Equals(181) &&
+				v.Ascii.ToInt().Equals(144) && v.Ascii.ToInt().Equals(214) && v.Ascii.ToInt().Equals(224) &&
 				v.Ascii.ToInt().Equals(233));
 
 		/// <summary>
@@ -701,9 +711,9 @@ namespace Diten
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> VowelsWithDiuresis =>
 			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(132)&&v.Ascii.ToInt().Equals(137)&&v.Ascii.ToInt().Equals(139)&&
-				v.Ascii.ToInt().Equals(148)&&v.Ascii.ToInt().Equals(129)&&v.Ascii.ToInt().Equals(142)&&
-				v.Ascii.ToInt().Equals(211)&&v.Ascii.ToInt().Equals(216)&&v.Ascii.ToInt().Equals(153)&&
+				v.Ascii.ToInt().Equals(132) && v.Ascii.ToInt().Equals(137) && v.Ascii.ToInt().Equals(139) &&
+				v.Ascii.ToInt().Equals(148) && v.Ascii.ToInt().Equals(129) && v.Ascii.ToInt().Equals(142) &&
+				v.Ascii.ToInt().Equals(211) && v.Ascii.ToInt().Equals(216) && v.Ascii.ToInt().Equals(153) &&
 				v.Ascii.ToInt().Equals(154));
 
 		/// <summary>
@@ -711,9 +721,9 @@ namespace Diten
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> MathematicalSymbols =>
 			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(171)&&v.Ascii.ToInt().Equals(172)&&v.Ascii.ToInt().Equals(243)&&
-				v.Ascii.ToInt().Equals(251)&&v.Ascii.ToInt().Equals(252)&&v.Ascii.ToInt().Equals(253)&&
-				v.Ascii.ToInt().Equals(159)&&v.Ascii.ToInt().Equals(241)&&v.Ascii.ToInt().Equals(158)&&
+				v.Ascii.ToInt().Equals(171) && v.Ascii.ToInt().Equals(172) && v.Ascii.ToInt().Equals(243) &&
+				v.Ascii.ToInt().Equals(251) && v.Ascii.ToInt().Equals(252) && v.Ascii.ToInt().Equals(253) &&
+				v.Ascii.ToInt().Equals(159) && v.Ascii.ToInt().Equals(241) && v.Ascii.ToInt().Equals(158) &&
 				v.Ascii.ToInt().Equals(246));
 
 		/// <summary>
@@ -721,9 +731,9 @@ namespace Diten
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> CommercialTradeSymbols =>
 			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(36)&&v.Ascii.ToInt().Equals(156)&&v.Ascii.ToInt().Equals(190)&&
-				v.Ascii.ToInt().Equals(189)&&v.Ascii.ToInt().Equals(207)&&v.Ascii.ToInt().Equals(169)&&
-				v.Ascii.ToInt().Equals(184)&&v.Ascii.ToInt().Equals(166)&&v.Ascii.ToInt().Equals(167)&&
+				v.Ascii.ToInt().Equals(36) && v.Ascii.ToInt().Equals(156) && v.Ascii.ToInt().Equals(190) &&
+				v.Ascii.ToInt().Equals(189) && v.Ascii.ToInt().Equals(207) && v.Ascii.ToInt().Equals(169) &&
+				v.Ascii.ToInt().Equals(184) && v.Ascii.ToInt().Equals(166) && v.Ascii.ToInt().Equals(167) &&
 				v.Ascii.ToInt().Equals(248));
 
 		/// <summary>
@@ -731,9 +741,9 @@ namespace Diten
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> QuotesAndParenthesis =>
 			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(34)&&v.Ascii.ToInt().Equals(39)&&v.Ascii.ToInt().Equals(40)&&
-				v.Ascii.ToInt().Equals(41)&&v.Ascii.ToInt().Equals(91)&&v.Ascii.ToInt().Equals(93)&&
-				v.Ascii.ToInt().Equals(123)&&v.Ascii.ToInt().Equals(125)&&v.Ascii.ToInt().Equals(174)&&
+				v.Ascii.ToInt().Equals(34) && v.Ascii.ToInt().Equals(39) && v.Ascii.ToInt().Equals(40) &&
+				v.Ascii.ToInt().Equals(41) && v.Ascii.ToInt().Equals(91) && v.Ascii.ToInt().Equals(93) &&
+				v.Ascii.ToInt().Equals(123) && v.Ascii.ToInt().Equals(125) && v.Ascii.ToInt().Equals(174) &&
 				v.Ascii.ToInt().Equals(175));
 	}
 }

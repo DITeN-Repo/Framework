@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
@@ -8,15 +17,17 @@
 
 #region Used Directives
 
+using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
+using System.Runtime.Serialization;
 using Diten.Attributes;
 using Diten.Net.Cloud;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq.Expressions;
-using System.Runtime.Serialization;
 
 #endregion
 
@@ -29,6 +40,7 @@ namespace Diten.Collections.Generic
 	/// <typeparam name="TKey"></typeparam>
 	//[ServiceContract]
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
+	// ReSharper disable once UnusedTypeParameter
 	public interface IObject<TObject, TKey>
 	{
 		/// <summary>
@@ -36,6 +48,9 @@ namespace Diten.Collections.Generic
 		/// </summary>
 		Byte Hash { get; }
 
+		/// <summary>
+		///    Path to the current object
+		/// </summary>
 		string Path { get; }
 
 		/// <summary>
@@ -82,9 +97,19 @@ namespace Diten.Collections.Generic
 		[DataMember]
 		ObjectId ParentID { get; set; }
 
+		/// <summary>
+		///    Signature of the current object.
+		/// </summary>
+		string UniqueSignature { get; }
+
 		List<RelatedHost> RelatedHosts { get; set; }
 
 		Byte response { get; set; }
+
+		/// <summary>
+		///    History of the current object.
+		/// </summary>
+		ImmutableDictionary<ObjectId, IObject<TObject, TKey>> History { get; }
 
 		/// <summary>
 		///    Find objects that are placed in selector expression.
@@ -92,7 +117,7 @@ namespace Diten.Collections.Generic
 		/// <param name="selector">A lambda expression.</param>
 		/// <returns>A list of object.</returns>
 		//[OperationContract]
-		List<TObject> Find(Expression<Func<TObject, bool>> selector);
+		IEnumerable<TObject> Find(Expression<Func<TObject, bool>> selector);
 
 		/// <summary>
 		///    Find objects that are placed in selector expression.

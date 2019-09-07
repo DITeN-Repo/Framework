@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
@@ -8,13 +17,13 @@
 
 #region Used Directives
 
-using Diten.Globalization;
-using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using Diten.Globalization;
+using JetBrains.Annotations;
 
 #endregion
 
@@ -52,7 +61,7 @@ namespace Diten
 			//Inline Function
 			List<string> tmpFunction1()
 			{
-				switch(generation)
+				switch (generation)
 				{
 					case Generations.Weekdays:
 						return WeekdaysStringCollection.Split(",".ToCharArray()).ToList();
@@ -65,15 +74,15 @@ namespace Diten
 
 			var holder = tmpFunction1();
 
-			for(var index = 0; index<holder.Count; index++)
-				switch(order)
+			for (var index = 0; index < holder.Count; index++)
+				switch (order)
 				{
 					case Orders.Standard:
 						_return.Add(new Weekday(index, holder[index],
 							holder[index].ToCharArray().FirstOrDefault().ToString()));
 						break;
 					case Orders.Gregorian:
-						switch(index)
+						switch (index)
 						{
 							case 0:
 								continue;
@@ -107,7 +116,7 @@ namespace Diten
 		public static List<Weekday> GetDaysInWeek([NotNull] this PersianCalendar calendar,
 			Orders order = Orders.Standard)
 		{
-			if(calendar==null)
+			if (calendar == null)
 				throw new ArgumentNullException(nameof(calendar));
 			return Generator(order, Generations.Weekdays);
 		}
@@ -124,10 +133,10 @@ namespace Diten
 		public static IEnumerable<string> GetDaysNameInWeek([NotNull] this PersianCalendar calendar,
 			Orders order = Orders.Standard)
 		{
-			if(calendar==null)
+			if (calendar == null)
 				throw new ArgumentNullException(nameof(calendar));
-			if(!System.Enum.IsDefined(typeof(Orders), order))
-				throw new InvalidEnumArgumentException(nameof(order), (int)order, typeof(Orders));
+			if (!System.Enum.IsDefined(typeof(Orders), order))
+				throw new InvalidEnumArgumentException(nameof(order), (int) order, typeof(Orders));
 			return WeekdaysStringCollection.Split(",".ToCharArray());
 		}
 
@@ -143,8 +152,8 @@ namespace Diten
 		public static IEnumerable<string> GetDaysShortNameInWeek(this PersianCalendar calendar,
 			Orders order = Orders.Standard)
 		{
-			if(!System.Enum.IsDefined(typeof(Orders), order))
-				throw new InvalidEnumArgumentException(nameof(order), (int)order, typeof(Orders));
+			if (!System.Enum.IsDefined(typeof(Orders), order))
+				throw new InvalidEnumArgumentException(nameof(order), (int) order, typeof(Orders));
 			return GetDaysNameInWeek(calendar).Aggregate(string.Empty, (next, day) => $",{next.PadRight(1)}")
 				.Split(",".ToCharArray());
 		}
@@ -152,7 +161,7 @@ namespace Diten
 		public static List<Weekday> GetMonthsInYear([NotNull] this PersianCalendar calendar,
 			Orders order = Orders.Standard)
 		{
-			if(calendar==null)
+			if (calendar == null)
 				throw new ArgumentNullException(nameof(calendar));
 			return Generator(order, Generations.Months);
 		}
@@ -169,10 +178,10 @@ namespace Diten
 		public static IEnumerable<string> GetMonthsNameInYear([NotNull] this PersianCalendar calendar,
 			Orders order = Orders.Standard)
 		{
-			if(calendar==null)
+			if (calendar == null)
 				throw new ArgumentNullException(nameof(calendar));
-			if(!System.Enum.IsDefined(typeof(Orders), order))
-				throw new InvalidEnumArgumentException(nameof(order), (int)order, typeof(Orders));
+			if (!System.Enum.IsDefined(typeof(Orders), order))
+				throw new InvalidEnumArgumentException(nameof(order), (int) order, typeof(Orders));
 			return MonthNamesStringCollection.Split(",".ToCharArray());
 		}
 
@@ -188,8 +197,8 @@ namespace Diten
 		public static IEnumerable<string> GetMonthsShortNameInYear(this PersianCalendar calendar,
 			Orders order = Orders.Standard)
 		{
-			if(!System.Enum.IsDefined(typeof(Orders), order))
-				throw new InvalidEnumArgumentException(nameof(order), (int)order, typeof(Orders));
+			if (!System.Enum.IsDefined(typeof(Orders), order))
+				throw new InvalidEnumArgumentException(nameof(order), (int) order, typeof(Orders));
 			return GetMonthsNameInYear(calendar).Aggregate(string.Empty, (next, day) => $",{next.PadRight(2)}")
 				.Split(",".ToCharArray());
 		}

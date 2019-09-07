@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:07 AM
@@ -34,14 +43,14 @@ namespace Diten.Sockets
 			var _return = new Byte();
 			var buffer = new byte[1024];
 
-			while(true)
+			while (true)
 			{
-				if(ReceiveSocket.Receive(buffer)==0)
+				if (ReceiveSocket.Receive(buffer) == 0)
 					continue;
 
 				_return.Append(buffer);
 
-				if(!_return.HasEOF())
+				if (!_return.HasEOF())
 					continue;
 
 				return _return;

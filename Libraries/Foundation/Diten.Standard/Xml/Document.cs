@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:34 AM
@@ -24,10 +33,7 @@ namespace Diten.Xml
 		{
 		}
 
-		public Document(XmlDocument xmlDocument)
-		{
-			XmlDocument=xmlDocument;
-		}
+		public Document(XmlDocument xmlDocument) => XmlDocument = xmlDocument;
 
 		private string[] Path { get; set; }
 
@@ -37,15 +43,15 @@ namespace Diten.Xml
 
 		public List<Dictionary<string, string>> GetAttributes(string path)
 		{
-			Path=path.Split(".".ToCharArray());
+			Path = path.Split(".".ToCharArray());
 
 			return (from XmlNode node in ReadNodesRecursively(XmlDocument.ChildNodes, Path[0]).ChildNodes
-					  select ReadAttributes(node)).ToList();
+				select ReadAttributes(node)).ToList();
 		}
 
 		private static Dictionary<string, string> ReadAttributes(XmlNode xmlNode)
 		{
-			return (xmlNode.Attributes??throw new InvalidOperationException(@"XML node attributes is empty."))
+			return (xmlNode.Attributes ?? throw new InvalidOperationException(@"XML node attributes is empty."))
 				.Cast<XmlAttribute>()
 				.ToDictionary(attribute => attribute.Name, attribute => attribute.Value);
 		}
@@ -55,17 +61,17 @@ namespace Diten.Xml
 		{
 			XmlNode _return = null;
 
-			foreach(XmlNode node in childNodes)
+			foreach (XmlNode node in childNodes)
 			{
-				if(!node.Name.Equals(nodeName))
+				if (!node.Name.Equals(nodeName))
 					continue;
 
-				PathCount+=1;
+				PathCount += 1;
 
-				if(!PathCount.Equals(Path.Length))
+				if (!PathCount.Equals(Path.Length))
 					return ReadNodesRecursively(node.ChildNodes, Path[PathCount]);
 
-				_return=node;
+				_return = node;
 
 				break;
 			}

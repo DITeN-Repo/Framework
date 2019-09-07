@@ -173,10 +173,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Session.settings</DependentUpon>
     </Compile>
-    <Compile Update="Parameters\System.Designer.cs">
+    <Compile Update="Parameters\SystemParams.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
-      <DependentUpon>System.settings</DependentUpon>
+      <DependentUpon>SystemParams.settings</DependentUpon>
     </Compile>
     <Compile Update="Parameters\Tags.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -217,9 +217,9 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Session.Designer.cs</LastGenOutput>
     </None>
-    <None Update="Parameters\System.settings">
+    <None Update="Parameters\SystemParams.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
-      <LastGenOutput>System.Designer.cs</LastGenOutput>
+      <LastGenOutput>SystemParams.Designer.cs</LastGenOutput>
     </None>
     <None Update="Parameters\Tags.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>

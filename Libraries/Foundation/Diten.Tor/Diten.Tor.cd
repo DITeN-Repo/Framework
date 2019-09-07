@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Diten.Tor.Client" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAAAECSAAAACAAgBAYQIACgAgAUABoAAIAAIAAAA=</HashCode>
+      <FileName>Client.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Diten.Tor.ClientCreateParams" Collapsed="true">
+    <Position X="7.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAgQMEgAECAgAAAAAAgIAAAIAAAIAEAAA=</HashCode>
+      <FileName>ClientCreateParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.ClientRemoteParams" Collapsed="true">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAEAAAAAAAIAgAACAIAAAIAAAAA=</HashCode>
+      <FileName>ClientRemoteParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:53 PM
@@ -19,7 +28,7 @@ using System.Linq;
 namespace Diten.Parameters
 {
 	/// <summary>
-	///    The const variables.
+	///    The const Parameters.
 	/// </summary>
 	public partial class Constants
 	{
@@ -131,28 +140,30 @@ namespace Diten.Parameters
 			return _return.ToArray();
 		}).Invoke();
 
+		private static string FrameName
+		{
+			get
+			{
+				var _return = new StackTrace().GetFrame(1).GetMethod().Name;
+
+				return _return.StartsWith(SystemParams.Default.GetFrameFunctionExtention, StringComparison.Ordinal)
+					? _return.TrimStart(SystemParams.Default.GetFrameFunctionExtention.ToCharArray())
+					: _return.StartsWith(SystemParams.Default.SetFrameFunctionExtention, StringComparison.Ordinal)
+						? _return.TrimStart(SystemParams.Default.SetFrameFunctionExtention.ToCharArray())
+						: _return;
+			}
+		}
+
 		public static IEnumerable<string> GetGlobalAssemblyCacheFiles(string path)
 		{
 			var directoryInfo = new DirectoryInfo(path);
 
-			var files = directoryInfo.GetFiles(System.Default.AllDLLFiles).Select(fi => fi.FullName).ToList();
+			var files = directoryInfo.GetFiles(SystemParams.Default.AllDLLFiles).Select(fi => fi.FullName).ToList();
 
 			foreach (var diChild in directoryInfo.GetDirectories())
 				files.AddRange(GetGlobalAssemblyCacheFiles(diChild.FullName));
 
 			return files.ToArray();
-		}
-
-		protected static string GetFrameName()
-		{
-			var _return = new StackTrace().GetFrame(1).GetMethod().Name;
-
-			if (_return.StartsWith(System.Default.GetFrameFunctionExtention))
-				return _return.TrimStart(System.Default.GetFrameFunctionExtention.ToCharArray());
-
-			return _return.StartsWith(System.Default.SetFrameFunctionExtention)
-				? _return.TrimStart(System.Default.SetFrameFunctionExtention.ToCharArray())
-				: _return;
 		}
 	}
 }

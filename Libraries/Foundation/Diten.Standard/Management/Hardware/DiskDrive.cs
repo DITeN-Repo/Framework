@@ -1,5 +1,14 @@
 #region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
@@ -8,16 +17,16 @@
 
 #region Used Directives
 
+using System.Diagnostics.CodeAnalysis;
 using Diten.Attributes;
 using Diten.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 #endregion
 
 namespace Diten.Management.Hardware
 {
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public class DiskDrive:Hardware<DiskDrive>
+	public class DiskDrive : Hardware<DiskDrive>
 	{
 		public object Availability { get; set; }
 		public object BytesPerSector { get; set; }

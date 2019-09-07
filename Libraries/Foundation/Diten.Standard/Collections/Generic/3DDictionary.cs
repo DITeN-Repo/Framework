@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
@@ -19,7 +28,7 @@ using System.Reflection;
 namespace Diten.Collections.Generic
 {
 	[Attributes.Generic]
-	public class Dictionary<T1, T2, T3>:Dictionary<T1, KeyValuePair<T2, T3>>
+	public class Dictionary<T1, T2, T3> : Dictionary<T1, KeyValuePair<T2, T3>>
 	{
 		public T3 this[T1 key1, T2 key2]
 		{
@@ -33,7 +42,7 @@ namespace Diten.Collections.Generic
 
 		public void Add(T1 key1, T2 key2, T3 value)
 		{
-			if(ContainsKey(key1, key2))
+			if (ContainsKey(key1, key2))
 				throw new ArgumentException(
 					$@"Keys [{nameof(key1)}: {key1}, {nameof(key2)}: {key2}] already is exist.");
 
@@ -42,7 +51,7 @@ namespace Diten.Collections.Generic
 
 		public bool ContainsKey(T1 key1, T2 key2)
 		{
-			return this.Any(i => i.Key.Equals(key1)&&i.Value.Key.Equals(key2));
+			return this.Any(i => i.Key.Equals(key1) && i.Value.Key.Equals(key2));
 		}
 
 		public bool ContainsValue(T3 value)
@@ -52,7 +61,7 @@ namespace Diten.Collections.Generic
 
 		public void Remove(T1 key1, T2 key2)
 		{
-			foreach(var item in this.Where(k => k.Key.Equals(key1)&&k.Value.Key.Equals(key2)))
+			foreach (var item in this.Where(k => k.Key.Equals(key1) && k.Value.Key.Equals(key2)))
 				Remove(item.Key);
 		}
 
@@ -60,7 +69,7 @@ namespace Diten.Collections.Generic
 		{
 			Clear();
 
-			foreach(var item in this)
+			foreach (var item in this)
 			{
 				var tmp1 = ExecuteMethod(item, Enum.MethodNames.Load);
 
@@ -72,7 +81,7 @@ namespace Diten.Collections.Generic
 
 		public override void Save()
 		{
-			foreach(var item in this)
+			foreach (var item in this)
 				ExecuteMethod(item, Enum.MethodNames.Save);
 		}
 

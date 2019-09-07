@@ -53,6 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Numeric\DBit.cs" />
+    <Compile Include="Numeric\DByte.cs" />
+    <Compile Include="Numeric\Duosexagesimal.cs" />
+    <Compile Include="Numeric\Hexadecimal.cs" />
+    <Compile Include="Numeric\Hexavigesimal.cs" />
+    <Compile Include="Numeric\IDBit.cs" />
+    <Compile Include="Numeric\Num.cs" />
+    <Compile Include="Numeric\Number.cs" />
+    <Compile Include="Numeric\Tetrasexagesimal.cs" />
+    <Compile Include="Numeric\Vigesimal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

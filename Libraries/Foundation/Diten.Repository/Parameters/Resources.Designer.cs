@@ -7,7 +7,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using System;
 
 namespace Diten.Parameters {
     
@@ -88,17 +87,17 @@ namespace Diten.Parameters {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;C:\Program Files (x86)\Log Parser 2.2\logparser&quot; &quot;SELECT * INTO W3SVC%1 FROM %2\W3SVC%1\*.log&quot; -i:iisw3c -o:SQL -server:localhost -database:DTDB003V100 -username:IISLOGUSR -password:85kE47Ck6G67hJNyA3J6RDrR6mEpuJn4gNEyC9v3Ka6n68Tf5c -createTable: ON
-        ///erase C:\inetpub\logs\LogFiles\W3SVC2\*.log.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static string ImportIISLogs {
+        public static byte[] KeySource {
             get {
-                return ResourceManager.GetString("ImportIISLogs", resourceCulture);
+                object obj = ResourceManager.GetObject("KeySource", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-16&quot;?&gt;
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///
         ///&lt;Task version=&quot;1.2&quot; xmlns=&quot;http://schemas.microsoft.com/windows/2004/02/mit/task&quot;&gt;
         ///	&lt;RegistrationInfo&gt;
@@ -112,21 +111,21 @@ namespace Diten.Parameters {
         ///			&lt;StartBoundary&gt;2017-03-05T00:01:00&lt;/StartBoundary&gt;
         ///			&lt;Enabled&gt;true&lt;/Enabled&gt;
         ///			&lt;ScheduleByDay&gt;
-        ///				&lt;DaysInterval&gt;1&lt;/D [rest of string was truncated]&quot;;.
+        ///				&lt;DaysInterval&gt;1&lt;/Da [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string ImportIISlogsTask {
+        public static string Manifest000 {
             get {
-                return ResourceManager.GetString("ImportIISlogsTask", resourceCulture);
+                return ResourceManager.GetString("Manifest000", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to &quot;C:\Program Files (x86)\Log Parser 2.2\logparser&quot; &quot;SELECT * INTO W3SVC%1 FROM %2\W3SVC%1\*.log&quot; -i:iisw3c -o:SQL -server:localhost -database:DTDB003V100 -username:IISLOGUSR -password:85kE47Ck6G67hJNyA3J6RDrR6mEpuJn4gNEyC9v3Ka6n68Tf5c -createTable: ON
+        ///erase C:\inetpub\logs\LogFiles\W3SVC2\*.log.
         /// </summary>
-        public static byte[] KeySource {
+        public static string Script000 {
             get {
-                object obj = ResourceManager.GetObject("KeySource", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("Script000", resourceCulture);
             }
         }
     }

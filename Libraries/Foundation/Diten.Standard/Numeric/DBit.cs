@@ -1,18 +1,27 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
-// Creation Date: 2019/08/15 4:42 PM
+// Creation Date: 2019/09/04 6:56 PM
 
 #endregion
 
 #region Used Directives
 
-using Diten.Collections.Generic;
-using Diten.Parameters;
 using System;
 using System.Collections;
 using System.ComponentModel;
+using Diten.Collections.Generic;
+using Diten.Parameters;
 
 #endregion
 
@@ -21,11 +30,11 @@ using System.ComponentModel;
 namespace Diten.Numeric
 {
 	[DefaultProperty("Value")]
-	public class DBit:Object<DBit>, IDBit<bool>
+	public class DBit : Object<DBit>, IDBit<bool>
 	{
 		public DBit()
 		{
-			Value=new BitArray(1);
+			Value = new BitArray(1);
 		}
 
 		/// <summary>
@@ -70,8 +79,8 @@ namespace Diten.Numeric
 		/// <inheritdoc cref="IComparable.CompareTo" />
 		public int CompareTo(object obj)
 		{
-			if(obj is DBit)
-				return CompareTo((DBit)obj);
+			if (obj is DBit)
+				return CompareTo((DBit) obj);
 
 			return -1;
 		}
@@ -83,7 +92,7 @@ namespace Diten.Numeric
 		/// <inheritdoc cref="IComparable{T}.CompareTo" />
 		public int CompareTo(bool other)
 		{
-			if(Value[0]==other)
+			if (Value[0] == other)
 				return 0;
 			return !Value[0] ? -1 : 1;
 		}
@@ -93,9 +102,9 @@ namespace Diten.Numeric
 		/// <inheritdoc cref="IComparable{T}.CompareTo" />
 		public int CompareTo(DBit other)
 		{
-			if(other==null)
+			if (other == null)
 				return -1;
-			if(!(other is DBit))
+			if (!(other is DBit))
 				throw new ArgumentException(Exceptions.Default.Diten_Numeric_Number_CompareTo_PObject);
 			return other.Value[0] ? 1 : 0;
 		}

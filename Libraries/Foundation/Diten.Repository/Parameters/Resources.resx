@@ -121,13 +121,15 @@
   <data name="AsciiTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ascii-table.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="ImportIISLogs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ImportIISLogs.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="ImportIISlogsTask" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ImportIISlogsTask.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
   <data name="KeySource" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KeySource.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Manifest000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\manifests\manifest000.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <comment>Import IIS Logs Task XML File</comment>
+  </data>
+  <data name="Script000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\scripts\script000.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <comment>Import IIS Logs Task Batch File</comment>
   </data>
 </root>

@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:07 AM
@@ -8,18 +17,18 @@
 
 #region Used Directives
 
-using Diten.Net.NetworkInformation;
 using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using Diten.Net.NetworkInformation;
 
 #endregion
 
 namespace Diten.Sockets
 {
-	public class Asynchronous:Socket
+	public class Asynchronous : Socket
 	{
 		private readonly ManualResetEvent _allDone;
 		private readonly ManualResetEvent _connectDone;
@@ -32,15 +41,15 @@ namespace Diten.Sockets
 			SocketType.Stream,
 			ProtocolType.Tcp)
 		{
-			Response=new Byte();
-			_allDone=new ManualResetEvent(false);
-			_connectDone=new ManualResetEvent(false);
-			_sendDone=new ManualResetEvent(false);
-			_receiveDone=new ManualResetEvent(false);
+			Response = new Byte();
+			_allDone = new ManualResetEvent(false);
+			_connectDone = new ManualResetEvent(false);
+			_sendDone = new ManualResetEvent(false);
+			_receiveDone = new ManualResetEvent(false);
 
 			var iPEndPoint = new IPEndPoint(serverIp, port);
 
-			switch(condition)
+			switch (condition)
 			{
 				case Condition.Send:
 					BeginConnect(iPEndPoint, ConnectCallback, this);
@@ -72,15 +81,15 @@ namespace Diten.Sockets
 
 		private void AcceptCallback(IAsyncResult ar)
 		{
-			var handler = ((Socket)ar.AsyncState).EndAccept(ar);
-			var state = new StateObject { WorkSocket=handler };
+			var handler = ((Socket) ar.AsyncState).EndAccept(ar);
+			var state = new StateObject {WorkSocket = handler};
 
 			handler.BeginReceive(state.Buffer, 0, StateObject.BufferSize, 0, ReadCallback, state);
 		}
 
 		private void ConnectCallback(IAsyncResult ar)
 		{
-			((Socket)ar.AsyncState).EndConnect(ar);
+			((Socket) ar.AsyncState).EndConnect(ar);
 			_connectDone.Set();
 		}
 
@@ -92,25 +101,25 @@ namespace Diten.Sockets
 
 		public void Listen()
 		{
-			while(!StopListening)
-				while(!Sleep)
-				{
-					_allDone.Reset();
-					BeginAccept(AcceptCallback, this);
-					_allDone.WaitOne();
-				}
+			while (!StopListening)
+			while (!Sleep)
+			{
+				_allDone.Reset();
+				BeginAccept(AcceptCallback, this);
+				_allDone.WaitOne();
+			}
 		}
 
 		private void ReadCallback(IAsyncResult ar)
 		{
-			var state = (StateObject)ar.AsyncState;
+			var state = (StateObject) ar.AsyncState;
 			var handler = state.WorkSocket;
 			var bytesRead = handler.EndReceive(ar);
 
-			if(bytesRead>0)
+			if (bytesRead > 0)
 				Response.Append(state.Buffer);
 
-			if(!Encoding.ASCII.GetString(Response.Value).Contains(Char.ReservedChars.EndOfMedium.ToChar().ToString()))
+			if (!Encoding.ASCII.GetString(Response.Value).Contains(Char.ReservedChars.EndOfMedium.ToChar().ToString()))
 				handler.BeginReceive(state.Buffer, 0, StateObject.BufferSize, 0, ReadCallback, state);
 
 			Response.RemoveEOF();
@@ -118,17 +127,17 @@ namespace Diten.Sockets
 
 		public void Receive()
 		{
-			var state = new StateObject { WorkSocket=this };
+			var state = new StateObject {WorkSocket = this};
 			BeginReceive(state.Buffer, 0, StateObject.BufferSize, 0, ReceiveCallback, state);
 		}
 
 		private void ReceiveCallback(IAsyncResult ar)
 		{
-			var state = (StateObject)ar.AsyncState;
+			var state = (StateObject) ar.AsyncState;
 			var client = state.WorkSocket;
 			var bytesRead = client.EndReceive(ar);
 
-			if(bytesRead>0)
+			if (bytesRead > 0)
 			{
 				Response.Append(state.Buffer);
 				client.BeginReceive(state.Buffer, 0, StateObject.BufferSize, 0, ReceiveCallback, state);
@@ -148,7 +157,7 @@ namespace Diten.Sockets
 
 				return true;
 			}
-			catch(Exception)
+			catch (Exception)
 			{
 				return false;
 			}
@@ -163,7 +172,7 @@ namespace Diten.Sockets
 
 		private void SendCallback(IAsyncResult ar)
 		{
-			((Socket)ar.AsyncState).EndSend(ar);
+			((Socket) ar.AsyncState).EndSend(ar);
 			_sendDone.Set();
 		}
 
@@ -171,10 +180,7 @@ namespace Diten.Sockets
 		{
 			public const int BufferSize = 1024;
 
-			public StateObject()
-			{
-				Buffer=new byte[BufferSize];
-			}
+			public StateObject() => Buffer = new byte[BufferSize];
 
 			public byte[] Buffer { get; set; }
 

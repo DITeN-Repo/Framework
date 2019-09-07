@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
@@ -8,10 +17,10 @@
 
 #region Used Directives
 
-using Diten.Diagnostics;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Diten.Diagnostics;
 
 // ReSharper disable UnusedParameter.Global
 
@@ -26,20 +35,14 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Object that must be converted.</param>
 		/// <returns>A string that represent string converted bytes of the current object.</returns>
-		public static string ToString(this object value)
-		{
-			return value.ToBytes().ToString();
-		}
+		public static string ToString(this object value) => value.ToBytes().ToString();
 
 		/// <summary>
 		///    Converting <see cref="UnmanagedMemoryStream" /> into <see cref="MemoryStream" />.
 		/// </summary>
 		/// <param name="value">An <see cref="UnmanagedMemoryStream" />.</param>
 		/// <returns>A <see cref="MemoryStream" />.</returns>
-		public static MemoryStream ToMemoryStream(object value)
-		{
-			return ((UnmanagedMemoryStream)value).ToMemoryStream();
-		}
+		public static MemoryStream ToMemoryStream(object value) => ((UnmanagedMemoryStream) value).ToMemoryStream();
 
 		/// <summary>
 		///    Converting object into byte array.
@@ -49,7 +52,7 @@ namespace Diten
 		public static byte[] ToBytes(this object value)
 		{
 			var binaryFormatter = new BinaryFormatter();
-			using(var memoryStream = new MemoryStream())
+			using (var memoryStream = new MemoryStream())
 			{
 				binaryFormatter.Serialize(memoryStream, ToMemoryStream(value));
 				return memoryStream.ToArray();
@@ -66,7 +69,7 @@ namespace Diten
 		{
 			try
 			{
-				return (T)value;
+				return (T) value;
 			}
 			catch
 			{
@@ -79,10 +82,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Current frame container object.</param>
 		/// <returns>Type of current frame.</returns>
-		public static Type GetFrameType(this object value)
-		{
-			return new StackTrace().GetFrame(1).GetMethod().DeclaringType;
-		}
+		public static Type GetFrameType(this object value) => new StackTrace().GetFrame(1).GetMethod().DeclaringType;
 
 		/// <summary>
 		///    Get current frame return name.
@@ -93,10 +93,12 @@ namespace Diten
 		{
 			var _return = new StackTrace().GetFrame(2).GetMethod().Name;
 
-			if(_return.StartsWith("get_"))
+			if (_return.StartsWith("get_", StringComparison.Ordinal))
 				return _return.TrimStart("get_".ToCharArray());
 
-			return _return.StartsWith("set_") ? _return.TrimStart("set_".ToCharArray()) : _return;
+			return _return.StartsWith("set_", StringComparison.Ordinal)
+				? _return.TrimStart("set_".ToCharArray())
+				: _return;
 		}
 	}
 }

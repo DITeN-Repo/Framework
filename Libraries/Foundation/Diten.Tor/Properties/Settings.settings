@@ -1,0 +1,11 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
+              GeneratedClassNamespace="Diten.Tor.Properties" GeneratedClassName="Settings">
+	<Profiles />
+	<Settings>
+		<Setting Name="EportPath" Type="System.String" Scope="Application">
+			<Value Profile="(Default)">\Alefba\Exports</Value>
+		</Setting>
+	</Settings>
+</SettingsFile>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EECD857-F347-4102-97D3-62A88F4FA23C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diten.Tor</RootNamespace>
+    <AssemblyName>Diten.Tor</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Bridge|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Bridge\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WebApp %28Debug%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WebApp %28Debug%29\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UPS Demo|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\UPS Demo\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Circuits\Circuit.cs" />
+    <Compile Include="Circuits\Enumerators\CircuitBuildFlags.cs" />
+    <Compile Include="Circuits\Enumerators\CircuitHSState.cs" />
+    <Compile Include="Circuits\Enumerators\CircuitPurpose.cs" />
+    <Compile Include="Circuits\Enumerators\CircuitReason.cs" />
+    <Compile Include="Circuits\Enumerators\CircuitStatus.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="ClientCreateParams.cs" />
+    <Compile Include="ClientRemoteParams.cs" />
+    <Compile Include="Configuration\Attributes\ConfigurationAssocAttribute.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\Enumerators\ConfigurationNames.cs" />
+    <Compile Include="Configuration\Enumerators\ConfigurationValidation.cs" />
+    <Compile Include="Controller\Base\Command.cs" />
+    <Compile Include="Controller\Base\Response.cs" />
+    <Compile Include="Controller\Commands\CloseCircuitCommand.cs" />
+    <Compile Include="Controller\Commands\CloseStreamCommand.cs" />
+    <Compile Include="Controller\Commands\CreateCircuitCommand.cs" />
+    <Compile Include="Controller\Commands\ExtendCircuitCommand.cs" />
+    <Compile Include="Controller\Commands\GetAllRouterStatusCommand.cs" />
+    <Compile Include="Controller\Commands\GetConfCommand.cs" />
+    <Compile Include="Controller\Commands\GetInfoCommand.cs" />
+    <Compile Include="Controller\Commands\GetRouterStatusCommand.cs" />
+    <Compile Include="Controller\Commands\SaveConfCommand.cs" />
+    <Compile Include="Controller\Commands\SetConfCommand.cs" />
+    <Compile Include="Controller\Commands\SignalClearDNSCacheCommand.cs" />
+    <Compile Include="Controller\Commands\SignalHaltCommand.cs" />
+    <Compile Include="Controller\Commands\SignalNewCircuitCommand.cs" />
+    <Compile Include="Controller\Connection\Connection.cs" />
+    <Compile Include="Controller\Connection\ConnectionResponse.cs" />
+    <Compile Include="Controller\Control.cs" />
+    <Compile Include="Controller\Enumerators\StatusCode.cs" />
+    <Compile Include="Core\Bytes.cs" />
+    <Compile Include="Core\Converters\BytesTypeConverter.cs" />
+    <Compile Include="Core\Converters\HostAuthTypeConverter.cs" />
+    <Compile Include="Core\Converters\HostTypeConverter.cs" />
+    <Compile Include="Core\Enumerators\Auto.cs" />
+    <Compile Include="Core\Enumerators\Bits.cs" />
+    <Compile Include="Core\Exceptions\TorException.cs" />
+    <Compile Include="Core\Helpers\ReflectionHelper.cs" />
+    <Compile Include="Core\Helpers\StringHelper.cs" />
+    <Compile Include="Core\Host.cs" />
+    <Compile Include="Core\HostAuth.cs" />
+    <Compile Include="Events\Attributes\EventAssocAttribute.cs" />
+    <Compile Include="Events\Base\Dispatcher.cs" />
+    <Compile Include="Events\Dispatchers\BandwidthDispatcher.cs" />
+    <Compile Include="Events\Dispatchers\CircuitDispatcher.cs" />
+    <Compile Include="Events\Dispatchers\ConfigChangedDispatcher.cs" />
+    <Compile Include="Events\Dispatchers\LogDispatcher.cs" />
+    <Compile Include="Events\Dispatchers\ORConnectionDispatcher.cs" />
+    <Compile Include="Events\Dispatchers\StreamDispatcher.cs" />
+    <Compile Include="Events\Enumerators\Event.cs" />
+    <Compile Include="Events\Events.cs" />
+    <Compile Include="Events\Events\BandwidthEvent.cs" />
+    <Compile Include="Events\Events\CircuitEvent.cs" />
+    <Compile Include="Events\Events\ConfigurationChangedEvent.cs" />
+    <Compile Include="Events\Events\LogEvent.cs" />
+    <Compile Include="Events\Events\ORConnectionEvent.cs" />
+    <Compile Include="Events\Events\StreamEvent.cs" />
+    <Compile Include="IO\Socks5Stream.cs" />
+    <Compile Include="Logging\Logging.cs" />
+    <Compile Include="ORConnections\Enumerators\ORReason.cs" />
+    <Compile Include="ORConnections\Enumerators\ORStatus.cs" />
+    <Compile Include="ORConnections\ORConnection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Proxy\Processors\ConnectionProcessor.cs" />
+    <Compile Include="Net\Processors\Socks5Processor.cs" />
+    <Compile Include="Proxy\Proxy.cs" />
+    <Compile Include="Proxy\Socks5Proxy.cs" />
+    <Compile Include="Proxy\Connection\Connection.cs" />
+    <Compile Include="Net\Socket\ForwardSocket.cs" />
+    <Compile Include="Routers\Enumerators\RouterFlags.cs" />
+    <Compile Include="Routers\Router.cs" />
+    <Compile Include="Status\Status.cs" />
+    <Compile Include="Streams\Enumerators\StreamPurpose.cs" />
+    <Compile Include="Streams\Enumerators\StreamReason.cs" />
+    <Compile Include="Streams\Enumerators\StreamStatus.cs" />
+    <Compile Include="Streams\Stream.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <EmbeddedResource Include="Resources\tor.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libgcc_s_sjlj-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libevent-2-1-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libevent_extra-2-1-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libeay32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libevent_core-2-1-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\zlib1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\tor-gencert.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libssp-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libwinpthread-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ssleay32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DTtor.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libevent-2-0-5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libevent_extra-2-0-5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\libevent_core-2-0-5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Circuits\Circuits.cd" />
+    <None Include="Circuits\Enumerators\Enumerators.cd" />
+    <None Include="Configuration\Attributes\Attributes.cd" />
+    <None Include="Configuration\Configuration.cd" />
+    <None Include="Configuration\Enumerators\Enumerators.cd" />
+    <None Include="Controller\Base\Base.cd" />
+    <None Include="Controller\Commands\Commands.cd" />
+    <None Include="Controller\Connection\Connection.cd" />
+    <None Include="Controller\Controller.cd" />
+    <None Include="Controller\Enumerators\Enumerators.cd" />
+    <None Include="Core\Converters\Converters.cd" />
+    <None Include="Core\Core.cd" />
+    <None Include="Core\Enumerators\Enumerators.cd" />
+    <None Include="Core\Exceptions\Exceptions.cd" />
+    <None Include="Core\Helpers\Helpers.cd" />
+    <None Include="Diten.Tor.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Resources\geoip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\geoip6">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Foundation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

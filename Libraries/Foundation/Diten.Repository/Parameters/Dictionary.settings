@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
 
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
-              GeneratedClassNamespace="Diten.Variables" GeneratedClassName="Dictionary">
+              GeneratedClassNamespace="Diten.Parameters" GeneratedClassName="Dictionary">
 	<Profiles />
 	<Settings>
 		<Setting Name="Error" Type="System.String" Scope="Application">
@@ -73,7 +73,7 @@
 		<Setting Name="Rename" Type="System.String" Scope="Application">
 			<Value Profile="(Default)">تغییر نام</Value>
 		</Setting>
-		<Setting Name="Properties" Type="System.String" Scope="Application">
+		<Setting Name="PropertiesText" Type="System.String" Scope="Application">
 			<Value Profile="(Default)">خصوصیات</Value>
 		</Setting>
 	</Settings>

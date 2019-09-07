@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
@@ -30,10 +39,8 @@ namespace Diten.Security.Cryptography
 		/// <param name="password">Password for eecryption.</param>
 		/// <returns>Text decrypted data.</returns>
 		public static string Decrypt(string data,
-			string password)
-		{
-			return Decrypt(data, password, Salt, Iv);
-		}
+			string password) =>
+			Decrypt(data, password, Salt, Iv);
 
 		/// <summary>
 		///    Get decrypted AesBase64 data.
@@ -48,7 +55,7 @@ namespace Diten.Security.Cryptography
 			string salt,
 			string iv)
 		{
-			using(var csp = new AesCryptoServiceProvider())
+			using (var csp = new AesCryptoServiceProvider())
 			{
 				var cryptoTransform = GetCryptoTransform(csp, password, salt, iv, false);
 				var output = System.Convert.FromBase64String(data);
@@ -65,10 +72,8 @@ namespace Diten.Security.Cryptography
 		/// <param name="password">Password for eecryption.</param>
 		/// <returns>Text encrypted data.</returns>
 		public static string Encrypt(string data,
-			string password)
-		{
-			return Encrypt(data, password, Salt, Iv);
-		}
+			string password) =>
+			Encrypt(data, password, Salt, Iv);
 
 		/// <summary>
 		///    Get encrypted AesBase64 data.
@@ -83,7 +88,7 @@ namespace Diten.Security.Cryptography
 			string salt,
 			string iv)
 		{
-			using(var csp = new AesCryptoServiceProvider())
+			using (var csp = new AesCryptoServiceProvider())
 			{
 				var cryptoTransform = GetCryptoTransform(csp, password, salt, iv, true);
 				var inputBuffer = Encoding.UTF8.GetBytes(data);
@@ -99,13 +104,13 @@ namespace Diten.Security.Cryptography
 			string iv,
 			bool encrypting)
 		{
-			cryptoServiceProvider.Mode=CipherMode.CBC;
-			cryptoServiceProvider.Padding=PaddingMode.PKCS7;
+			cryptoServiceProvider.Mode = CipherMode.CBC;
+			cryptoServiceProvider.Padding = PaddingMode.PKCS7;
 			var spec = new Rfc2898DeriveBytes(Encoding.UTF8.GetBytes(password), Encoding.UTF8.GetBytes(salt), 65536);
 			var key = spec.GetBytes(16);
 
-			cryptoServiceProvider.IV=Encoding.UTF8.GetBytes(iv);
-			cryptoServiceProvider.Key=key;
+			cryptoServiceProvider.IV = Encoding.UTF8.GetBytes(iv);
+			cryptoServiceProvider.Key = key;
 
 			return encrypting ? cryptoServiceProvider.CreateEncryptor() : cryptoServiceProvider.CreateDecryptor();
 		}

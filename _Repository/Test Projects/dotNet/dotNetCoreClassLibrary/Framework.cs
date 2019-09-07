@@ -1,5 +1,14 @@
 ﻿#region DITeN Registration Info
 
+// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+// ----------------------------------------------------------------------------------------------
+// Agreement:
+// 
+// All developers could modify or developing this code but changing the architecture of
+// the product is not allowed.
+// 
+// DITeN Research & Development
+// ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
@@ -55,20 +64,20 @@ namespace Diten
 				using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32)
 					.OpenSubKey(@"SOFTWARE\Microsoft\Updates"))
 				{
-					if (baseKey == null) return output;
+					if (baseKey == null)
+						return output;
 
 					foreach (var baseKeyName in baseKey
 						.GetSubKeyNames()
 						.Where(baseKeyName => baseKeyName.Contains(".NET Framework")))
 						using (var updateKey = baseKey.OpenSubKey(baseKeyName))
 						{
-							if (updateKey == null) continue;
+							if (updateKey == null)
+								continue;
 
 							foreach (var kbKeyName in updateKey.GetSubKeyNames())
 								using (updateKey.OpenSubKey(kbKeyName))
-								{
 									output.Add(new DotNet(baseKeyName, kbKeyName));
-								}
 						}
 				}
 
@@ -99,10 +108,12 @@ namespace Diten
 
 					foreach (var versionKeyName in ndpKey.GetSubKeyNames())
 					{
-						if (!versionKeyName.StartsWith("v")) continue;
+						if (!versionKeyName.StartsWith("v"))
+							continue;
 						var versionKey = ndpKey.OpenSubKey(versionKeyName);
 
-						if (versionKey == null) continue;
+						if (versionKey == null)
+							continue;
 						var name = (string) versionKey.GetValue("Version", "");
 						var sp = versionKey.GetValue("SP", "").ToString();
 						var install = versionKey.GetValue("Install", "").ToString();
@@ -113,10 +124,12 @@ namespace Diten
 						}
 						else
 						{
-							if (sp != "" && install == "1") output.Add(new DotNet(name, sp));
+							if (sp != "" && install == "1")
+								output.Add(new DotNet(name, sp));
 						}
 
-						if (name != "") continue;
+						if (name != "")
+							continue;
 
 						foreach (var subKey in versionKey
 							.GetSubKeyNames().Select(subKeyName => versionKey.OpenSubKey(subKeyName)))
@@ -137,7 +150,8 @@ namespace Diten
 							{
 								if (sp != "" && install == "1")
 									output.Add(new DotNet(name, sp));
-								else if (install == "1") output.Add(new DotNet(name, string.Empty));
+								else if (install == "1")
+									output.Add(new DotNet(name, string.Empty));
 							}
 						}
 					}

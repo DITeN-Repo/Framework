@@ -42,15 +42,21 @@
     <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirectoryServices\ActiveDirectory\DirectoryEntryConfiguration.cs" />
+    <Compile Include="DirectoryServices\ActiveDirectory\Management.cs" />
+    <Compile Include="DirectoryServices\ActiveDirectory\Objects.cs" />
+    <Compile Include="DirectoryServices\ActiveDirectory\UsersTasks.cs" />
+    <Compile Include="DirectoryServices\Local\UserTasks.cs" />
+    <Compile Include="DirectoryServices\UserFlags.cs" />
     <Compile Include="ExtensionMethods\ExHttpApplicationState.cs" />
     <Compile Include="ExtensionMethods\ExHttpException.cs" />
     <Compile Include="ExtensionMethods\ExHttpSessionState.cs" />
     <Compile Include="ExtensionMethods\ExStateBag.cs" />
     <Compile Include="ExtensionMethods\ExString.cs" />
+    <Compile Include="ExtensionMethods\Parameters\ExConstants.cs" />
     <Compile Include="Http\Tools.cs" />
     <Compile Include="Mail\Mail.cs" />
     <Compile Include="Mail\MailResources.Designer.cs" />
@@ -63,6 +69,14 @@
     <Compile Include="Web\HttpException.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Mail\MailResources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DirectoryServices\ActiveDirectory\ActiveDirectory.cd" />
+    <None Include="DirectoryServices\DirectoryServices.cd" />
+    <None Include="DirectoryServices\Local\Local.cd" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Diten.Repository\Diten.Repository.csproj">
       <Project>{497bfa7b-b6e5-4961-b0a7-8a350e7b98cf}</Project>
       <Name>Diten.Repository</Name>
@@ -72,9 +86,5 @@
       <Name>Diten.Standard</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mail\MailResources.resx" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

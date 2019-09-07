@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Diten.Tor.Controller.Commands.CloseCircuitCommand" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\CloseCircuitCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.CloseStreamCommand" Collapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\CloseStreamCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.ExtendCircuitCommand" Collapsed="true">
+    <Position X="16.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAgAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\ExtendCircuitCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.GetAllRouterStatusCommand" Collapsed="true">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\GetAllRouterStatusCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.GetAllRouterStatusResponse" Collapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\GetAllRouterStatusCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.GetConfCommand" Collapsed="true">
+    <Position X="13.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\GetConfCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.GetConfResponse" Collapsed="true">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\GetConfCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.GetInfoCommand" Collapsed="true">
+    <Position X="16.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\GetInfoCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.GetInfoResponse" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\GetInfoCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.GetRouterStatusCommand" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\GetRouterStatusCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.GetRouterStatusResponse" Collapsed="true">
+    <Position X="13.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\GetRouterStatusCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.SaveConfCommand" Collapsed="true">
+    <Position X="15" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\SaveConfCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.SetConfCommand" Collapsed="true">
+    <Position X="16.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\SetConfCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.SignalClearDNSCacheCommand" Collapsed="true">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\SignalClearDNSCacheCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.SignalHaltCommand" Collapsed="true">
+    <Position X="11.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\SignalHaltCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.SignalNewCircuitCommand" Collapsed="true">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\SignalNewCircuitCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.CreateCircuitCommand" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\CreateCircuitCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diten.Tor.Controller.Commands.CreateCircuitResponse" Collapsed="true">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Commands\CreateCircuitCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

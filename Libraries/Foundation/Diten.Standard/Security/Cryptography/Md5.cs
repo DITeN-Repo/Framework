@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
-
-#endregion
 
 #region Used Directives
 
@@ -37,11 +33,15 @@ namespace Diten.Security.Cryptography
 		/// <returns>MD5 hashed text.</returns>
 		public static string Encrypt(string data)
 		{
-			using (var md5Hash = MD5.Create()) return GetMd5Hash(md5Hash, data);
+			using (var md5Hash = MD5.Create())
+			{
+				return GetMd5Hash(md5Hash,
+				                  data);
+			}
 		}
 
 		private static string GetMd5Hash(HashAlgorithm md5Hash,
-			string input)
+		                                 string input)
 		{
 			// Convert the input string to a byte array and compute the hash.
 			var data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
@@ -52,8 +52,7 @@ namespace Diten.Security.Cryptography
 
 			// Loop through each byte of the hashed data 
 			// and format each one as a hexadecimal string.
-			foreach (var t in data)
-				sBuilder.Append(t.ToString("x2"));
+			foreach (var t in data) sBuilder.Append(t.ToString("x2"));
 
 			// Return the hexadecimal string.
 			return sBuilder.ToString();
@@ -61,15 +60,18 @@ namespace Diten.Security.Cryptography
 
 		// Verify a hash against a string.
 		public static bool VerifyMd5Hash(string input,
-			string hash)
+		                                 string hash)
 		{
 			// Hash the input.
-			var hashOfInput = GetMd5Hash(MD5.Create(), input);
+			var hashOfInput = GetMd5Hash(MD5.Create(),
+			                             input);
 
 			// Create a StringComparer an compare the hashes.
 			var comparer = StringComparer.OrdinalIgnoreCase;
 
-			return 0 == comparer.Compare(hashOfInput, hash);
+			return 0 ==
+			       comparer.Compare(hashOfInput,
+			                        hash);
 		}
 	}
 }

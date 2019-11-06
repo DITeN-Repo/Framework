@@ -1,5 +1,3 @@
-#region DITeN Registration Info
-
 // Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
-
-#endregion
 
 #region Used Directives
 
@@ -42,22 +38,27 @@ namespace Diten.Text
 		{
 			var score = 0;
 
-			if (password.Length < 1)
-				return PasswordScore.Blank;
-			if (password.Length < 8)
-				return PasswordScore.VeryWeak;
+			if (password.Length < 1) return PasswordScore.Blank;
+			if (password.Length < 8) return PasswordScore.VeryWeak;
 
-			if (password.Length >= 8)
-				score++;
-			if (password.Length >= 12)
-				score++;
-			if (Regex.Match(password, @"\d+", RegexOptions.ECMAScript).Success)
-				score++;
-			if (Regex.Match(password, @"[a-z]", RegexOptions.ECMAScript).Success &&
-			    Regex.Match(password, @"[A-Z]", RegexOptions.ECMAScript).Success)
-				score++;
-			if (Regex.Match(password, @"[!,@,#,$,%,^,&,*,?,_,~,-,�,(,)]", RegexOptions.ECMAScript).Success)
-				score++;
+			if (password.Length >= 8) score++;
+			if (password.Length >= 12) score++;
+			if (Regex.Match(password,
+			                @"\d+",
+			                RegexOptions.ECMAScript)
+			         .Success) score++;
+			if (Regex.Match(password,
+			                @"[a-z]",
+			                RegexOptions.ECMAScript)
+			         .Success &&
+			    Regex.Match(password,
+			                @"[A-Z]",
+			                RegexOptions.ECMAScript)
+			         .Success) score++;
+			if (Regex.Match(password,
+			                @"[!,@,#,$,%,^,&,*,?,_,~,-,�,(,)]",
+			                RegexOptions.ECMAScript)
+			         .Success) score++;
 
 			return (PasswordScore) score;
 		}
@@ -67,30 +68,44 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="computerName">Computer name for validation.</param>
 		/// <returns>True if user name is valid.</returns>
-		public static bool IsValidComputerName(string computerName) => Regex.IsMatch(computerName, @"^[a-zA-Z0-9_\-]*$");
+		public static bool IsValidComputerName(string computerName)
+		{
+			return Regex.IsMatch(computerName,
+			                     @"^[a-zA-Z0-9_\-]*$");
+		}
 
 		/// <summary>
 		///    Check is valid domain name.
 		/// </summary>
 		/// <param name="domainName">Domain name for validation.</param>
 		/// <returns>True if domain name is valid.</returns>
-		public static bool IsValidDomainName(string domainName) =>
-			Regex.IsMatch(domainName, @"/^[^\.].*/^[a-zA-Z0-9_\-\.]*$");
+		public static bool IsValidDomainName(string domainName)
+		{
+			return Regex.IsMatch(domainName,
+			                     @"/^[^\.].*/^[a-zA-Z0-9_\-\.]*$");
+		}
 
 		/// <summary>
 		///    Check is valid email addres.
 		/// </summary>
 		/// <param name="emailAddress">Email address for validation.</param>
 		/// <returns>True if email address is valid.</returns>
-		public static bool IsValidEMailAddress(string emailAddress) => Regex.IsMatch(emailAddress,
-			@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$");
+		public static bool IsValidEMailAddress(string emailAddress)
+		{
+			return Regex.IsMatch(emailAddress,
+			                     @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$");
+		}
 
 		/// <summary>
 		///    Check is valid group name.
 		/// </summary>
 		/// <param name="groupName">Group name for validation.</param>
 		/// <returns>True if domain name is valid.</returns>
-		public static bool IsValidGroupName(string groupName) => Regex.IsMatch(groupName, @"^[a-zA-Z0-9_\-]*$");
+		public static bool IsValidGroupName(string groupName)
+		{
+			return Regex.IsMatch(groupName,
+			                     @"^[a-zA-Z0-9_\-]*$");
+		}
 
 		/// <summary>
 		///    Check is national code valid.
@@ -99,17 +114,15 @@ namespace Diten.Text
 		/// <returns>True if national code is valid.</returns>
 		public static bool IsValidNationalCode(string nationalCode)
 		{
-			if (string.IsNullOrEmpty(nationalCode))
-				throw new InvalidDataException("Lotfan yek code melli sahih vared namaaeid.");
+			if (string.IsNullOrEmpty(nationalCode)) throw new InvalidDataException("Lotfan yek code melli sahih vared namaaeid.");
 
-			if (nationalCode.Length != 10)
-				throw new InvalidOperationException("Code melli baayad hadeaghal 10 kaaraakter daashteh baashad.");
+			if (nationalCode.Length != 10) throw new InvalidOperationException("Code melli baayad hadeaghal 10 kaaraakter daashteh baashad.");
 
 			var regex = new Regex(@"\d{10}");
 
 			if (!regex.IsMatch(nationalCode))
 				throw new InvalidCastException(
-					"Code melli baayad 10 ragham eadadi baashad. lotfan code sahih vared namaaeid.");
+				                               "Code melli baayad 10 ragham eadadi baashad. lotfan code sahih vared namaaeid.");
 
 			var allDigitEqual = new[]
 			{
@@ -118,8 +131,7 @@ namespace Diten.Text
 				"7777777777", "8888888888", "9999999999"
 			};
 
-			if (allDigitEqual.Contains(nationalCode))
-				return false;
+			if (allDigitEqual.Contains(nationalCode)) return false;
 
 			var chArray = nationalCode.ToCharArray();
 			var num0 = System.Convert.ToInt32(chArray[0].ToString()) * 10;
@@ -144,21 +156,32 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="password">Password for validation.</param>
 		/// <returns>True if user name is valid.</returns>
-		public static bool IsValidPassword(string password) =>
-			Regex.IsMatch(password, @"^([a-zA-Z0-9_\.~!@#$%^&*()\-+=<>,\\|{}\[\]'/`?\:\;]{8,20})*$");
+		public static bool IsValidPassword(string password)
+		{
+			return Regex.IsMatch(password,
+			                     @"^([a-zA-Z0-9_\.~!@#$%^&*()\-+=<>,\\|{}\[\]'/`?\:\;]{8,20})*$");
+		}
 
 		/// <summary>
 		///    Check is valid system word.
 		/// </summary>
 		/// <param name="word">Word for validation.</param>
 		/// <returns>True if word is system word.</returns>
-		public static bool IsValidSystemWord(string word) => Regex.IsMatch(word, @"\[*[A-Z0-9_]*\]");
+		public static bool IsValidSystemWord(string word)
+		{
+			return Regex.IsMatch(word,
+			                     @"\[*[A-Z0-9_]*\]");
+		}
 
 		/// <summary>
 		///    Check is valid user name.
 		/// </summary>
 		/// <param name="userName">User name for validation.</param>
 		/// <returns>True if user name is valid.</returns>
-		public static bool IsValidUserName(string userName) => Regex.IsMatch(userName, @"^[a-zA-Z0-9_\.]*$");
+		public static bool IsValidUserName(string userName)
+		{
+			return Regex.IsMatch(userName,
+			                     @"^[a-zA-Z0-9_\.]*$");
+		}
 	}
 }

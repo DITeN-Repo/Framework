@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
 
-#endregion
-
 #region Used Directives
 
 using System.DirectoryServices;
@@ -25,10 +21,9 @@ namespace Diten.DirectoryServices.ActiveDirectory
 {
 	public class DirectoryEntryConfiguration
 	{
-		public DirectoryEntryConfiguration(string domainADsPath) =>
-			EntryConfiguration = new DirectoryEntry(domainADsPath).Options;
+		public DirectoryEntryConfiguration(string domainADsPath) { EntryConfiguration = new DirectoryEntry(domainADsPath).Options; }
 
-		private System.DirectoryServices.DirectoryEntryConfiguration EntryConfiguration { get; }
+		private System.DirectoryServices.DirectoryEntryConfiguration EntryConfiguration {get;}
 
 		/// <summary>
 		///    Get that is mutually authenticated.

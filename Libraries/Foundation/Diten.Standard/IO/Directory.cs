@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 7:01 PM
-
-#endregion
 
 #region Used Directives
 
@@ -39,10 +35,12 @@ namespace Diten.IO
 			/// </summary>
 			/// <param name="path">Path of directory that must be created.</param>
 			/// <returns></returns>
-			public static DirectoryInfo CreateDirectory(string path) =>
-				System.IO.Directory.Exists(path)
-					? new DirectoryInfo(path)
-					: System.IO.Directory.CreateDirectory(path);
+			public static DirectoryInfo CreateDirectory(string path)
+			{
+				return System.IO.Directory.Exists(path)
+					       ? new DirectoryInfo(path)
+					       : System.IO.Directory.CreateDirectory(path);
+			}
 
 			/// <summary>
 			///    Setting full access control to a directory for
@@ -54,16 +52,16 @@ namespace Diten.IO
 			///    <param name="path"></param>
 			/// </param>
 			public static void SetFullAccessControl(string path,
-				string username)
+			                                        string username)
 			{
 				var directoryInfo = new DirectoryInfo(path);
 				var directorySecurity = directoryInfo.GetAccessControl();
 
 				directorySecurity.AddAccessRule(new FileSystemAccessRule($@"{System.Environment.UserDomainName}\{path}",
-					FileSystemRights.FullControl,
-					InheritanceFlags.ObjectInherit,
-					PropagationFlags.None,
-					AccessControlType.Allow));
+				                                                         FileSystemRights.FullControl,
+				                                                         InheritanceFlags.ObjectInherit,
+				                                                         PropagationFlags.None,
+				                                                         AccessControlType.Allow));
 				directoryInfo.SetAccessControl(directorySecurity);
 			}
 		}

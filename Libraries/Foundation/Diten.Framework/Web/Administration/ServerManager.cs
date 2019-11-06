@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:51 AM
-
-#endregion
 
 #region Used Directives
 
@@ -51,24 +47,26 @@ namespace Diten.Web.Administration
 		/// <param name="password">
 		///    The password.
 		/// </param>
-		[SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly",
+		[SuppressMessage("StyleCop.CSharp.DocumentationRules",
+			"SA1650:ElementDocumentationMustBeSpelledCorrectly",
 			Justification = "Reviewed. Suppression is OK here.")]
-		public static void ChangeWebSiteLoggingToOdbc(
-			Site site,
-			string odbcDataSource,
-			string username,
-			string password)
+		public static void ChangeWebSiteLoggingToOdbc(Site site,
+		                                              string odbcDataSource,
+		                                              string username,
+		                                              string password)
 		{
 			var system32FolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.SystemX86);
 
 			Process.ExecuteCommand(
-				$"{system32FolderPath}\\inetsrv\\appcmd.exe set config -section:ODBCLogging -datasource:\"{odbcDataSource}\"" +
-				$"-tableName:\"InternetLog\" -username:\"{username}\" -password:\"{password}\"",
-				SystemParams.Default.AdminUser, SystemParams.Default.AdminUserPassword);
+			                       $"{system32FolderPath}\\inetsrv\\appcmd.exe set config -section:ODBCLogging -datasource:\"{odbcDataSource}\"" +
+			                       $"-tableName:\"InternetLog\" -username:\"{username}\" -password:\"{password}\"",
+			                       SystemParams.Default.AdminUser,
+			                       SystemParams.Default.AdminUserPassword);
 			Process.ExecuteCommand(
-				$"{system32FolderPath}\\inetsrv\\appcmd.exe set sites \"{site.Name}\" -logFile.logFormat:\"Custom\" " +
-				"-logFile.customLogPluginClsid:\"{FF16065B-DE82-11CF-BC0A-00AA006111E0}\"",
-				SystemParams.Default.AdminUser, SystemParams.Default.AdminUserPassword);
+			                       $"{system32FolderPath}\\inetsrv\\appcmd.exe set sites \"{site.Name}\" -logFile.logFormat:\"Custom\" " +
+			                       "-logFile.customLogPluginClsid:\"{FF16065B-DE82-11CF-BC0A-00AA006111E0}\"",
+			                       SystemParams.Default.AdminUser,
+			                       SystemParams.Default.AdminUserPassword);
 		}
 	}
 }

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,12 +11,10 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 1:05 AM
 
-#endregion
-
 namespace Diten.Net.Http
 {
 	public class Tools
 	{
-		public static string GetDomainName(string url) => url.Split("/".ToCharArray())[2];
+		public static string GetDomainName(string url) { return url.Split("/".ToCharArray())[2]; }
 	}
 }

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -36,12 +32,17 @@ namespace Diten
 			var buffer1 = new byte[value.Length];
 			var buffer2 = new byte[value.Length];
 
-			value.Read(buffer1, 0, (int) value.Length);
+			value.Read(buffer1,
+			           0,
+			           (int) value.Length);
 
-			for (var i = 0; i <= buffer1.Length - 1; i++)
-				buffer2[i] = buffer1[i];
+			for (var i = 0;
+			     i <= buffer1.Length - 1;
+			     i++) buffer2[i] = buffer1[i];
 
-			holder.Write(buffer2, 0, (int) value.Length);
+			holder.Write(buffer2,
+			             0,
+			             (int) value.Length);
 
 			return holder;
 		}

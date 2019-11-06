@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 5:16 AM
 
-#endregion
-
 #region Used Directives
 
 using Microsoft.AspNetCore;
@@ -26,13 +22,12 @@ namespace WebApplication_ASPdotNetCore
 {
 	public class Program
 	{
-		public static void Main(string[] args)
+		public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 		{
-			CreateWebHostBuilder(args).Build().Run();
+			return WebHost.CreateDefaultBuilder(args)
+			              .UseStartup<Startup>();
 		}
 
-		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-			WebHost.CreateDefaultBuilder(args)
-				.UseStartup<Startup>();
+		public static void Main(string[] args) { CreateWebHostBuilder(args).Build().Run(); }
 	}
 }

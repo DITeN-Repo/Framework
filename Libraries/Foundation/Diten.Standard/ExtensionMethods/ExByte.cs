@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
 
-#endregion
-
 #region Used Directives
 
 using System.Collections;
@@ -26,17 +22,6 @@ namespace Diten
 {
 	public static class ExByte
 	{
-		/// <summary>
-		///    Converting an <see cref="IEnumerable{T}" /> of <see cref="byte" /> into <see cref="List{T}" /> of
-		///    <see cref="bool" />s (bits).
-		/// </summary>
-		/// <param name="value">
-		///    An <see cref="IEnumerable{T}" /> of <see cref="byte" /> that represent source <see cref="bool" />s
-		///    bits.
-		/// </param>
-		/// <returns>An <see cref="System.Array" /> of <see cref="bool" />s bits.</returns>
-		public static BitArray ToBits(this IEnumerable<byte> value) => new BitArray(value.ToBytes());
-
 		///// <summary>
 		///// Converting a <see cref="byte"/> into <see cref="bool"/>s (bits).
 		///// </summary>
@@ -63,6 +48,17 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">A <see cref="byte" /> that represent source of <see cref="bool" />s (bits).</param>
 		/// <returns>An <see cref="System.Array" /> of <see cref="bool" />s (bits).</returns>
-		public static BitArray ToBitArray(this byte value) => new BitArray(value);
+		public static BitArray ToBitArray(this byte value) { return new BitArray(value); }
+
+		/// <summary>
+		///    Converting an <see cref="IEnumerable{T}" /> of <see cref="byte" /> into <see cref="List{T}" /> of
+		///    <see cref="bool" />s (bits).
+		/// </summary>
+		/// <param name="value">
+		///    An <see cref="IEnumerable{T}" /> of <see cref="byte" /> that represent source <see cref="bool" />s
+		///    bits.
+		/// </param>
+		/// <returns>An <see cref="System.Array" /> of <see cref="bool" />s bits.</returns>
+		public static BitArray ToBits(this IEnumerable<byte> value) { return new BitArray(value.ToBytes()); }
 	}
 }

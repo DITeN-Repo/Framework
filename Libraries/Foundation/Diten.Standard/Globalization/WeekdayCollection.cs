@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:16 AM
 
-#endregion
-
 #region Used Directives
 
 using System.Collections;
@@ -24,37 +20,33 @@ using System.Collections.Generic;
 
 namespace Diten.Globalization
 {
-	public class WeekdayCollection : ICollection<Weekday>
+	public class WeekdayCollection: ICollection<Weekday>
 	{
-		public WeekdayCollection() => HolderList = new Collections.Generic.List<Weekday>();
+		public WeekdayCollection() { HolderList = new Collections.Generic.List<Weekday>(); }
 
-		private List<Weekday> HolderList { get; }
+		private List<Weekday> HolderList {get;}
 
-		public IEnumerator<Weekday> GetEnumerator() => HolderList.GetEnumerator();
+		public void Add(Weekday item) { HolderList.Add(item); }
 
-		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+		public void Clear() { HolderList.Clear(); }
 
-		public void Add(Weekday item)
+		public bool Contains(Weekday item) { return HolderList.Contains(item); }
+
+		public void CopyTo(Weekday[] array,
+		                   int arrayIndex)
 		{
-			HolderList.Add(item);
+			HolderList.CopyTo(array,
+			                  arrayIndex);
 		}
-
-		public void Clear()
-		{
-			HolderList.Clear();
-		}
-
-		public bool Contains(Weekday item) => HolderList.Contains(item);
-
-		public void CopyTo(Weekday[] array, int arrayIndex)
-		{
-			HolderList.CopyTo(array, arrayIndex);
-		}
-
-		public bool Remove(Weekday item) => HolderList.Remove(item);
 
 		public int Count => HolderList.Count;
 
+		public IEnumerator<Weekday> GetEnumerator() { return HolderList.GetEnumerator(); }
+
+		IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
+
 		public bool IsReadOnly => false;
+
+		public bool Remove(Weekday item) { return HolderList.Remove(item); }
 	}
 }

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
 
-#endregion
-
 #region Used Directives
 
 using System.Diagnostics.CodeAnalysis;
@@ -24,13 +20,14 @@ using Diten.Collections.Generic;
 
 namespace Diten.Management
 {
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public class OperatingSystem : Hardware<OperatingSystem>
+	[SuppressMessage("ReSharper",
+		"InconsistentNaming")]
+	public class OperatingSystem: Hardware<OperatingSystem>
 	{
 		/// <summary>
 		///    Operating system version.
 		/// </summary>
-		public string Caption { get; set; }
+		public string Caption {get; set;}
 
 		/// <summary>
 		///    Operating system version.

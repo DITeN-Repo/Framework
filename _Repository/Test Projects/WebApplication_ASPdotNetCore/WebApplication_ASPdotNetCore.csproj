@@ -7,8 +7,8 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Ext.NET" Version="4.8.3" />
-    <PackageReference Include="Ext.NET.MVC" Version="4.8.3" />
+    <PackageReference Include="Ext.NET" Version="5.0.0" />
+    <PackageReference Include="Ext.NET.MVC" Version="5.0.0" />
     <PackageReference Include="Ext.NET.Utilities" Version="2.5.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.2.0" />

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -24,7 +20,7 @@ using System.DirectoryServices.AccountManagement;
 
 namespace Diten.DirectoryServices.Local
 {
-	public class UserTasks : PrincipalContext
+	public class UserTasks: PrincipalContext
 	{
 		/// <summary>
 		///    Constructor.
@@ -32,10 +28,12 @@ namespace Diten.DirectoryServices.Local
 		/// <param name="username">Username of a user that has privilege to do jobs on local machine.</param>
 		/// <param name="password">Password of user.</param>
 		public UserTasks(string username,
-			string password) : base(ContextType.Machine, Environment.MachineName,
-			null, ContextOptions.SimpleBind, username, password)
-		{
-		}
+		                 string password): base(ContextType.Machine,
+		                                        Environment.MachineName,
+		                                        null,
+		                                        ContextOptions.SimpleBind,
+		                                        username,
+		                                        password) {}
 
 		/// <summary>
 		///    Create User Account.
@@ -46,11 +44,14 @@ namespace Diten.DirectoryServices.Local
 		/// <param name="displayName">Fullname of user.</param>
 		/// <returns>GUID of user.</returns>
 		public void CreateUserAccount(string username,
-			string password,
-			string description = "",
-			string displayName = "")
+		                              string password,
+		                              string description = "",
+		                              string displayName = "")
 		{
-			var user = new UserPrincipal(this, username, password, true)
+			var user = new UserPrincipal(this,
+			                             username,
+			                             password,
+			                             true)
 			{
 				DisplayName = displayName,
 				Name = username,
@@ -62,10 +63,10 @@ namespace Diten.DirectoryServices.Local
 			user.Save();
 
 			//now add user to "Users" group so it displays in Control Panel
-			var group = GroupPrincipal.FindByIdentity(this, "Users");
+			var group = GroupPrincipal.FindByIdentity(this,
+			                                          "Users");
 
-			if (group == null)
-				return;
+			if (group == null) return;
 			group.Members.Add(user);
 			group.Save();
 		}

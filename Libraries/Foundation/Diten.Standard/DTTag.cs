@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
 
-#endregion
-
 #region Used Directives
 
 using Diten.Security.Cryptography;
@@ -24,11 +20,28 @@ using Diten.Security.Cryptography;
 namespace Diten
 {
 	/// <inheritdoc />
-	public class DTTag : String
+	public class DTTag: String
 	{
-		public DTTag(string value) => Value =
-			SHA1.Encrypt(
-				$@"{Char.ReservedChars.ShiftIn.ToChar().ToString()}{value}{UniqueSignature}{Char.ReservedChars.ShiftOut.ToChar().ToString()}");
+		public DTTag(string value)
+		{
+			Value =
+				SHA1.Encrypt(
+				             $@"{
+						             Char.ReservedChars.ShiftIn.ToChar().ToString()
+					             }{
+						             value
+					             }{
+						             UniqueSignature
+					             }{
+						             Char.ReservedChars.ShiftOut.ToChar().ToString()
+					             }");
+		}
+
+		/// <summary>
+		///    Get end tag.
+		/// </summary>
+		/// <returns>An end tag</returns>
+		public string EndTag => $"</{Value}>";
 
 		/// <summary>
 		///    Get start tag.
@@ -42,16 +55,15 @@ namespace Diten
 		public string Tag => $"<{Value} />";
 
 		/// <summary>
-		///    Get end tag.
-		/// </summary>
-		/// <returns>An end tag</returns>
-		public string EndTag => $"</{Value}>";
-
-		/// <summary>
 		///    Converting value into tag.
 		/// </summary>
 		/// <returns>A tag the is generated from uppercase letters of the words in the string</returns>
-		private string ToTag() =>
-			Value.ToSafe().ToCamel().Replace(Char.ReservedChars.Space.ToChar().ToString(), string.Empty);
+		private string ToTag()
+		{
+			return Value.ToSafe()
+			            .ToCamel()
+			            .Replace(Char.ReservedChars.Space.ToChar().ToString(),
+			                     string.Empty);
+		}
 	}
 }

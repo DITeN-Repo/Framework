@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,12 +11,12 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/05 1:12 AM
 
-#endregion
-
 #region Used Directives
 
 using System;
 using System.Windows.Forms;
+using Diten.Windows.Applications.Tools.Official.Bookmarks;
+using Diten.Windows.Applications.Tools.Official.Temp;
 
 #endregion
 
@@ -34,7 +32,8 @@ namespace Diten.Windows.Applications.Tools.Official
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MDIParentMain());
+			Application.Run(new FormBookmarksOptimizer());
+			//Application.Run(new FormTest());
 		}
 	}
 }

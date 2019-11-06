@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,21 +11,23 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
+using System.Collections;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 using System.Security.Cryptography;
-using System.Text;
 
 #endregion
 
 namespace Diten.Security.Cryptography
 {
+	/// <summary>
+	///    Types of SHA hash.
+	/// </summary>
 	public enum SHATypes
 	{
 		SHA1,
@@ -36,84 +36,73 @@ namespace Diten.Security.Cryptography
 		SHA512
 	}
 
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA<TSHA> where TSHA : HashAlgorithm
+	[SuppressMessage("ReSharper",
+		"InconsistentNaming")]
+	[DefaultProperty("Value")]
+	public class SHA<TSHA> where TSHA: HashAlgorithm
 	{
-		/// <summary>
-		///    Get SHA of type T hashed text.
-		/// </summary>
-		/// <param name="data">Data for encryption.</param>
-		/// <returns>An SHA of type T encrypted data.</returns>
-		public static string Encrypt(string data) => Encrypt(new Byte(data.ToBytes()));
+		/// <inheritdoc cref="SHA{TSHA}()" />
+		/// <param name="value">The data in <see cref="object" /> that must be hashed.</param>
+		public SHA(object value): this(value.ToBytes()) {}
 
 		/// <summary>
-		///    Get SHA of type T hashed text.
+		///    Constructor of <see cref="SHA{TSHA}" /> hashing engine.
 		/// </summary>
-		/// <param name="data">Data for encryption.</param>
-		/// <returns>An SHA of type T encrypted data.</returns>
-		public static string Encrypt(object data) => Encrypt(new Byte(data.ToBytes()));
+		/// <param name="value">The data in <see cref="object" /> that must be hashed.</param>
+		public SHA(IEnumerable value) { Value = value; }
 
 		/// <summary>
-		///    Get SHA of type T hashed text.
+		///    Constructor of <see cref="SHA{TSHA}" /> hashing engine.
 		/// </summary>
-		/// <param name="data">Data for encryption.</param>
-		/// <returns>An SHA of type T encrypted data.</returns>
-		public static string Encrypt(Byte data)
+		protected SHA() {}
+
+		/// <summary>
+		///    The <see cref="object " /> value that will be hashed.
+		/// </summary>
+		private object Value {get;}
+
+		/// <inheritdoc cref="SHA1.ComputeHash(byte[])" />
+		public static byte[] ComputeHash(byte[] buffer)
 		{
-			var sha = typeof(TSHA).GetMethod(Enum.GetName(Enum.MethodNames.Create), Type.EmptyTypes)
-				?.Invoke(Activator.CreateInstance(typeof(TSHA)),
-					BindingFlags.Default, null, null,
-					CultureInfo.CurrentCulture);
-
-			var holder = sha?.GetType().GetMethod(Enum.GetName(Enum.MethodNames.ComputeHash));
+			var methodInfo = Create()?.GetType().GetMethod(Enum.GetName(Enum.MethodNames.ComputeHash));
 
 			//convert the input text to array of bytes
-			var hashData = (byte[]) holder?.Invoke(holder, new object[] {data.Value});
-
-			//create new instance of StringBuilder to save hashed data
-			var returnValue = new StringBuilder();
-
-			if (hashData == null)
-				return string.Empty;
-
-			//loop for each byte and add it to StringBuilder
-			foreach (var t in hashData)
-				returnValue.Append(t.ToString());
-
-			// return hexadecimal string
-			return returnValue.ToString();
+			return (byte[]) methodInfo?.Invoke(methodInfo,
+			                                   new object[] {buffer});
 		}
-	}
 
-	/// <summary>
-	///    SHA1 encryption.
-	/// </summary>
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA1 : SHA<System.Security.Cryptography.SHA1>, ISHA
-	{
-	}
+		/// <summary>
+		///    Get <see cref="TSHA" /> hashed data.
+		/// </summary>
+		/// <returns>A <see cref="TSHA" /> hashed data.</returns>
+		public byte[] ComputeHash() { return ComputeHash(Value.ToBytes()); }
 
-	/// <summary>
-	///    SHA256 encryption.
-	/// </summary>
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA256 : SHA<SHA256Managed>, ISHA
-	{
-	}
+		/// <inheritdoc cref="SHA1Managed.Create()" />
+		public static TSHA Create()
+		{
+			return (TSHA) typeof(TSHA).GetMethod(Enum.GetName(Enum.MethodNames.Create),
+			                                     Type.EmptyTypes)
+			                          ?.Invoke(Activator.CreateInstance(typeof(TSHA)),
+			                                   BindingFlags.Default,
+			                                   null,
+			                                   null,
+			                                   CultureInfo.CurrentCulture);
+		}
 
-	/// <summary>
-	///    SHA384 encryption.
-	/// </summary>
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA384 : SHA<SHA384Managed>, ISHA
-	{
-	}
+		/// <inheritdoc cref="Encrypt(byte[])" />
+		/// <param name="value">The data in <see cref="string" /> that must be hashed.</param>
+		public static byte[] Encrypt(string value) { return Encrypt(new Byte(value.ToBytes())); }
 
-	/// <summary>
-	///    SHA512 encryption.
-	/// </summary>
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
-	public abstract class SHA512 : SHA<SHA512Managed>, ISHA
-	{
+		/// <inheritdoc cref="Encrypt(byte[])" />
+		/// <param name="value">The data in <see cref="object" /> that must be hashed.</param>
+		public static byte[] Encrypt(object value) { return Encrypt(new Byte(value.ToBytes())); }
+
+		/// <inheritdoc cref="Encrypt(byte[])" />
+		/// <param name="value">The data in <see cref="Byte" /> that must be hashed.</param>
+		public static byte[] Encrypt(Byte value) { return Encrypt(value.Value); }
+
+		/// <inheritdoc cref="ComputeHash(byte[])" />
+		/// <param name="value">The data in <see cref="byte" /> that must be hashed.</param>
+		public static byte[] Encrypt(byte[] value) { return new SHA<TSHA>(value).ComputeHash(); }
 	}
 }

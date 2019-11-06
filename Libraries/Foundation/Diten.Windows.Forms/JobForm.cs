@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 10:05 PM
 
-#endregion
-
 #region Used Directives
 
 using System.Windows.Forms;
@@ -23,29 +19,29 @@ using System.Windows.Forms;
 
 namespace Diten.Windows.Forms
 {
-	public partial class JobForm : UserControl
+	public partial class JobForm: UserControl
 	{
-		public JobForm()
-		{
-			InitializeComponent();
-		}
+		public JobForm() { InitializeComponent(); }
 
 		public Information Information => GetInformationControl(0);
 
 		public void AddInformationBox(int count)
 		{
-			for (var i = 0; i < count; i++)
+			for (var i = 0;
+			     i < count;
+			     i++)
 			{
 				tableLayoutPanelInformationContainer.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
 				tableLayoutPanelInformationContainer.Controls.Add(new Information
-				{
-					Dock = DockStyle.Fill,
-					Name = $@"Information{i + 1}".ToUpper()
-				}, i, 0);
+				                                                  {
+					                                                  Dock = DockStyle.Fill,
+					                                                  Name = $@"Information{i + 1}".ToUpper()
+				                                                  },
+				                                                  i,
+				                                                  0);
 			}
 		}
 
-		public Information GetInformationControl(int index) =>
-			(Information) tableLayoutPanelInformationContainer.Controls[index];
+		public Information GetInformationControl(int index) { return (Information) tableLayoutPanelInformationContainer.Controls[index]; }
 	}
 }

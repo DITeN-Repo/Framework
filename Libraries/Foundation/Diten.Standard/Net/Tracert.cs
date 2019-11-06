@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:20 AM
-
-#endregion
 
 #region Used Directives
 
@@ -32,11 +28,6 @@ namespace Diten.Net
 	public class Tracert
 	{
 		private static byte[] _buffer;
-		private IPAddress _destination;
-		private bool _isDone;
-		private List<TracertNode> _nodes;
-		private PingOptions _options;
-		private Ping _ping;
 
 		public Tracert(string hostNameOrAddress)
 		{
@@ -50,11 +41,11 @@ namespace Diten.Net
 		{
 			get
 			{
-				if (_buffer != null)
-					return _buffer;
+				if (_buffer != null) return _buffer;
 				_buffer = new byte[32];
-				for (var i = 0; i < Buffer.Length; i++)
-					_buffer[i] = 0x65;
+				for (var i = 0;
+				     i < Buffer.Length;
+				     i++) _buffer[i] = 0x65;
 
 				return _buffer;
 			}
@@ -63,7 +54,7 @@ namespace Diten.Net
 		/// <summary>
 		///    The host name or address of the destination node
 		/// </summary>
-		public string HostNameOrAddress { get; }
+		public string HostNameOrAddress {get;}
 
 		/// <summary>
 		///    Indicates whether the route tracing is complete
@@ -76,14 +67,14 @@ namespace Diten.Net
 				_isDone = value;
 
 				if (value && OnDone != null)
-					OnDone(this, EventArgs.Empty);
+					OnDone(this,
+					       EventArgs.Empty);
 
-				if (_isDone)
-					Dispose();
+				if (_isDone) Dispose();
 			}
 		}
 
-		public int MaxHops { get; set; } = 30;
+		public int MaxHops {get; set;} = 30;
 
 		/// <summary>
 		///    The list of nodes in the route
@@ -92,21 +83,26 @@ namespace Diten.Net
 		{
 			get
 			{
-				lock (_nodes) return _nodes.ToArray();
+				lock (_nodes) { return _nodes.ToArray(); }
 			}
 		}
 
 		/// <summary>
 		///    The maximum amount of time to wait for the Ping request to an intermediate node
 		/// </summary>
-		public int TimeOut { get; set; }
+		public int TimeOut {get; set;}
+
+		private IPAddress _destination;
+		private bool _isDone;
+		private List<TracertNode> _nodes;
+		private PingOptions _options;
+		private Ping _ping;
 
 		public void Dispose()
 		{
 			lock (this)
 			{
-				if (_ping == null)
-					return;
+				if (_ping == null) return;
 				_ping.Dispose();
 				_ping = null;
 			}
@@ -123,36 +119,45 @@ namespace Diten.Net
 		public event EventHandler<RouteNodeFoundEventArgs> OnRouteNodeFound;
 
 		private void Ping_OnPingCompleted(object sender,
-			PingCompletedEventArgs e)
+		                                  PingCompletedEventArgs e)
 		{
-			ProcessNode(e.Reply.Address, e.Reply.Status);
+			ProcessNode(e.Reply.Address,
+			            e.Reply.Status);
 
 			_options.Ttl += 1;
 
-			if (IsDone)
-				return;
+			if (IsDone) return;
 
 			lock (this)
 				//The expectation was that SendAsync will throw an exception
+			{
 				if (_ping == null)
-					ProcessNode(_destination, IPStatus.Unknown);
+					ProcessNode(_destination,
+					            IPStatus.Unknown);
 				else
-					_ping.SendAsync(_destination, TimeOut, Buffer, _options, null);
+					_ping.SendAsync(_destination,
+					                TimeOut,
+					                Buffer,
+					                _options,
+					                null);
+			}
 		}
 
 		protected void ProcessNode(IPAddress address,
-			IPStatus status)
+		                           IPStatus status)
 		{
 			long roundTripTime = 0;
 
-			if (status == IPStatus.TtlExpired || status == IPStatus.Success)
+			if (status == IPStatus.TtlExpired ||
+			    status == IPStatus.Success)
 			{
 				var pingIntermediate = new Ping();
 
 				try
 				{
 					//Compute roundtrip time to the address by pinging it
-					var reply = pingIntermediate.Send(address, TimeOut);
+					var reply = pingIntermediate.Send(address,
+					                                  TimeOut);
 
 					if (reply != null)
 					{
@@ -160,23 +165,28 @@ namespace Diten.Net
 						status = reply.Status;
 					}
 				}
-				finally
-				{
-					pingIntermediate.Dispose();
-				}
+				finally { pingIntermediate.Dispose(); }
 			}
 
-			var node = new TracertNode(address, roundTripTime, status);
+			var node = new TracertNode(address,
+			                           roundTripTime,
+			                           status);
 
-			lock (_nodes) _nodes.Add(node);
+			lock (_nodes) { _nodes.Add(node); }
 
-			OnRouteNodeFound?.Invoke(this, new RouteNodeFoundEventArgs(node, IsDone));
+			OnRouteNodeFound?.Invoke(this,
+			                         new RouteNodeFoundEventArgs(node,
+			                                                     IsDone));
 
 			IsDone = address.Equals(_destination);
 
 			lock (_nodes)
-				if (!IsDone && _nodes.Count >= MaxHops - 1)
-					ProcessNode(_destination, IPStatus.Success);
+			{
+				if (!IsDone &&
+				    _nodes.Count >= MaxHops - 1)
+					ProcessNode(_destination,
+					            IPStatus.Success);
+			}
 		}
 
 		/// <summary>
@@ -192,13 +202,21 @@ namespace Diten.Net
 
 			if (IPAddress.IsLoopback(_destination))
 			{
-				ProcessNode(_destination, IPStatus.Success);
+				ProcessNode(_destination,
+				            IPStatus.Success);
 			}
 			else
 			{
-				_options = new PingOptions(1, true);
+				_options = new PingOptions(1,
+				                           true);
 
-				lock (_ping) _ping.SendAsync(_destination, TimeOut, Buffer, _options);
+				lock (_ping)
+				{
+					_ping.SendAsync(_destination,
+					                TimeOut,
+					                Buffer,
+					                _options);
+				}
 			}
 
 			var gg =

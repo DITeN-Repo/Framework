@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -51,7 +47,6 @@ namespace Diten
 		/// <param name="value">A <see cref="System.Collections.Generic.List{T}" />.</param>
 		/// <returns>A <see cref="Collections.Generic.List{T}" /></returns>
 		// ReSharper disable once ParameterTypeCanBeEnumerable.Global
-		public static Collections.Generic.List<T> ToList<T>(this List<T> value) =>
-			new Collections.Generic.List<T>().AddRange(value);
+		public static Collections.Generic.List<T> ToList<T>(this List<T> value) { return new Collections.Generic.List<T>().AddRange(value); }
 	}
 }

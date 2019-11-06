@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:55 AM
-
-#endregion
 
 #region Used Directives
 
@@ -41,17 +37,14 @@ namespace Diten
 
 			if (!(length <= 0))
 			{
-				if (length % 2 > 0)
-					length++;
+				if (length % 2 > 0) length++;
 			}
-			else
-			{
-				length = 0;
-			}
+			else { length = 0; }
 
 			length /= 2;
 
-			var stringValue = Tools.Repeat("-", (int) length);
+			var stringValue = Tools.Repeat("-",
+			                               (int) length);
 
 			return $"{stringValue}[[{value.ToUpper()}]]{stringValue}{Environment.NewLine}";
 		}

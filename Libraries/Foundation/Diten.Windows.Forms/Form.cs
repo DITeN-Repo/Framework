@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 10:05 PM
-
-#endregion
 
 #region Used Directives
 
@@ -30,44 +26,60 @@ using File = System.IO.File;
 
 namespace Diten.Windows.Forms
 {
-	public class Form : System.Windows.Forms.Form
+	public class Form: System.Windows.Forms.Form
 	{
-		public bool AskQuestions { get; set; }
-
-		private string Exp =>
-			$@"{Environment.SpecialFolders.MyDocuments}\Windows Tools\{Name.Replace("Form", string.Empty)}\Exports";
-
-		public string ExportPath =>
-			AskQuestions
-				? AskQuestion(
-					$@"Are you sure about creating Exports folder for [{Name.Replace("Form", string.Empty)}] form?")
-					? Directory.Windows.CreateDirectory(Exp).FullName
-					: string.Empty
-				: Directory.Windows.CreateDirectory(Exp).FullName;
-
-		private string Imp =>
-			$@"{Environment.SpecialFolders.MyDocuments}\Windows Tools\{Name.Replace("Form", string.Empty)}\{Name.Replace("Form", string.Empty)}.imp";
+		public bool AskQuestions {get; set;}
 
 		public string DestinationFolder =>
 			$@"{System.Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory)}\{Application.ProductName}\{Text}";
 
+		private string Exp =>
+			$@"{
+					Environment.SpecialFolders.MyDocuments
+				}\Windows Tools\{
+					Name.Replace("Form",
+					             string.Empty)
+				}\Exports";
+
+		public string ExportPath =>
+			AskQuestions
+				? AskQuestion(
+				              $@"Are you sure about creating Exports folder for [{
+						              Name.Replace("Form",
+						                           string.Empty)
+					              }] form?") ? Directory.Windows.CreateDirectory(Exp).FullName : string.Empty
+				: Directory.Windows.CreateDirectory(Exp).FullName;
+
+		private string Imp =>
+			$@"{
+					Environment.SpecialFolders.MyDocuments
+				}\Windows Tools\{
+					Name.Replace("Form",
+					             string.Empty)
+				}\{
+					Name.Replace("Form",
+					             string.Empty)
+				}.imp";
+
 		public List<string> ImportPath =>
 			File.Exists(Imp)
-				? AskQuestions
-					? AskQuestion(
-						$@"Are you sure about loading import file [{Name.Replace("Form", string.Empty)}.imp]?")
-						? File.ReadAllLines(Imp).ToList()
-						: null
-					: File.ReadAllLines(Imp).ToList()
+				? AskQuestions ? AskQuestion(
+				                             $@"Are you sure about loading import file [{
+						                             Name.Replace("Form",
+						                                          string.Empty)
+					                             }.imp]?") ? File.ReadAllLines(Imp).ToList() : null : File.ReadAllLines(Imp).ToList()
 				: null;
 
-		public bool AskQuestion(string question) =>
-			MessageBox.Show(
-				Cultures.Translate(
-					question),
-				Dictionary.Default.Warning,
-				MessageBoxButtons.YesNo,
-				MessageBoxIcon.Question,
-				MessageBoxDefaultButton.Button1) == DialogResult.Yes;
+		public bool AskQuestion(string question)
+		{
+			return MessageBox.Show(
+			                       Cultures.Translate(
+			                                          question),
+			                       Dictionary.Default.Warning,
+			                       MessageBoxButtons.YesNo,
+			                       MessageBoxIcon.Question,
+			                       MessageBoxDefaultButton.Button1) ==
+			       DialogResult.Yes;
+		}
 	}
 }

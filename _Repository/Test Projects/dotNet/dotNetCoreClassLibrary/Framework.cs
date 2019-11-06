@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
-
-#endregion
 
 #region Used Directives
 
@@ -28,7 +24,8 @@ namespace Diten
 	/// <summary>
 	///    A calls for jobs on current installed framework.
 	/// </summary>
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
+	[SuppressMessage("ReSharper",
+		"InconsistentNaming")]
 	public class Framework
 	{
 		/// <summary>
@@ -37,7 +34,7 @@ namespace Diten
 		public class DotNet
 		{
 			public DotNet(string versionName,
-				string servicePack)
+			              string servicePack)
 			{
 				VersionName = versionName;
 				SP = servicePack;
@@ -46,12 +43,12 @@ namespace Diten
 			/// <summary>
 			///    Get Installed service pack information.
 			/// </summary>
-			public string SP { get; }
+			public string SP {get;}
 
 			/// <summary>
 			///    Get name of the installed version of the file.
 			/// </summary>
-			public string VersionName { get; }
+			public string VersionName {get;}
 
 			/// <summary>
 			///    Get list of installed updates for current installed .Net Framework.
@@ -61,23 +58,25 @@ namespace Diten
 			{
 				var output = new List<DotNet>();
 
-				using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32)
-					.OpenSubKey(@"SOFTWARE\Microsoft\Updates"))
+				using (var baseKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
+				                                             RegistryView.Registry32)
+				                                .OpenSubKey(@"SOFTWARE\Microsoft\Updates"))
 				{
-					if (baseKey == null)
-						return output;
+					if (baseKey == null) return output;
 
 					foreach (var baseKeyName in baseKey
-						.GetSubKeyNames()
-						.Where(baseKeyName => baseKeyName.Contains(".NET Framework")))
+					                            .GetSubKeyNames()
+					                            .Where(baseKeyName => baseKeyName.Contains(".NET Framework")))
 						using (var updateKey = baseKey.OpenSubKey(baseKeyName))
 						{
-							if (updateKey == null)
-								continue;
+							if (updateKey == null) continue;
 
 							foreach (var kbKeyName in updateKey.GetSubKeyNames())
 								using (updateKey.OpenSubKey(kbKeyName))
-									output.Add(new DotNet(baseKeyName, kbKeyName));
+								{
+									output.Add(new DotNet(baseKeyName,
+									                      kbKeyName));
+								}
 						}
 				}
 
@@ -94,8 +93,9 @@ namespace Diten
 
 				// Opens the registry key for the .NET Framework entry.
 				using (var ndpKey =
-					RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, "")
-						.OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP\"))
+					RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine,
+					                              "")
+					           .OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP\"))
 				{
 					// As an alternative, if you know the computers you will query are running .NET Framework 4.5 
 					// or later, you can use:
@@ -104,55 +104,63 @@ namespace Diten
 					if (ndpKey == null)
 						throw new
 							NullReferenceException(
-								"There is no version of the .NET Framework is installed on this machine.");
+							                       "There is no version of the .NET Framework is installed on this machine.");
 
 					foreach (var versionKeyName in ndpKey.GetSubKeyNames())
 					{
-						if (!versionKeyName.StartsWith("v"))
-							continue;
+						if (!versionKeyName.StartsWith("v")) continue;
 						var versionKey = ndpKey.OpenSubKey(versionKeyName);
 
-						if (versionKey == null)
-							continue;
-						var name = (string) versionKey.GetValue("Version", "");
-						var sp = versionKey.GetValue("SP", "").ToString();
-						var install = versionKey.GetValue("Install", "").ToString();
+						if (versionKey == null) continue;
+						var name = (string) versionKey.GetValue("Version",
+						                                        "");
+						var sp = versionKey.GetValue("SP",
+						                             "")
+						                   .ToString();
+						var install = versionKey.GetValue("Install",
+						                                  "")
+						                        .ToString();
 
 						if (install == "") //no install info, must be later.
-						{
-							output.Add(new DotNet(name, string.Empty));
-						}
+							output.Add(new DotNet(name,
+							                      string.Empty));
 						else
-						{
-							if (sp != "" && install == "1")
-								output.Add(new DotNet(name, sp));
-						}
+							if (sp != "" &&
+							    install == "1")
+								output.Add(new DotNet(name,
+								                      sp));
 
-						if (name != "")
-							continue;
+						if (name != "") continue;
 
 						foreach (var subKey in versionKey
-							.GetSubKeyNames().Select(subKeyName => versionKey.OpenSubKey(subKeyName)))
+						                       .GetSubKeyNames()
+						                       .Select(subKeyName => versionKey.OpenSubKey(subKeyName)))
 						{
 							if (subKey != null)
 							{
-								name = (string) subKey.GetValue("Version", "");
+								name = (string) subKey.GetValue("Version",
+								                                "");
 								if (name != "")
-									sp = subKey.GetValue("SP", "").ToString();
-								install = subKey.GetValue("Install", "").ToString();
+									sp = subKey.GetValue("SP",
+									                     "")
+									           .ToString();
+								install = subKey.GetValue("Install",
+								                          "")
+								                .ToString();
 							}
 
 							if (install == "") //no install info, must be later.
-							{
-								output.Add(new DotNet(name, string.Empty));
-							}
+								output.Add(new DotNet(name,
+								                      string.Empty));
 							else
-							{
-								if (sp != "" && install == "1")
-									output.Add(new DotNet(name, sp));
-								else if (install == "1")
-									output.Add(new DotNet(name, string.Empty));
-							}
+								if (sp != "" &&
+								    install == "1")
+									output.Add(new DotNet(name,
+									                      sp));
+								else
+									if (install == "1")
+										output.Add(new DotNet(name,
+										                      string.Empty));
 						}
 					}
 				}

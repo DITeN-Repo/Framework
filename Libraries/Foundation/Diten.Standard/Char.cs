@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
-
-#endregion
 
 #region Used Directives
 
@@ -36,6 +32,11 @@ namespace Diten
 			///    Null character.
 			/// </summary>
 			Null = 0,
+
+			/// <summary>
+			///    Backslash character.
+			/// </summary>
+			Backslash = 99,
 
 			/// <summary>
 			///    Start of Header.
@@ -321,6 +322,51 @@ namespace Diten
 		}
 
 		/// <summary>
+		///    Get all ascii characters.
+		/// </summary>
+		public static IEnumerable<(char Ascii, string Character, string Description)> AsciiCharacters
+		{
+			get
+			{
+				var holder = new List<(char Ascii, string Character, string Description)>();
+
+				holder.AddRange(ControlChars);
+				holder.AddRange(PrintableChars);
+				holder.AddRange(ExtendedChars);
+
+				return holder.OrderBy(c => c.Ascii.ToInt());
+
+				//todo: Check commented code
+				//return Resources.AsciiTable.Split(ReservedChars.LineFeed.ToChar()).Aggregate(
+				//	new List<(char Ascii, string Character, string Description)>(),
+				//	(result, current) =>
+				//	{
+				//		var holder = current.Split(',');
+				//		var tmp = int.Parse(holder[0]);
+				//		var desc = holder[1].Replace("\"\"", "\"").Trim('"');
+				//		result.Add(((char) tmp, ((char)tmp).ToString(), desc));
+				//		return result.OrderBy(c => c.Ascii.ToInt()).ToList();
+				//	}); //holder.OrderBy(c=>c.Ascii.ToInt());
+			}
+		}
+
+		/// <summary>
+		///    Get commercial trade symbols.
+		/// </summary>
+		public static IEnumerable<(char Ascii, string Character, string Description)> CommercialTradeSymbols =>
+			AsciiCharacters.Where(v =>
+				                      v.Ascii.ToInt().Equals(36) &&
+				                      v.Ascii.ToInt().Equals(156) &&
+				                      v.Ascii.ToInt().Equals(190) &&
+				                      v.Ascii.ToInt().Equals(189) &&
+				                      v.Ascii.ToInt().Equals(207) &&
+				                      v.Ascii.ToInt().Equals(169) &&
+				                      v.Ascii.ToInt().Equals(184) &&
+				                      v.Ascii.ToInt().Equals(166) &&
+				                      v.Ascii.ToInt().Equals(167) &&
+				                      v.Ascii.ToInt().Equals(248));
+
+		/// <summary>
 		///    Get control characters.
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> ControlChars =>
@@ -362,113 +408,17 @@ namespace Diten
 			};
 
 		/// <summary>
-		///    Get non printable characters.
+		///    Get decimal numbers.
 		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> NonPrintableChars => ControlChars;
-
-		/// <summary>
-		///    Get printable characters.
-		/// </summary>
-		// ReSharper disable once MemberCanBePrivate.Global
-		public static IEnumerable<(char Ascii, string Character, string Description)> PrintableChars =>
-			new Collections.Generic.List<(char Ascii, string Character, string Description)>
+		public static IEnumerable<(char Ascii, string Character, string Description)> DecimalNumbers
+		{
+			get
 			{
-				((char) 32, " ", "space"),
-				((char) 33, "!", "exclamation mark"),
-				((char) 34, "\"", "Quotation mark"),
-				((char) 35, "#", "Number sign"),
-				((char) 36, "$", "Dollar sign"),
-				((char) 37, "%", "Percent sign"),
-				((char) 38, "&", "Ampersand"),
-				((char) 39, "'", "Apostrophe"),
-				((char) 40, "(", "round brackets or parentheses, opening round bracket"),
-				((char) 41, ")", "parentheses or round brackets, closing parentheses"),
-				((char) 42, "*", "Asterisk"),
-				((char) 43, "+", "Plus sign"),
-				((char) 44, ",", "Comma"),
-				((char) 45, "-", "Hyphen"),
-				((char) 46, ".", "Full stop , dot"),
-				((char) 47, "/", "Slash"),
-				((char) 48, "0", "number zero"),
-				((char) 49, "1", "number one"),
-				((char) 50, "2", "number two"),
-				((char) 51, "3", "number three"),
-				((char) 52, "4", "number four"),
-				((char) 53, "5", "number five"),
-				((char) 54, "6", "number six"),
-				((char) 55, "7", "number seven"),
-				((char) 56, "8", "number eight"),
-				((char) 57, "9", "number nine"),
-				((char) 58, ":", "Colon"),
-				((char) 59, ";", "Semicolon"),
-				((char) 60, "<", "Less-than sign"),
-				((char) 61, "=", "Equals sign"),
-				((char) 62, ">", "Greater-than sign ; Inequality"),
-				((char) 63, "?", "Question mark"),
-				((char) 64, "@", "At sign"),
-				((char) 65, "A", "Capital A"),
-				((char) 66, "B", "Capital B"),
-				((char) 67, "C", "Capital C"),
-				((char) 68, "D", "Capital D"),
-				((char) 69, "E", "Capital E"),
-				((char) 70, "F", "Capital F"),
-				((char) 71, "G", "Capital G"),
-				((char) 72, "H", "Capital H"),
-				((char) 73, "I", "Capital I"),
-				((char) 74, "J", "Capital J"),
-				((char) 75, "K", "Capital K"),
-				((char) 76, "L", "Capital L"),
-				((char) 77, "M", "Capital M"),
-				((char) 78, "N", "Capital N"),
-				((char) 79, "O", "Capital O"),
-				((char) 80, "P", "Capital P"),
-				((char) 81, "Q", "Capital Q"),
-				((char) 82, "R", "Capital R"),
-				((char) 83, "S", "Capital S"),
-				((char) 84, "T", "Capital T"),
-				((char) 85, "U", "Capital U"),
-				((char) 86, "V", "Capital V"),
-				((char) 87, "W", "Capital W"),
-				((char) 88, "X", "Capital X"),
-				((char) 89, "Y", "Capital Y"),
-				((char) 90, "Z", "Capital Z"),
-				((char) 91, "[", "square brackets or box brackets"),
-				((char) 92, "\"", "Backslash"),
-				((char) 93, "]", "square brackets or box brackets"),
-				((char) 94, "^", "Caret or circumflex accent"),
-				((char) 95, "_", "underscore , under-strike , under-bar or low line"),
-				((char) 96, "`", "Grave accent"),
-				((char) 97, "a", "Lowercase a"),
-				((char) 98, "b", "Lowercase b"),
-				((char) 99, "c", "Lowercase c"),
-				((char) 100, "d", "Lowercase d"),
-				((char) 101, "e", "Lowercase e"),
-				((char) 102, "f", "Lowercase f"),
-				((char) 103, "g", "Lowercase g"),
-				((char) 104, "h", "Lowercase h"),
-				((char) 105, "i", "Lowercase i"),
-				((char) 106, "j", "Lowercase j"),
-				((char) 107, "k", "Lowercase k"),
-				((char) 108, "l", "Lowercase l"),
-				((char) 109, "m", "Lowercase m"),
-				((char) 110, "n", "Lowercase n"),
-				((char) 111, "o", "Lowercase o"),
-				((char) 112, "p", "Lowercase p"),
-				((char) 113, "q", "Lowercase q"),
-				((char) 114, "r", "Lowercase r"),
-				((char) 115, "s", "Lowercase s"),
-				((char) 116, "t", "Lowercase t"),
-				((char) 117, "u", "Lowercase u"),
-				((char) 118, "v", "Lowercase v"),
-				((char) 119, "w", "Lowercase w"),
-				((char) 120, "x", "Lowercase x"),
-				((char) 121, "y", "Lowercase y"),
-				((char) 122, "z", "Lowercase z"),
-				((char) 123, "{", "curly brackets or braces"),
-				((char) 124, "|", "vertical-bar, vbar, vertical line or vertical slash"),
-				((char) 125, "}", "curly brackets or braces"),
-				((char) 126, "~", "Tilde ; swung dash")
-			};
+				var holder00 = Duosexagesimal.Characters.Where(c => c >= 48 && c <= 57).ToList();
+
+				return PrintableChars.Where(printableChar => holder00.Contains(printableChar.Ascii)).ToList();
+			}
+		}
 
 		/// <summary>
 		///    Get extended characters.
@@ -607,58 +557,21 @@ namespace Diten
 			};
 
 		/// <summary>
-		///    Get all ascii characters.
+		///    Get frequently used.
 		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> AsciiCharacters
-		{
-			get
-			{
-				var holder = new List<(char Ascii, string Character, string Description)>();
-
-				holder.AddRange(ControlChars);
-				holder.AddRange(PrintableChars);
-				holder.AddRange(ExtendedChars);
-
-				return holder.OrderBy(c => c.Ascii.ToInt());
-
-				//todo: Check commented code
-				//return Resources.AsciiTable.Split(ReservedChars.LineFeed.ToChar()).Aggregate(
-				//	new List<(char Ascii, string Character, string Description)>(),
-				//	(result, current) =>
-				//	{
-				//		var holder = current.Split(',');
-				//		var tmp = int.Parse(holder[0]);
-				//		var desc = holder[1].Replace("\"\"", "\"").Trim('"');
-				//		result.Add(((char) tmp, ((char)tmp).ToString(), desc));
-				//		return result.OrderBy(c => c.Ascii.ToInt()).ToList();
-				//	}); //holder.OrderBy(c=>c.Ascii.ToInt());
-			}
-		}
-
-		/// <summary>
-		///    Get unsafe characters.
-		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> UnsafeChars =>
-			AsciiCharacters.Where(c => !PrintableChars.Contains(c));
-
-		/// <summary>
-		///    Get Non letter printable characters.
-		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> NonLetterPrintableChars =>
-			PrintableChars.Where(printableChar => !Duosexagesimal.Characters.Contains(printableChar.Ascii)).ToList();
-
-		/// <summary>
-		///    Get uppercase letters.
-		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> UppercaseLetters
-		{
-			get
-			{
-				var holder00 = Duosexagesimal.Characters.Where(c => c >= 65 && c <= 90).ToList();
-
-				return PrintableChars.Where(printableChar => holder00.Contains(printableChar.Ascii)).ToList();
-			}
-		}
+		public static IEnumerable<(char Ascii, string Character, string Description)> FrequentlyUsed =>
+			AsciiCharacters.Where(v =>
+				                      v.Ascii.ToInt().Equals(164) &&
+				                      v.Ascii.ToInt().Equals(164) &&
+				                      v.Ascii.ToInt().Equals(165) &&
+				                      v.Ascii.ToInt().Equals(64) &&
+				                      v.Ascii.ToInt().Equals(168) &&
+				                      v.Ascii.ToInt().Equals(63) &&
+				                      v.Ascii.ToInt().Equals(173) &&
+				                      v.Ascii.ToInt().Equals(33) &&
+				                      v.Ascii.ToInt().Equals(58) &&
+				                      v.Ascii.ToInt().Equals(47) &&
+				                      v.Ascii.ToInt().Equals(92));
 
 		/// <summary>
 		///    Get lowercase letters.
@@ -674,76 +587,201 @@ namespace Diten
 		}
 
 		/// <summary>
-		///    Get decimal numbers.
-		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> DecimalNumbers
-		{
-			get
-			{
-				var holder00 = Duosexagesimal.Characters.Where(c => c >= 48 && c <= 57).ToList();
-
-				return PrintableChars.Where(printableChar => holder00.Contains(printableChar.Ascii)).ToList();
-			}
-		}
-
-		/// <summary>
-		///    Get frequently used.
-		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> FrequentlyUsed =>
-			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(164) && v.Ascii.ToInt().Equals(164) && v.Ascii.ToInt().Equals(165) &&
-				v.Ascii.ToInt().Equals(64) && v.Ascii.ToInt().Equals(168) && v.Ascii.ToInt().Equals(63) &&
-				v.Ascii.ToInt().Equals(173) && v.Ascii.ToInt().Equals(33) && v.Ascii.ToInt().Equals(58) &&
-				v.Ascii.ToInt().Equals(47) && v.Ascii.ToInt().Equals(92));
-
-		/// <summary>
-		///    Get vowels acute accent.
-		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> VowelsAcuteAccent =>
-			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(160) && v.Ascii.ToInt().Equals(130) && v.Ascii.ToInt().Equals(161) &&
-				v.Ascii.ToInt().Equals(162) && v.Ascii.ToInt().Equals(163) && v.Ascii.ToInt().Equals(181) &&
-				v.Ascii.ToInt().Equals(144) && v.Ascii.ToInt().Equals(214) && v.Ascii.ToInt().Equals(224) &&
-				v.Ascii.ToInt().Equals(233));
-
-		/// <summary>
-		///    Get vowels with diuresis.
-		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> VowelsWithDiuresis =>
-			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(132) && v.Ascii.ToInt().Equals(137) && v.Ascii.ToInt().Equals(139) &&
-				v.Ascii.ToInt().Equals(148) && v.Ascii.ToInt().Equals(129) && v.Ascii.ToInt().Equals(142) &&
-				v.Ascii.ToInt().Equals(211) && v.Ascii.ToInt().Equals(216) && v.Ascii.ToInt().Equals(153) &&
-				v.Ascii.ToInt().Equals(154));
-
-		/// <summary>
 		///    Get mathematical symbols.
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> MathematicalSymbols =>
 			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(171) && v.Ascii.ToInt().Equals(172) && v.Ascii.ToInt().Equals(243) &&
-				v.Ascii.ToInt().Equals(251) && v.Ascii.ToInt().Equals(252) && v.Ascii.ToInt().Equals(253) &&
-				v.Ascii.ToInt().Equals(159) && v.Ascii.ToInt().Equals(241) && v.Ascii.ToInt().Equals(158) &&
-				v.Ascii.ToInt().Equals(246));
+				                      v.Ascii.ToInt().Equals(171) &&
+				                      v.Ascii.ToInt().Equals(172) &&
+				                      v.Ascii.ToInt().Equals(243) &&
+				                      v.Ascii.ToInt().Equals(251) &&
+				                      v.Ascii.ToInt().Equals(252) &&
+				                      v.Ascii.ToInt().Equals(253) &&
+				                      v.Ascii.ToInt().Equals(159) &&
+				                      v.Ascii.ToInt().Equals(241) &&
+				                      v.Ascii.ToInt().Equals(158) &&
+				                      v.Ascii.ToInt().Equals(246));
 
 		/// <summary>
-		///    Get commercial trade symbols.
+		///    Get Non letter printable characters.
 		/// </summary>
-		public static IEnumerable<(char Ascii, string Character, string Description)> CommercialTradeSymbols =>
-			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(36) && v.Ascii.ToInt().Equals(156) && v.Ascii.ToInt().Equals(190) &&
-				v.Ascii.ToInt().Equals(189) && v.Ascii.ToInt().Equals(207) && v.Ascii.ToInt().Equals(169) &&
-				v.Ascii.ToInt().Equals(184) && v.Ascii.ToInt().Equals(166) && v.Ascii.ToInt().Equals(167) &&
-				v.Ascii.ToInt().Equals(248));
+		public static IEnumerable<(char Ascii, string Character, string Description)> NonLetterPrintableChars =>
+			PrintableChars.Where(printableChar => !Duosexagesimal.Characters.Contains(printableChar.Ascii)).ToList();
+
+		/// <summary>
+		///    Get non printable characters.
+		/// </summary>
+		public static IEnumerable<(char Ascii, string Character, string Description)> NonPrintableChars => ControlChars;
+
+		/// <summary>
+		///    Get printable characters.
+		/// </summary>
+		// ReSharper disable once MemberCanBePrivate.Global
+		public static IEnumerable<(char Ascii, string Character, string Description)> PrintableChars =>
+			new Collections.Generic.List<(char Ascii, string Character, string Description)>
+			{
+				((char) 32, " ", "space"),
+				((char) 33, "!", "exclamation mark"),
+				((char) 34, "\"", "Quotation mark"),
+				((char) 35, "#", "Number sign"),
+				((char) 36, "$", "Dollar sign"),
+				((char) 37, "%", "Percent sign"),
+				((char) 38, "&", "Ampersand"),
+				((char) 39, "'", "Apostrophe"),
+				((char) 40, "(", "round brackets or parentheses, opening round bracket"),
+				((char) 41, ")", "parentheses or round brackets, closing parentheses"),
+				((char) 42, "*", "Asterisk"),
+				((char) 43, "+", "Plus sign"),
+				((char) 44, ",", "Comma"),
+				((char) 45, "-", "Hyphen"),
+				((char) 46, ".", "Full stop , dot"),
+				((char) 47, "/", "Slash"),
+				((char) 48, "0", "number zero"),
+				((char) 49, "1", "number one"),
+				((char) 50, "2", "number two"),
+				((char) 51, "3", "number three"),
+				((char) 52, "4", "number four"),
+				((char) 53, "5", "number five"),
+				((char) 54, "6", "number six"),
+				((char) 55, "7", "number seven"),
+				((char) 56, "8", "number eight"),
+				((char) 57, "9", "number nine"),
+				((char) 58, ":", "Colon"),
+				((char) 59, ";", "Semicolon"),
+				((char) 60, "<", "Less-than sign"),
+				((char) 61, "=", "Equals sign"),
+				((char) 62, ">", "Greater-than sign ; Inequality"),
+				((char) 63, "?", "Question mark"),
+				((char) 64, "@", "At sign"),
+				((char) 65, "A", "Capital A"),
+				((char) 66, "B", "Capital B"),
+				((char) 67, "C", "Capital C"),
+				((char) 68, "D", "Capital D"),
+				((char) 69, "E", "Capital E"),
+				((char) 70, "F", "Capital F"),
+				((char) 71, "G", "Capital G"),
+				((char) 72, "H", "Capital H"),
+				((char) 73, "I", "Capital I"),
+				((char) 74, "J", "Capital J"),
+				((char) 75, "K", "Capital K"),
+				((char) 76, "L", "Capital L"),
+				((char) 77, "M", "Capital M"),
+				((char) 78, "N", "Capital N"),
+				((char) 79, "O", "Capital O"),
+				((char) 80, "P", "Capital P"),
+				((char) 81, "Q", "Capital Q"),
+				((char) 82, "R", "Capital R"),
+				((char) 83, "S", "Capital S"),
+				((char) 84, "T", "Capital T"),
+				((char) 85, "U", "Capital U"),
+				((char) 86, "V", "Capital V"),
+				((char) 87, "W", "Capital W"),
+				((char) 88, "X", "Capital X"),
+				((char) 89, "Y", "Capital Y"),
+				((char) 90, "Z", "Capital Z"),
+				((char) 91, "[", "square brackets or box brackets"),
+				((char) 92, "\\", "Backslash"),
+				((char) 93, "]", "square brackets or box brackets"),
+				((char) 94, "^", "Caret or circumflex accent"),
+				((char) 95, "_", "underscore , under-strike , under-bar or low line"),
+				((char) 96, "`", "Grave accent"),
+				((char) 97, "a", "Lowercase a"),
+				((char) 98, "b", "Lowercase b"),
+				((char) 99, "c", "Lowercase c"),
+				((char) 100, "d", "Lowercase d"),
+				((char) 101, "e", "Lowercase e"),
+				((char) 102, "f", "Lowercase f"),
+				((char) 103, "g", "Lowercase g"),
+				((char) 104, "h", "Lowercase h"),
+				((char) 105, "i", "Lowercase i"),
+				((char) 106, "j", "Lowercase j"),
+				((char) 107, "k", "Lowercase k"),
+				((char) 108, "l", "Lowercase l"),
+				((char) 109, "m", "Lowercase m"),
+				((char) 110, "n", "Lowercase n"),
+				((char) 111, "o", "Lowercase o"),
+				((char) 112, "p", "Lowercase p"),
+				((char) 113, "q", "Lowercase q"),
+				((char) 114, "r", "Lowercase r"),
+				((char) 115, "s", "Lowercase s"),
+				((char) 116, "t", "Lowercase t"),
+				((char) 117, "u", "Lowercase u"),
+				((char) 118, "v", "Lowercase v"),
+				((char) 119, "w", "Lowercase w"),
+				((char) 120, "x", "Lowercase x"),
+				((char) 121, "y", "Lowercase y"),
+				((char) 122, "z", "Lowercase z"),
+				((char) 123, "{", "curly brackets or braces"),
+				((char) 124, "|", "vertical-bar, vbar, vertical line or vertical slash"),
+				((char) 125, "}", "curly brackets or braces"),
+				((char) 126, "~", "Tilde ; swung dash")
+			};
 
 		/// <summary>
 		///    Get quotes and parenthesis.
 		/// </summary>
 		public static IEnumerable<(char Ascii, string Character, string Description)> QuotesAndParenthesis =>
 			AsciiCharacters.Where(v =>
-				v.Ascii.ToInt().Equals(34) && v.Ascii.ToInt().Equals(39) && v.Ascii.ToInt().Equals(40) &&
-				v.Ascii.ToInt().Equals(41) && v.Ascii.ToInt().Equals(91) && v.Ascii.ToInt().Equals(93) &&
-				v.Ascii.ToInt().Equals(123) && v.Ascii.ToInt().Equals(125) && v.Ascii.ToInt().Equals(174) &&
-				v.Ascii.ToInt().Equals(175));
+				                      v.Ascii.ToInt().Equals(34) &&
+				                      v.Ascii.ToInt().Equals(39) &&
+				                      v.Ascii.ToInt().Equals(40) &&
+				                      v.Ascii.ToInt().Equals(41) &&
+				                      v.Ascii.ToInt().Equals(91) &&
+				                      v.Ascii.ToInt().Equals(93) &&
+				                      v.Ascii.ToInt().Equals(123) &&
+				                      v.Ascii.ToInt().Equals(125) &&
+				                      v.Ascii.ToInt().Equals(174) &&
+				                      v.Ascii.ToInt().Equals(175));
+
+		/// <summary>
+		///    Get unsafe characters.
+		/// </summary>
+		public static IEnumerable<(char Ascii, string Character, string Description)> UnsafeChars =>
+			AsciiCharacters.Where(c => !PrintableChars.Contains(c));
+
+		/// <summary>
+		///    Get uppercase letters.
+		/// </summary>
+		public static IEnumerable<(char Ascii, string Character, string Description)> UppercaseLetters
+		{
+			get
+			{
+				var holder00 = Duosexagesimal.Characters.Where(c => c >= 65 && c <= 90).ToList();
+
+				return PrintableChars.Where(printableChar => holder00.Contains(printableChar.Ascii)).ToList();
+			}
+		}
+
+		/// <summary>
+		///    Get vowels acute accent.
+		/// </summary>
+		public static IEnumerable<(char Ascii, string Character, string Description)> VowelsAcuteAccent =>
+			AsciiCharacters.Where(v =>
+				                      v.Ascii.ToInt().Equals(160) &&
+				                      v.Ascii.ToInt().Equals(130) &&
+				                      v.Ascii.ToInt().Equals(161) &&
+				                      v.Ascii.ToInt().Equals(162) &&
+				                      v.Ascii.ToInt().Equals(163) &&
+				                      v.Ascii.ToInt().Equals(181) &&
+				                      v.Ascii.ToInt().Equals(144) &&
+				                      v.Ascii.ToInt().Equals(214) &&
+				                      v.Ascii.ToInt().Equals(224) &&
+				                      v.Ascii.ToInt().Equals(233));
+
+		/// <summary>
+		///    Get vowels with diuresis.
+		/// </summary>
+		public static IEnumerable<(char Ascii, string Character, string Description)> VowelsWithDiuresis =>
+			AsciiCharacters.Where(v =>
+				                      v.Ascii.ToInt().Equals(132) &&
+				                      v.Ascii.ToInt().Equals(137) &&
+				                      v.Ascii.ToInt().Equals(139) &&
+				                      v.Ascii.ToInt().Equals(148) &&
+				                      v.Ascii.ToInt().Equals(129) &&
+				                      v.Ascii.ToInt().Equals(142) &&
+				                      v.Ascii.ToInt().Equals(211) &&
+				                      v.Ascii.ToInt().Equals(216) &&
+				                      v.Ascii.ToInt().Equals(153) &&
+				                      v.Ascii.ToInt().Equals(154));
 	}
 }

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:32 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -23,13 +19,11 @@ using System;
 
 namespace Diten.Attributes
 {
-	[AttributeUsage(AttributeTargets.Method | AttributeTargets.Parameter, Inherited = false)]
-	public class MustUrlHex : Attribute
-	{
-	}
+	[AttributeUsage(AttributeTargets.Method | AttributeTargets.Parameter,
+		Inherited = false)]
+	public class MustUrlHex: Attribute {}
 
-	[AttributeUsage(AttributeTargets.Method | AttributeTargets.Parameter, Inherited = false)]
-	public class MustHex : Attribute
-	{
-	}
+	[AttributeUsage(AttributeTargets.Method | AttributeTargets.Parameter,
+		Inherited = false)]
+	public class MustHex: Attribute {}
 }

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 7:01 PM
-
-#endregion
 
 #region Used Directives
 
@@ -29,7 +25,8 @@ using Diten.Parameters;
 
 namespace Diten.IO
 {
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
+	[SuppressMessage("ReSharper",
+		"InconsistentNaming")]
 	public class File
 	{
 		/// <summary>
@@ -40,34 +37,39 @@ namespace Diten.IO
 		/// <param name="differentialDiagnosis">Number of bytes of differences between 2 files.</param>
 		/// <returns>a value indicating weather the file are identical</returns>
 		public static bool Compare(string fileName1,
-			string fileName2,
-			int differentialDiagnosis = 1)
+		                           string fileName2,
+		                           int differentialDiagnosis = 1)
 		{
 			var info1 = new FileInfo(fileName1);
 			var info2 = new FileInfo(fileName2);
 			var same = info1.Length == info2.Length;
 
-			if (!same)
-				return false;
+			if (!same) return false;
 
 			using (var fs1 = info1.OpenRead())
-			using (var fs2 = info2.OpenRead())
-			using (var bs1 = new BufferedStream(fs1))
-			using (var bs2 = new BufferedStream(fs2))
 			{
-				var defCount = 0;
-
-				for (long i = 0; i < info1.Length; i++)
+				using (var fs2 = info2.OpenRead())
 				{
-					if (bs1.ReadByte() == bs2.ReadByte())
-						continue;
-					defCount += 1;
+					using (var bs1 = new BufferedStream(fs1))
+					{
+						using (var bs2 = new BufferedStream(fs2))
+						{
+							var defCount = 0;
 
-					if (!defCount.Equals(differentialDiagnosis))
-						continue;
-					same = false;
+							for (long i = 0;
+							     i < info1.Length;
+							     i++)
+							{
+								if (bs1.ReadByte() == bs2.ReadByte()) continue;
+								defCount += 1;
 
-					break;
+								if (!defCount.Equals(differentialDiagnosis)) continue;
+								same = false;
+
+								break;
+							}
+						}
+					}
 				}
 			}
 
@@ -89,8 +91,28 @@ namespace Diten.IO
 		///    <param name="fileName"></param>
 		///    is exist.
 		/// </returns>
-		public static bool ExistInTemp(string fileName) =>
-			System.IO.File.Exists($@"{SystemParams.Default.TempFolderPath}\{fileName}");
+		public static bool ExistInTemp(string fileName) { return System.IO.File.Exists($@"{SystemParams.Default.TempFolderPath}\{fileName}"); }
+
+		/// <summary>
+		///    Get file name parts form the
+		///    <param name="source"></param>
+		///    .
+		/// </summary>
+		/// <param name="source">Source file name that must be splitted to parts.</param>
+		/// <returns>Parts of the file name.</returns>
+		public static (string Soure, string Path, string FullName, string Name, string Extension) GetFileName(string source)
+		{
+			var fullFileName = source.Split("\\".ToCharArray()).Last();
+			var extenstion = fullFileName.Split(".".ToCharArray()).Last();
+
+			return (source, source.Replace(fullFileName,
+			                               string.Empty), fullFileName,
+			        fullFileName.Remove(fullFileName.LastIndexOf(".",
+			                                                     StringComparison.Ordinal) -
+			                            1,
+			                            extenstion.Length + 1),
+			        extenstion);
+		}
 
 		/// <summary>
 		///    Converting
@@ -106,30 +128,10 @@ namespace Diten.IO
 			var tmp2 = fileName.ToCharArray();
 
 			foreach (var ch in tmp1)
-				if (!tmp2.Contains(ch.Ascii))
-					_return += ch.ToString();
-				else
-					_return += "_";
+				if (!tmp2.Contains(ch.Ascii)) _return += ch.ToString();
+				else _return += "_";
 
 			return _return;
-		}
-
-		/// <summary>
-		///    Get file name parts form the
-		///    <param name="source"></param>
-		///    .
-		/// </summary>
-		/// <param name="source">Source file name that must be splitted to parts.</param>
-		/// <returns>Parts of the file name.</returns>
-		public static (string Soure, string Path, string FullName, string Name, string Extension) GetFileName(
-			string source)
-		{
-			var fullFileName = source.Split("\\".ToCharArray()).Last();
-			var extenstion = fullFileName.Split(".".ToCharArray()).Last();
-
-			return (source, source.Replace(fullFileName, string.Empty), fullFileName,
-				fullFileName.Remove(fullFileName.LastIndexOf(".", StringComparison.Ordinal) - 1, extenstion.Length + 1),
-				extenstion);
 		}
 
 		/// <summary>
@@ -153,12 +155,14 @@ namespace Diten.IO
 		///    <param name="path"></param>
 		///    file.
 		/// </param>
-		public static void WriteAllText(string path, string contents, bool overwrite = false)
+		public static void WriteAllText(string path,
+		                                string contents,
+		                                bool overwrite = false)
 		{
-			if (overwrite && System.IO.File.Exists(path))
-				System.IO.File.Delete(path);
+			if (overwrite && System.IO.File.Exists(path)) System.IO.File.Delete(path);
 
-			System.IO.File.WriteAllText(path, contents);
+			System.IO.File.WriteAllText(path,
+			                            contents);
 		}
 	}
 }

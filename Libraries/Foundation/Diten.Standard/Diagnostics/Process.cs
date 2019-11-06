@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 5:06 PM
-
-#endregion
 
 #region Used Directives
 
@@ -27,13 +23,12 @@ namespace Diten.Diagnostics
 	public static class Process
 	{
 		public static void ExecuteCommand(string command,
-			string username,
-			string password)
+		                                  string username,
+		                                  string password)
 		{
 			var secureString = new SecureString();
 
-			foreach (var ch in password)
-				secureString.AppendChar(ch);
+			foreach (var ch in password) secureString.AppendChar(ch);
 
 			new System.Diagnostics.Process
 			{

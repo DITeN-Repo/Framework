@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,15 +11,11 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:51 AM
 
-#endregion
-
 namespace Diten.Web
 {
 	/// <inheritdoc />
-	public abstract class HttpException : System.Web.HttpException
+	public abstract class HttpException: System.Web.HttpException
 	{
-		protected HttpException(string message) : base(message)
-		{
-		}
+		protected HttpException(string message): base(message) {}
 	}
 }

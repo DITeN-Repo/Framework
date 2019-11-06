@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 10:05 PM
 
-#endregion
-
 #region Used Directives
 
 using System.Net;
@@ -24,15 +20,10 @@ using System.Text;
 
 namespace Diten.Windows.Forms
 {
-	public class HtmlDocument : HtmlAgilityPack.HtmlDocument
+	public class HtmlDocument: HtmlAgilityPack.HtmlDocument
 	{
-		public HtmlDocument()
-		{
-		}
+		public HtmlDocument() {}
 
-		public HtmlDocument(string url)
-		{
-			Load(new WebClient {Encoding = Encoding.UTF8}.OpenRead(url));
-		}
+		public HtmlDocument(string url) { Load(new WebClient {Encoding = Encoding.UTF8}.OpenRead(url)); }
 	}
 }

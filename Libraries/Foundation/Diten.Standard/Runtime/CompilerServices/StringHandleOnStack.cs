@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 9:11 PM
-
-#endregion
 
 #region Used Directives
 
@@ -27,6 +23,6 @@ namespace Diten.Runtime.CompilerServices
 	{
 		private IntPtr m_ptr;
 
-		internal StringHandleOnStack(IntPtr pString) => m_ptr = pString;
+		internal StringHandleOnStack(IntPtr pString) { m_ptr = pString; }
 	}
 }

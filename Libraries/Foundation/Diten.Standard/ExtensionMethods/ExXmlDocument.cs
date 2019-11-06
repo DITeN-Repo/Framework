@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -30,7 +26,8 @@ namespace Diten
 		/// </summary>
 		/// <param name="document">Current document that must holding the xml document content..</param>
 		/// <param name="xml">Xml document that must be loaded into the memory.</param>
-		public static XmlDocument LoadXmlDocument(this XmlDocument document, string xml)
+		public static XmlDocument LoadXmlDocument(this XmlDocument document,
+		                                          string xml)
 		{
 			var xmlDocument = new XmlDocument();
 

@@ -1,5 +1,3 @@
-#region DITeN Registration Info
-
 // Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 10:05 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -27,13 +23,11 @@ namespace Diten.Windows.Forms
 	public static class Extensions
 	{
 		public static void Invoke<TControlType>(this TControlType control,
-			Action<TControlType> del)
-			where TControlType : Control
+		                                        Action<TControlType> del)
+			where TControlType: Control
 		{
-			if (control.InvokeRequired)
-				control.Invoke(new Action(() => del(control)));
-			else
-				del(control);
+			if (control.InvokeRequired) control.Invoke(new Action(() => del(control)));
+			else del(control);
 		}
 	}
 }

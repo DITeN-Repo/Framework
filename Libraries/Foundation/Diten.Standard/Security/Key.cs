@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,24 +11,23 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
 using System.Collections;
-using System.Drawing;
-using System.IO;
-using System.IO.Compression;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Linq;
+using Diten.Attributes;
+using Diten.Drawing.Bitmap;
 using Diten.Parameters;
-using Diten.Security.Cryptography;
+using MongoDB.Bson.Serialization.Attributes;
+using Org.BouncyCastle.Security;
 
 #endregion
 
 namespace Diten.Security
 {
+	[DefaultProperty("Value")]
 	public class Key
 	{
 		/// <summary>
@@ -52,126 +49,62 @@ namespace Diten.Security
 			K16384 = 16384
 		}
 
-		private Random _random;
-
-		private byte[] _value;
-
-		public Key(string key) => Value = Decrypt(key);
-
 		/// <summary>
 		///    Constructor.
 		/// </summary>
-		/// <param name="length" default="512 bytes key">Length of the ke that must be generated.</param>
-		public Key(LengthTypes length = LengthTypes.K512) => LengthType = length;
+		/// <param name="length"
+		///        default="512 bytes key">
+		///    Length of the ke that must be generated.
+		/// </param>
+		public Key(LengthTypes length = LengthTypes.K512): this(null,
+		                                                        length) {}
+
+		public Key(): this(null) {}
+
+		private Key(byte[] value,
+		            LengthTypes length = LengthTypes.K512)
+		{
+			LengthType = length;
+
+			if (value is null)
+			{
+				var random = new Random();
+				var holder = new byte[(int) LengthType * 2];
+
+				for (var i = 0;
+				     i <= holder.Length - 1;
+				     i++)
+					holder[i] += BitConverter.GetBytes(random.Next(0,
+					                                               255))[0];
+				Value = holder;
+			}
+			else { Value = value; }
+		}
 
 		/// <summary>
 		///    Length of the key value.
 		/// </summary>
+		[BsonIgnore]
+		[NonSerializable]
 		public int Length => Value.Length;
 
-		private LengthTypes LengthType { get; }
+		[BsonIgnore]
+		[NonSerializable]
+		private LengthTypes LengthType {get;}
 
+		[BsonIgnore]
+		[NonSerializable]
 		private Random Random => _random ?? (_random = new Random());
 
 		/// <summary>
 		///    Value of the key.
 		/// </summary>
-		public byte[] Value
-		{
-			get
-			{
-				byte[] Output()
-				{
-					var holder = new byte[(int) LengthType * 2];
+		public byte[] Value {get;}
 
-					for (var i = 0; i <= holder.Length - 1; i++)
-						holder[i] += BitConverter.GetBytes(Random.Next(0, 255))[0];
-
-					return holder;
-				}
-
-				return _value ?? (_value = Output());
-			}
-			set => _value = value;
-		}
-
-		/// <summary>
-		///    Overlay a key on current value.
-		/// </summary>
-		/// <param name="value">The key that must be overlaid.</param>
-		/// <returns>A key.</returns>
-		public Key Apply(Key value)
-		{
-			Task.Factory.StartNew(() =>
-			{
-				var val = Task.Factory.StartNew(() => value.Value);
-
-				for (var i = 0; i < val.Result.Length; i += 4)
-				{
-					var tmp1 = new short[4];
-					var tmp2 = new short[4];
-
-					for (var j = 0; j < 4; j++)
-					{
-						tmp1[j] = Value[i + j];
-						tmp2[j] = (short) Random.Next(0, 255);
-					}
-
-					using (var tmpBitmap1 = new Bitmap(1, 1))
-					{
-						tmpBitmap1.SetPixel(0, 0, Color.FromArgb(tmp1[0], tmp1[1], tmp1[2], tmp1[3]));
-
-						using (var tmpBitmap2 = new Bitmap(1, 1))
-						{
-							tmpBitmap1.SetPixel(0, 0,
-								Color.FromArgb(tmp2[0], tmp2[1], tmp2[2], tmp2[3]));
-							Graphics.FromImage(tmpBitmap1).DrawImageUnscaled(tmpBitmap2, 0, 0);
-							var color = tmpBitmap1.GetPixel(0, 0);
-							Value[i] = color.A;
-							Value[i + 1] = color.R;
-							Value[i + 2] = color.G;
-							Value[i + 3] = color.B;
-						}
-					}
-				}
-			});
-
-			return this;
-		}
-
-		/// <summary>
-		///    Decrypting received key.
-		/// </summary>
-		/// <param name="value">Base64Text encrypted text.</param>
-		/// <returns>A byte array.</returns>
-		public static byte[] Decrypt(string value) =>
-			new GZipStream(new MemoryStream(Encoding.Unicode.GetBytes(Rc4.Decrypt(
-					Encoding
-						.Unicode
-						.GetBytes(Constants.Default.Password),
-					Encoding
-						.Unicode
-						.GetBytes(Base64Text
-							.Decrypt(value))))),
-				CompressionMode.Decompress).BaseStream.ToBytes();
-
-		/// <summary>
-		///    Encrypt current value of the key.
-		/// </summary>
-		/// <returns>A Base64Text encrypted text.</returns>
-		public string Encrypt() =>
-			Base64Text.Encrypt(Rc4
-				.Encrypt(Encoding.Unicode.GetBytes(Constants.Default.Password),
-					new GZipStream(new MemoryStream(Value),
-							CompressionMode.Compress)
-						.BaseStream.ToBytes()));
-
-		/// <summary>
-		///    Control equality with a key.
-		/// </summary>
-		/// <param name="value">Source key to control.</param>
-		/// <returns>True if the source key is equal.</returns>
-		public bool Equals(Key value) => Equals(value, this);
+		[BsonIgnore]
+		[NonSerialized]
+		[NonSerializable]
+		private Random _random;
 
 		/// <summary>
 		///    Control equality between two keys.
@@ -179,14 +112,102 @@ namespace Diten.Security
 		/// <param name="primary">Primary key to control.</param>
 		/// <param name="secondary">Secondary key to control.</param>
 		/// <returns>True if the keys are equal.</returns>
-		public bool Equals(Key primary,
-			Key secondary) =>
-			StructuralComparisons.StructuralEqualityComparer.Equals(primary.Value, secondary.Value);
+		public static bool Equals(Key primary,
+		                          Key secondary)
+		{
+			return StructuralComparisons.StructuralEqualityComparer.Equals(primary.Value,
+			                                                               secondary.Value);
+		}
 
 		/// <summary>
-		///    Converting ke to hex.
+		///    Control equality with a key.
+		/// </summary>
+		/// <param name="value">Source key to control.</param>
+		/// <returns>True if the source key is equal.</returns>
+		public bool Equals(Key value)
+		{
+			return Equals(value,
+			              this);
+		}
+
+		/// <summary>
+		///    Overlay a key on current value.
+		/// </summary>
+		/// <param name="value">The key that must be overlaid.</param>
+		/// <returns>A key.</returns>
+		public Key Overlay(Key value)
+		{
+			if (!value.Length.Equals(Value.Length)) throw new InvalidKeyException(Exceptions.Default.Diten_SameLenght.Format("both keys"));
+
+			var holder = new byte[value.Length];
+
+			for (var i = 0;
+			     i < value.Length;
+			     i += 4)
+			{
+				var tmp2 = new short[4];
+				var tmp1 = new short[4];
+
+				for (var j = 0;
+				     j < 4;
+				     j++)
+				{
+					tmp1[j] = Value[i + j];
+					tmp2[j] = (short) Random.Next(0,
+					                              255);
+				}
+
+				foreach (var b in new Pixel(tmp1[0],
+				                            tmp1[1],
+				                            tmp1[2],
+				                            tmp1[3])
+					.Overlay(new Pixel(tmp2[0],
+					                   tmp1[1],
+					                   tmp1[2],
+					                   tmp1[3]))) holder.Append(b);
+			}
+
+			return new Key(holder);
+			//ToDo: Remove Commented code.
+			//Task.Factory.StartNew(() =>
+			//{
+			//	var val = Task.Factory.StartNew(() => value.Value);
+
+			//	for (var i = 0; i < val.Result.Length; i += 4)
+			//	{
+			//		var tmp2 = new short[4];
+			//		var tmp1 = new short[4];
+
+			//		for (var j = 0; j < 4; j++)
+			//		{
+			//			tmp1[j] = Value[i + j];
+			//			tmp2[j] = (short) Random.Next(0, 255);
+			//		}
+
+			//		//using (var tmpBitmap1 = new Bitmap(1, 1))
+			//		//{
+			//		//	tmpBitmap1.SetPixel(0, 0, Color.FromArgb(tmp1[0], tmp1[1], tmp1[2], tmp1[3]));
+
+			//		//	using (var tmpBitmap2 = new Bitmap(1, 1))
+			//		//	{
+			//		//		tmpBitmap1.SetPixel(0, 0,
+			//		//			Color.FromArgb(tmp2[0], tmp2[1], tmp2[2], tmp2[3]));
+			//		//		Graphics.FromImage(tmpBitmap1).DrawImageUnscaled(tmpBitmap2, 0, 0);
+			//		//		var color = tmpBitmap1.GetPixel(0, 0);
+			//		//		Value[i] = color.A;
+			//		//		Value[i + 1] = color.R;
+			//		//		Value[i + 2] = color.G;
+			//		//		Value[i + 3] = color.B;
+			//		//	}
+			//		//}
+			//	}
+			//});
+		}
+
+		/// <summary>
+		///    Converting the key value to hex.
 		/// </summary>
 		/// <returns>A hex string number.</returns>
-		public string ToHex() => BitConverter.ToInt32(Value, 0).ToHexadecimal();
+		public string ToHex() { return Value.ToHex(); }
 	}
 }

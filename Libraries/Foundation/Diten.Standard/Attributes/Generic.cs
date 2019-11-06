@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:32 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -23,11 +19,15 @@ using System;
 
 namespace Diten.Attributes
 {
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Constructor | AttributeTargets.Delegate |
-	                AttributeTargets.Method | AttributeTargets.GenericParameter | AttributeTargets.Interface |
+	[AttributeUsage(AttributeTargets.Class |
+	                AttributeTargets.Constructor |
+	                AttributeTargets.Delegate |
+	                AttributeTargets.Method |
+	                AttributeTargets.GenericParameter |
+	                AttributeTargets.Interface |
 	                AttributeTargets.Parameter)]
-	public class Generic : Type
+	public class Generic: Type
 	{
-		public bool DoSave { get; set; } = true;
+		public bool DoSave {get; set;} = true;
 	}
 }

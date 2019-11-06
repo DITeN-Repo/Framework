@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/18 7:29 PM
-
-#endregion
 
 #region Used Directives
 
@@ -28,16 +24,16 @@ namespace Diten.Runtime.CompilerServices
 {
 	[Embedded]
 	[CompilerGenerated]
-	internal sealed class NullableAttribute : Attribute
+	internal sealed class NullableAttribute: Attribute
 	{
-		public readonly byte[] NullableFlags;
-
 		public NullableAttribute([In] byte obj0)
 		{
 			// ISSUE: reference to a compiler-generated field
 			NullableFlags = new byte[1] {obj0};
 		}
 
-		public NullableAttribute([In] byte[] obj0) => NullableFlags = obj0;
+		public NullableAttribute([In] byte[] obj0) { NullableFlags = obj0; }
+
+		public readonly byte[] NullableFlags;
 	}
 }

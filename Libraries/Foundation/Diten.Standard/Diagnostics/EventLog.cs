@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:45 AM
 
-#endregion
-
 #region Used Directives
 
 using System.Diagnostics;
@@ -25,17 +21,23 @@ namespace Diten.Diagnostics
 {
 	/// <inheritdoc />
 	// ReSharper disable once ClassNeverInstantiated.Global
-	public class EventLog : System.Diagnostics.EventLog
+	public class EventLog: System.Diagnostics.EventLog
 	{
 		public static void WriteEventLog(string message,
-			string source,
-			EventLogEntryType eventLogEntryType = EventLogEntryType.Information)
+		                                 string source,
+		                                 EventLogEntryType eventLogEntryType = EventLogEntryType.Information)
 		{
 			if (!SourceExists(source))
-				CreateEventSource(source, string.Empty);
+				CreateEventSource(source,
+				                  string.Empty);
 
-			using (var eventLog = new System.Diagnostics.EventLog(string.Empty, System.Environment.MachineName, source))
-				eventLog.WriteEntry(message, eventLogEntryType);
+			using (var eventLog = new System.Diagnostics.EventLog(string.Empty,
+			                                                      System.Environment.MachineName,
+			                                                      source))
+			{
+				eventLog.WriteEntry(message,
+				                    eventLogEntryType);
+			}
 		}
 	}
 }

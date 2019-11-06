@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
-
-#endregion
 
 #region Used Directives
 
@@ -33,7 +29,6 @@ namespace Diten
 		//    Assembly.Load()
 		//}
 
-
 		public void Test(object[] args)
 		{
 			//string dir = @"SomePath"; // different from AppDomain.CurrentDomain.BaseDirectory
@@ -49,29 +44,31 @@ namespace Diten
 			{
 				if (args.Length == 0)
 					throw new TargetParameterCountException(
-						"Expected at least one parameter containing executable path.");
+					                                        "Expected at least one parameter containing executable path.");
 
-				using (var fileStream = new FileStream(args[0].ToString(), FileMode.Open))
-				using (var reader = new BinaryReader(fileStream))
+				using (var fileStream = new FileStream(args[0].ToString(),
+				                                       FileMode.Open))
 				{
-					var bin = reader.ReadBytes(Convert.ToInt32(fileStream.Length));
-					var assembly = AppDomain.CurrentDomain.Load(bin); //Assembly.Load(bin);
+					using (var reader = new BinaryReader(fileStream))
+					{
+						var bin = reader.ReadBytes(Convert.ToInt32(fileStream.Length));
+						var assembly = AppDomain.CurrentDomain.Load(bin); //Assembly.Load(bin);
 
-
-					var method = assembly.EntryPoint;
-					//if (method != null)
-					//{
-					//    object o = assembly.CreateInstance(method.ReflectedType?.Name);
-					//    if (method.GetParameters().Length == 0)
-					//        method.Invoke(o, new object[0]);
-					//    else
-					//    {
-					//        string[] parameters = new string[args.Length - 1];
-					//        for (int i = 1; i < args.Length; i++)
-					//            parameters[i - 1] = args[i];
-					//        method.Invoke(o, new[] { parameters });
-					//    }
-					//}
+						var method = assembly.EntryPoint;
+						//if (method != null)
+						//{
+						//    object o = assembly.CreateInstance(method.ReflectedType?.Name);
+						//    if (method.GetParameters().Length == 0)
+						//        method.Invoke(o, new object[0]);
+						//    else
+						//    {
+						//        string[] parameters = new string[args.Length - 1];
+						//        for (int i = 1; i < args.Length; i++)
+						//            parameters[i - 1] = args[i];
+						//        method.Invoke(o, new[] { parameters });
+						//    }
+						//}
+					}
 				}
 			}
 			catch (Exception ex)
@@ -122,7 +119,6 @@ namespace Diten
 		//    bool suppressSecurityChecks = false;
 		//    byte[] hashValue = (byte[]) null;
 
-
 		//    if (assemblyFile == null)
 		//        throw new ArgumentNullException(nameof(assemblyFile));
 		//    if (securityEvidence != null && !AppDomain.CurrentDomain.IsLegacyCasPolicyEnabled)
@@ -131,7 +127,6 @@ namespace Diten
 		//    assemblyRef.CodeBase = assemblyFile;
 		//    assemblyRef.SetHashControl(hashValue, hashAlgorithm);
 		//    return RuntimeAssembly.InternalLoadAssemblyName(assemblyRef, securityEvidence, (RuntimeAssembly)null, ref stackMark, true, forIntrospection, suppressSecurityChecks);
-
 
 		//    //System.Threading.StackCrawlMark.LookForMyCaller;
 		//    return (Assembly)RuntimeAssembly.InternalLoadFrom(assemblyFile, (Evidence)null, (byte[])null, AssemblyHashAlgorithm.None, false, false, ref stackMark);

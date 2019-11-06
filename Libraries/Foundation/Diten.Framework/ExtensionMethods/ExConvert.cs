@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:22 PM
-
-#endregion
 
 #region Used Directives
 
@@ -43,25 +39,27 @@ namespace Diten
 		/// <param name="value">The string value that contains HTM Template.</param>
 		/// <param name="htmlTemplate">Html template to convert.</param>
 		/// <returns>An ITemplate.</returns>
-		public static ITemplate ToITemplate(this string value, string htmlTemplate)
+		public static ITemplate ToITemplate(this string value,
+		                                    string htmlTemplate)
 		{
 			var page = HttpContext.Current.Handler as Page;
 			var memberInfo = Type.GetType(Names.Default.Type_VirtualPath);
 
-			if (memberInfo == null)
-				return null;
+			if (memberInfo == null) return null;
 
 			var createMethod = memberInfo.GetMethods(BindingFlags.Static | BindingFlags.Public)
-				.FirstOrDefault(m => m.Name == "Create" && m.GetParameters().Length == 1);
+			                             .FirstOrDefault(m => m.Name == "Create" && m.GetParameters().Length == 1);
 
-			if (createMethod == null)
-				return null;
-			var virtualPath = (string) createMethod.Invoke(null, new object[]
-			{
-				page?.AppRelativeVirtualPath
-			});
+			if (createMethod == null) return null;
+			var virtualPath = (string) createMethod.Invoke(null,
+			                                               new object[]
+			                                               {
+				                                               page?.AppRelativeVirtualPath
+			                                               });
 
-			return TemplateParser.ParseTemplate(htmlTemplate, virtualPath, true);
+			return TemplateParser.ParseTemplate(htmlTemplate,
+			                                    virtualPath,
+			                                    true);
 		}
 	}
 }

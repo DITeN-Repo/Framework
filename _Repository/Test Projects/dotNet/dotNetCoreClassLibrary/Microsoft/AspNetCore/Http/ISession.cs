@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,11 +11,7 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:09 PM
 
-#endregion
-
 namespace Microsoft.AspNetCore.Http
 {
-	public interface ISession
-	{
-	}
+	public interface ISession {}
 }

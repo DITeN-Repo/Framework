@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:13 AM
 
-#endregion
-
 #region Used Directives
 
 using Diten.Web;
@@ -25,6 +21,6 @@ namespace Diten
 {
 	public static class ExHttpException
 	{
-		public static HttpException ToHttpException(this System.Web.HttpException exception) => (HttpException) exception;
+		public static HttpException ToHttpException(this System.Web.HttpException exception) { return (HttpException) exception; }
 	}
 }

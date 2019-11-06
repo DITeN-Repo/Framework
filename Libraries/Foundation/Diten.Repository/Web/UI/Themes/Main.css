@@ -1,139 +1,174 @@
-﻿body {
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
-}
+﻿body
+	{
+		margin: 0 0 0 0;
+		padding: 0 0 0 0;
+	}
 
-.DesktopContent {
-	background-color: cornflowerblue;
-	height: 610px;
-}
+.DesktopContent
+	{
+		background-color: cornflowerblue;
+		height: 610px;
+	}
 
-.DesktopTaskbar {
-	background-color: ButtonFace;
-	border-top: 1px solid ButtonShadow;
-	height: 30px;
-	width: 100%;
-}
+.DesktopTaskbar
+	{
+		background-color: ButtonFace;
+		border-top: 1px solid ButtonShadow;
+		height: 30px;
+		width: 100%;
+	}
 
-.StartMenuButtonIcon { width: 30px; }
+.StartMenuButtonIcon
+	{
+		width: 30px;
+	}
 
-.StartMenu {
-	background-color: ButtonFace;
-	display: none; /* Hidden by default */
-	height: 350px;
-	height: 100%; /* Full height */
-	left: 0;
-	overflow: auto; /* Enable scroll if needed */
-	padding-top: 100px; /* Location of the box */
-	position: fixed; /* Stay in place */
-	top: 0;
-	width: 250px;
-	width: 100%; /* Full width */
-	z-index: 1; /* Sit on top */
-}
+.StartMenu
+	{
+		background-color: ButtonFace;
+		display: none; /* Hidden by default */
+		height: 350px;
+		height: 100%; /* Full height */
+		left: 0;
+		overflow: auto; /* Enable scroll if needed */
+		padding-top: 100px; /* Location of the box */
+		position: fixed; /* Stay in place */
+		top: 0;
+		width: 250px;
+		width: 100%; /* Full width */
+		z-index: 1; /* Sit on top */
+	}
 
 /* Modal Content */
 
-.StartMenu-Content {
-	background-color: #fefefe;
-	border: 1px solid #888;
-	margin: auto;
-	padding: 20px;
-	width: 80%;
-}
+.StartMenu-Content
+	{
+		background-color: #fefefe;
+		border: 1px solid #888;
+		margin: auto;
+		padding: 20px;
+		width: 80%;
+	}
 
-.CompletionListCssClass {
-	background-color: whitesmoke;
-	border: 1px solid black;
-	direction: ltr;
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
-}
+.CompletionListCssClass
+	{
+		background-color: whitesmoke;
+		border: 1px solid black;
+		direction: ltr;
+		margin: 0 0 0 0;
+		padding: 0 0 0 0;
+	}
 
-.CompletionListItemCssClass { }
+.CompletionListItemCssClass
+	{
+	}
 
-.CompletionListHighlightedItemCssClass {
-	background-color: darkblue;
-	color: white;
-}
+.CompletionListHighlightedItemCssClass
+	{
+		background-color: darkblue;
+		color: white;
+	}
 
-.BasicTable {
-	border: 0;
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
-	width: 100%;
-}
+.BasicTable
+	{
+		border: 0;
+		margin: 0 0 0 0;
+		padding: 0 0 0 0;
+		width: 100%;
+	}
 
-.img-chooser-dlg .details { text-align: center; }
+.img-chooser-dlg .details
+	{
+		text-align: center;
+	}
 
-.img-chooser-dlg .details-info {
-	border-top: 1px solid #cccccc;
-	font: 11px Arial, Helvetica, sans-serif;
-	margin-top: 5px;
-	padding-top: 5px;
-	text-align: left;
-}
+.img-chooser-dlg .details-info
+	{
+		border-top: 1px solid #cccccc;
+		font: 11px Arial, Helvetica, sans-serif;
+		margin-top: 5px;
+		padding-top: 5px;
+		text-align: left;
+	}
 
-.img-chooser-dlg .details-info b {
-	color: #555555;
-	display: block;
-	margin-bottom: 4px;
-	margin-left: 5px;
-}
+.img-chooser-dlg .details-info b
+	{
+		color: #555555;
+		display: block;
+		margin-bottom: 4px;
+		margin-left: 5px;
+	}
 
-.img-chooser-dlg .details-info span {
-	display: block;
-	margin-bottom: 5px;
-	margin-left: 10px;
-}
+.img-chooser-dlg .details-info span
+	{
+		display: block;
+		margin-bottom: 5px;
+		margin-left: 10px;
+	}
 
-.img-chooser-view {
-	background: white;
-	font: 11px Arial, Helvetica, sans-serif;
-}
+.img-chooser-view
+	{
+		background: white;
+		font: 11px Arial, Helvetica, sans-serif;
+	}
 
-.img-chooser-view .thumb {
-	padding: 3px;
-	text-align: center;
-}
+.img-chooser-view .thumb
+	{
+		padding: 3px;
+		text-align: center;
+	}
 
-.img-chooser-view .thumb-wrap {
-	float: left;
-	margin: 4px;
-	margin-right: 0;
-	padding: 5px;
-}
+.img-chooser-view .thumb-wrap
+	{
+		float: left;
+		margin: 4px;
+		margin-right: 0;
+		padding: 5px;
+	}
 
-.img-chooser-view .thumb-wrap span {
-	display: block;
-	overflow: hidden;
-	text-align: center;
-}
+.img-chooser-view .thumb-wrap span
+	{
+		display: block;
+		overflow: hidden;
+		text-align: center;
+	}
 
-.img-chooser-view .x-view-over {
-	background-color: #efefef;
-	border: 1px solid #dddddd;
-	padding: 4px;
-}
+.img-chooser-view .x-view-over
+	{
+		background-color: #efefef;
+		border: 1px solid #dddddd;
+		padding: 4px;
+	}
 
-.img-chooser-view .x-item-selected {
-	background: #DFEDFF;
-	border: 1px solid #6593cf;
-	padding: 4px;
-}
+.img-chooser-view .x-item-selected
+	{
+		background: #DFEDFF;
+		border: 1px solid #6593cf;
+		padding: 4px;
+	}
 
-.img-chooser-view .x-item-selected .thumb { background: transparent; }
+.img-chooser-view .x-item-selected .thumb
+	{
+		background: transparent;
+	}
 
-.img-chooser-view .x-item-selected span { color: #1A4D8F; }
+.img-chooser-view .x-item-selected span
+	{
+		color: #1A4D8F;
+	}
 
-.img-chooser-view .loading-indicator {
-	-ms-background-position: left;
-	-ms-background-repeat: no-repeat;
-	background-position: left;
-	background-repeat: no-repeat;
-	font-size: 11px;
-	margin: 10px;
-	padding-left: 20px;
-}
+.img-chooser-view .loading-indicator
+	{
+		-ms-background-position: left;
+		-ms-background-repeat: no-repeat;
+		background-position: left;
+		background-repeat: no-repeat;
+		font-size: 11px;
+		margin: 10px;
+		padding-left: 20px;
+	}
 
-#images img { margin: 20px; }
+#images img
+	{
+		margin: 20px;
+	}

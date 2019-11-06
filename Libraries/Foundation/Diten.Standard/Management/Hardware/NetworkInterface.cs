@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
 
-#endregion
-
 #region Used Directives
 
 using System.Linq;
@@ -26,42 +22,64 @@ using Diten.Collections.Generic;
 
 namespace Diten.Management.Hardware
 {
-	public class NetworkInterface : Hardware<NetworkInterface>
+	public class NetworkInterface: Hardware<NetworkInterface>
 	{
-		public List<GatewayIPAddressInformation> DefaultGateways { get; set; }
-		public List<IPAddress> DnsAddresses { get; set; }
-		public System.Net.NetworkInformation.NetworkInterface Interface { get; set; }
-		public List<IPAddressInformation> IpAddresses { get; set; }
-		public string Name { get; set; }
+		/// <summary>
+		///    Get or Set Default gateways.
+		/// </summary>
+		public List<GatewayIPAddressInformation> DefaultGateways {get; set;}
 
-		public new List<NetworkInterface> Touch()
+		/// <summary>
+		///    Get or Set DNS Addresses.
+		/// </summary>
+		public List<IPAddress> DnsAddresses {get; set;}
+
+		/// <summary>
+		///    Get or Set Interfaces.
+		/// </summary>
+		public System.Net.NetworkInformation.NetworkInterface Interface {get; set;}
+
+		/// <summary>
+		///    Get or Set Ip addresses
+		/// </summary>
+		public List<IPAddressInformation> IpAddresses {get; set;}
+
+		/// <summary>
+		///    Get or Set Name of the network interface.
+		/// </summary>
+		public new string Name {get; set;}
+
+		/// <summary>
+		///    Touching network interface for loading properties values.
+		/// </summary>
+		/// <returns>A list of available network adapters.</returns>
+		public new static List<NetworkInterface> Touch()
 		{
-			var _return = new List<NetworkInterface>();
-
-			_return.AddRange(System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()
-				.ToList()
-				.Select(networkInterface => new NetworkInterface
-				{
-					DefaultGateways =
-						new List<GatewayIPAddressInformation>()
-							.Cast(networkInterface
-								.GetIPProperties().GatewayAddresses
-								.ToList()),
-					DnsAddresses =
-						new List<IPAddress>().Cast(networkInterface
-							.GetIPProperties()
-							.DnsAddresses
-							.ToList()),
-					IpAddresses =
-						new List<IPAddressInformation>()
-							.Cast(networkInterface
-								.GetIPProperties().AnycastAddresses
-								.ToList()),
-					Interface = networkInterface,
-					Name = networkInterface.Name
-				}));
-
-			return _return;
+			return new List<NetworkInterface>().AddRange(System.Net.NetworkInformation.NetworkInterface
+			                                                   .GetAllNetworkInterfaces()
+			                                                   .ToList()
+			                                                   .Select(networkInterface => new NetworkInterface
+			                                                   {
+				                                                   DefaultGateways =
+					                                                   new List<GatewayIPAddressInformation>()
+						                                                   .Cast(networkInterface
+						                                                         .GetIPProperties()
+						                                                         .GatewayAddresses
+						                                                         .ToList()),
+				                                                   DnsAddresses =
+					                                                   new List<IPAddress>().Cast(networkInterface
+					                                                                              .GetIPProperties()
+					                                                                              .DnsAddresses
+					                                                                              .ToList()),
+				                                                   IpAddresses =
+					                                                   new List<IPAddressInformation>()
+						                                                   .Cast(networkInterface
+						                                                         .GetIPProperties()
+						                                                         .AnycastAddresses
+						                                                         .ToList()),
+				                                                   Interface = networkInterface,
+				                                                   Name = networkInterface.Name
+			                                                   }));
 		}
 	}
 }

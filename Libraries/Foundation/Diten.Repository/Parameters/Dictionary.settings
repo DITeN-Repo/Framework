@@ -1,79 +1,129 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
-              GeneratedClassNamespace="Diten.Parameters" GeneratedClassName="Dictionary">
+﻿<?xml version='1.0'
+      encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings"
+              CurrentProfile="(Default)"
+              GeneratedClassNamespace="Diten.Parameters"
+              GeneratedClassName="Dictionary">
 	<Profiles />
 	<Settings>
-		<Setting Name="Error" Type="System.String" Scope="Application">
+		<Setting Name="Error"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">خطا</Value>
 		</Setting>
-		<Setting Name="Warning" Type="System.String" Scope="Application">
+		<Setting Name="Warning"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">هشدار</Value>
 		</Setting>
-		<Setting Name="Information" Type="System.String" Scope="Application">
+		<Setting Name="Information"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">اطلاعات</Value>
 		</Setting>
-		<Setting Name="Yes" Type="System.String" Scope="Application">
+		<Setting Name="Yes"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">بله</Value>
 		</Setting>
-		<Setting Name="No" Type="System.String" Scope="Application">
+		<Setting Name="No"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">خیر</Value>
 		</Setting>
-		<Setting Name="Loading" Type="System.String" Scope="Application">
+		<Setting Name="Loading"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">بارگذاری</Value>
 		</Setting>
-		<Setting Name="DITeNFramework" Type="System.String" Scope="Application">
+		<Setting Name="DITeNFramework"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">قاب کاری توفاش</Value>
 		</Setting>
-		<Setting Name="NewFolder" Type="System.String" Scope="Application">
+		<Setting Name="NewFolder"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">پوشه جدید</Value>
 		</Setting>
-		<Setting Name="NewShortcut" Type="System.String" Scope="Application">
+		<Setting Name="NewShortcut"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">میانبر جدید</Value>
 		</Setting>
-		<Setting Name="CreateShortCut" Type="System.String" Scope="Application">
+		<Setting Name="CreateShortCut"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">ساختن میانبر</Value>
 		</Setting>
-		<Setting Name="Desktop" Type="System.String" Scope="Application">
+		<Setting Name="Desktop"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">میز کار</Value>
 		</Setting>
-		<Setting Name="Name" Type="System.String" Scope="Application">
+		<Setting Name="Name"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">نام</Value>
 		</Setting>
-		<Setting Name="Type" Type="System.String" Scope="Application">
+		<Setting Name="Type"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">نوع</Value>
 		</Setting>
-		<Setting Name="CreationDate" Type="System.String" Scope="Application">
+		<Setting Name="CreationDate"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">تاریخ ایجاد</Value>
 		</Setting>
-		<Setting Name="DateModified" Type="System.String" Scope="Application">
+		<Setting Name="DateModified"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">تاریخ تغییر</Value>
 		</Setting>
-		<Setting Name="Openning" Type="System.String" Scope="Application">
+		<Setting Name="Openning"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">باز کردن</Value>
 		</Setting>
-		<Setting Name="New" Type="System.String" Scope="Application">
+		<Setting Name="New"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">جدید</Value>
 		</Setting>
-		<Setting Name="Cut" Type="System.String" Scope="Application">
+		<Setting Name="Cut"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">برش</Value>
 		</Setting>
-		<Setting Name="Copy" Type="System.String" Scope="Application">
+		<Setting Name="Copy"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">کپی</Value>
 		</Setting>
-		<Setting Name="Paste" Type="System.String" Scope="Application">
+		<Setting Name="Paste"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">چسباندن</Value>
 		</Setting>
-		<Setting Name="SendTo" Type="System.String" Scope="Application">
+		<Setting Name="SendTo"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">ارسال به</Value>
 		</Setting>
-		<Setting Name="Delete" Type="System.String" Scope="Application">
+		<Setting Name="Delete"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">حذف</Value>
 		</Setting>
-		<Setting Name="Rename" Type="System.String" Scope="Application">
+		<Setting Name="Rename"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">تغییر نام</Value>
 		</Setting>
-		<Setting Name="PropertiesText" Type="System.String" Scope="Application">
+		<Setting Name="PropertiesText"
+		         Type="System.String"
+		         Scope="Application">
 			<Value Profile="(Default)">خصوصیات</Value>
 		</Setting>
 	</Settings>

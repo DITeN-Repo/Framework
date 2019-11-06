@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:20 AM
-
-#endregion
 
 #region Used Directives
 
@@ -43,26 +39,21 @@ namespace Diten.Net
 
 			try
 			{
-				d.CreateNewZone("testzone.uk.nullify.net.", Dns.NewZoneType.Primary);
+				d.CreateNewZone("testzone.uk.nullify.net.",
+				                Dns.NewZoneType.Primary);
 				Console.WriteLine("OK");
 			}
-			catch (Exception)
-			{
-				Console.WriteLine("Failed to create a new zone, it probably exists.");
-			}
+			catch (Exception) { Console.WriteLine("Failed to create a new zone, it probably exists."); }
 
 			Console.Write("Creating a DNS record as a test...");
 
 			try
 			{
 				d.CreateDnsRecord("testzone.uk.nullify.net.",
-					"test1.testzone.uk.nullify.net. IN CNAME xerxes.nullify.net.");
+				                  "test1.testzone.uk.nullify.net. IN CNAME xerxes.nullify.net.");
 				Console.WriteLine("OK");
 			}
-			catch (Exception)
-			{
-				Console.WriteLine("Failed to create a new resource record, it probably exists");
-			}
+			catch (Exception) { Console.WriteLine("Failed to create a new resource record, it probably exists"); }
 
 			Console.WriteLine("Getting a list of domains:");
 
@@ -71,8 +62,7 @@ namespace Diten.Net
 				Console.WriteLine(@"	" + domain.Name + @" (" + domain.ZoneType + ")");
 
 				//and a list of all the records in the domain:-
-				foreach (var record in d.GetRecordsForDomain(domain.Name))
-					Console.WriteLine(@"		" + record);
+				foreach (var record in d.GetRecordsForDomain(domain.Name)) Console.WriteLine(@"		" + record);
 			}
 
 			Console.WriteLine("Fetching existing named entry (can be really slow, read the warning):-");
@@ -102,8 +92,6 @@ namespace Diten.Net
 	/// </remarks>
 	public class Dns
 	{
-		private readonly ManagementScope _scope;
-
 		/// <summary>
 		///    Create a new DNS Server connection
 		/// </summary>
@@ -111,7 +99,8 @@ namespace Diten.Net
 		public Dns(string server)
 		{
 			var co = new ConnectionOptions();
-			_scope = new ManagementScope($@"\\{server}\Root\MicrosoftDNS", co);
+			_scope = new ManagementScope($@"\\{server}\Root\MicrosoftDNS",
+			                             co);
 			_scope.Connect(); //no disconnect method appears to exist so we do not need to manage the 
 
 			//persistence of this connection and tidy up
@@ -124,8 +113,8 @@ namespace Diten.Net
 		/// <param name="username">The username to connect with</param>
 		/// <param name="password">The users password</param>
 		public Dns(string server,
-			string username,
-			string password)
+		           string username,
+		           string password)
 		{
 			var co = new ConnectionOptions
 			{
@@ -133,14 +122,17 @@ namespace Diten.Net
 				Password = password,
 				Impersonation = ImpersonationLevel.Impersonate
 			};
-			_scope = new ManagementScope($@"\\{server}\Root\MicrosoftDNS", co);
+			_scope = new ManagementScope($@"\\{server}\Root\MicrosoftDNS",
+			                             co);
 			_scope.Connect();
 		}
 
 		/// <summary>
 		///    The server this connection applies to
 		/// </summary>
-		public string Server { get; } = "";
+		public string Server {get;} = "";
+
+		private readonly ManagementScope _scope;
 
 		/// <summary>
 		///    Create a new DNS host record
@@ -149,12 +141,13 @@ namespace Diten.Net
 		/// <param name="bindStyleHostEntry"></param>
 		/// <returns></returns>
 		public void CreateDnsRecord(string zone,
-			string bindStyleHostEntry)
+		                            string bindStyleHostEntry)
 		{
 			try
 			{
-				ManagementObject mc = new ManagementClass(_scope, new ManagementPath("MicrosoftDNS_ResourceRecord"),
-					null);
+				ManagementObject mc = new ManagementClass(_scope,
+				                                          new ManagementPath("MicrosoftDNS_ResourceRecord"),
+				                                          null);
 				mc.Get();
 				var parameters = mc.GetMethodParameters("CreateInstanceFromTextRepresentation");
 				parameters["ContainerName"] = zone;
@@ -166,7 +159,9 @@ namespace Diten.Net
 			}
 			catch (ManagementException) //the details on this exception appear useless.
 			{
-				throw new ApplicationException("Unable to create the record " + bindStyleHostEntry + ", please check" +
+				throw new ApplicationException("Unable to create the record " +
+				                               bindStyleHostEntry +
+				                               ", please check" +
 				                               " the format and that it does not already exist.");
 			}
 		}
@@ -177,9 +172,10 @@ namespace Diten.Net
 		/// <param name="zone"></param>
 		/// <param name="record"></param>
 		public void CreateDnsRecord(string zone,
-			DnsRecord record)
+		                            DnsRecord record)
 		{
-			CreateDnsRecord(zone, record.ToString());
+			CreateDnsRecord(zone,
+			                record.ToString());
 		}
 
 		/// <summary>
@@ -189,11 +185,13 @@ namespace Diten.Net
 		/// <param name="zoneType">The type of zone to create</param>
 		/// <returns>The domain</returns>
 		public DnsDomain CreateNewZone(string zoneName,
-			NewZoneType zoneType)
+		                               NewZoneType zoneType)
 		{
 			try
 			{
-				ManagementObject mc = new ManagementClass(_scope, new ManagementPath("MicrosoftDNS_Zone"), null);
+				ManagementObject mc = new ManagementClass(_scope,
+				                                          new ManagementPath("MicrosoftDNS_Zone"),
+				                                          null);
 				mc.Get();
 				var parameters = mc.GetMethodParameters("CreateZone");
 
@@ -209,8 +207,12 @@ namespace Diten.Net
 				parameters["ZoneName"] = zoneName;
 				parameters["ZoneType"] = (uint) zoneType;
 				parameters["DsIntegrated"] = 0; //false
-				var createdEntry = mc.InvokeMethod("CreateZone", parameters, null);
-				var dnsDomain = new DnsDomain(zoneName, createdEntry, this);
+				var createdEntry = mc.InvokeMethod("CreateZone",
+				                                   parameters,
+				                                   null);
+				var dnsDomain = new DnsDomain(zoneName,
+				                              createdEntry,
+				                              this);
 
 				return dnsDomain;
 			}
@@ -218,7 +220,9 @@ namespace Diten.Net
 
 				//returns generic error when it already exists, I'm guessing this is a generic answer!
 			{
-				throw new ApplicationException("Unable to create the zone " + zoneName + ", please check " +
+				throw new ApplicationException("Unable to create the zone " +
+				                               zoneName +
+				                               ", please check " +
 				                               "the format of the name and that it does not already exist.");
 			}
 		}
@@ -237,11 +241,13 @@ namespace Diten.Net
 		public DnsRecord[] GetExistingDnsRecords(string hostName)
 		{
 			var query = $"SELECT * FROM MicrosoftDNS_ResourceRecord WHERE OwnerName='{hostName}'";
-			var searcher = new ManagementObjectSearcher(_scope, new ObjectQuery(query));
+			var searcher = new ManagementObjectSearcher(_scope,
+			                                            new ObjectQuery(query));
 
 			var managementObjectCollection = searcher.Get();
 
-			return (from ManagementObject p in managementObjectCollection select new DnsRecord(p)).ToArray();
+			return (from ManagementObject p in managementObjectCollection
+			        select new DnsRecord(p)).ToArray();
 		}
 
 		public static List<IPAddress> GetHostAddresses(string hostName)
@@ -249,7 +255,7 @@ namespace Diten.Net
 			var _return = new List<IPAddress>();
 
 			_return.AddRange(System.Net.Dns.GetHostAddresses(hostName)
-				.Select(hostAddress => IPAddress.Parse(hostAddress.ToString())));
+			                       .Select(hostAddress => IPAddress.Parse(hostAddress.ToString())));
 
 			return _return;
 		}
@@ -264,17 +270,17 @@ namespace Diten.Net
 			var hostName = "HostName";
 
 			return System.Net.Dns
-				.EndGetHostEntry(System.Net.Dns.BeginGetHostEntry(ip, GetHostName, hostName))
-				.HostName;
+			             .EndGetHostEntry(System.Net.Dns.BeginGetHostEntry(ip,
+			                                                               GetHostName,
+			                                                               hostName))
+			             .HostName;
 		}
 
 		/// <summary>
 		///    Get host async callback.
 		/// </summary>
 		/// <param name="ar">Async result.</param>
-		private static void GetHostName(IAsyncResult ar)
-		{
-		}
+		private static void GetHostName(IAsyncResult ar) {}
 
 		/// <summary>
 		///    Return a list of domains managed by this instance of MS DNS Server
@@ -282,16 +288,21 @@ namespace Diten.Net
 		/// <returns></returns>
 		public DnsDomain[] GetListOfDomains()
 		{
-			var mc = new ManagementClass(_scope, new ManagementPath("MicrosoftDNS_Zone"), null);
+			var mc = new ManagementClass(_scope,
+			                             new ManagementPath("MicrosoftDNS_Zone"),
+			                             null);
 			mc.Get();
 			var collection = mc.GetInstances();
 
 			return
-				(from ManagementObject p in collection select new DnsDomain(p["ContainerName"].ToString(), p, this))
+				(from ManagementObject p in collection
+				 select new DnsDomain(p["ContainerName"].ToString(),
+				                      p,
+				                      this))
 				.ToArray();
 		}
 
-		public static List<IPAddress> GetLocalIpAddresses() => GetHostAddresses(System.Net.Dns.GetHostName());
+		public static List<IPAddress> GetLocalIpAddresses() { return GetHostAddresses(System.Net.Dns.GetHostName()); }
 
 		/// <summary>
 		///    Return a list of records for a domain, note that it may include records
@@ -303,14 +314,16 @@ namespace Diten.Net
 		public DnsRecord[] GetRecordsForDomain(string domain)
 		{
 			var query = $"SELECT * FROM MicrosoftDNS_ResourceRecord WHERE DomainName='{domain}'";
-			var searcher = new ManagementObjectSearcher(_scope, new ObjectQuery(query));
+			var searcher = new ManagementObjectSearcher(_scope,
+			                                            new ObjectQuery(query));
 
 			var collection = searcher.Get();
 
-			return (from ManagementObject p in collection select new DnsRecord(p)).ToArray();
+			return (from ManagementObject p in collection
+			        select new DnsRecord(p)).ToArray();
 		}
 
-		public override string ToString() => Server;
+		public override string ToString() { return Server; }
 
 		#region Supporting classes
 
@@ -345,10 +358,6 @@ namespace Diten.Net
 		/// </summary>
 		public class DnsDomain
 		{
-			private readonly Dns _server;
-
-			private readonly ManagementBaseObject _wmiObject;
-
 			/// <summary>
 			///    Create a DNS zone
 			/// </summary>
@@ -356,8 +365,8 @@ namespace Diten.Net
 			/// <param name="wmiObject">The object that represents it in MS DNS server</param>
 			/// <param name="server">The DNS Server it is to be managed by</param>
 			public DnsDomain(string name,
-				ManagementBaseObject wmiObject,
-				Dns server)
+			                 ManagementBaseObject wmiObject,
+			                 Dns server)
 			{
 				Name = name;
 				_wmiObject = wmiObject;
@@ -367,7 +376,7 @@ namespace Diten.Net
 			/// <summary>
 			///    The name of the DNS zone
 			/// </summary>
-			public string Name { get; set; }
+			public string Name {get; set;}
 
 			/// <summary>
 			///    Is this a reverse DNS zone?
@@ -379,22 +388,27 @@ namespace Diten.Net
 			/// </summary>
 			public ZoneType ZoneType => (ZoneType) System.Convert.ToInt32(_wmiObject["ZoneType"]);
 
+			private readonly Dns _server;
+
+			private readonly ManagementBaseObject _wmiObject;
+
 			/// <summary>
 			///    Create a new DNS host record
 			/// </summary>
 			/// <param name="record">The record to create</param>
 			public void CreateDnsRecord(DnsRecord record)
 			{
-				_server.CreateDnsRecord(Name, record.ToString());
+				_server.CreateDnsRecord(Name,
+				                        record.ToString());
 			}
 
 			/// <summary>
 			///    Get a list of all objects at the base of this zone
 			/// </summary>
 			/// <returns>A list of <see cref="DnsRecord" /></returns>
-			public DnsRecord[] GetAllRecords() => _server.GetRecordsForDomain(Name);
+			public DnsRecord[] GetAllRecords() { return _server.GetRecordsForDomain(Name); }
 
-			public override string ToString() => Name;
+			public override string ToString() { return Name; }
 		}
 
 		/// <summary>
@@ -402,8 +416,6 @@ namespace Diten.Net
 		/// </summary>
 		public class DnsRecord
 		{
-			private ManagementObject _wmiObject;
-
 			/// <summary>
 			///    Create an class wrapping a DNS record
 			///    Defaults to 1 hour TTL
@@ -412,11 +424,14 @@ namespace Diten.Net
 			/// <param name="recordType"></param>
 			/// <param name="target"></param>
 			public DnsRecord(string domain,
-				DnsRecordType recordType,
-				string target) :
-				this(domain, recordType, target, new TimeSpan(1, 0, 0))
-			{
-			}
+			                 DnsRecordType recordType,
+			                 string target):
+				this(domain,
+				     recordType,
+				     target,
+				     new TimeSpan(1,
+				                  0,
+				                  0)) {}
 
 			/// <summary>
 			///    Create an class wrapping a DNS record
@@ -426,9 +441,9 @@ namespace Diten.Net
 			/// <param name="target"></param>
 			/// <param name="ttl"></param>
 			public DnsRecord(string domain,
-				DnsRecordType recordType,
-				string target,
-				TimeSpan ttl)
+			                 DnsRecordType recordType,
+			                 string target,
+			                 TimeSpan ttl)
 			{
 				DomainHost = domain;
 				Ttl1 = ttl;
@@ -445,27 +460,31 @@ namespace Diten.Net
 				_wmiObject = wmiObject;
 				DomainHost = wmiObject["OwnerName"].ToString();
 				Target = wmiObject["RecordData"].ToString();
-				var recordParts = wmiObject["TextRepresentation"].ToString().Split(' ', '\t');
-				if (recordParts.Length > 2)
-					RecordType = new DnsRecordType(recordParts[2]);
-				Ttl1 = new TimeSpan(0, 0, System.Convert.ToInt32(wmiObject["TTL"]));
+				var recordParts = wmiObject["TextRepresentation"]
+				                  .ToString()
+				                  .Split(' ',
+				                         '\t');
+				if (recordParts.Length > 2) RecordType = new DnsRecordType(recordParts[2]);
+				Ttl1 = new TimeSpan(0,
+				                    0,
+				                    System.Convert.ToInt32(wmiObject["TTL"]));
 			}
 
 			/// <summary>
 			///    The location in the DNS system for this record
 			/// </summary>
-			public string DomainHost { get; set; }
+			public string DomainHost {get; set;}
 
 			/// <summary>
 			///    The record type
 			/// </summary>
-			public DnsRecordType RecordType { get; }
+			public DnsRecordType RecordType {get;}
 
 			/// <summary>
 			///    The value of the target is what is written to DNS as the value of a record
 			/// </summary>
 			/// <remarks>For MX records include the priority as a number with a space or tab between it and the actual target</remarks>
-			public string Target { get; set; }
+			public string Target {get; set;}
 
 			/// <summary>
 			///    The time that the resolvers should cache this record for
@@ -477,7 +496,11 @@ namespace Diten.Net
 			}
 
 			// ReSharper disable once MemberInitializerValueIgnored
-			public TimeSpan Ttl1 { get; set; } = new TimeSpan(0, 1, 0);
+			public TimeSpan Ttl1 {get; set;} = new TimeSpan(0,
+			                                                1,
+			                                                0);
+
+			private ManagementObject _wmiObject;
 
 			/// <summary>
 			///    Delete a record from DNS
@@ -497,7 +520,7 @@ namespace Diten.Net
 			///    unknown type, potentially partially filled for known types)
 			/// </param>
 			/// <returns>An array of filled in parameters, or null if the parameters are unknown</returns>
-			public virtual ManagementBaseObject OnSaveChanges(ManagementBaseObject parametersIn) => null;
+			public virtual ManagementBaseObject OnSaveChanges(ManagementBaseObject parametersIn) { return null; }
 
 			/// <summary>
 			///    Save the changes to the resource record
@@ -543,7 +566,9 @@ namespace Diten.Net
 
 				if (RecordType.TextRepresentation == "MX")
 				{
-					var components = Target.Trim().Split(' ', '\t');
+					var components = Target.Trim()
+					                       .Split(' ',
+					                              '\t');
 
 					if (components.Length > 1)
 					{
@@ -585,7 +610,9 @@ namespace Diten.Net
 				{
 					try
 					{
-						_wmiObject = (ManagementObject) _wmiObject.InvokeMethod("Modify", parameters, null);
+						_wmiObject = (ManagementObject) _wmiObject.InvokeMethod("Modify",
+						                                                        parameters,
+						                                                        null);
 					}
 					catch (Exception ex)
 					{
@@ -596,11 +623,14 @@ namespace Diten.Net
 							                               "but this was withheld till after the operation failed. Please examine the" +
 							                               " InnerException property for copy of the virtual methods exception.  The " +
 							                               "virtual methods exception message was: " +
-							                               temporaryException.Message + ".  " +
+							                               temporaryException.Message +
+							                               ".  " +
 							                               "The primary exceptions message (a " +
 							                               ex.GetType().FullName +
 							                               ") " +
-							                               "was: " + ex.Message, temporaryException);
+							                               "was: " +
+							                               ex.Message,
+							                               temporaryException);
 
 						throw;
 					}
@@ -609,8 +639,9 @@ namespace Diten.Net
 						throw new ApplicationException("A virtual method that was optional to functionality " +
 						                               "threw an exception but this was withheld till after the operation completed " +
 						                               "successfully, please examine the InnerException property for a full copy of this " +
-						                               "exception.  The message was: " + temporaryException.Message,
-							temporaryException);
+						                               "exception.  The message was: " +
+						                               temporaryException.Message,
+						                               temporaryException);
 				}
 				else
 				{
@@ -622,7 +653,7 @@ namespace Diten.Net
 				}
 			}
 
-			public override string ToString() => DomainHost + " " + RecordType + " " + Target;
+			public override string ToString() { return DomainHost + " " + RecordType + " " + Target; }
 		}
 
 		/// <summary>
@@ -630,25 +661,25 @@ namespace Diten.Net
 		/// </summary>
 		public class DnsRecordType
 		{
-			private readonly string _textRepresentation;
-
 			/// <summary>
 			///    Create a new DNS record type
 			/// </summary>
 			/// <param name="textRepresentation">The type to create</param>
-			public DnsRecordType(string textRepresentation) => _textRepresentation = textRepresentation;
+			public DnsRecordType(string textRepresentation) { _textRepresentation = textRepresentation; }
 
 			/// <summary>
 			///    The mode of the record, usually IN but could oneday be something else like OUT
 			/// </summary>
-			public string RecordMode { get; set; } = "IN";
+			public string RecordMode {get; set;} = "IN";
 
 			/// <summary>
 			///    The text representation of the record type
 			/// </summary>
 			public string TextRepresentation => _textRepresentation.ToUpper();
 
-			public override string ToString() => RecordMode + " " + _textRepresentation;
+			private readonly string _textRepresentation;
+
+			public override string ToString() { return RecordMode + " " + _textRepresentation; }
 
 			#region Some Defaults!
 

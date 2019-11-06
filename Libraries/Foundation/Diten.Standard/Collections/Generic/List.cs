@@ -1,5 +1,3 @@
-#region DITeN Registration Info
-
 // Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -33,7 +29,7 @@ namespace Diten.Collections.Generic
 	/// <inheritdoc />
 	/// <typeparam name="T"></typeparam>
 	[Attributes.Generic]
-	public class List<T> : SCG.List<T>
+	public class List<T>: SCG.List<T>
 	{
 		/// <summary>
 		///    Get list element.
@@ -47,36 +43,36 @@ namespace Diten.Collections.Generic
 				var _return = default(T);
 
 				this.Where(o =>
-				{
-					o.GetType().GetMethod(Enum.GetName(Enum.MethodNames.Load))
-						?.Invoke(o, BindingFlags.Default, null, null, CultureInfo.CurrentCulture);
+				           {
+					           o.GetType()
+					            .GetMethod(Enum.GetName(Enum.MethodNames.Load))
+					            ?.Invoke(o,
+					                     BindingFlags.Default,
+					                     null,
+					                     null,
+					                     CultureInfo.CurrentCulture);
 
-					_return = o;
+					           _return = o;
 
-					return selector(_return);
-				}).GetEnumerator().MoveNext();
+					           return selector(_return);
+				           })
+				    .GetEnumerator()
+				    .MoveNext();
 
 				return selector(_return)
-					? _return
-					: throw new EntryPointNotFoundException($@"Argument of type [{typeof(T)}] not found.");
+					       ? _return
+					       : throw new EntryPointNotFoundException($@"Argument of type [{typeof(T)}] not found.");
 			}
 		}
-
-		/// <summary>
-		///    Converting a <see cref="Generic.List{T}" /> into <see cref="SCG.List{T}" />
-		/// </summary>
-		/// <param name="value">A <see cref="Generic.List{T}" />.</param>
-		/// <returns>A <see cref="SCG.List{T}" /></returns>
-		public static List<T> ToList(SCG.IEnumerable<T> value) => new List<T>().AddRange(value);
-
 
 		public new List<T> AddRange(SCG.IEnumerable<T> range)
 		{
 			return new Func<SCG.IEnumerable<T>, List<T>>(r =>
-			{
-				base.AddRange(r);
-				return this;
-			}).Invoke(range);
+			                                             {
+				                                             base.AddRange(r);
+
+				                                             return this;
+			                                             }).Invoke(range);
 		}
 
 		/// <summary>
@@ -95,10 +91,16 @@ namespace Diten.Collections.Generic
 		///    Filling <see cref="Diten.Collections.Generic.List{T}" /> items by calling fill method if it has one.
 		/// </summary>
 		/// <returns>A <see cref="Diten.Collections.Generic.List{T}" /> of elements of type T</returns>
-		public List<T> Fill() =>
-			(List<T>) typeof(T).GetMethod(Enum.GetName(Enum.MethodNames.Fill), Type.EmptyTypes)
-				?.Invoke(Activator.CreateInstance(typeof(T)), BindingFlags.Default, null, null,
-					CultureInfo.CurrentCulture);
+		public List<T> Fill()
+		{
+			return (List<T>) typeof(T).GetMethod(Enum.GetName(Enum.MethodNames.Fill),
+			                                     Type.EmptyTypes)
+			                          ?.Invoke(Activator.CreateInstance(typeof(T)),
+			                                   BindingFlags.Default,
+			                                   null,
+			                                   null,
+			                                   CultureInfo.CurrentCulture);
+		}
 
 		/// <summary>
 		///    Loading <see cref="Diten.Collections.Generic.List{T}" /> items by calling load method from repository if it has
@@ -107,17 +109,24 @@ namespace Diten.Collections.Generic
 		/// <returns>A <see cref="Diten.Collections.Generic.List{T}" /> of elements of type T</returns>
 		public List<T> Load()
 		{
-			var tmp = GetRange(0, Count);
+			var tmp = GetRange(0,
+			                   Count);
 			Clear();
 
 			foreach (var item in tmp)
-				Add((T) item.GetType().GetMethod(Enum.GetName(Enum.MethodNames.Load), Type.EmptyTypes)
-					?.Invoke(item, BindingFlags.Default, null, null, CultureInfo.CurrentCulture));
+				Add((T) item.GetType()
+				            .GetMethod(Enum.GetName(Enum.MethodNames.Load),
+				                       Type.EmptyTypes)
+				            ?.Invoke(item,
+				                     BindingFlags.Default,
+				                     null,
+				                     null,
+				                     CultureInfo.CurrentCulture));
 
 			return this;
 		}
 
-		public static implicit operator EnumerableQuery<T>(List<T> value) => new EnumerableQuery<T>(value.ToList());
+		public static implicit operator EnumerableQuery<T>(List<T> value) { return new EnumerableQuery<T>(value.ToList()); }
 
 		/// <summary>
 		///    Saving <see cref="Diten.Collections.Generic.List{T}" /> in repository.
@@ -131,42 +140,54 @@ namespace Diten.Collections.Generic
 			//    ?.Invoke(item, BindingFlags.Default, null, new object[] {item},
 			//        CultureInfo.CurrentCulture));
 
-			ForEach(item => item.GetType().GetMethods().FirstOrDefault(method =>
-					method.Name.Equals(Enum.GetName(Enum.MethodNames.Save)) && method.GetParameters().Length.Equals(0))
-				?.Invoke(item, BindingFlags.DeclaredOnly |
-				               BindingFlags.ExactBinding |
-				               BindingFlags.InvokeMethod,
-					null,
-					null,
-					CultureInfo.CurrentCulture));
+			ForEach(item => item.GetType()
+			                    .GetMethods()
+			                    .FirstOrDefault(method =>
+				                                    method.Name.Equals(Enum.GetName(Enum.MethodNames.Save)) && method.GetParameters().Length.Equals(0))
+			                    ?.Invoke(item,
+			                             BindingFlags.DeclaredOnly |
+			                             BindingFlags.ExactBinding |
+			                             BindingFlags.InvokeMethod,
+			                             null,
+			                             null,
+			                             CultureInfo.CurrentCulture));
 
 			//var r = this[0].GetType();
 
 			ForEach(item =>
-			{
-				foreach (var propertyInfo in item.GetType().GetProperties())
-				{
-					/*
-					  .Name.ToUpper().Equals("Id".ToUpper()) &&
-					                    !propertyInfo.Name.ToUpper().Equals("Database".ToUpper()) &&
-					                    !propertyInfo.Name.ToUpper().Equals("MongoClient".ToUpper()) &&
-					                    !propertyInfo.Name.ToUpper().Equals("Collection".ToUpper()))
-					 */
-					if (!propertyInfo.GetCustomAttributes(typeof(BsonIgnoreAttribute)).Any())
-						if (propertyInfo.SetMethod != null)
-							try
-							{
-								propertyInfo.SetValue(item, null);
-							}
-							catch (Exception)
-							{
-								// ignored
-							}
+			        {
+				        foreach (var propertyInfo in item.GetType().GetProperties())
+				        {
+					        /*
+					          .Name.ToUpper().Equals("Id".ToUpper()) &&
+					                            !propertyInfo.Name.ToUpper().Equals("Database".ToUpper()) &&
+					                            !propertyInfo.Name.ToUpper().Equals("MongoClient".ToUpper()) &&
+					                            !propertyInfo.Name.ToUpper().Equals("Collection".ToUpper()))
+					         */
+					        if (!propertyInfo.GetCustomAttributes(typeof(BsonIgnoreAttribute)).Any())
+						        if (propertyInfo.SetMethod != null)
+							        try
+							        {
+								        propertyInfo.SetValue(item,
+								                              null);
+							        }
+							        catch (Exception)
+							        {
+								        // ignored
+							        }
 
-					if (propertyInfo.PropertyType == typeof(DateTime))
-						propertyInfo.SetValue(item, DateTime.MinValue);
-				}
-			});
+					        if (propertyInfo.PropertyType == typeof(DateTime))
+						        propertyInfo.SetValue(item,
+						                              DateTime.MinValue);
+				        }
+			        });
 		}
+
+		/// <summary>
+		///    Converting a <see cref="Generic.List{T}" /> into <see cref="SCG.List{T}" />
+		/// </summary>
+		/// <param name="value">A <see cref="Generic.List{T}" />.</param>
+		/// <returns>A <see cref="SCG.List{T}" /></returns>
+		public static List<T> ToList(SCG.IEnumerable<T> value) { return new List<T>().AddRange(value); }
 	}
 }

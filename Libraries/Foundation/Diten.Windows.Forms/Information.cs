@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 10:05 PM
-
-#endregion
 
 #region Used Directives
 
@@ -30,7 +26,7 @@ using Directory = Diten.IO.Directory;
 
 namespace Diten.Windows.Forms
 {
-	public sealed class Information : RichTextBox
+	public sealed class Information: RichTextBox
 	{
 		public Information()
 		{
@@ -42,7 +38,9 @@ namespace Diten.Windows.Forms
 			ScrollBars = RichTextBoxScrollBars.Vertical;
 		}
 
-		public bool DoReport { get; set; }
+		public bool DoReport {get; set;}
+
+		private int LinesCount {get; set;}
 
 		public new Color SelectionColor
 		{
@@ -56,25 +54,35 @@ namespace Diten.Windows.Forms
 			set => SetText(value);
 		}
 
-		private int LinesCount { get; set; }
-
-		public void AppendText(String text, bool newLine, params String[] parameters)
+		public void AddSeparator()
 		{
-			if (text.Color == default)
-				text.Color = ForeColor;
+			AppendText(Tools.Repeat("-",
+			                        Width / 4 - 7),
+			           Color.Yellow);
+		}
+
+		public void AppendText(String text,
+		                       bool newLine,
+		                       params String[] parameters)
+		{
+			if (text.Color == default) text.Color = ForeColor;
 
 			if (Diten.String.IsNullString(text))
-				throw new ArgumentNullException(nameof(text), @"Argument [text] can not be null or empty");
+				throw new ArgumentNullException(nameof(text),
+				                                @"Argument [text] can not be null or empty");
 
 			var splitter = Environment.TextValuingSeparator;
 			var count = 0;
 
 			if (parameters != null)
-				for (var i = 0; i < parameters.Length; i++)
+				for (var i = 0;
+				     i < parameters.Length;
+				     i++)
 					if (text.Value.Contains($@"{{{i}}}"))
 					{
 						var colorHolder = text.Color;
-						text = text.Value.Replace($@"{{{i}}}", splitter.ToString());
+						text = text.Value.Replace($@"{{{i}}}",
+						                          splitter.ToString());
 						text.Color = colorHolder;
 					}
 			//else
@@ -85,7 +93,8 @@ namespace Diten.Windows.Forms
 				SelectionColor = text.Color;
 				SetText(part);
 
-				if (parameters != null && count < parameters.Length)
+				if (parameters != null &&
+				    count < parameters.Length)
 				{
 					SelectionColor = parameters[count].Color;
 					SetText(parameters[count]);
@@ -94,8 +103,7 @@ namespace Diten.Windows.Forms
 				count++;
 			}
 
-			foreach (var part in text.Value.Split(splitter))
-				SetValue(part);
+			foreach (var part in text.Value.Split(splitter)) SetValue(part);
 
 			if (!newLine) return;
 
@@ -104,12 +112,20 @@ namespace Diten.Windows.Forms
 			LinesCount++;
 		}
 
-		public void AppendText(String text, String value, bool newLine = true)
+		public void AppendText(String text,
+		                       String value,
+		                       bool newLine = true)
 		{
-			AppendText(text, value, new String(":") {Color = Color.Red}, newLine);
+			AppendText(text,
+			           value,
+			           new String(":") {Color = Color.Red},
+			           newLine);
 		}
 
-		public void AppendText(String text, String value, String divider, bool newLine = true)
+		public void AppendText(String text,
+		                       String value,
+		                       String divider,
+		                       bool newLine = true)
 		{
 			//if (text.Color.Equals(default(Color)))
 			text.Color = Color.LimeGreen;
@@ -120,50 +136,62 @@ namespace Diten.Windows.Forms
 			//if (value.Color.Equals(default(Color)))
 			value.Color = Color.Orange;
 
-			AppendText(new String(@"{0}:{2}") {Color = default}, newLine, text, divider, value);
+			AppendText(new String(@"{0}:{2}") {Color = default},
+			           newLine,
+			           text,
+			           divider,
+			           value);
 		}
 
-		public void AppendText(String text, bool newLine = true)
+		public void AppendText(String text,
+		                       bool newLine = true)
 		{
-			AppendText(text, newLine, null);
+			AppendText(text,
+			           newLine,
+			           null);
 		}
 
-		public void AppendText(string text, Color color, bool newLine = true)
+		public void AppendText(string text,
+		                       Color color,
+		                       bool newLine = true)
 		{
-			AppendText(new String(text) {Color = color}, newLine);
-		}
-
-		public void AddSeparator()
-		{
-			AppendText(Tools.Repeat("-", Width / 4 - 7), Color.Yellow);
+			AppendText(new String(text) {Color = color},
+			           newLine);
 		}
 
 		public void SaveResult()
 		{
 			File.WriteAllText(
-				$@"{Directory.Windows
-					.CreateDirectory($@"{Application.CommonAppDataPath}\Diten\Result\{Application.ProductName}")
-					.FullName}\{(FindForm() != null ? FindForm()?.Name : Application.ProductName)}.Result.txt", Text);
+			                  $@"{
+					                  Directory.Windows
+					                           .CreateDirectory($@"{Application.CommonAppDataPath}\Diten\Result\{Application.ProductName}")
+					                           .FullName
+				                  }\{
+					                  (FindForm() != null ? FindForm()?.Name : Application.ProductName)
+				                  }.Result.txt",
+			                  Text);
 		}
 
 		private void SetSelectionColor(Color value)
 		{
 			if (InvokeRequired)
-				Invoke(new SelectionColorDelegate(SetSelectionColor), value);
-			else
-				base.SelectionColor = value;
+				Invoke(new SelectionColorDelegate(SetSelectionColor),
+				       value);
+			else base.SelectionColor = value;
 		}
 
 		private void SetText(String value)
 		{
 			if (InvokeRequired)
 			{
-				Invoke(new TextDelegate(SetText), value);
+				Invoke(new TextDelegate(SetText),
+				       value);
 			}
 			else
 			{
 				if (Diten.String.IsNullString(value)) return;
-				if (!DoReport && TextLength + value.Value.Length > MaxLength || LinesCount > Height / 12 - 7)
+				if (!DoReport && TextLength + value.Value.Length > MaxLength ||
+				    LinesCount > Height / 12 - 7)
 				{
 					LinesCount = 0;
 					base.Text = string.Empty;

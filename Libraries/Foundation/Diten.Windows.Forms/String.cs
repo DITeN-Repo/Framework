@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 10:05 PM
 
-#endregion
-
 #region Used Directives
 
 using System.Collections.Generic;
@@ -26,16 +22,13 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Diten.Windows.Forms
 {
-	public class String : Diten.String
+	public class String: Diten.String
 	{
-		private Color _color;
+		public String() { Value = string.Empty; }
 
-		private Font _font;
-		private FontFamily _fontFamily;
-
-		public String() => Value = string.Empty;
-
-		public String(string value, Color color = default, Font font = default) : this()
+		public String(string value,
+		              Color color = default,
+		              Font font = default): this()
 		{
 			if (value == null) value = string.Empty;
 			Value = value;
@@ -43,10 +36,12 @@ namespace Diten.Windows.Forms
 			_color = color;
 		}
 
-		public String(string value, FontStyle fontStyle) : this(value, default,
-			new Font(new FontFamily(GenericFontFamilies.SansSerif), (float) 8.25, fontStyle))
-		{
-		}
+		public String(string value,
+		              FontStyle fontStyle): this(value,
+		                                         default,
+		                                         new Font(new FontFamily(GenericFontFamilies.SansSerif),
+		                                                  (float) 8.25,
+		                                                  fontStyle)) {}
 
 		/// <summary>
 		///    Color of string.
@@ -64,7 +59,10 @@ namespace Diten.Windows.Forms
 		[BsonIgnore]
 		public Font Font
 		{
-			get => _font ?? (_font = new Font(FontFamily, (float) 8.25));
+			get =>
+				_font ??
+				(_font = new Font(FontFamily,
+				                  (float) 8.25));
 			set => _font = value;
 		}
 
@@ -78,6 +76,11 @@ namespace Diten.Windows.Forms
 			set => _fontFamily = value;
 		}
 
+		private Color _color;
+
+		private Font _font;
+		private FontFamily _fontFamily;
+
 		/// <inheritdoc />
 		/// <summary>
 		///    Getting hash code of <see cref="T:Diten.String" /> value.
@@ -88,20 +91,20 @@ namespace Diten.Windows.Forms
 			var hashCode = base.GetHashCode();
 			hashCode = hashCode * -1521134295 + EqualityComparer<Color>.Default.GetHashCode(Color);
 			hashCode = hashCode * -1521134295 + EqualityComparer<Font>.Default.GetHashCode(Font);
+
 			return hashCode;
 		}
-
 
 		/// <summary>
 		///    Casting <see cref="System.String" /> to <see cref="Diten.Windows.Forms.String" />
 		/// </summary>
 		/// <param name="value">A <see cref="Diten.Windows.Forms.String" />.</param>
-		public static implicit operator String(string value) => new String {Value = value};
+		public static implicit operator String(string value) { return new String {Value = value}; }
 
 		/// <summary>
 		///    Casting <see cref="Diten.Windows.Forms.String" /> to <see cref="System.String" />
 		/// </summary>
 		/// <param name="value">A <see cref="System.String" />.</param>
-		public static implicit operator string(String value) => value.Value;
+		public static implicit operator string(String value) { return value.Value; }
 	}
 }

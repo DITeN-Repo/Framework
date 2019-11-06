@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -28,18 +24,6 @@ namespace Diten
 	public static class ExInt
 	{
 		/// <summary>
-		///    Converting integer address into IP address.
-		/// </summary>
-		/// <param name="value">
-		///    An <see cref="int" />
-		///    <para>value</para>
-		///    that must be converted.
-		/// </param>
-		/// <returns>IP address.</returns>
-		public static IPAddress ToIpAddress(this int value) => new IPAddress(ToBytes(value));
-
-
-		/// <summary>
 		///    Converting <see cref="int" /> into <see cref="byte" /> <see cref="Array" />.
 		/// </summary>
 		/// <param name="value">
@@ -48,37 +32,43 @@ namespace Diten
 		///    that must be converted.
 		/// </param>
 		/// <returns>An <see cref="Array" /> of <see cref="byte" /></returns>
-		public static byte[] ToBytes(this int value) => BitConverter.GetBytes(value);
+		public static byte[] ToBytes(this int value) { return BitConverter.GetBytes(value); }
 
 		/// <summary>
 		///    Convert to vigesimal (base 26, A-Z).
 		/// </summary>
 		/// <param name="value">Integer value.</param>
 		/// <returns>A string that contains a vigesimal string.</returns>
-		public static string ToVigesimal(this int value) => ToString(value, Vigesimal.Characters.ToArray());
-
-		/// <summary>
-		///    Convert to vigesimal (base 26, A-Z).
-		/// </summary>
-		/// <param name="value">Integer value.</param>
-		/// <returns>A string that contains a vigesimal string.</returns>
-		public static string ToDuosexagesimal(this int value) => ToString(value, Duosexagesimal.Characters.ToArray());
-
+		public static string ToDuosexagesimal(this int value)
+		{
+			return ToString(value,
+			                Duosexagesimal.Characters.ToArray());
+		}
 
 		/// <summary>
 		///    Converting integer into hexadecimal.
 		/// </summary>
 		/// <param name="value">Integer number.</param>
 		/// <returns>A hexadecimal number.</returns>
-		public static string ToHexadecimal(this int value) => value.ToString("X");
+		public static string ToHexadecimal(this int value) { return value.ToString("X"); }
 
+		/// <summary>
+		///    Converting integer address into IP address.
+		/// </summary>
+		/// <param name="value">
+		///    An <see cref="int" />
+		///    <para>value</para>
+		///    that must be converted.
+		/// </param>
+		/// <returns>IP address.</returns>
+		public static IPAddress ToIpAddress(this int value) { return new IPAddress(ToBytes(value)); }
 
 		/// <summary>
 		///    Convert to sexagesimal (base 64, A-Z, a-z, 0-9).
 		/// </summary>
 		/// <param name="value">Integer value.</param>
 		/// <returns>A string that contains a sexagesimal string.</returns>
-		public static string ToSexagesimal(this int value) => ToString(value);
+		public static string ToSexagesimal(this int value) { return ToString(value); }
 
 		/// <summary>
 		///    Convert an <see cref="int" /> to <see cref="string" />.
@@ -90,7 +80,8 @@ namespace Diten
 		///    <para>value</para>
 		///    .
 		/// </returns>
-		public static string ToString(this int value, char[] baseChars)
+		public static string ToString(this int value,
+		                              char[] baseChars)
 		{
 			var result = string.Empty;
 			var baseCharsLength = baseChars.Length;
@@ -113,7 +104,11 @@ namespace Diten
 		///    <para>value</para>
 		///    .
 		/// </returns>
-		public static string ToString(this int value) => ToString(value, Duosexagesimal.Characters.ToArray());
+		public static string ToString(this int value)
+		{
+			return ToString(value,
+			                Duosexagesimal.Characters.ToArray());
+		}
 
 		/// <summary>
 		///    Convert an integer to string.
@@ -124,7 +119,8 @@ namespace Diten
 		/// <param name="value">Integer value.</param>
 		/// <param name="baseChars">Characters that must be used in conversion.</param>
 		/// <returns>A string that contains a integer string.</returns>
-		public static string ToStringFast(this int value, char[] baseChars)
+		public static string ToStringFast(this int value,
+		                                  char[] baseChars)
 		{
 			// 32 is the worst cast buffer size for base 2 and int.MaxValue
 			var i = 32;
@@ -138,9 +134,24 @@ namespace Diten
 			} while (value > 0);
 
 			var result = new char[32 - i];
-			Array.Copy(buffer, i, result, 0, 32 - i);
+			Array.Copy(buffer,
+			           i,
+			           result,
+			           0,
+			           32 - i);
 
 			return new string(result);
+		}
+
+		/// <summary>
+		///    Convert to vigesimal (base 26, A-Z).
+		/// </summary>
+		/// <param name="value">Integer value.</param>
+		/// <returns>A string that contains a vigesimal string.</returns>
+		public static string ToVigesimal(this int value)
+		{
+			return ToString(value,
+			                Vigesimal.Characters.ToArray());
 		}
 	}
 }

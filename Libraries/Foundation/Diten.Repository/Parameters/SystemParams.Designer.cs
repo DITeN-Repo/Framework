@@ -118,9 +118,9 @@ namespace Diten.Parameters {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("mongodb://")]
-        public string MongoDBProtocolExtention {
+        public string MongoDBProtocolExtenstion {
             get {
-                return ((string)(this["MongoDBProtocolExtention"]));
+                return ((string)(this["MongoDBProtocolExtenstion"]));
             }
         }
         
@@ -176,7 +176,7 @@ namespace Diten.Parameters {
         /// <summary>
         /// The 1&apos;st parameter is the user, The 2&apos;nd parameter is the password, The 3&apos;rd parameter is the password, The 4&apos;th parameter is the password of the user for executing the task. 
         /// </summary>
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Configuration.SettingsDescriptionAttribute("The 1\'st parameter is the user, The 2\'nd parameter is the password, The 3\'rd para" +
             "meter is the password, The 4\'th parameter is the password of the user for execut" +
             "ing the task. ")]
@@ -186,8 +186,14 @@ namespace Diten.Parameters {
             get {
                 return ((string)(this["CMDTaskScheduler"]));
             }
-            set {
-                this["CMDTaskScheduler"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("dsig")]
+        public string DitenSignatureFileExtention {
+            get {
+                return ((string)(this["DitenSignatureFileExtention"]));
             }
         }
     }

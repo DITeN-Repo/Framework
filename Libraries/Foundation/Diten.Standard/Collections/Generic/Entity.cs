@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,26 +11,30 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
 
-#endregion
-
 #region Used Directives
 
-using MongoDB.Bson.Serialization.Attributes;
+using System;
+using System.Runtime.Serialization;
+using Diten.Security.Cryptography;
 
 #endregion
 
 namespace Diten.Collections.Generic
 {
-	public interface IEntity<T>
+	/// <summary>
+	///    Representing a <inheritdoc cref="Entity{TObject, TKey}" /> based on <see cref="Concept{TObject, TKey}" />.
+	/// </summary>
+	/// <typeparam name="TObject">And object in type of <see cref="TObject" />.</typeparam>
+	/// <typeparam name="TKey">
+	///    An <see cref="ISHA" /> that will be used for <see cref="Security.Signature{TKey}" /> of the
+	///    <see cref="Entity{TObject, TKey}" />
+	/// </typeparam>
+	public class Entity<TObject, TKey>: Concept<TObject, TKey>,
+	                                    IEntity<TKey>
+		where TKey: ISHA
+		where TObject: ISerializable, IObject<TObject, TKey>
 	{
-		String Name { get; set; }
-		String Description { get; set; }
-	}
-
-	[BsonIgnoreExtraElements]
-	public class Entity<T> : Object<T>, IEntity<T>
-	{
-		public String Name { get; set; }
-		public String Description { get; set; }
+		/// <inheritdoc cref="IEntity{TKey}.DateModified" />
+		public DateTime DateModified {get; set;}
 	}
 }

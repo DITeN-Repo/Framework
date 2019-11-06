@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 1:10 AM
-
-#endregion
 
 #region Used Directives
 
@@ -32,7 +28,7 @@ namespace Diten.Parameters
 	/// <summary>
 	///    The const Parameters.
 	/// </summary>
-	public class Parameters : Constants
+	public class Parameters: Constants
 	{
 		/// <summary>
 		///    System database server address in web.config file.
@@ -53,7 +49,8 @@ namespace Diten.Parameters
 			/// <param name="key">Key in config file AppSettings section.</param>
 			/// <param name="fileName">Name of config file.</param>
 			/// <returns>Value of the key.</returns>
-			public static string GetConfig(string key, string fileName = "web")
+			public static string GetConfig(string key,
+			                               string fileName = "web")
 			{
 				try
 				{
@@ -62,25 +59,24 @@ namespace Diten.Parameters
 
 					if (configuration.AppSettings.Settings.Count <= 0)
 						throw new ArgumentException(string.Format(
-							Exceptions.Default.Diten_Variables_GetConfig_ArgumentException_KeyNotFound, key));
+						                                          Exceptions.Default.Diten_Variables_GetConfig_ArgumentException_KeyNotFound,
+						                                          key));
 
 					var customSetting = configuration.AppSettings.Settings.AllKeys.Contains(key)
-						? configuration.AppSettings.Settings[key]
-						: throw new ArgumentException(string.Format(
-							Exceptions.Default.Diten_Variables_GetConfig_ArgumentException_KeyNotFound, key));
+						                    ? configuration.AppSettings.Settings[key]
+						                    : throw new ArgumentException(string.Format(
+						                                                                Exceptions
+							                                                                .Default.Diten_Variables_GetConfig_ArgumentException_KeyNotFound,
+						                                                                key));
 
-					if (customSetting != null)
-						return customSetting.Value;
+					if (customSetting != null) return customSetting.Value;
 
 					throw new ArgumentException(
-						System.String.Format(
-							Exceptions.Default.Diten_Variables_GetConfig_ArgumentException_ValueNotFound,
-							key));
+					                            System.String.Format(
+					                                                 Exceptions.Default.Diten_Variables_GetConfig_ArgumentException_ValueNotFound,
+					                                                 key));
 				}
-				catch (ArgumentException)
-				{
-					return System.String.Empty;
-				}
+				catch (ArgumentException) { return System.String.Empty; }
 			}
 
 			/// <summary>
@@ -98,12 +94,12 @@ namespace Diten.Parameters
 			/// </summary>
 			public static string AssemblyNames => GetConfig(Names.Default.AssemblyNames);
 
-#if DEBUG
+			#if DEBUG
 			/// <summary>
 			///    Solution directory.
 			/// </summary>
 			public static string SolutionDir => $@"{Environment.CurrentDirectory}\..\..\..\..";
-#endif
+			#endif
 
 			/// <summary>
 			///    Application directory
@@ -111,6 +107,43 @@ namespace Diten.Parameters
 			public static string ApplicationDir => $@"{Environment.CurrentDirectory}\..\..\..";
 		}
 
+		/// <summary>
+		///    Diten parameters
+		/// </summary>
+		public struct DitenParams
+		{
+			/// <summary>
+			///    Diten services server.
+			/// </summary>
+			public static string ServicesServer => Application.GetConfig(typeof(object).GetFrameName());
+
+			/// <summary>
+			///    Diten handler service.
+			/// </summary>
+			public static string HandlerService => $@"http://{ServicesServer}/Handler.svc";
+
+			/// <summary>
+			///    Diten default separator character.
+			/// </summary>
+			public static char DefaultSeparator => Default.Separator.ToCharArray()[0];
+
+			/// <summary>
+			///    Cache environment encryption key.
+			/// </summary>
+			public static string EnvironmentEncryptionKey
+			{
+				get
+				{
+					{
+						if (HttpRuntime.Cache[Names.Default.CacheEnvironmentEncryptionKey] == null)
+							HttpRuntime.Cache[Names.Default.CacheEnvironmentEncryptionKey] =
+								Default.Password;
+
+						return HttpRuntime.Cache[Names.Default.CacheEnvironmentEncryptionKey].ToString();
+					}
+				}
+			}
+		}
 
 		/// <summary>
 		///    Local system variables
@@ -146,7 +179,6 @@ namespace Diten.Parameters
 			public static string PhysicalPath =>
 				$@"{System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFiles)}\{Default.CloudAppPhysicalPath}";
 
-
 			/// <summary>
 			///    System temporary folder path.
 			/// </summary>
@@ -155,9 +187,13 @@ namespace Diten.Parameters
 				get
 				{
 					var holder =
-						$@"{HttpRuntime.BinDirectory.Replace($@"\\{Default.BinFolder.ToLower()}", System.String.Empty)}{Names.Default.Temp.ToUpper()}";
-					if (!Directory.Exists(holder))
-						Directory.CreateDirectory(holder);
+						$@"{
+								HttpRuntime.BinDirectory.Replace($@"\\{Default.BinFolder.ToLower()}",
+								                                 System.String.Empty)
+							}{
+								Names.Default.Temp.ToUpper()
+							}";
+					if (!Directory.Exists(holder)) Directory.CreateDirectory(holder);
 
 					return holder;
 				}
@@ -171,9 +207,13 @@ namespace Diten.Parameters
 				get
 				{
 					var holder =
-						$@"{HttpRuntime.BinDirectory.Replace($@"\\{Default.BinFolder.ToLower()}", System.String.Empty)}{Names.Default.Cache.ToUpper()}";
-					if (!Directory.Exists(holder))
-						Directory.CreateDirectory(holder);
+						$@"{
+								HttpRuntime.BinDirectory.Replace($@"\\{Default.BinFolder.ToLower()}",
+								                                 System.String.Empty)
+							}{
+								Names.Default.Cache.ToUpper()
+							}";
+					if (!Directory.Exists(holder)) Directory.CreateDirectory(holder);
 
 					return holder;
 				}
@@ -188,45 +228,6 @@ namespace Diten.Parameters
 			///    System web address in web.config file.
 			/// </summary>
 			public static string WebAddress => Application.GetConfig(typeof(object).GetFrameName());
-		}
-
-		/// <summary>
-		///    Diten parameters
-		/// </summary>
-		public struct DitenParams
-		{
-			/// <summary>
-			///    Diten services server.
-			/// </summary>
-			public static string ServicesServer => Application.GetConfig(typeof(object).GetFrameName());
-
-			/// <summary>
-			///    Diten handler service.
-			/// </summary>
-			public static string HandlerService => $@"http://{ServicesServer}/Handler.svc";
-
-
-			/// <summary>
-			///    Diten default separator character.
-			/// </summary>
-			public static char DefaultSeparator => Default.Separator.ToCharArray()[0];
-
-			/// <summary>
-			///    Cache environment encryption key.
-			/// </summary>
-			public static string EnvironmentEncryptionKey
-			{
-				get
-				{
-					{
-						if (HttpRuntime.Cache[Names.Default.CacheEnvironmentEncryptionKey] == null)
-							HttpRuntime.Cache[Names.Default.CacheEnvironmentEncryptionKey] =
-								Default.Password;
-
-						return HttpRuntime.Cache[Names.Default.CacheEnvironmentEncryptionKey].ToString();
-					}
-				}
-			}
 		}
 	}
 }

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -34,7 +30,9 @@ namespace Diten
 		{
 			var holder = new byte[stream.Length];
 
-			stream.Read(holder, 0, (int) stream.Length);
+			stream.Read(holder,
+			            0,
+			            (int) stream.Length);
 
 			return holder;
 		}

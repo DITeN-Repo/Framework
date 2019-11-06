@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,18 +11,15 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 5:06 PM
 
-#endregion
-
 namespace Diten.Diagnostics
 {
-	public class StackTrace : System.Diagnostics.StackTrace
+	public class StackTrace: System.Diagnostics.StackTrace
 	{
 		public static string GetFrameName()
 		{
 			var _return = new StackTrace().GetFrame(2).GetMethod().Name;
 
-			if (_return.StartsWith("get_"))
-				return _return.TrimStart("get_".ToCharArray());
+			if (_return.StartsWith("get_")) return _return.TrimStart("get_".ToCharArray());
 
 			return _return.StartsWith("set_") ? _return.TrimStart("set_".ToCharArray()) : _return;
 		}

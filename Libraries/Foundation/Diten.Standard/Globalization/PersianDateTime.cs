@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:16 AM
-
-#endregion
 
 #region Used Directives
 
@@ -32,24 +28,24 @@ namespace Diten.Globalization
 	{
 		// ReSharper disable once InconsistentNaming
 		public const string AM = "ق.ظ";
+		public static TimeSpan DaylightSavingTime = TimeSpan.FromHours(1);
+		public static TimeSpan DaylightSavingTimeEnd = TimeSpan.FromDays(185);
 
-		// ReSharper disable once InconsistentNaming
-		public const string PM = "ب.ظ";
+		public static TimeSpan DaylightSavingTimeStart = TimeSpan.FromDays(1);
+
 		private static readonly PersianCalendar PersianCalendar = new PersianCalendar();
-
 		private static readonly string[] DayNames = PersianCalendar.GetDaysNameInWeek().ToArray();
-
-		private static readonly string[] MonthNames = PersianCalendar.GetMonthsNameInYear().ToArray();
 
 		/// <summary>
 		///    Specifies the persian date and time mode to determining the PersianDateTime.Now.
 		/// </summary>
 		public static readonly PersianDateTimeMode Mode = PersianDateTimeMode.UtcOffset;
 
-		public static TimeSpan DaylightSavingTimeStart = TimeSpan.FromDays(1);
-		public static TimeSpan DaylightSavingTimeEnd = TimeSpan.FromDays(185);
-		public static TimeSpan DaylightSavingTime = TimeSpan.FromHours(1);
-		public static TimeSpan OffsetFromUtc = new TimeSpan(3, 30, 0);
+		private static readonly string[] MonthNames = PersianCalendar.GetMonthsNameInYear().ToArray();
+
+		public static TimeSpan OffsetFromUtc = new TimeSpan(3,
+		                                                    30,
+		                                                    0);
 
 		/// <summary>
 		///    A System.TimeZoneInfo object that represents the persian time zone.
@@ -57,13 +53,14 @@ namespace Diten.Globalization
 		public static readonly TimeZoneInfo PersianTimeZoneInfo =
 			TimeZoneInfo.FindSystemTimeZoneById("Iran Standard Time");
 
-		private readonly DateTime _dateTime;
+		// ReSharper disable once InconsistentNaming
+		public const string PM = "ب.ظ";
 
 		/// <summary>
 		///    Initializes a new instance of the PersianDateTime class to a specified dateTime.
 		/// </summary>
 		/// <param name="dateTime">A date and time in the Gregorian calendar.</param>
-		public PersianDateTime(DateTime dateTime) => _dateTime = dateTime;
+		public PersianDateTime(DateTime dateTime) { _dateTime = dateTime; }
 
 		/// <summary>
 		///    Initializes a new instance of the PersianDateTime class to the specified persian date and time.
@@ -71,10 +68,9 @@ namespace Diten.Globalization
 		/// <param name="persianDate">The persian date.</param>
 		/// <param name="time">The time.</param>
 		public PersianDateTime(int persianDate,
-			short time)
-			: this(persianDate, time * 100)
-		{
-		}
+		                       short time)
+			: this(persianDate,
+			       time * 100) {}
 
 		/// <summary>
 		///    Initializes a new instance of the PersianDateTime class to the specified persian date and time.
@@ -82,7 +78,7 @@ namespace Diten.Globalization
 		/// <param name="persianDate">The persian date.</param>
 		/// <param name="time">The time.</param>
 		public PersianDateTime(int persianDate,
-			int time = 0)
+		                       int time = 0)
 		{
 			var year = persianDate / 10000;
 			var month = persianDate / 100 % 100;
@@ -92,7 +88,13 @@ namespace Diten.Globalization
 			var minute = time / 100 % 100;
 			var second = time % 100;
 
-			_dateTime = PersianCalendar.ToDateTime(year, month, day, hour, minute, second, 0);
+			_dateTime = PersianCalendar.ToDateTime(year,
+			                                       month,
+			                                       day,
+			                                       hour,
+			                                       minute,
+			                                       second,
+			                                       0);
 		}
 
 		/// <summary>
@@ -107,13 +109,21 @@ namespace Diten.Globalization
 		/// <param name="second">The seconds (0 through 59).</param>
 		/// <param name="millisecond">The milliseconds.</param>
 		public PersianDateTime(int year,
-			int month,
-			int day,
-			int hour = 0,
-			int minute = 0,
-			int second = 0,
-			int millisecond = 0) =>
-			_dateTime = PersianCalendar.ToDateTime(year, month, day, hour, minute, second, millisecond);
+		                       int month,
+		                       int day,
+		                       int hour = 0,
+		                       int minute = 0,
+		                       int second = 0,
+		                       int millisecond = 0)
+		{
+			_dateTime = PersianCalendar.ToDateTime(year,
+			                                       month,
+			                                       day,
+			                                       hour,
+			                                       minute,
+			                                       second,
+			                                       millisecond);
+		}
 
 		/// <summary>
 		///    Gets the date component of this instance.
@@ -143,7 +153,9 @@ namespace Diten.Globalization
 		/// <summary>
 		///    Returns the number of days in the month represented by this instance.
 		/// </summary>
-		public int DaysInMonth => PersianCalendar.GetDaysInMonth(Year, Month);
+		public int DaysInMonth =>
+			PersianCalendar.GetDaysInMonth(Year,
+			                               Month);
 
 		/// <summary>
 		///    Returns the number of days in the year represented by this instance.
@@ -224,22 +236,18 @@ namespace Diten.Globalization
 			{
 				switch (Mode)
 				{
-					case PersianDateTimeMode.System:
-
-						return new PersianDateTime(DateTime.Now);
+					case PersianDateTimeMode.System: return new PersianDateTime(DateTime.Now);
 
 					case PersianDateTimeMode.PersianTimeZoneInfo:
-
-						return new PersianDateTime(TimeZoneInfo.ConvertTime(DateTime.Now, PersianTimeZoneInfo));
+						return new PersianDateTime(TimeZoneInfo.ConvertTime(DateTime.Now,
+						                                                    PersianTimeZoneInfo));
 
 					case PersianDateTimeMode.UtcOffset:
 						var now = new PersianDateTime(DateTime.UtcNow.Add(OffsetFromUtc));
 
 						return now.IsInDaylightSavingTime ? now.Add(DaylightSavingTime) : now;
 
-					default:
-
-						throw new NotSupportedException(Mode.ToString());
+					default: throw new NotSupportedException(Mode.ToString());
 				}
 			}
 		}
@@ -279,6 +287,8 @@ namespace Diten.Globalization
 		/// </summary>
 		public int Year => PersianCalendar.GetYear(_dateTime);
 
+		private readonly DateTime _dateTime;
+
 		/// <summary>
 		///    Returns a new PersianDateTime that adds the value of the specified System.TimeSpan to the value of this instance.
 		/// </summary>
@@ -287,7 +297,7 @@ namespace Diten.Globalization
 		///    An object whose value is the sum of the date and time represented by this instance and the time interval
 		///    represented by value.
 		/// </returns>
-		public PersianDateTime Add(TimeSpan value) => new PersianDateTime(_dateTime.Add(value));
+		public PersianDateTime Add(TimeSpan value) { return new PersianDateTime(_dateTime.Add(value)); }
 
 		/// <summary>
 		///    Returns a new PersianDateTime that adds the specified number of days to the value of this instance.
@@ -297,7 +307,7 @@ namespace Diten.Globalization
 		///    An object whose value is the sum of the date and time represented by this instance and the number of days
 		///    represented by value.
 		/// </returns>
-		public PersianDateTime AddDays(double value) => new PersianDateTime(_dateTime.AddDays(value));
+		public PersianDateTime AddDays(double value) { return new PersianDateTime(_dateTime.AddDays(value)); }
 
 		/// <summary>
 		///    Returns a new PersianDateTime that adds the specified number of hours to the value of this instance.
@@ -307,7 +317,7 @@ namespace Diten.Globalization
 		///    An object whose value is the sum of the date and time represented by this instance and the number of hours
 		///    represented by value.
 		/// </returns>
-		public PersianDateTime AddHours(double value) => new PersianDateTime(_dateTime.AddHours(value));
+		public PersianDateTime AddHours(double value) { return new PersianDateTime(_dateTime.AddHours(value)); }
 
 		/// <summary>
 		///    Returns a new PersianDateTime that adds the specified number of minutes to the value of this instance.
@@ -317,7 +327,7 @@ namespace Diten.Globalization
 		///    An object whose value is the sum of the date and time represented by this instance and the number of minutes
 		///    represented by value.
 		/// </returns>
-		public PersianDateTime AddMinutes(double value) => new PersianDateTime(_dateTime.AddMinutes(value));
+		public PersianDateTime AddMinutes(double value) { return new PersianDateTime(_dateTime.AddMinutes(value)); }
 
 		/// <summary>
 		///    Returns a new PersianDateTime that adds the specified number of months to the value of this instance.
@@ -331,10 +341,13 @@ namespace Diten.Globalization
 			var newYear = Year + (months > 0 ? (months - 1) / 12 : months / 12 - 1);
 			var newMonth = months > 0 ? (months - 1) % 12 + 1 : months % 12 + 12;
 
-			var daysInNewMonth = GetDaysInMonth(newYear, newMonth);
+			var daysInNewMonth = GetDaysInMonth(newYear,
+			                                    newMonth);
 			var newDay = daysInNewMonth < Day ? daysInNewMonth : Day;
 
-			return new PersianDateTime(newYear, newMonth, newDay).Add(TimeOfDay);
+			return new PersianDateTime(newYear,
+			                           newMonth,
+			                           newDay).Add(TimeOfDay);
 		}
 
 		/// <summary>
@@ -345,7 +358,7 @@ namespace Diten.Globalization
 		///    An object whose value is the sum of the date and time represented by this instance and the number of seconds
 		///    represented by value.
 		/// </returns>
-		public PersianDateTime AddSeconds(double value) => new PersianDateTime(_dateTime.AddSeconds(value));
+		public PersianDateTime AddSeconds(double value) { return new PersianDateTime(_dateTime.AddSeconds(value)); }
 
 		/// <summary>
 		///    Returns a new PersianDateTime that adds the specified number of years to the value of this instance.
@@ -355,28 +368,38 @@ namespace Diten.Globalization
 		///    An object whose value is the sum of the date and time represented by this instance and the number of years
 		///    represented by value.
 		/// </returns>
-		public PersianDateTime AddYears(int value) => new PersianDateTime(Year + value, Month, Day).Add(TimeOfDay);
+		public PersianDateTime AddYears(int value)
+		{
+			return new PersianDateTime(Year + value,
+			                           Month,
+			                           Day).Add(TimeOfDay);
+		}
 
 		/// <summary>
 		///    Returns a value indicating whether this instance is equal to a specified object.
 		/// </summary>
 		/// <param name="value">An object to compare to this instance.</param>
 		/// <returns>true if value is an instance of PersianDateTime and equals the value of this instance; otherwise, false.</returns>
-		public override bool Equals(object value) => Equals(value as PersianDateTime);
+		public override bool Equals(object value) { return Equals(value as PersianDateTime); }
 
 		/// <summary>
 		///    Returns a value indicating whether this instance is equal to the specified PersianDateTime instance.
 		/// </summary>
 		/// <param name="value">A PersianDateTime instance to compare to this instance.</param>
 		/// <returns>true if the value parameter equals the value of this instance; otherwise, false.</returns>
-		public bool Equals(PersianDateTime value) => !ReferenceEquals(value, null) && _dateTime.Equals(value._dateTime);
+		public bool Equals(PersianDateTime value)
+		{
+			return !ReferenceEquals(value,
+			                        null) &&
+			       _dateTime.Equals(value._dateTime);
+		}
 
 		/// <summary>
 		///    Returns the name of the specified day.
 		/// </summary>
 		/// <param name="day">An integer that represents the day, and ranges from 0 through 6.</param>
 		/// <returns>The name of the specified day.</returns>
-		public static string GetDayName(int day) => DayNames[day];
+		public static string GetDayName(int day) { return DayNames[day]; }
 
 		/// <summary>
 		///    Returns the number of days in the specified month of the specified year.
@@ -385,49 +408,56 @@ namespace Diten.Globalization
 		/// <param name="month">An integer that represents the month, and ranges from 1 through 12.</param>
 		/// <returns>The number of days in the specified month of the specified year.</returns>
 		public static int GetDaysInMonth(int year,
-			int month) =>
-			PersianCalendar.GetDaysInMonth(year, month);
+		                                 int month)
+		{
+			return PersianCalendar.GetDaysInMonth(year,
+			                                      month);
+		}
 
 		/// <summary>
 		///    Returns the number of days in the specified year.
 		/// </summary>
 		/// <param name="year">An integer from 1 through 9378 that represents the year.</param>
 		/// <returns>The number of days in the specified year. The number of days is 365 in a common year or 366 in a leap year.</returns>
-		public static int GetDaysInYear(int year) => PersianCalendar.GetDaysInYear(year);
+		public static int GetDaysInYear(int year) { return PersianCalendar.GetDaysInYear(year); }
 
 		/// <summary>
 		///    Returns the hash code for this instance.
 		/// </summary>
 		/// <returns>A 32-bit signed integer hash code.</returns>
-		public override int GetHashCode() => _dateTime.GetHashCode();
+		public override int GetHashCode() { return _dateTime.GetHashCode(); }
 
 		/// <summary>
 		///    Returns the name of the specified month.
 		/// </summary>
 		/// <param name="month">An integer that represents the month, and ranges from 1 through 12.</param>
 		/// <returns>The name of the specified month.</returns>
-		public static string GetMonthName(int month) => MonthNames[month + 1];
+		public static string GetMonthName(int month) { return MonthNames[month + 1]; }
 
 		/// <summary>
 		///    Returns the week of the year that includes the date represented by this instance.
 		/// </summary>
 		/// <param name="rule">An enumeration value that defines a calendar week.</param>
 		/// <returns>A positive integer that represents the week of the year that includes the date represented by this instance.</returns>
-		public int GetWeekOfYear(CalendarWeekRule rule) =>
-			PersianCalendar.GetWeekOfYear(_dateTime, rule, System.DayOfWeek.Saturday);
+		public int GetWeekOfYear(CalendarWeekRule rule)
+		{
+			return PersianCalendar.GetWeekOfYear(_dateTime,
+			                                     rule,
+			                                     System.DayOfWeek.Saturday);
+		}
 
 		/// <summary>
 		///    Determines whether the specified year is a leap year. The number of days is 366 in a leap year.
 		/// </summary>
 		/// <param name="year">An integer from 1 through 9378 that represents the year.</param>
 		/// <returns>true if the specified year is a leap year; otherwise, false.</returns>
-		public static bool IsLeapYear(int year) => PersianCalendar.IsLeapYear(year);
+		public static bool IsLeapYear(int year) { return PersianCalendar.IsLeapYear(year); }
 
 		/// <summary>
 		///    Determines whether the year represented by this instance is a leap year. The number of days is 366 in a leap year.
 		/// </summary>
 		/// <returns>true if the year represented by this instance is a leap year; otherwise, false.</returns>
-		public bool IsLeapYear() => PersianCalendar.IsLeapYear(Year);
+		public bool IsLeapYear() { return PersianCalendar.IsLeapYear(Year); }
 
 		/// <summary>
 		///    Adds a specified time interval to a specified date and time, yielding a new date and time.
@@ -436,8 +466,10 @@ namespace Diten.Globalization
 		/// <param name="t">The time interval to add.</param>
 		/// <returns>An object that is the sum of the values of d and t.</returns>
 		public static PersianDateTime operator +(PersianDateTime d,
-			TimeSpan t) =>
-			new PersianDateTime(d.ToDateTime() + t);
+		                                         TimeSpan t)
+		{
+			return new PersianDateTime(d.ToDateTime() + t);
+		}
 
 		/// <summary>
 		///    Determines whether two specified instances of PersianDateTime are equal.
@@ -446,12 +478,14 @@ namespace Diten.Globalization
 		/// <param name="d2">The second object to compare.</param>
 		/// <returns>true if d1 and d2 represent the same date and time; otherwise, false.</returns>
 		public static bool operator ==(PersianDateTime d1,
-			PersianDateTime d2)
+		                               PersianDateTime d2)
 		{
-			if (ReferenceEquals(d1, null))
-				return ReferenceEquals(d2, null);
-			if (ReferenceEquals(d2, null))
-				return false;
+			if (ReferenceEquals(d1,
+			                    null))
+				return ReferenceEquals(d2,
+				                       null);
+			if (ReferenceEquals(d2,
+			                    null)) return false;
 
 			return d1.ToDateTime() == d2.ToDateTime();
 		}
@@ -463,8 +497,10 @@ namespace Diten.Globalization
 		/// <param name="d2">The second object to compare.</param>
 		/// <returns>true if d1 is greater than d2; otherwise, false.</returns>
 		public static bool operator >(PersianDateTime d1,
-			PersianDateTime d2) =>
-			d1.ToDateTime() > d2.ToDateTime();
+		                              PersianDateTime d2)
+		{
+			return d1.ToDateTime() > d2.ToDateTime();
+		}
 
 		/// <summary>
 		///    Determines whether one specified PersianDateTime is greater than or equal to another specified PersianDateTime.
@@ -473,8 +509,10 @@ namespace Diten.Globalization
 		/// <param name="d2">The second object to compare.</param>
 		/// <returns>true if d1 is greater than or equal to d2; otherwise, false.</returns>
 		public static bool operator >=(PersianDateTime d1,
-			PersianDateTime d2) =>
-			d1.ToDateTime() >= d2.ToDateTime();
+		                               PersianDateTime d2)
+		{
+			return d1.ToDateTime() >= d2.ToDateTime();
+		}
 
 		/// <summary>
 		///    Determines whether two specified instances of PersianDateTime are not equal.
@@ -483,8 +521,10 @@ namespace Diten.Globalization
 		/// <param name="d2">The second object to compare.</param>
 		/// <returns>true if d1 and d2 do not represent the same date and time; otherwise, false.</returns>
 		public static bool operator !=(PersianDateTime d1,
-			PersianDateTime d2) =>
-			!(d1 == d2);
+		                               PersianDateTime d2)
+		{
+			return !(d1 == d2);
+		}
 
 		/// <summary>
 		///    Determines whether one specified PersianDateTime is less than another specified PersianDateTime.
@@ -493,8 +533,10 @@ namespace Diten.Globalization
 		/// <param name="d2">The second object to compare.</param>
 		/// <returns>true if d1 is less than d2; otherwise, false.</returns>
 		public static bool operator <(PersianDateTime d1,
-			PersianDateTime d2) =>
-			d1.ToDateTime() < d2.ToDateTime();
+		                              PersianDateTime d2)
+		{
+			return d1.ToDateTime() < d2.ToDateTime();
+		}
 
 		/// <summary>
 		///    Determines whether one specified PersianDateTime is less than or equal to another specified PersianDateTime.
@@ -503,8 +545,10 @@ namespace Diten.Globalization
 		/// <param name="d2">The second object to compare.</param>
 		/// <returns>true if d1 is less than or equal to d2; otherwise, false.</returns>
 		public static bool operator <=(PersianDateTime d1,
-			PersianDateTime d2) =>
-			d1.ToDateTime() <= d2.ToDateTime();
+		                               PersianDateTime d2)
+		{
+			return d1.ToDateTime() <= d2.ToDateTime();
+		}
 
 		/// <summary>
 		///    Subtracts a specified date and time from another specified date and time and returns a time interval.
@@ -513,8 +557,10 @@ namespace Diten.Globalization
 		/// <param name="d2">The date and time value to subtract (the subtrahend).</param>
 		/// <returns>The time interval between d1 and d2; that is, d1 minus d2.</returns>
 		public static TimeSpan operator -(PersianDateTime d1,
-			PersianDateTime d2) =>
-			d1.ToDateTime() - d2.ToDateTime();
+		                                  PersianDateTime d2)
+		{
+			return d1.ToDateTime() - d2.ToDateTime();
+		}
 
 		/// <summary>
 		///    Subtracts a specified time interval from a specified date and time and returns a new date and time.
@@ -523,8 +569,10 @@ namespace Diten.Globalization
 		/// <param name="t">The time interval to subtract.</param>
 		/// <returns>An object whose value is the value of d minus the value of t.</returns>
 		public static PersianDateTime operator -(PersianDateTime d,
-			TimeSpan t) =>
-			new PersianDateTime(d.ToDateTime() - t);
+		                                         TimeSpan t)
+		{
+			return new PersianDateTime(d.ToDateTime() - t);
+		}
 
 		/// <summary>
 		///    Converts the specified string representation of a date and time to its PersianDateTime equivalent.
@@ -532,37 +580,62 @@ namespace Diten.Globalization
 		/// <param name="persianDate">A string containing a date to convert.</param>
 		/// <param name="time">A string containing a time to convert.</param>
 		public static PersianDateTime Parse(string persianDate,
-			string time = "0") =>
-			new PersianDateTime(int.Parse(persianDate.Replace("/", "")), int.Parse(time.Replace(":", "")));
+		                                    string time = "0")
+		{
+			return new PersianDateTime(int.Parse(persianDate.Replace("/",
+			                                                         "")),
+			                           int.Parse(time.Replace(":",
+			                                                  "")));
+		}
 
 		/// <summary>
 		///    Returns a System.DateTime object that is set to the date and time represented by this instance.
 		/// </summary>
 		/// <returns>A System.DateTime object that is set to the date and time represented by this instance</returns>
-		public DateTime ToDateTime() => _dateTime;
+		public DateTime ToDateTime() { return _dateTime; }
 
-		public static DateTime ToGregorianDateTime(DateTime persianDateTime) =>
-			ToGregorianDateTime(new PersianDateTime(persianDateTime.Year, persianDateTime.Month,
-				persianDateTime.Day, persianDateTime.Hour,
-				persianDateTime.Minute, persianDateTime.Second,
-				persianDateTime.Millisecond));
+		public static DateTime ToGregorianDateTime(DateTime persianDateTime)
+		{
+			return ToGregorianDateTime(new PersianDateTime(persianDateTime.Year,
+			                                               persianDateTime.Month,
+			                                               persianDateTime.Day,
+			                                               persianDateTime.Hour,
+			                                               persianDateTime.Minute,
+			                                               persianDateTime.Second,
+			                                               persianDateTime.Millisecond));
+		}
 
-		public static DateTime ToGregorianDateTime(PersianDateTime persianDateTime) =>
-			new PersianCalendar().ToDateTime(persianDateTime.Year, persianDateTime.Month, persianDateTime.Day,
-				persianDateTime.Hour, persianDateTime.Minute,
-				persianDateTime.Second, persianDateTime.Millisecond);
+		public static DateTime ToGregorianDateTime(PersianDateTime persianDateTime)
+		{
+			return new PersianCalendar().ToDateTime(persianDateTime.Year,
+			                                        persianDateTime.Month,
+			                                        persianDateTime.Day,
+			                                        persianDateTime.Hour,
+			                                        persianDateTime.Minute,
+			                                        persianDateTime.Second,
+			                                        persianDateTime.Millisecond);
+		}
 
 		/// <summary>
 		///    Converts the date represented by this instance to an equivalent 32-bit signed integer.
 		/// </summary>
 		/// <returns>n 32-bit signed integer equivalent to the date represented by this instance.</returns>
-		public int ToInt() => int.Parse(Year + Month.ToString().PadLeft(2, '0') + Day.ToString().PadLeft(2, '0'));
+		public int ToInt()
+		{
+			return int.Parse(Year +
+			                 Month.ToString()
+			                      .PadLeft(2,
+			                               '0') +
+			                 Day.ToString()
+			                    .PadLeft(2,
+			                             '0'));
+		}
 
 		/// <summary>
 		///    Converts the value of the current PersianDateTime object to its equivalent string representation.
 		/// </summary>
 		/// <returns>A string representation of the value of the current PersianDateTime object.</returns>
-		public override string ToString() => ToString(PersianDateTimeFormat.DateTime);
+		public override string ToString() { return ToString(PersianDateTimeFormat.DateTime); }
 
 		/// <summary>
 		///    Converts the value of the current PersianDateTime object to its equivalent string representation using the
@@ -581,26 +654,53 @@ namespace Diten.Globalization
 			var second = Second.ToString();
 			var dayPart = Hour >= 12 ? PM : AM;
 
-			return format.Replace("yyyy", Year.ToString())
-				.Replace("yy", towDigitYear.PadLeft(2, '0'))
-				.Replace("y", towDigitYear)
-				.Replace("MMMM", MonthName)
-				.Replace("MM", month.PadLeft(2, '0'))
-				.Replace("M", month)
-				.Replace("dddd", DayName)
-				.Replace("ddd", DayName[0].ToString())
-				.Replace("dd", day.PadLeft(2, '0'))
-				.Replace("d", day)
-				.Replace("HH", fullHour.PadLeft(2, '0'))
-				.Replace("H", fullHour)
-				.Replace("hh", hour.PadLeft(2, '0'))
-				.Replace("h", hour)
-				.Replace("mm", minute.PadLeft(2, '0'))
-				.Replace("m", minute)
-				.Replace("ss", second.PadLeft(2, '0'))
-				.Replace("s", second)
-				.Replace("tt", dayPart)
-				.Replace('t', dayPart[0]);
+			return format.Replace("yyyy",
+			                      Year.ToString())
+			             .Replace("yy",
+			                      towDigitYear.PadLeft(2,
+			                                           '0'))
+			             .Replace("y",
+			                      towDigitYear)
+			             .Replace("MMMM",
+			                      MonthName)
+			             .Replace("MM",
+			                      month.PadLeft(2,
+			                                    '0'))
+			             .Replace("M",
+			                      month)
+			             .Replace("dddd",
+			                      DayName)
+			             .Replace("ddd",
+			                      DayName[0].ToString())
+			             .Replace("dd",
+			                      day.PadLeft(2,
+			                                  '0'))
+			             .Replace("d",
+			                      day)
+			             .Replace("HH",
+			                      fullHour.PadLeft(2,
+			                                       '0'))
+			             .Replace("H",
+			                      fullHour)
+			             .Replace("hh",
+			                      hour.PadLeft(2,
+			                                   '0'))
+			             .Replace("h",
+			                      hour)
+			             .Replace("mm",
+			                      minute.PadLeft(2,
+			                                     '0'))
+			             .Replace("m",
+			                      minute)
+			             .Replace("ss",
+			                      second.PadLeft(2,
+			                                     '0'))
+			             .Replace("s",
+			                      second)
+			             .Replace("tt",
+			                      dayPart)
+			             .Replace('t',
+			                      dayPart[0]);
 		}
 
 		/// <summary>
@@ -614,47 +714,38 @@ namespace Diten.Globalization
 			switch (format)
 			{
 				case PersianDateTimeFormat.Date:
+					return Year +
+					       "/" +
+					       Month.ToString()
+					            .PadLeft(2,
+					                     '0') +
+					       "/" +
+					       Day.ToString()
+					          .PadLeft(2,
+					                   '0');
 
-					return Year + "/" + Month.ToString().PadLeft(2, '0') + "/" + Day.ToString().PadLeft(2, '0');
+				case PersianDateTimeFormat.DateTime: return ToString(PersianDateTimeFormat.Date) + " " + TimeOfDay.ToHHMMSS();
 
-				case PersianDateTimeFormat.DateTime:
+				case PersianDateTimeFormat.DateShortTime: return ToString(PersianDateTimeFormat.Date) + " " + TimeOfDay.ToHHMM();
 
-					return ToString(PersianDateTimeFormat.Date) + " " + TimeOfDay.ToHHMMSS();
+				case PersianDateTimeFormat.LongDate: return DayName + " " + Day + " " + MonthName;
 
-				case PersianDateTimeFormat.DateShortTime:
+				case PersianDateTimeFormat.LongDateFullTime: return DayName + " " + Day + " " + MonthName + " ساعت " + TimeOfDay.ToHHMMSS();
 
-					return ToString(PersianDateTimeFormat.Date) + " " + TimeOfDay.ToHHMM();
+				case PersianDateTimeFormat.LongDateLongTime: return DayName + " " + Day + " " + MonthName + " ساعت " + TimeOfDay.ToHHMM();
 
-				case PersianDateTimeFormat.LongDate:
+				case PersianDateTimeFormat.ShortDateShortTime: return Day + " " + MonthName + " " + TimeOfDay.ToHHMM();
 
-					return DayName + " " + Day + " " + MonthName;
+				case PersianDateTimeFormat.FullDate: return DayName + " " + Day + " " + MonthName + " " + Year;
 
-				case PersianDateTimeFormat.LongDateFullTime:
+				case PersianDateTimeFormat.FullDateLongTime: return DayName + " " + Day + " " + MonthName + " " + Year + " ساعت " + TimeOfDay.ToHHMM();
 
-					return DayName + " " + Day + " " + MonthName + " ساعت " + TimeOfDay.ToHHMMSS();
-
-				case PersianDateTimeFormat.LongDateLongTime:
-
-					return DayName + " " + Day + " " + MonthName + " ساعت " + TimeOfDay.ToHHMM();
-
-				case PersianDateTimeFormat.ShortDateShortTime:
-
-					return Day + " " + MonthName + " " + TimeOfDay.ToHHMM();
-
-				case PersianDateTimeFormat.FullDate:
-
-					return DayName + " " + Day + " " + MonthName + " " + Year;
-
-				case PersianDateTimeFormat.FullDateLongTime:
-
-					return DayName + " " + Day + " " + MonthName + " " + Year + " ساعت " + TimeOfDay.ToHHMM();
-
-				case PersianDateTimeFormat.FullDateFullTime:
-
-					return DayName + " " + Day + " " + MonthName + " " + Year + " ساعت " + TimeOfDay.ToHHMMSS();
+				case PersianDateTimeFormat.FullDateFullTime: return DayName + " " + Day + " " + MonthName + " " + Year + " ساعت " + TimeOfDay.ToHHMMSS();
 
 				default:
-					throw new ArgumentOutOfRangeException(nameof(format), format, null);
+					throw new ArgumentOutOfRangeException(nameof(format),
+					                                      format,
+					                                      null);
 			}
 		}
 	}

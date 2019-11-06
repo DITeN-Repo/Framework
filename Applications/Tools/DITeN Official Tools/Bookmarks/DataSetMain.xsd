@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetMain" targetNamespace="http://tempuri.org/DataSetMain.xsd" xmlns:mstns="http://tempuri.org/DataSetMain.xsd" xmlns="http://tempuri.org/DataSetMain.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetMain" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetMain" msprop:Generator_UserDSName="DataSetMain">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableBookmarks" msprop:Generator_TableClassName="DataTableBookmarksDataTable" msprop:Generator_TableVarName="tableDataTableBookmarks" msprop:Generator_TablePropName="DataTableBookmarks" msprop:Generator_RowDeletingName="DataTableBookmarksRowDeleting" msprop:Generator_RowChangingName="DataTableBookmarksRowChanging" msprop:Generator_RowEvHandlerName="DataTableBookmarksRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableBookmarksRowDeleted" msprop:Generator_UserTableName="DataTableBookmarks" msprop:Generator_RowChangedName="DataTableBookmarksRowChanged" msprop:Generator_RowEvArgName="DataTableBookmarksRowChangeEvent" msprop:Generator_RowClassName="DataTableBookmarksRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="PID" msprop:Generator_ColumnVarNameInTable="columnPID" msprop:Generator_ColumnPropNameInRow="PID" msprop:Generator_ColumnPropNameInTable="PIDColumn" msprop:Generator_UserColumnName="PID" type="xs:int" />
+              <xs:element name="HTMLTAG" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="HTMLTAG" msprop:Generator_ColumnVarNameInTable="columnHTMLTAG" msprop:Generator_ColumnPropNameInTable="HTMLTAGColumn" msprop:Generator_UserColumnName="HTMLTAG" type="xs:string" minOccurs="0" />
+              <xs:element name="HREF" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="HREF" msprop:Generator_ColumnVarNameInTable="columnHREF" msprop:Generator_ColumnPropNameInTable="HREFColumn" msprop:Generator_UserColumnName="HREF" type="xs:string" minOccurs="0" />
+              <xs:element name="LAST_MODIFIED" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="LAST_MODIFIED" msprop:Generator_ColumnVarNameInTable="columnLAST_MODIFIED" msprop:Generator_ColumnPropNameInTable="LAST_MODIFIEDColumn" msprop:Generator_UserColumnName="LAST_MODIFIED" type="xs:string" minOccurs="0" />
+              <xs:element name="ICON" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ICON" msprop:Generator_ColumnVarNameInTable="columnICON" msprop:Generator_ColumnPropNameInTable="ICONColumn" msprop:Generator_UserColumnName="ICON" type="xs:string" minOccurs="0" />
+              <xs:element name="SHORTCUTURL" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SHORTCUTURL" msprop:Generator_ColumnVarNameInTable="columnSHORTCUTURL" msprop:Generator_ColumnPropNameInTable="SHORTCUTURLColumn" msprop:Generator_UserColumnName="SHORTCUTURL" type="xs:string" minOccurs="0" />
+              <xs:element name="TAGS" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="TAGS" msprop:Generator_ColumnVarNameInTable="columnTAGS" msprop:Generator_ColumnPropNameInTable="TAGSColumn" msprop:Generator_UserColumnName="TAGS" type="xs:string" minOccurs="0" />
+              <xs:element name="ADD_DATE" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ADD_DATE" msprop:Generator_ColumnVarNameInTable="columnADD_DATE" msprop:Generator_ColumnPropNameInTable="ADD_DATEColumn" msprop:Generator_UserColumnName="ADD_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="ICON_URI" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ICON_URI" msprop:Generator_ColumnVarNameInTable="columnICON_URI" msprop:Generator_ColumnPropNameInTable="ICON_URIColumn" msprop:Generator_UserColumnName="ICON_URI" type="xs:string" minOccurs="0" />
+              <xs:element name="TEXT" msprop:Generator_ColumnVarNameInTable="columnTEXT" msprop:Generator_ColumnPropNameInRow="TEXT" msprop:Generator_ColumnPropNameInTable="TEXTColumn" msprop:Generator_UserColumnName="TEXT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTableTreeNodes" msprop:Generator_TableClassName="DataTableTreeNodesDataTable" msprop:Generator_TableVarName="tableDataTableTreeNodes" msprop:Generator_TablePropName="DataTableTreeNodes" msprop:Generator_RowDeletingName="DataTableTreeNodesRowDeleting" msprop:Generator_RowChangingName="DataTableTreeNodesRowChanging" msprop:Generator_RowEvHandlerName="DataTableTreeNodesRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableTreeNodesRowDeleted" msprop:Generator_UserTableName="DataTableTreeNodes" msprop:Generator_RowChangedName="DataTableTreeNodesRowChanged" msprop:Generator_RowEvArgName="DataTableTreeNodesRowChangeEvent" msprop:Generator_RowClassName="DataTableTreeNodesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" type="xs:string" minOccurs="0" />
+              <xs:element name="BookmarkID" msprop:Generator_ColumnVarNameInTable="columnBookmarkID" msprop:Generator_ColumnPropNameInRow="BookmarkID" msprop:Generator_ColumnPropNameInTable="BookmarkIDColumn" msprop:Generator_UserColumnName="BookmarkID" type="xs:int" minOccurs="0" />
+              <xs:element name="NodePath" msprop:Generator_ColumnVarNameInTable="columnNodePath" msprop:Generator_ColumnPropNameInRow="NodePath" msprop:Generator_ColumnPropNameInTable="NodePathColumn" msprop:Generator_UserColumnName="NodePath" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTableBookmarks" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:DataTableBookmarks" />
+      <xs:field xpath="mstns:HREF" />
+    </xs:unique>
+    <xs:unique name="DataTableTreeNodes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTableTreeNodes" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="DataTableTreeNodes_Constraint2" msdata:ConstraintName="Constraint2">
+      <xs:selector xpath=".//mstns:DataTableTreeNodes" />
+      <xs:field xpath="mstns:NodePath" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

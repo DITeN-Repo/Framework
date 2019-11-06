@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,43 +11,20 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 2:05 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
 #endregion
 
 public class Startup
 {
-	public void ConfigureServices(IServiceCollection services)
+	public void Configure(IApplicationBuilder app,
+	                      IHostingEnvironment env)
 	{
-		services.AddDistributedMemoryCache();
-
-		services.AddSession(options =>
-		{
-			// Set a short timeout for easy testing.
-			options.IdleTimeout = TimeSpan.FromSeconds(10);
-			options.Cookie.HttpOnly = true;
-			// Make the session cookie essential
-			options.Cookie.IsEssential = true;
-		});
-
-		services.AddMvc()
-			.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-	}
-
-	public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-	{
-		if (env.IsDevelopment())
-		{
-			app.UseDeveloperExceptionPage();
-		}
+		if (env.IsDevelopment()) { app.UseDeveloperExceptionPage(); }
 		else
 		{
 			app.UseExceptionHandler("/Error");
@@ -61,5 +36,22 @@ public class Startup
 		app.UseSession();
 		app.UseHttpContextItemsMiddleware();
 		app.UseMvc();
+	}
+
+	public void ConfigureServices(IServiceCollection services)
+	{
+		services.AddDistributedMemoryCache();
+
+		services.AddSession(options =>
+		                    {
+			                    // Set a short timeout for easy testing.
+			                    options.IdleTimeout = TimeSpan.FromSeconds(10);
+			                    options.Cookie.HttpOnly = true;
+			                    // Make the session cookie essential
+			                    options.Cookie.IsEssential = true;
+		                    });
+
+		services.AddMvc()
+		        .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 	}
 }

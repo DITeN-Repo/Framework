@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -25,9 +21,6 @@ namespace dotNetCoreConsoleApp
 {
 	internal class Program
 	{
-		private static void Main(string[] args)
-		{
-			Console.WriteLine("Hello World!");
-		}
+		private static void Main(string[] args) { Console.WriteLine("Hello World!"); }
 	}
 }

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:51 AM
 
-#endregion
-
 #region Used Directives
 
 using System.Web;
@@ -26,9 +22,8 @@ namespace Diten.Web
 {
 	public static class HttpContext
 	{
-		public static System.Web.HttpContext Current => System.Web.HttpContext.Current;
-
 		public static HttpApplicationState Application => Current.Application;
+		public static System.Web.HttpContext Current => System.Web.HttpContext.Current;
 
 		/// <summary>
 		///    Get client local IP address.
@@ -38,14 +33,13 @@ namespace Diten.Web
 		{
 			var ipAddress = Current.Request.ServerVariables[Constants.Default.ServerVariables000];
 
-			if (string.IsNullOrEmpty(ipAddress))
-				return Current.Request.ServerVariables[Constants.Default.ServerVariables001];
+			if (string.IsNullOrEmpty(ipAddress)) return Current.Request.ServerVariables[Constants.Default.ServerVariables001];
 
 			var addresses = ipAddress.Split(',');
 
 			return addresses.Length != 0
-				? addresses[0]
-				: Current.Request.ServerVariables[Constants.Default.ServerVariables001];
+				       ? addresses[0]
+				       : Current.Request.ServerVariables[Constants.Default.ServerVariables001];
 		}
 	}
 }

@@ -12,7 +12,7 @@ namespace Diten.Parameters {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
     public sealed partial class Exceptions : global::System.Configuration.ApplicationSettingsBase {
         
         private static Exceptions defaultInstance = ((Exceptions)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Exceptions())));
@@ -898,6 +898,28 @@ namespace Diten.Parameters {
         public string Rank_MultiDimNotSupported {
             get {
                 return ((string)(this["Rank_MultiDimNotSupported"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("The length of {0} must be the same.")]
+        public string Diten_SameLenght {
+            get {
+                return ((string)(this["Diten_SameLenght"]));
+            }
+        }
+        
+        /// <summary>
+        /// {0} cannot be of type [type name: {1} | type :{2)}]
+        /// </summary>
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.SettingsDescriptionAttribute("{0} cannot be of type [type name: {1} | type :{2)}]")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("{0} cannot be of type [type name: {1} | type :{2)}]")]
+        public string Diten_TypeException {
+            get {
+                return ((string)(this["Diten_TypeException"]));
             }
         }
     }

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
-
-#endregion
 
 #region Used Directives
 
@@ -34,7 +30,7 @@ namespace Diten
 	[Serializable]
 	[DefaultProperty("Value")]
 	[Attributes.Type]
-	public class String : WebObject<String>
+	public class String: WebObject<String>
 	{
 		/// <summary>
 		///    Constructor.
@@ -52,14 +48,13 @@ namespace Diten
 		/// <param name="value">
 		///    A <see cref="string" /> that must be set in Value property of <see cref="Diten.String" />
 		/// </param>
-		public String(string value) : this()
+		public String(string value): this()
 		{
-			if (value == null)
-				value = string.Empty;
+			if (value == null) value = string.Empty;
 			Value = value;
 		}
 
-		public String SerializedValue { get; private set; }
+		public String SerializedValue {get; private set;}
 
 		/// <summary>
 		///    Value of string.
@@ -71,26 +66,25 @@ namespace Diten
 			{
 				string _return = null;
 
-				if (Words == null)
-					return null;
+				if (Words == null) return null;
 
 				if (!Words.Count.Equals(0))
 				{
 					var decryptedWord = Words[0].Load();
 					if (decryptedWord?.Value.IsNull() == true &&
-					    decryptedWord.HasItem())
-						Words.Load();
+					    decryptedWord.HasItem()) Words.Load();
 
-					_return = Words.Aggregate(string.Empty, (current,
-							word) => current + $@"{word.Value} ");
+					_return = Words.Aggregate(string.Empty,
+					                          (current,
+					                           word) => current + $@"{word.Value} ");
 				}
 
-				if (_return == null)
-					return null;
+				if (_return == null) return null;
 
 				_return = _return.IsNull()
-					? null
-					: _return.Substring(0, _return.Length - 1);
+					          ? null
+					          : _return.Substring(0,
+					                              _return.Length - 1);
 
 				return _return ?? string.Empty;
 			}
@@ -99,86 +93,20 @@ namespace Diten
 				if (value == null)
 				{
 					Words.Load();
+
 					return;
 				}
 
-				if (value.IsNull())
-					return;
+				if (value.IsNull()) return;
 
-				foreach (var word in value.Split(" ".ToCharArray()))
-					Words.Add(new Word {Value = word});
+				foreach (var word in value.Split(" ".ToCharArray())) Words.Add(new Word {Value = word});
 			}
 		}
 
 		/// <summary>
 		///    Get words collection in string.
 		/// </summary>
-		public Collections.Generic.List<Word> Words { get; }
-
-		public bool Equals(string value) => Value.Equals(value);
-
-		/// <summary>
-		///    Casting <see cref="string" /> to <see cref="Diten.String" />
-		/// </summary>
-		/// <param name="value">A <see cref="Diten.String" />.</param>
-		public static implicit operator String(string value) => new String {Value = value};
-
-		/// <summary>
-		///    Casting <see cref="Diten.String" /> to <see cref="string" />
-		/// </summary>
-		/// <param name="value">A <see cref="string" />.</param>
-		public static implicit operator string(String value) => value.Value;
-
-		/// <summary>
-		///    Saving string in database.
-		/// </summary>
-		public void Save()
-		{
-			Save(this);
-		}
-
-		/// <summary>
-		///    Serializing string value.
-		/// </summary>
-		public void Serialize()
-		{
-			SerializedValue = Value;
-		}
-
-		/// <summary>Returns this instance of <see cref="T:Syatem.String" />; no actual conversion is performed.</summary>
-		/// <returns>The current String value on System.String type.</returns>
-		public string ToSystemString() => Value;
-
-		/// <summary>Determines whether two specified Strings have the same value.</summary>
-		/// <param name="a">The first String to compare, or <see langword="null" />. </param>
-		/// <param name="b">The second String to compare, or <see langword="null" />. </param>
-		/// <returns>
-		///    <see langword="true" /> if the value of <paramref name="a" /> is the same as the value of <paramref name="b" />;
-		///    otherwise, <see langword="false" />.
-		/// </returns>
-		public static bool operator ==(String a, String b) => Equals(a, b);
-
-		/// <summary>Determines whether two specified Strings have different values.</summary>
-		/// <param name="a">The first String to compare, or <see langword="null" />. </param>
-		/// <param name="b">The second String to compare, or <see langword="null" />. </param>
-		/// <returns>
-		///    <see langword="true" /> if the value of <paramref name="a" /> is different from the value of <paramref name="b" />;
-		///    otherwise, <see langword="false" />.
-		/// </returns>
-		public static bool operator !=(String a, String b) => !Equals(a, b);
-
-		/// <summary>Returns a string that represents the current object.</summary>
-		/// <returns>A string that represents the current object.</returns>
-		public override string ToString() => Value;
-
-		/// <summary>Determines whether the specified object is equal to the current object.</summary>
-		/// <param name="obj">The object to compare with the current object. </param>
-		/// <returns>
-		///    <see langword="true" /> if the specified object  is equal to the current object; otherwise,
-		///    <see langword="false" />.
-		/// </returns>
-		/// <inheritdoc cref="string" />
-		public override bool Equals(object obj) => RuntimeHelpers.Equals(this, obj);
+		public Collections.Generic.List<Word> Words {get;}
 
 		/// <summary>Determines whether the specified object instances are considered equal.</summary>
 		/// <param name="a">The first Diten.String to compare. </param>
@@ -187,23 +115,30 @@ namespace Diten
 		///    <see langword="true" /> if the objects are considered equal; otherwise, <see langword="false" />. If both
 		///    <paramref name="a" /> and <paramref name="b" /> are null, the method returns <see langword="true" />.
 		/// </returns>
-		public static bool Equals(String a, String b)
+		public static bool Equals(String a,
+		                          String b)
 		{
-			if (a.Value == b.Value)
-				return true;
-			if (a.IsNull() || b.IsNull())
-				return false;
+			if (a.Value == b.Value) return true;
+			if (a.IsNull() ||
+			    b.IsNull()) return false;
+
 			return a.Equals(b);
 		}
 
-		/// <summary>
-		///    Check that string is null or not.
-		///    This function check that string IsNullOrEmpty and IsNullOrWhiteSpace. If both functions return true value this
-		///    function return true.
-		/// </summary>
-		/// <param name="value">An <see cref="String" />value.</param>
-		/// <returns>True if string is null.</returns>
-		public static bool IsNullString(string value) => new String(value).IsNull();
+		/// <summary>Determines whether the specified object is equal to the current object.</summary>
+		/// <param name="obj">The object to compare with the current object. </param>
+		/// <returns>
+		///    <see langword="true" /> if the specified object  is equal to the current object; otherwise,
+		///    <see langword="false" />.
+		/// </returns>
+		/// <inheritdoc cref="string" />
+		public override bool Equals(object obj)
+		{
+			return RuntimeHelpers.Equals(this,
+			                             obj);
+		}
+
+		public bool Equals(string value) { return Value.Equals(value); }
 
 		/// <summary>
 		///    Getting hash code of <see cref="Diten.String" /> value.
@@ -216,8 +151,18 @@ namespace Diten
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Value);
 			hashCode = hashCode * -1521134295 +
 			           EqualityComparer<Collections.Generic.List<Word>>.Default.GetHashCode(Words);
+
 			return hashCode;
 		}
+
+		/// <summary>
+		///    Check that string is <c>null</c> or not.<br/>
+		///    This function check that string <c>IsNullOrEmpty</c> and <c>IsNullOrWhiteSpace</c>. If both functions return true value this
+		///    function return true.
+		/// </summary>
+		/// <param name="value">An <see cref="string" />value.</param>
+		/// <returns>True if string is null.</returns>
+		public static bool IsNullString(string value) { return new String(value).IsNull(); }
 
 		/// <summary>
 		///    Detect that <see cref="Diten.String" /> is safe or not.
@@ -230,16 +175,83 @@ namespace Diten
 			return Value.ToCharArray().All(c1 => range.Any(c2 => c2.Ascii.Equals(c1)));
 		}
 
+		/// <summary>Determines whether two specified <see cref="String"/>s have the same <c>value</c>.</summary>
+		/// <param name="a">The first <see cref="String"/> to <c>compare</c>, or <see langword="null" />. </param>
+		/// <param name="b">The second <see cref="String"/> to <c>compare</c>, or <see langword="null" />. </param>
+		/// <returns>
+		///    <see langword="true" /> if the value of <paramref name="a" /> is the same as the value of <paramref name="b" />;
+		///    otherwise, <see langword="false" />.
+		/// </returns>
+		public static bool operator ==(String a,
+		                               String b)
+		{
+			return Equals(a,
+			              b);
+		}
+
 		/// <summary>
-		///    Converting current <see cref="Diten.String" /> into safe string.
+		///    Casting <see cref="string" /> to <see cref="Diten.String" />
+		/// </summary>
+		/// <param name="value">A <see cref="System.String" />.</param>
+		public static implicit operator String(string value) { return new String {Value = value}; }
+
+		/// <summary>
+		///    Casting <see cref="Diten.String" /> to <see cref="string" />
+		/// </summary>
+		/// <param name="value">A <see cref="string" />.</param>
+		public static implicit operator string(String value) { return value.Value; }
+
+		/// <summary>Determines whether two specified <see cref="Diten.String" /> have different <c>value</c>.</summary>
+		/// <param name="a">The first <see cref="Diten.String" /> to <c>compare</c>, or <see langword="null" />. </param>
+		/// <param name="b">The second <see cref="Diten.String" /> to <c>compare</c>, or <see langword="null" />. </param>
+		/// <returns>
+		///    <see langword="true" /> if the value of <paramref name="a" /> is different from the value of <paramref name="b" />;
+		///    otherwise, <see langword="false" />.
+		/// </returns>
+		public static bool operator !=(String a,
+		                               String b)
+		{
+			return !Equals(a,
+			               b);
+		}
+
+		/// <summary>
+		///    Saving <see cref="Diten.String" /> in database.
+		/// </summary>
+		public void Save() { Save(this); }
+
+		/// <summary>
+		///    Serialize current <see cref="String" />.
+		/// </summary>
+		/// <summary>
+		///    <inheritdoc cref="Concept{TObject,TKey}.Serialize()" />
+		/// </summary>
+		/// <returns>A <see cref="Byte" />.</returns>
+		public new Byte Serialize()
+		{
+			SerializedValue = Value;
+
+			return base.Serialize();
+		}
+
+		/// <summary>
+		///    Converting current <see cref="Diten.String" /> into safe <see cref="Diten.String" />.
 		/// </summary>
 		/// <returns>Represent a safe <see cref="Diten.String" />.</returns>
-		public String ToSafeString() => new String(Value.ToSafe());
+		public String ToSafeString() { return new String(Value.ToSafe()); }
+
+		/// <summary>Returns a string that represents the current object.</summary>
+		/// <returns>A <see cref="System.String" /> that represents the current object.</returns>
+		public override string ToString() { return Value; }
+
+		/// <summary>Returns this instance of <see cref="System.String" />; no actual conversion is performed.</summary>
+		/// <returns>The current String value on System.String type.</returns>
+		public string ToSystemString() { return Value; }
 
 		/// <summary>
 		///    Converting current <see cref="Diten.String" /> into safe string.
 		/// </summary>
 		/// <returns>Represent a safe <see cref="Diten.String" />.</returns>
-		public String ToUnsafeString() => new String(Value.ToUnsafe());
+		public String ToUnsafeString() { return new String(Value.ToUnsafe()); }
 	}
 }

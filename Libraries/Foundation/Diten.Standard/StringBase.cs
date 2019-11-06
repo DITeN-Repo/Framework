@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
-
-#endregion
 
 //using System;
 //using Microsoft.Win32;
@@ -3193,90 +3189,75 @@
 //            return TypeCode.String;
 //        }
 
-
 //        bool System.IConvertible.ToBoolean(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToBoolean(this, provider);
 //        }
-
 
 //        char System.IConvertible.ToChar(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToChar(this, provider);
 //        }
 
-
 //        sbyte System.IConvertible.ToSByte(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToSByte(this, provider);
 //        }
-
 
 //        byte System.IConvertible.ToByte(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToByte(this, provider);
 //        }
 
-
 //        short System.IConvertible.ToInt16(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToInt16(this, provider);
 //        }
-
 
 //        ushort System.IConvertible.ToUInt16(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToUInt16(this, provider);
 //        }
 
-
 //        int System.IConvertible.ToInt32(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToInt32(this, provider);
 //        }
-
 
 //        uint System.IConvertible.ToUInt32(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToUInt32(this, provider);
 //        }
 
-
 //        long System.IConvertible.ToInt64(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToInt64(this, provider);
 //        }
-
 
 //        ulong System.IConvertible.ToUInt64(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToUInt64(this, provider);
 //        }
 
-
 //        float System.IConvertible.ToSingle(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToSingle(this, provider);
 //        }
-
 
 //        double System.IConvertible.ToDouble(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToDouble(this, provider);
 //        }
 
-
 //        Decimal System.IConvertible.ToDecimal(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToDecimal(this, provider);
 //        }
 
-
 //        DateTime System.IConvertible.ToDateTime(System.IFormatProvider provider)
 //        {
 //            return System.Convert.ToDateTime(this, provider);
 //        }
-
 
 //        object System.IConvertible.ToType(Type type, System.IFormatProvider provider)
 //        {
@@ -3306,12 +3287,10 @@
 //            return new CharEnumerator(this);
 //        }
 
-
 //        IEnumerator<char> IEnumerable<char>.GetEnumerator()
 //        {
 //            return (IEnumerator<char>)new CharEnumerator(this);
 //        }
-
 
 //        IEnumerator IEnumerable.GetEnumerator()
 //        {

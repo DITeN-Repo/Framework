@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 6:56 PM
-
-#endregion
 
 #region Used Directives
 
@@ -29,23 +25,22 @@ namespace Diten.Numeric
 	///    A Byte that could be base of many other objects.
 	/// </summary>
 	[DefaultProperty("Value")]
-	public class DByte : IDBit<bool>
+	public class DByte: IDBit<bool>
 	{
 		/// <summary>
 		///    Default constructor.
 		/// </summary>
-		public DByte(int length = 8) => Value = new BitArray(length);
-
+		public DByte(int length = 8) { Value = new BitArray(length); }
 
 		#region Implementation of IComparable
 
-		public int CompareTo(object obj) => throw new NotImplementedException();
+		public int CompareTo(object obj) { throw new NotImplementedException(); }
 
 		#endregion
 
 		#region Implementation of IComparable<in bool>
 
-		public int CompareTo(bool other) => throw new NotImplementedException();
+		public int CompareTo(bool other) { throw new NotImplementedException(); }
 
 		#endregion
 
@@ -57,7 +52,7 @@ namespace Diten.Numeric
 		///    true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise,
 		///    false.
 		/// </returns>
-		public bool Equals(bool other) => throw new NotImplementedException();
+		public bool Equals(bool other) { throw new NotImplementedException(); }
 
 		#endregion
 
@@ -73,7 +68,11 @@ namespace Diten.Numeric
 		///    Basic) to obtain the numeric format information from the current locale setting of the operating system.
 		/// </param>
 		/// <returns>The value of the current instance in the specified format.</returns>
-		public string ToString(string format, IFormatProvider formatProvider) => throw new NotImplementedException();
+		public string ToString(string format,
+		                       IFormatProvider formatProvider)
+		{
+			throw new NotImplementedException();
+		}
 
 		#endregion
 
@@ -82,7 +81,7 @@ namespace Diten.Numeric
 		/// <summary>
 		///    Value of the DBit.
 		/// </summary>
-		public BitArray Value { get; set; }
+		public BitArray Value {get; set;}
 
 		#endregion
 
@@ -93,7 +92,7 @@ namespace Diten.Numeric
 		///    The enumerated constant that is the <see cref="T:System.TypeCode"></see> of the class or value type that
 		///    implements this interface.
 		/// </returns>
-		public TypeCode GetTypeCode() => throw new NotImplementedException();
+		public TypeCode GetTypeCode() { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent Boolean value using the specified culture-specific
@@ -104,7 +103,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A Boolean value equivalent to the value of this instance.</returns>
-		public bool ToBoolean(IFormatProvider provider) => throw new NotImplementedException();
+		public bool ToBoolean(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 8-bit unsigned integer using the specified
@@ -115,7 +114,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 8-bit unsigned integer equivalent to the value of this instance.</returns>
-		public byte ToByte(IFormatProvider provider) => throw new NotImplementedException();
+		public byte ToByte(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent Unicode character using the specified culture-specific
@@ -126,7 +125,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A Unicode character equivalent to the value of this instance.</returns>
-		public char ToChar(IFormatProvider provider) => throw new NotImplementedException();
+		public char ToChar(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent <see cref="T:System.DateTime"></see> using the specified
@@ -137,7 +136,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A <see cref="T:System.DateTime"></see> instance equivalent to the value of this instance.</returns>
-		public DateTime ToDateTime(IFormatProvider provider) => throw new NotImplementedException();
+		public DateTime ToDateTime(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent <see cref="T:System.Decimal"></see> number using the
@@ -148,7 +147,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A <see cref="T:System.Decimal"></see> number equivalent to the value of this instance.</returns>
-		public decimal ToDecimal(IFormatProvider provider) => throw new NotImplementedException();
+		public decimal ToDecimal(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent double-precision floating-point number using the
@@ -159,7 +158,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A double-precision floating-point number equivalent to the value of this instance.</returns>
-		public double ToDouble(IFormatProvider provider) => throw new NotImplementedException();
+		public double ToDouble(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 16-bit signed integer using the specified
@@ -170,7 +169,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 16-bit signed integer equivalent to the value of this instance.</returns>
-		public short ToInt16(IFormatProvider provider) => throw new NotImplementedException();
+		public short ToInt16(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 32-bit signed integer using the specified
@@ -181,7 +180,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 32-bit signed integer equivalent to the value of this instance.</returns>
-		public int ToInt32(IFormatProvider provider) => throw new NotImplementedException();
+		public int ToInt32(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 64-bit signed integer using the specified
@@ -192,7 +191,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 64-bit signed integer equivalent to the value of this instance.</returns>
-		public long ToInt64(IFormatProvider provider) => throw new NotImplementedException();
+		public long ToInt64(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 8-bit signed integer using the specified culture-specific
@@ -203,7 +202,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 8-bit signed integer equivalent to the value of this instance.</returns>
-		public sbyte ToSByte(IFormatProvider provider) => throw new NotImplementedException();
+		public sbyte ToSByte(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent single-precision floating-point number using the
@@ -214,7 +213,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A single-precision floating-point number equivalent to the value of this instance.</returns>
-		public float ToSingle(IFormatProvider provider) => throw new NotImplementedException();
+		public float ToSingle(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent <see cref="T:System.String"></see> using the specified
@@ -225,7 +224,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A <see cref="T:System.String"></see> instance equivalent to the value of this instance.</returns>
-		public string ToString(IFormatProvider provider) => throw new NotImplementedException();
+		public string ToString(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an <see cref="T:System.Object"></see> of the specified
@@ -241,7 +240,11 @@ namespace Diten.Numeric
 		///    An <see cref="T:System.Object"></see> instance of type
 		///    <paramref name="conversionType">conversionType</paramref> whose value is equivalent to the value of this instance.
 		/// </returns>
-		public object ToType(Type conversionType, IFormatProvider provider) => throw new NotImplementedException();
+		public object ToType(Type conversionType,
+		                     IFormatProvider provider)
+		{
+			throw new NotImplementedException();
+		}
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 16-bit unsigned integer using the specified
@@ -252,7 +255,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 16-bit unsigned integer equivalent to the value of this instance.</returns>
-		public ushort ToUInt16(IFormatProvider provider) => throw new NotImplementedException();
+		public ushort ToUInt16(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 32-bit unsigned integer using the specified
@@ -263,7 +266,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 32-bit unsigned integer equivalent to the value of this instance.</returns>
-		public uint ToUInt32(IFormatProvider provider) => throw new NotImplementedException();
+		public uint ToUInt32(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 64-bit unsigned integer using the specified
@@ -274,7 +277,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 64-bit unsigned integer equivalent to the value of this instance.</returns>
-		public ulong ToUInt64(IFormatProvider provider) => throw new NotImplementedException();
+		public ulong ToUInt64(IFormatProvider provider) { throw new NotImplementedException(); }
 
 		#endregion
 	}

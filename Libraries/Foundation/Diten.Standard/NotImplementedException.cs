@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 10:30 PM
 
-#endregion
-
 #region Used Directives
 
 using Diten.Reflection;
@@ -24,15 +20,11 @@ using Diten.Reflection;
 namespace Diten
 {
 	/// <inheritdoc cref="System.NotImplementedException" />
-	public class NotImplementedException : System.NotImplementedException
+	public class NotImplementedException: System.NotImplementedException
 	{
-		public NotImplementedException() : this(
-			$@"Module [{Assembly.GetCurrentMethodName()}] must be controlled later for logical mistakes.")
-		{
-		}
+		public NotImplementedException(): this(
+		                                       $@"Module [{Assembly.GetCurrentMethodName()}] must be controlled later for logical mistakes.") {}
 
-		public NotImplementedException(string message) : base(message)
-		{
-		}
+		public NotImplementedException(string message): base(message) {}
 	}
 }

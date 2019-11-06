@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,11 +11,10 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 1:05 AM
 
-#endregion
-
 #region Used Directives
 
 using System.Net.Mail;
+using System.Security.Cryptography;
 
 #endregion
 
@@ -25,14 +22,13 @@ namespace Diten.Net.Mail
 {
 	public class Mail
 	{
-		public Mail()
-		{
-		}
+		public Mail() {}
 
 		public Mail(string to,
-			string subject,
-			string body)
+		            string subject,
+		            string body)
 		{
+			SHA1.Create().ComputeHash()
 			//ToDo: Check Commented code.
 			//var mailMessage = new MailMessage
 			//{
@@ -50,7 +46,7 @@ namespace Diten.Net.Mail
 		/// <summary>
 		///    Subject of e-mail.
 		/// </summary>
-		public MailMessage MailMessage { get; set; }
+		public MailMessage MailMessage {get; set;}
 
 		/// <summary>
 		///    Sending mail.

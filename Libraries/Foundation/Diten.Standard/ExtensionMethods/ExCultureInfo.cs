@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -27,10 +23,13 @@ using JetBrains.Annotations;
 
 namespace Diten
 {
-	[SuppressMessage("ReSharper", "UnusedParameter.Global")]
+	[SuppressMessage("ReSharper",
+		"UnusedParameter.Global")]
 	public static class ExCultureInfo
 	{
-		public static List<CultureInfo> GetAllCultures([NotNull] this CultureInfo cultureInfo) =>
-			CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).ToList();
+		public static List<CultureInfo> GetAllCultures([NotNull] this CultureInfo cultureInfo)
+		{
+			return CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).ToList();
+		}
 	}
 }

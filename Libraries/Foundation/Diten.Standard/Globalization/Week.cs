@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:16 AM
 
-#endregion
-
 #region Used Directives
 
 using System.Collections.Generic;
@@ -25,13 +21,13 @@ namespace Diten.Globalization
 {
 	public class Week
 	{
-		public Week() => Weekdays = new WeekdaysCollection();
-
-		public WeekdaysCollection Weekdays { get; }
-
-		public sealed class WeekdaysCollection : List<Weekday>
+		public sealed class WeekdaysCollection: List<Weekday>
 		{
 			//public 
 		}
+
+		public Week() { Weekdays = new WeekdaysCollection(); }
+
+		public WeekdaysCollection Weekdays {get;}
 	}
 }

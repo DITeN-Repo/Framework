@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/06 12:51 AM
 
-#endregion
-
 #region Used Directives
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -23,10 +19,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApplication1.Pages
 {
-	public class PrivacyModel : PageModel
+	public class PrivacyModel: PageModel
 	{
-		public void OnGet()
-		{
-		}
+		public void OnGet() {}
 	}
 }

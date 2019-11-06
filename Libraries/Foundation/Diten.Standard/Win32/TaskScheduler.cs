@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 9:12 PM
-
-#endregion
 
 #region Used Directives
 
@@ -30,8 +26,8 @@ namespace Diten.Win32
 	{
 		// ReSharper disable once InconsistentNaming
 		public static void AddIISLogParser(Site site,
-			string username,
-			string password)
+		                                   string username,
+		                                   string password)
 		{
 			//ToDo: The code must be controlled for logical mistakes.
 			throw new NotImplementedException();
@@ -51,19 +47,28 @@ namespace Diten.Win32
 			var batchFilePath = $@"{basePath}\ImportIISLogs.bat";
 
 			if (!File.Exists(xmlFilePath))
-				File.WriteAllText(xmlFilePath, Resources.Manifest000
-					.Replace("%SiteName%", site.Name)
-					.Replace("%UserId%", SystemParams.Default.ScheduledTasksUser)
-					.Replace("%Command%", $"{batchFilePath}")
-					.Replace("%Arguments%",
-						$"{site.Id} \"{site.LogFile.Directory}\""));
+				File.WriteAllText(xmlFilePath,
+				                  Resources.Manifest000
+				                           .Replace("%SiteName%",
+				                                    site.Name)
+				                           .Replace("%UserId%",
+				                                    SystemParams.Default.ScheduledTasksUser)
+				                           .Replace("%Command%",
+				                                    $"{batchFilePath}")
+				                           .Replace("%Arguments%",
+				                                    $"{site.Id} \"{site.LogFile.Directory}\""));
 
 			if (!File.Exists(batchFilePath))
-				File.WriteAllText(batchFilePath, Resources.Script000);
+				File.WriteAllText(batchFilePath,
+				                  Resources.Script000);
 
 			Process.ExecuteCommand(
-				SystemParams.Default.CMDTaskScheduler.Format(SystemParams.Default.ScheduledTasksUser,
-					SystemParams.Default.ScheduledTasksUserPassword, site.Name, xmlFilePath), username, password);
+			                       SystemParams.Default.CMDTaskScheduler.Format(SystemParams.Default.ScheduledTasksUser,
+			                                                                    SystemParams.Default.ScheduledTasksUserPassword,
+			                                                                    site.Name,
+			                                                                    xmlFilePath),
+			                       username,
+			                       password);
 		}
 	}
 }

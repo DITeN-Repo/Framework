@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 8:55 PM
-
-#endregion
 
 #region Used Directives
 
@@ -27,8 +23,8 @@ namespace Diten.Dns
 	public class DnsProvider
 	{
 		public DnsProvider(string serverName,
-			string userName,
-			string password)
+		                   string userName,
+		                   string password)
 		{
 			Server = serverName;
 			User = userName;
@@ -37,9 +33,7 @@ namespace Diten.Dns
 			Initialize();
 		}
 
-		private void Initialize()
-		{
-		}
+		private void Initialize() {}
 
 		private void Logon()
 		{
@@ -67,22 +61,18 @@ namespace Diten.Dns
 
 		#region Methods
 
-		public void Dispose()
-		{
-		}
+		public void Dispose() {}
 
 		public void Dispose(ref ManagementClass x)
 		{
-			if (x == null)
-				return;
+			if (x == null) return;
 			x.Dispose();
 			x = null;
 		}
 
 		public void Dispose(ref ManagementBaseObject x)
 		{
-			if (x == null)
-				return;
+			if (x == null) return;
 			x.Dispose();
 			x = null;
 		}
@@ -94,21 +84,20 @@ namespace Diten.Dns
 			wql += " FROM MicrosoftDNS_ATYPE";
 			wql += " WHERE OwnerName = '" + domainName + "'";
 			var q = new ObjectQuery(wql);
-			var s = new ManagementObjectSearcher(_session, q);
+			var s = new ManagementObjectSearcher(_session,
+			                                     q);
 			var col = s.Get();
 
-			foreach (var unused in col)
-				retval = true;
+			foreach (var unused in col) retval = true;
 
 			return retval;
 		}
 
 		public void AddDomain(string domainName,
-			string ipDestination)
+		                      string ipDestination)
 		{
 			//check if domain already exists
-			if (DomainExists(domainName))
-				throw new Exception("The domain you are trying to add already exists on this server!");
+			if (DomainExists(domainName)) throw new Exception("The domain you are trying to add already exists on this server!");
 
 			//generate zone
 			var man = Manage("MicrosoftDNS_Zone");
@@ -118,13 +107,17 @@ namespace Diten.Dns
 			obj["ZoneType"] = 0;
 
 			//invoke method, dispose unneccesary vars
-			man.InvokeMethod("CreateZone", obj, null);
+			man.InvokeMethod("CreateZone",
+			                 obj,
+			                 null);
 			Dispose(ref obj);
 			Dispose(ref ret);
 			Dispose(ref man);
 
 			//add rr containing the ip destination
-			AddARecord(domainName, null, ipDestination);
+			AddARecord(domainName,
+			           null,
+			           ipDestination);
 		}
 
 		public void RemoveDomain(string domainName)
@@ -133,7 +126,8 @@ namespace Diten.Dns
 			wql += " FROM MicrosoftDNS_Zone";
 			wql += " WHERE Name = '" + domainName + "'";
 			var q = new ObjectQuery(wql);
-			var s = new ManagementObjectSearcher(_session, q);
+			var s = new ManagementObjectSearcher(_session,
+			                                     q);
 			var col = s.Get();
 
 			foreach (var managementBaseObject in col)
@@ -144,31 +138,33 @@ namespace Diten.Dns
 		}
 
 		public void AddARecord(string domain,
-			string recordName,
-			string ipDestination)
+		                       string recordName,
+		                       string ipDestination)
 		{
-			if (DomainExists(recordName + "." + domain))
-				throw new Exception("That record already exists!");
-			var man = new ManagementClass(_session, new ManagementPath("MicrosoftDNS_ATYPE"), null);
+			if (DomainExists(recordName + "." + domain)) throw new Exception("That record already exists!");
+			var man = new ManagementClass(_session,
+			                              new ManagementPath("MicrosoftDNS_ATYPE"),
+			                              null);
 			var vars = man.GetMethodParameters("CreateInstanceFromPropertyData");
 			vars["DnsServerName"] = Server;
 			vars["ContainerName"] = domain;
-			if (recordName == null)
-				vars["OwnerName"] = domain;
-			else
-				vars["OwnerName"] = recordName + "." + domain;
+			if (recordName == null) vars["OwnerName"] = domain;
+			else vars["OwnerName"] = recordName + "." + domain;
 			vars["IPAddress"] = ipDestination;
-			man.InvokeMethod("CreateInstanceFromPropertyData", vars, null);
+			man.InvokeMethod("CreateInstanceFromPropertyData",
+			                 vars,
+			                 null);
 		}
 
 		public void RemoveARecord(string domain,
-			string aRecord)
+		                          string aRecord)
 		{
 			var wql = "SELECT *";
 			wql += " FROM MicrosoftDNS_ATYPE";
 			wql += " WHERE OwnerName = '" + aRecord + "." + domain + "'";
 			var q = new ObjectQuery(wql);
-			var s = new ManagementObjectSearcher(_session, q);
+			var s = new ManagementObjectSearcher(_session,
+			                                     q);
 			var col = s.Get();
 
 			foreach (var managementBaseObject in col)
@@ -182,7 +178,7 @@ namespace Diten.Dns
 
 		#region Properties
 
-		public string NameSpace { get; private set; }
+		public string NameSpace {get; private set;}
 
 		public bool Enabled
 		{
@@ -206,7 +202,9 @@ namespace Diten.Dns
 		public ManagementClass Manage(string path)
 		{
 			//ManagementClass retval=new ManagementClass(path);
-			var retval = new ManagementClass(_session, new ManagementPath(path), null);
+			var retval = new ManagementClass(_session,
+			                                 new ManagementPath(path),
+			                                 null);
 
 			return retval;
 		}

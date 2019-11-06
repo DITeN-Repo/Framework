@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
-
-#endregion
 
 #region Used Directives
 
@@ -48,15 +44,15 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="username">Username of a user that has privilege to do jobs on Active Directory.</param>
 		/// <param name="password">Password of user.</param>
 		public Objects(string username,
-			string password)
+		               string password)
 		{
 			UserName = username;
 			Password = password;
 		}
 
-		private string Password { get; }
+		private string Password {get;}
 
-		private string UserName { get; }
+		private string UserName {get;}
 
 		/// <summary>
 		///    Enumerate Multi-String Attribute Values of an Object.
@@ -69,25 +65,28 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="recursive">Read attributes recursively.</param>
 		/// <returns>Values collection.</returns>
 		public ArrayList AttributeValuesMultiString(string attributeName,
-			string objectDn,
-			ArrayList valuesCollection,
-			bool recursive)
+		                                            string objectDn,
+		                                            ArrayList valuesCollection,
+		                                            bool recursive)
 		{
-			var ent = new DirectoryEntry(objectDn, UserName, Password);
+			var ent = new DirectoryEntry(objectDn,
+			                             UserName,
+			                             Password);
 			var valueCollection = ent.Properties[attributeName];
 			var en = valueCollection.GetEnumerator();
 
 			while (en.MoveNext())
 			{
-				if (en.Current == null)
-					continue;
-				if (valuesCollection.Contains(en.Current.ToString()))
-					continue;
+				if (en.Current == null) continue;
+				if (valuesCollection.Contains(en.Current.ToString())) continue;
 
 				valuesCollection.Add(en.Current.ToString());
 
 				if (recursive)
-					AttributeValuesMultiString(attributeName, $@"LDAP://{en.Current}", valuesCollection, true);
+					AttributeValuesMultiString(attributeName,
+					                           $@"LDAP://{en.Current}",
+					                           valuesCollection,
+					                           true);
 			}
 
 			ent.Close();
@@ -103,9 +102,11 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="objectDn">Object Distinguished name.</param>
 		/// <returns>Value of attribute.</returns>
 		public string AttributeValuesSingleString(string attributeName,
-			string objectDn)
+		                                          string objectDn)
 		{
-			var ent = new DirectoryEntry(objectDn, UserName, Password);
+			var ent = new DirectoryEntry(objectDn,
+			                             UserName,
+			                             Password);
 			var strValue = ent.Properties[attributeName].Value.ToString();
 			ent.Close();
 			ent.Dispose();
@@ -120,20 +121,20 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="ouPath">Organization unit path.</param>
 		/// <param name="name">Name of new group.</param>
 		public void CreateGroup(string ouPath,
-			string name)
+		                        string name)
 		{
 			if (!DirectoryEntry.Exists($"LDAP://CN={name},{ouPath}"))
 			{
 				var group =
-					new DirectoryEntry($"LDAP://{ouPath}", UserName, Password).Children.Add($"CN={name}", "group");
+					new DirectoryEntry($"LDAP://{ouPath}",
+					                   UserName,
+					                   Password).Children.Add($"CN={name}",
+					                                          "group");
 
 				group.Properties["sAmAccountName"].Value = name;
 				group.CommitChanges();
 			}
-			else
-			{
-				throw new ActiveDirectoryObjectExistsException($" Group [{name}] already exists.");
-			}
+			else { throw new ActiveDirectoryObjectExistsException($" Group [{name}] already exists."); }
 		}
 
 		// ReSharper disable once CommentTypo
@@ -146,12 +147,15 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="shareDescription"></param>
 		/// <example>CreateShareEntry("OU=HOME,dc=baileysoft,dc=com", "Music", @"\\192.168.2.1\Music", "mp3 Server Share");</example>
 		public void CreateShareEntry(string ldapPath,
-			string shareName,
-			string shareUncPath,
-			string shareDescription)
+		                             string shareName,
+		                             string shareUncPath,
+		                             string shareDescription)
 		{
-			var directoryObject = new DirectoryEntry($"LDAP://{ldapPath}", UserName, Password);
-			var networkShare = directoryObject.Children.Add($"CN={shareName}", "volume");
+			var directoryObject = new DirectoryEntry($"LDAP://{ldapPath}",
+			                                         UserName,
+			                                         Password);
+			var networkShare = directoryObject.Children.Add($"CN={shareName}",
+			                                                "volume");
 
 			networkShare.Properties["uNCName"].Value = shareUncPath;
 			networkShare.Properties["Description"].Value = shareDescription;
@@ -167,20 +171,21 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="ouPath">Organization unit path.</param>
 		/// <param name="groupPath">Group pat.</param>
 		public void DeleteGroup(string ouPath,
-			string groupPath)
+		                        string groupPath)
 		{
 			if (DirectoryEntry.Exists("LDAP://" + groupPath))
 			{
-				var entry = new DirectoryEntry($"LDAP://{ouPath}", UserName, Password);
-				var group = new DirectoryEntry($"LDAP://{groupPath}", UserName, Password);
+				var entry = new DirectoryEntry($"LDAP://{ouPath}",
+				                               UserName,
+				                               Password);
+				var group = new DirectoryEntry($"LDAP://{groupPath}",
+				                               UserName,
+				                               Password);
 
 				entry.Children.Remove(group);
 				group.CommitChanges();
 			}
-			else
-			{
-				throw new ActiveDirectoryObjectExistsException($" Group [{groupPath}] doesn't exist.");
-			}
+			else { throw new ActiveDirectoryObjectExistsException($" Group [{groupPath}] doesn't exist."); }
 		}
 
 		/// <summary>
@@ -188,7 +193,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="objectPath">Path of the object in AD.</param>
 		/// <returns>True if object exist.</returns>
-		public static bool Exists(string objectPath) => DirectoryEntry.Exists($"LDAP://{objectPath}");
+		public static bool Exists(string objectPath) { return DirectoryEntry.Exists($"LDAP://{objectPath}"); }
 
 		/// <summary>
 		///    Get an Object DistinguishedName.
@@ -209,13 +214,15 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		///    "contoso.com")
 		/// </example>
 		public string GetObjectDistinguishedName(ObjectClass objectCls,
-			ReturnType returnValue,
-			string objectName,
-			string ldapDomain)
+		                                         ReturnType returnValue,
+		                                         string objectName,
+		                                         string ldapDomain)
 		{
 			var distinguishedName = string.Empty;
 			var connectionPrefix = $"LDAP://{ldapDomain}";
-			var entry = new DirectoryEntry(connectionPrefix, UserName, Password);
+			var entry = new DirectoryEntry(connectionPrefix,
+			                               UserName,
+			                               Password);
 			var mySearcher = new DirectorySearcher(entry);
 
 			switch (objectCls)
@@ -234,22 +241,21 @@ namespace Diten.DirectoryServices.ActiveDirectory
 
 					break;
 				default:
-
-					throw new ArgumentOutOfRangeException(nameof(objectCls), objectCls, null);
+					throw new ArgumentOutOfRangeException(nameof(objectCls),
+					                                      objectCls,
+					                                      null);
 			}
 
 			var result = mySearcher.FindOne();
 
 			if (result == null)
 				throw new NullReferenceException(
-					$"unable to locate the distinguishedName for the object [{objectName}] in the [{ldapDomain}] domain.");
+				                                 $"unable to locate the distinguishedName for the object [{objectName}] in the [{ldapDomain}] domain.");
 
 			var directoryObject = result.GetDirectoryEntry();
 
-			if (returnValue.Equals(ReturnType.DistinguishedName))
-				distinguishedName = $"LDAP://{directoryObject.Properties["distinguishedName"].Value}";
-			if (returnValue.Equals(ReturnType.ObjectGuid))
-				distinguishedName = directoryObject.Guid.ToString();
+			if (returnValue.Equals(ReturnType.DistinguishedName)) distinguishedName = $"LDAP://{directoryObject.Properties["distinguishedName"].Value}";
+			if (returnValue.Equals(ReturnType.ObjectGuid)) distinguishedName = directoryObject.Guid.ToString();
 
 			entry.Close();
 			entry.Dispose();
@@ -267,9 +273,10 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		{
 			var props = new ArrayList();
 
-			foreach (string strAttrName in new DirectoryEntry($"LDAP://{objectDn}", UserName, Password).Properties
-				.PropertyNames)
-				props.Add(strAttrName);
+			foreach (string strAttrName in new DirectoryEntry($"LDAP://{objectDn}",
+			                                                  UserName,
+			                                                  Password).Properties
+			                                                           .PropertyNames) props.Add(strAttrName);
 
 			return props;
 		}
@@ -284,15 +291,20 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="objectLocation">Location of object.</param>
 		/// <param name="newLocation">New location of object.</param>
 		public void Move(string objectLocation,
-			string newLocation)
+		                 string newLocation)
 		{
 			//For brevity, removed existence checks
 
-			var eLocation = new DirectoryEntry($"LDAP://{objectLocation}", UserName, Password);
-			var nLocation = new DirectoryEntry($"LDAP://{newLocation}", UserName, Password);
+			var eLocation = new DirectoryEntry($"LDAP://{objectLocation}",
+			                                   UserName,
+			                                   Password);
+			var nLocation = new DirectoryEntry($"LDAP://{newLocation}",
+			                                   UserName,
+			                                   Password);
 			var newName = eLocation.Name;
 
-			eLocation.MoveTo(nLocation, newName);
+			eLocation.MoveTo(nLocation,
+			                 newName);
 			nLocation.Close();
 			eLocation.Close();
 		}

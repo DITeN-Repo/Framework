@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
-
-#endregion
 
 #region Used Directives
 
@@ -37,10 +33,13 @@ namespace Diten.Security.Cryptography
 		/// <param name="data">Encrypted Data for decryption.</param>
 		/// <returns>Text decrypted data.</returns>
 		public static string Decrypt(string key,
-			byte[] data) =>
-			data == null
-				? null
-				: Decrypt(Encoding.Unicode.GetBytes(key), data);
+		                             byte[] data)
+		{
+			return data == null
+				       ? null
+				       : Decrypt(Encoding.Unicode.GetBytes(key),
+				                 data);
+		}
 
 		/// <summary>
 		///    Get decrypted text data.
@@ -49,10 +48,13 @@ namespace Diten.Security.Cryptography
 		/// <param name="data">Encrypted Data for decryption.</param>
 		/// <returns>Text decrypted data.</returns>
 		public static string Decrypt(string key,
-			string data) =>
-			data == null
-				? null
-				: Decrypt(Encoding.Unicode.GetBytes(key), Encoding.Unicode.GetBytes(data));
+		                             string data)
+		{
+			return data == null
+				       ? null
+				       : Decrypt(Encoding.Unicode.GetBytes(key),
+				                 Encoding.Unicode.GetBytes(data));
+		}
 
 		/// <summary>
 		///    Get decrypted binary data.
@@ -61,8 +63,12 @@ namespace Diten.Security.Cryptography
 		/// <param name="data">Binary data for decryption.</param>
 		/// <returns>Binary decrypted data.</returns>
 		public static string Decrypt(byte[] key,
-			byte[] data) =>
-			Encoding.Unicode.GetString(EncryptOutput(key, data).ToArray());
+		                             byte[] data)
+		{
+			return Encoding.Unicode.GetString(EncryptOutput(key,
+			                                                data)
+				                                  .ToArray());
+		}
 
 		/// <summary>
 		///    Get encrypt text data.
@@ -71,10 +77,13 @@ namespace Diten.Security.Cryptography
 		/// <param name="data">Data for encryption.</param>
 		/// <returns>Text RC4 encrypted data.</returns>
 		public static string Encrypt(string key,
-			byte[] data) =>
-			data == null
-				? null
-				: Encrypt(Encoding.Unicode.GetBytes(key), data);
+		                             byte[] data)
+		{
+			return data == null
+				       ? null
+				       : Encrypt(Encoding.Unicode.GetBytes(key),
+				                 data);
+		}
 
 		/// <summary>
 		///    Get encrypt text data.
@@ -83,10 +92,13 @@ namespace Diten.Security.Cryptography
 		/// <param name="data">Data for encryption.</param>
 		/// <returns>Text RC4 encrypted data.</returns>
 		public static string Encrypt(string key,
-			string data) =>
-			data == null
-				? null
-				: Encrypt(Encoding.Unicode.GetBytes(key), Encoding.Unicode.GetBytes(data));
+		                             string data)
+		{
+			return data == null
+				       ? null
+				       : Encrypt(Encoding.Unicode.GetBytes(key),
+				                 Encoding.Unicode.GetBytes(data));
+		}
 
 		/// <summary>
 		///    Get encrypted binary data.
@@ -95,46 +107,58 @@ namespace Diten.Security.Cryptography
 		/// <param name="data">Binary data for encryption.</param>
 		/// <returns>Binary encrypted data.</returns>
 		public static string Encrypt(byte[] key,
-			byte[] data) =>
-			Encoding.Unicode.GetString(EncryptOutput(key, data).ToArray());
+		                             byte[] data)
+		{
+			return Encoding.Unicode.GetString(EncryptOutput(key,
+			                                                data)
+				                                  .ToArray());
+		}
 
 		private static byte[] EncryptInitalize(IReadOnlyList<byte> key)
 		{
-			var s = Enumerable.Range(0, 256)
-				.Select(i => (byte) i)
-				.ToArray();
+			var s = Enumerable.Range(0,
+			                         256)
+			                  .Select(i => (byte) i)
+			                  .ToArray();
 
-			for (int i = 0, j = 0; i < 256; i++)
+			for (int i = 0,
+			         j = 0;
+			     i < 256;
+			     i++)
 			{
 				j = (j + key[i % key.Count] + s[i]) & 255;
 
-				Swap(s, i, j);
+				Swap(s,
+				     i,
+				     j);
 			}
 
 			return s;
 		}
 
 		private static IEnumerable<byte> EncryptOutput(IReadOnlyList<byte> key,
-			IEnumerable<byte> data)
+		                                               IEnumerable<byte> data)
 		{
 			var s = EncryptInitalize(key);
 			var i = 0;
 			var j = 0;
 
 			return data.Select(b =>
-			{
-				i = (i + 1) & 255;
-				j = (j + s[i]) & 255;
+			                   {
+				                   i = (i + 1) & 255;
+				                   j = (j + s[i]) & 255;
 
-				Swap(s, i, j);
+				                   Swap(s,
+				                        i,
+				                        j);
 
-				return (byte) (b ^ s[(s[i] + s[j]) & 255]);
-			});
+				                   return (byte) (b ^ s[(s[i] + s[j]) & 255]);
+			                   });
 		}
 
 		private static void Swap(IList<byte> s,
-			int i,
-			int j)
+		                         int i,
+		                         int j)
 		{
 			var c = s[i];
 

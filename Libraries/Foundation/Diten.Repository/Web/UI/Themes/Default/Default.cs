@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,17 +11,15 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:36 PM
 
-#endregion
-
 namespace Diten.Web.UI.Themes.Default
 {
 	//todo: A brain storm for getting namespace.
-	internal class Default : Theme
+	internal class Default: Theme
 	{
 		/// <summary>
 		///    Get namespace of <inheritdoc cref="Default" />.
 		/// </summary>
 		/// <returns></returns>
-		public new static string GetNameSpace() => @"Diten.Web.UI.Themes.Default";
+		public new static string GetNameSpace() { return @"Diten.Web.UI.Themes.Default"; }
 	}
 }

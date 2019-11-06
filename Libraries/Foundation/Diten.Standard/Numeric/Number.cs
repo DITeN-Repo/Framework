@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 6:56 PM
-
-#endregion
 
 #region Using Directives
 
@@ -431,90 +427,75 @@ namespace Diten.Numeric
 	//		return System.TypeCode.Int32;
 	//	}
 
-
 	//	bool System.IConvertible.ToBoolean(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToBoolean(this);
 	//	}
-
 
 	//	char System.IConvertible.ToChar(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToChar(this);
 	//	}
 
-
 	//	sbyte System.IConvertible.ToSByte(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToSByte(this);
 	//	}
-
 
 	//	byte System.IConvertible.ToByte(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToByte(this);
 	//	}
 
-
 	//	short System.IConvertible.ToInt16(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToInt16(this);
 	//	}
-
 
 	//	ushort System.IConvertible.ToUInt16(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToUInt16(this);
 	//	}
 
-
 	//	int System.IConvertible.ToInt32(System.IFormatProvider provider)
 	//	{
 	//		return this;
 	//	}
-
 
 	//	uint System.IConvertible.ToUInt32(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToUInt32(this);
 	//	}
 
-
 	//	long System.IConvertible.ToInt64(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToInt64(this);
 	//	}
-
 
 	//	ulong System.IConvertible.ToUInt64(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToUInt64(this);
 	//	}
 
-
 	//	float System.IConvertible.ToSingle(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToSingle(this);
 	//	}
-
 
 	//	double System.IConvertible.ToDouble(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToDouble(this);
 	//	}
 
-
 	//	Decimal System.IConvertible.ToDecimal(System.IFormatProvider provider)
 	//	{
 	//		return System.Convert.ToDecimal(this);
 	//	}
 
-
 	//	DateTime System.IConvertible.ToDateTime(System.IFormatProvider provider)
 	//	{
 	//		throw new InvalidCastException(System.Environment.GetResourceString("InvalidCast_FromTo", (object)nameof(System.Int32), (object)"DateTime"));
 	//	}
-
 
 	//	object System.IConvertible.ToType(Type type, System.IFormatProvider provider)
 	//	{

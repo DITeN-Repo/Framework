@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/18 9:40 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -23,9 +19,10 @@ using System;
 
 namespace Diten.Diagnostics
 {
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Constructor |
-	                AttributeTargets.Method, Inherited = false)]
-	internal sealed class StackTraceHiddenAttribute : Attribute
-	{
-	}
+	[AttributeUsage(AttributeTargets.Class |
+	                AttributeTargets.Struct |
+	                AttributeTargets.Constructor |
+	                AttributeTargets.Method,
+		Inherited = false)]
+	internal sealed class StackTraceHiddenAttribute: Attribute {}
 }

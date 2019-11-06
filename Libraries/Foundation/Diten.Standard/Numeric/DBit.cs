@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 6:56 PM
-
-#endregion
 
 #region Used Directives
 
@@ -30,21 +26,34 @@ using Diten.Parameters;
 namespace Diten.Numeric
 {
 	[DefaultProperty("Value")]
-	public class DBit : Object<DBit>, IDBit<bool>
+	public class DBit: Object<DBit>,
+	                   IDBit<bool>
 	{
-		public DBit()
+		public DBit() { Value = new BitArray(1); }
+
+		#region Implementation of IComparable
+
+		/// <inheritdoc cref="IComparable.CompareTo" />
+		public int CompareTo(object obj)
 		{
-			Value = new BitArray(1);
+			if (obj is DBit) return CompareTo((DBit) obj);
+
+			return -1;
 		}
 
-		/// <summary>
-		///    Value of the DBit.
-		/// </summary>
-		public BitArray Value
+		#endregion
+
+		#region Implementation of IComparable<in bool>
+
+		/// <inheritdoc cref="IComparable{T}.CompareTo" />
+		public int CompareTo(bool other)
 		{
-			get => throw new NotImplementedException();
-			set => throw new NotImplementedException();
+			if (Value[0] == other) return 0;
+
+			return !Value[0] ? -1 : 1;
 		}
+
+		#endregion
 
 		#region Implementation of IEquatable<bool>
 
@@ -70,42 +79,28 @@ namespace Diten.Numeric
 		///    Basic) to obtain the numeric format information from the current locale setting of the operating system.
 		/// </param>
 		/// <returns>The value of the current instance in the specified format.</returns>
-		public string ToString(string format, IFormatProvider formatProvider) => System.Convert.ToString(Value[0]);
+		public string ToString(string format,
+		                       IFormatProvider formatProvider) =>
+			System.Convert.ToString(Value[0]);
 
 		#endregion
 
-		#region Implementation of IComparable
-
-		/// <inheritdoc cref="IComparable.CompareTo" />
-		public int CompareTo(object obj)
+		/// <summary>
+		///    Value of the DBit.
+		/// </summary>
+		public BitArray Value
 		{
-			if (obj is DBit)
-				return CompareTo((DBit) obj);
-
-			return -1;
+			get => throw new NotImplementedException();
+			set => throw new NotImplementedException();
 		}
-
-		#endregion
-
-		#region Implementation of IComparable<in bool>
-
-		/// <inheritdoc cref="IComparable{T}.CompareTo" />
-		public int CompareTo(bool other)
-		{
-			if (Value[0] == other)
-				return 0;
-			return !Value[0] ? -1 : 1;
-		}
-
-		#endregion
 
 		/// <inheritdoc cref="IComparable{T}.CompareTo" />
 		public int CompareTo(DBit other)
 		{
-			if (other == null)
-				return -1;
-			if (!(other is DBit))
-				throw new ArgumentException(Exceptions.Default.Diten_Numeric_Number_CompareTo_PObject);
+			if (other == null) return -1;
+
+			if (!(other is DBit)) throw new ArgumentException(Exceptions.Default.Diten_Numeric_Number_CompareTo_PObject);
+
 			return other.Value[0] ? 1 : 0;
 		}
 
@@ -264,8 +259,11 @@ namespace Diten.Numeric
 		///    An <see cref="T:System.Object"></see> instance of type
 		///    <paramref name="conversionType">conversionType</paramref> whose value is equivalent to the value of this instance.
 		/// </returns>
-		public object ToType(Type conversionType, IFormatProvider provider) =>
-			Convert.DefaultToType(Value[0], conversionType, provider);
+		public object ToType(Type conversionType,
+		                     IFormatProvider provider) =>
+			Convert.DefaultToType(Value[0],
+			                      conversionType,
+			                      provider);
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 16-bit unsigned integer using the specified

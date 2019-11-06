@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -23,34 +19,28 @@ using System;
 
 namespace Diten.Security.Cryptography
 {
-	public class SHAKey<TKey> : IDisposable
-		where TKey : ISHA
+	public class SHAKey<TKey>: IDisposable
+		where TKey: ISHA
 	{
-		public SHAKey(object obj) => Holder = obj;
+		public SHAKey(object obj) { Holder = obj; }
 
-		private object Holder { get; }
+		private object Holder {get;}
 
-		public string Value
+		public byte[] Value
 		{
 			get
 			{
-				if (typeof(TKey) == typeof(SHA1))
-					return SHA1.Encrypt(Holder);
-				if (typeof(TKey) == typeof(SHA256))
-					return SHA256.Encrypt(Holder);
-				if (typeof(TKey) == typeof(SHA384))
-					return SHA384.Encrypt(Holder);
-				if (typeof(TKey) == typeof(SHA512))
-					return SHA512.Encrypt(Holder);
+				if (typeof(TKey) == typeof(SHA1)) return SHA1.Encrypt(Holder);
+				if (typeof(TKey) == typeof(SHA256)) return SHA256.Encrypt(Holder);
+				if (typeof(TKey) == typeof(SHA384)) return SHA384.Encrypt(Holder);
+				if (typeof(TKey) == typeof(SHA512)) return SHA512.Encrypt(Holder);
 
-				throw new ArgumentException("SHA algorithme not recognized.");
+				throw new ArgumentException("SHA algorithm not recognized.");
 			}
 		}
 
-		public void Dispose()
-		{
-		}
+		public void Dispose() {}
 
-		public static implicit operator string(SHAKey<TKey> value) => value.Value;
+		public static implicit operator string(SHAKey<TKey> value) { return value.Value.ToHex().ToBase64Text(); }
 	}
 }

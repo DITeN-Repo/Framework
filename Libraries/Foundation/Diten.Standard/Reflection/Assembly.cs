@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,31 +11,43 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:40 AM
 
-#endregion
-
 #region Used Directives
 
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 #endregion
 
 namespace Diten.Reflection
 {
-	public class Assembly
+	public class Assembly: System.Reflection.Assembly
 	{
+		/// <inheritdoc cref="System.Reflection.Assembly.GetExecutingAssembly()" />
+		public static string ExecutingAssemblyPath
+		{
+			get
+			{
+				var holder = GetExecutingAssembly().FullName;
+
+				return holder.Replace(
+				                      $@"{Environment.FolderDivider}{holder.Split(Environment.FolderDivider.ToCharArray()).Last()}.",
+				                      string.Empty);
+			}
+		}
+
 		/// <summary>
 		///    Get current executed method name in <inheritdoc cref="string" />.
 		/// </summary>
 		/// <returns>An <inheritdoc cref="string" /> that contains name of currently executed method.</returns>
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static string GetCurrentMethodName() => new StackTrace().GetFrame(1).GetMethod().Name;
+		public static string GetCurrentMethodName() { return new StackTrace().GetFrame(1).GetMethod().Name; }
 
 		/// <summary>
 		///    Get current executed property name in <inheritdoc cref="string" />.
 		/// </summary>
 		/// <returns>An <inheritdoc cref="string" /> that contains name of currently executed property.</returns>
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static string GetCurrentPropertyName() => new StackTrace().GetFrame(2).GetMethod().Name;
+		public static string GetCurrentPropertyName() { return new StackTrace().GetFrame(2).GetMethod().Name; }
 	}
 }

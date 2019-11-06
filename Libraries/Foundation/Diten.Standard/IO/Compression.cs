@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 7:01 PM
-
-#endregion
 
 #region Used Directives
 
@@ -32,27 +28,29 @@ namespace Diten.IO
 			//Transform string into byte[]
 			var byteArray = new byte[value.Length];
 			var index = 0;
-			foreach (var item in value.ToCharArray())
-				byteArray[index++] = (byte) item;
+			foreach (var item in value.ToCharArray()) byteArray[index++] = (byte) item;
 
 			//Prepare for decompress
 			var memoryStream = new MemoryStream(byteArray);
 			var gZipStream = new GZipStream(memoryStream,
-				CompressionMode.Decompress);
+			                                CompressionMode.Decompress);
 
 			//Reset variable to collect uncompressed result
 			byteArray = new byte[byteArray.Length];
 
 			//Decompress
-			var rByte = gZipStream.Read(byteArray, 0, byteArray.Length);
+			var rByte = gZipStream.Read(byteArray,
+			                            0,
+			                            byteArray.Length);
 
 			//Transform byte[] unzip data to string
 			var stringBuilder = new StringBuilder(rByte);
 
 			//Read the number of bytes GZipStream red and do not a for each bytes in
 			//resultByteArray;
-			for (var i = 0; i < rByte; i++)
-				stringBuilder.Append((char) byteArray[i]);
+			for (var i = 0;
+			     i < rByte;
+			     i++) stringBuilder.Append((char) byteArray[i]);
 
 			gZipStream.Close();
 			memoryStream.Close();
@@ -67,15 +65,17 @@ namespace Diten.IO
 			//Transform string into byte[]  
 			var byteArray = new byte[value.Length];
 			var index = 0;
-			foreach (var item in value.ToCharArray())
-				byteArray[index++] = (byte) item;
+			foreach (var item in value.ToCharArray()) byteArray[index++] = (byte) item;
 
 			//Prepare for compress
 			var memoryStream = new MemoryStream();
-			var gZipStream = new GZipStream(memoryStream, CompressionMode.Compress);
+			var gZipStream = new GZipStream(memoryStream,
+			                                CompressionMode.Compress);
 
 			//Compress
-			gZipStream.Write(byteArray, 0, byteArray.Length);
+			gZipStream.Write(byteArray,
+			                 0,
+			                 byteArray.Length);
 
 			//Close, DO NOT FLUSH cause bytes will go missing...
 			gZipStream.Close();
@@ -83,8 +83,7 @@ namespace Diten.IO
 			//Transform byte[] zip data to string
 			byteArray = memoryStream.ToArray();
 			var stringBuilder = new StringBuilder(byteArray.Length);
-			foreach (var item in byteArray)
-				stringBuilder.Append((char) item);
+			foreach (var item in byteArray) stringBuilder.Append((char) item);
 
 			memoryStream.Close();
 			gZipStream.Dispose();

@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -30,6 +26,6 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">Data for conversion.</param>
 		/// <returns>A byte array.</returns>
-		public static byte[] ToBytes(this double data) => BitConverter.GetBytes(data);
+		public static byte[] ToBytes(this double data) { return BitConverter.GetBytes(data); }
 	}
 }

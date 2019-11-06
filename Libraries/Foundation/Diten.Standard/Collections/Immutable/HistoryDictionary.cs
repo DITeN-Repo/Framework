@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
-
-#endregion
 
 #region Used Directives
 
@@ -27,45 +23,62 @@ using Diten.Security.Cryptography;
 
 namespace Diten.Collections.Immutable
 {
-	public class HistoryDictionary<TObjectId, TObject> : IImmutableDictionary<TObjectId, TObject>
-		where TObject : Object<object, ISHA>
+	public class HistoryDictionary<TObjectId, TObject>: IImmutableDictionary<TObjectId, TObject>
+		where TObject: Object<object, ISHA>
 	{
-		public IEnumerator<KeyValuePair<TObjectId, TObject>> GetEnumerator() => throw new NotImplementedException();
+		public IImmutableDictionary<TObjectId, TObject> Add(TObjectId key,
+		                                                    TObject value)
+		{
+			throw new NotImplementedException();
+		}
 
-		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+		public IImmutableDictionary<TObjectId, TObject> AddRange(IEnumerable<KeyValuePair<TObjectId, TObject>> pairs)
+		{
+			throw new NotImplementedException();
+		}
 
-		public int Count { get; }
+		public IImmutableDictionary<TObjectId, TObject> Clear() { throw new NotImplementedException(); }
 
-		public bool ContainsKey(TObjectId key) => throw new NotImplementedException();
+		public bool Contains(KeyValuePair<TObjectId, TObject> pair) { throw new NotImplementedException(); }
 
-		public bool TryGetValue(TObjectId key, out TObject value) => throw new NotImplementedException();
+		public bool ContainsKey(TObjectId key) { throw new NotImplementedException(); }
+
+		public int Count {get;}
+		public IEnumerator<KeyValuePair<TObjectId, TObject>> GetEnumerator() { throw new NotImplementedException(); }
+
+		IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
 
 		public TObject this[TObjectId key] => throw new NotImplementedException();
 
-		public IEnumerable<TObjectId> Keys { get; }
-		public IEnumerable<TObject> Values { get; }
+		public IEnumerable<TObjectId> Keys {get;}
 
-		public IImmutableDictionary<TObjectId, TObject> Clear() => throw new NotImplementedException();
+		public IImmutableDictionary<TObjectId, TObject> Remove(TObjectId key) { throw new NotImplementedException(); }
 
-		public IImmutableDictionary<TObjectId, TObject> Add(TObjectId key, TObject value) =>
+		public IImmutableDictionary<TObjectId, TObject> RemoveRange(IEnumerable<TObjectId> keys) { throw new NotImplementedException(); }
+
+		public IImmutableDictionary<TObjectId, TObject> SetItem(TObjectId key,
+		                                                        TObject value)
+		{
 			throw new NotImplementedException();
+		}
 
-		public IImmutableDictionary<TObjectId, TObject> AddRange(IEnumerable<KeyValuePair<TObjectId, TObject>> pairs) =>
+		public IImmutableDictionary<TObjectId, TObject> SetItems(IEnumerable<KeyValuePair<TObjectId, TObject>> items)
+		{
 			throw new NotImplementedException();
+		}
 
-		public IImmutableDictionary<TObjectId, TObject> SetItem(TObjectId key, TObject value) =>
+		public bool TryGetKey(TObjectId equalKey,
+		                      out TObjectId actualKey)
+		{
 			throw new NotImplementedException();
+		}
 
-		public IImmutableDictionary<TObjectId, TObject> SetItems(IEnumerable<KeyValuePair<TObjectId, TObject>> items) =>
+		public bool TryGetValue(TObjectId key,
+		                        out TObject value)
+		{
 			throw new NotImplementedException();
+		}
 
-		public IImmutableDictionary<TObjectId, TObject> RemoveRange(IEnumerable<TObjectId> keys) =>
-			throw new NotImplementedException();
-
-		public IImmutableDictionary<TObjectId, TObject> Remove(TObjectId key) => throw new NotImplementedException();
-
-		public bool Contains(KeyValuePair<TObjectId, TObject> pair) => throw new NotImplementedException();
-
-		public bool TryGetKey(TObjectId equalKey, out TObjectId actualKey) => throw new NotImplementedException();
+		public IEnumerable<TObject> Values {get;}
 	}
 }

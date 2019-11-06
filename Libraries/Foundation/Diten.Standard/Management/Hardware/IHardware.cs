@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,17 +11,17 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
 
-#endregion
-
 #region Used Directives
 
+using System.Runtime.Serialization;
 using Diten.Collections.Generic;
 
 #endregion
 
 namespace Diten.Management.Hardware
 {
-	public interface IHardware<THardware, TKey> : IObject<THardware, TKey>
+	public interface IHardware<THardware>: IWebObject<THardware>
+		where THardware: ISerializable, IWebObject<THardware>
 	{
 		List<THardware> Touch();
 	}

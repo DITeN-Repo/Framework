@@ -1,5 +1,3 @@
-#region DITeN Registration Info
-
 // Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
-
-#endregion
 
 #region Used Directives
 
@@ -35,22 +31,18 @@ using EX = Diten.Parameters.Exceptions;
 namespace Diten
 {
 	[DefaultProperty("Value")]
-	public class Word : Object<Word>
+	public class Word: Object<Word>
 	{
-		private string _value;
-
 		/// <summary>
 		///    Constructor.
 		/// </summary>
-		public Word()
-		{
-		}
+		public Word() {}
 
 		/// <summary>
 		///    Constructor.
 		/// </summary>
 		/// <param name="value">Word string.</param>
-		public Word(string value) => Value = value;
+		public Word(string value) { Value = value; }
 
 		/// <summary>
 		///    Get or Set value of the word in <see cref="string" />
@@ -60,6 +52,8 @@ namespace Diten
 			get => _value;
 			set => _value = value.ToSafe();
 		}
+
+		private string _value;
 
 		//ToDo: Check commented code
 		//ToDo: The code must be controlled for logical mistakes.
@@ -85,7 +79,13 @@ namespace Diten
 			}
 
 			return Enumerable.ToArray(value)
-				.Aggregate(string.Empty, (result, current) => result + $@"{Rc4.Decrypt(Key(), current.ToBytes())}");
+			                 .Aggregate(string.Empty,
+			                            (result,
+			                             current) => result +
+			                                         $@"{
+					                                         Rc4.Decrypt(Key(),
+					                                                     current.ToBytes())
+				                                         }");
 		}
 
 		/// <summary>
@@ -104,9 +104,14 @@ namespace Diten
 				return $@"{Names.Default.CacheEnvironmentEncryptionKey}{position}";
 			}
 
-			return value.ToCharArray().Aggregate(string.Empty,
-				(current,
-						ch) => current + $@"{Rc4.Encrypt(Key(), ch.ToString())};");
+			return value.ToCharArray()
+			            .Aggregate(string.Empty,
+			                       (current,
+			                        ch) => current +
+			                               $@"{
+					                               Rc4.Encrypt(Key(),
+					                                           ch.ToString())
+				                               };");
 		}
 
 		/// <summary>
@@ -117,9 +122,11 @@ namespace Diten
 		public Word Find(string word)
 		{
 			if (!word.Contains(" "))
-				return Find(Builders<Word>.Filter.Eq("Value", Encrypt(word)))[0];
+				return Find(Builders<Word>.Filter.Eq("Value",
+				                                     Encrypt(word)))[0];
 
 			const string paramName = "Word could not has ' ' (Space).";
+
 			throw new ArgumentOutOfRangeException(paramName);
 		}
 
@@ -131,8 +138,7 @@ namespace Diten
 		{
 			var _return = base.Load();
 
-			if (_return != null)
-				_return.Value = Decrypt(_return.Value);
+			if (_return != null) _return.Value = Decrypt(_return.Value);
 
 			return _return;
 		}
@@ -144,18 +150,21 @@ namespace Diten
 		{
 			var holder = Encrypt(Value);
 
-			if (!HasItem(Builders<Word>.Filter.Eq("Value", holder)))
+			if (!HasItem(Builders<Word>.Filter.Eq("Value",
+			                                      holder)))
 			{
 				Value = holder;
 				Save(this);
 			}
 
-			ID = Find(v => v.Value, holder)[0].ID;
+			ID = Find(v => v.Value,
+			          holder)[0]
+				.ID;
 		}
 
 		/// <summary>Returns this instance of <see cref="T:Diten.Word" />; no actual conversion is performed.</summary>
 		/// <returns>The current word value.</returns>
-		public override string ToString() => Value;
+		public override string ToString() { return Value; }
 	}
 }
 

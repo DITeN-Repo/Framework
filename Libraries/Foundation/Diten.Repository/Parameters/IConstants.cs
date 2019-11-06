@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,13 +11,11 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/05 2:30 AM
 
-#endregion
-
 namespace Diten.Parameters
 {
 	public interface IConstants
 	{
-		string NoReplyMailAddress { get; set; }
-		string SmtpPassword { get; set; }
+		string NoReplyMailAddress {get; set;}
+		string SmtpPassword {get; set;}
 	}
 }

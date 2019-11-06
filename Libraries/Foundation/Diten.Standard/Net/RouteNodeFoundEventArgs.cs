@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:20 AM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -26,10 +22,10 @@ namespace Diten.Net
 	/// <summary>
 	///    Provides data for the RouteCompleted event of Tracert
 	/// </summary>
-	public class RouteNodeFoundEventArgs : EventArgs
+	public class RouteNodeFoundEventArgs: EventArgs
 	{
 		protected internal RouteNodeFoundEventArgs(TracertNode node,
-			bool isDone)
+		                                           bool isDone)
 		{
 			Node = node;
 			IsLastNode = isDone;
@@ -39,11 +35,11 @@ namespace Diten.Net
 		///    Indicates whether the value of the Node propert is the last node
 		///    found by Tracert
 		/// </summary>
-		public bool IsLastNode { get; }
+		public bool IsLastNode {get;}
 
 		/// <summary>
 		///    A node encountered during the route tracing.
 		/// </summary>
-		public TracertNode Node { get; }
+		public TracertNode Node {get;}
 	}
 }

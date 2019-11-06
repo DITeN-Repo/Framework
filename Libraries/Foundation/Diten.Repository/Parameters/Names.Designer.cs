@@ -12,7 +12,7 @@ namespace Diten.Parameters {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
     public sealed partial class Names : global::System.Configuration.ApplicationSettingsBase {
         
         private static Names defaultInstance = ((Names)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Names())));
@@ -263,6 +263,15 @@ namespace Diten.Parameters {
         public string Diten {
             get {
                 return ((string)(this["Diten"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ID")]
+        public string ID {
+            get {
+                return ((string)(this["ID"]));
             }
         }
     }

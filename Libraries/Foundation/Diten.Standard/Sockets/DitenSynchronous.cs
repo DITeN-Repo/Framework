@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:07 AM
-
-#endregion
 
 namespace Diten.Sockets
 {
@@ -29,8 +25,8 @@ namespace Diten.Sockets
 			//	Constants.Default.ClientListeningServicePort, Condition.Send);
 		}
 
-		private Synchronous ReceiveSocket { get; }
-		private Synchronous SendSocket { get; }
+		private Synchronous ReceiveSocket {get;}
+		private Synchronous SendSocket {get;}
 
 		public void Dispose()
 		{
@@ -45,13 +41,11 @@ namespace Diten.Sockets
 
 			while (true)
 			{
-				if (ReceiveSocket.Receive(buffer) == 0)
-					continue;
+				if (ReceiveSocket.Receive(buffer) == 0) continue;
 
 				_return.Append(buffer);
 
-				if (!_return.HasEOF())
-					continue;
+				if (!_return.HasEOF()) continue;
 
 				return _return;
 			}
@@ -63,9 +57,6 @@ namespace Diten.Sockets
 			SendSocket.Release();
 		}
 
-		public void Send(Byte data)
-		{
-			SendSocket.Send(data.Value);
-		}
+		public void Send(Byte data) { SendSocket.Send(data.Value); }
 	}
 }

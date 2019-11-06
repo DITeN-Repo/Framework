@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 8:37 PM
 
-#endregion
-
 #region Used Directives
 
 using Diten.Collections.Generic;
@@ -23,11 +19,11 @@ using Diten.Collections.Generic;
 
 namespace Diten.Management.Hardware
 {
-	public class DisplayAdapter : Hardware<DisplayAdapter>
+	public class DisplayAdapter: Hardware<DisplayAdapter>
 	{
-		public double ClockSpeed { get; set; }
-		public string HardwareID { get; set; }
-		public string Info { get; set; }
-		public string Model { get; set; }
+		public double ClockSpeed {get; set;}
+		public string HardwareID {get; set;}
+		public string Info {get; set;}
+		public string Model {get; set;}
 	}
 }

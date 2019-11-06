@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:20 AM
-
-#endregion
 
 #region Used Directives
 
@@ -36,8 +32,8 @@ namespace Diten.Net
 		/// <param name="roundTripTime">Round trip time.</param>
 		/// <param name="status">IP Status.</param>
 		internal TracertNode(IPAddress address,
-			long roundTripTime,
-			IPStatus status)
+		                     long roundTripTime,
+		                     IPStatus status)
 		{
 			Address = address;
 			RoundTripTime = roundTripTime;
@@ -47,16 +43,16 @@ namespace Diten.Net
 		/// <summary>
 		///    The IPAddress of the node
 		/// </summary>
-		public IPAddress Address { get; }
+		public IPAddress Address {get;}
 
 		/// <summary>
 		///    The time taken to go to the node and come back to the originating node in milliseconds.
 		/// </summary>
-		public long RoundTripTime { get; }
+		public long RoundTripTime {get;}
 
 		/// <summary>
 		///    The IPStatus of request send to the node
 		/// </summary>
-		public IPStatus Status { get; }
+		public IPStatus Status {get;}
 	}
 }

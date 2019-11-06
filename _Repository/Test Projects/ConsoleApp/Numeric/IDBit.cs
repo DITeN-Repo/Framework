@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 6:56 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -24,11 +20,15 @@ using System.Collections;
 
 namespace Diten.Numeric
 {
-	public interface IDBit<T> : IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
+	public interface IDBit<T>: IComparable,
+	                           IComparable<T>,
+	                           IConvertible,
+	                           IEquatable<T>,
+	                           IFormattable
 	{
 		/// <summary>
 		///    Value of the DBit.
 		/// </summary>
-		BitArray Value { get; set; }
+		BitArray Value {get; set;}
 	}
 }

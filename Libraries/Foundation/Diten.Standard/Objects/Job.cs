@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 9:08 PM
-
-#endregion
 
 #region Used Directives
 
@@ -28,30 +24,29 @@ using Diten.Security.Cryptography;
 
 namespace Diten.Objects
 {
-	public class Job : Object<Job>
+	public class Job: Object<Job>
 	{
-		public Job()
-		{
-		}
+		public Job() {}
 
 		public Job(object obj,
-			Type objectType)
+		           Type objectType)
 		{
 			var xmlSerializer = new XmlSerializer(objectType);
 			var memoryStream = new MemoryStream();
 
-			xmlSerializer.Serialize(memoryStream, obj);
+			xmlSerializer.Serialize(memoryStream,
+			                        obj);
 			Data = new Byte(Serialization.Serialize(xmlSerializer.Deserialize(memoryStream)));
 			ObjectType = objectType;
 			Methods = new System.Collections.Generic.Dictionary<string, object[]>();
 			Save(this);
 		}
 
-		public Byte Data { get; }
+		public Byte Data {get;}
 
-		public bool IsDone { get; set; }
-		public System.Collections.Generic.Dictionary<string, object[]> Methods { get; }
-		public Type ObjectType { get; }
+		public bool IsDone {get; set;}
+		public System.Collections.Generic.Dictionary<string, object[]> Methods {get;}
+		public Type ObjectType {get;}
 		public string Sha1 => SHA1.Encrypt(Data);
 	}
 }

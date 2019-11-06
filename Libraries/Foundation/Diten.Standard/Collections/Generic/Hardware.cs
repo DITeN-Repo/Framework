@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:42 PM
 
-#endregion
-
 #region Used Directives
 
 using System;
@@ -22,8 +18,9 @@ using System.Globalization;
 using System.Linq;
 using System.Management;
 using System.Reflection;
+using System.Runtime.Serialization;
 using Diten.Parameters;
-using Diten.Security.Cryptography;
+using Diten.Security;
 
 // ReSharper disable All
 
@@ -31,30 +28,32 @@ using Diten.Security.Cryptography;
 
 namespace Diten.Collections.Generic
 {
-	public class Hardware<THardware> : Hardware<THardware, SHA1>
-		//where THardware : IHardware<THardware, SHA1>
+	public abstract class Hardware<THardware>: WebObject<THardware>
+		where THardware: ISerializable, IWebObject<THardware>
 	{
-	}
-
-
-	public abstract class Hardware<THardware, TKey> : Object<THardware>
-		//where THardware:IHardware<THardware, TKey>
-		where TKey : ISHA
-	{
-		private static ManagementObjectCollection ManagementObjectCollection =>
-			new ManagementClass(
-					$@"{SystemParams.Default.Win32Extention}{typeof(THardware).ToString().Split(".".ToCharArray()).Last()}")
-				.GetInstances();
+		private static ManagementObjectCollection ManagementObjectCollection
+		{
+			get
+			{
+				using (var managementObjectCollection = new ManagementClass(
+				                                                            $@"{
+						                                                            SystemParams.Default.Win32Extention
+					                                                            }{
+						                                                            typeof(THardware).ToString().Split(".".ToCharArray()).Last()
+					                                                            }")) return managementObjectCollection.GetInstances();
+			}
+		}
 
 		/// <summary>
 		///    Unique key of the hardware.
 		/// </summary>
-		public new string Key
+		public new Signature Signature
 		{
 			get
 			{
 				Touch();
-				return base.Key;
+
+				return new Signature<TKey>();
 			}
 		}
 
@@ -72,22 +71,29 @@ namespace Diten.Collections.Generic
 					if (instanceProperties.Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper())))
 					{
 						instanceProperties.FirstOrDefault(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper()))
-							?.SetValue(instance, propertyData.Value ?? string.Empty);
+						                  ?.SetValue(instance,
+						                             propertyData.Value ?? string.Empty);
 
 						continue;
 					}
 
 					if (instanceProperties.Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper())) ||
-					    instance.GetType().GetRuntimeProperties().ToList()
-						    .Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper())))
-						continue;
+					    instance.GetType()
+					            .GetRuntimeProperties()
+					            .ToList()
+					            .Any(p => p.Name.ToUpper().Equals(propertyData.Name.ToUpper()))) continue;
 
-					var dic = instance.GetType().GetProperty(Enum.GetName(Enum.PropertyNames.Dictionary))
-						?.GetValue(instance);
-					dic?.GetType().GetMethod(Enum.GetName(Enum.MethodNames.Add))?.Invoke(
-						dic, BindingFlags.Public, null,
-						new[] {propertyData.Name, propertyData.Value},
-						CultureInfo.CurrentCulture);
+					var dic = instance.GetType()
+					                  .GetProperty(Enum.GetName(Enum.PropertyNames.Dictionary))
+					                  ?.GetValue(instance);
+					dic?.GetType()
+					   .GetMethod(Enum.GetName(Enum.MethodNames.Add))
+					   ?.Invoke(
+					            dic,
+					            BindingFlags.Public,
+					            null,
+					            new[] {propertyData.Name, propertyData.Value},
+					            CultureInfo.CurrentCulture);
 				}
 
 				_return.Add(instance);

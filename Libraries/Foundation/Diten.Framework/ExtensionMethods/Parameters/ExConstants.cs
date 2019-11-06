@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,16 +11,14 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/05 2:18 AM
 
-#endregion
-
 namespace Diten.Parameters
 {
 	public static class ExConstants
 	{
-		public static string NoReplyMailAddress { get; }
+		public static string NoReplyMailAddress {get;}
 
-		private static string NoReplyMailAddressMethod(this Constants value) => "sdfsdfsdf";
+		private static string NoReplyMailAddressMethod(this Constants value) { return "sdfsdfsdf"; }
 
-		private static string SmtpPasswordMetod(this Constants value) => "sdfsdfsdf";
+		private static string SmtpPasswordMetod(this Constants value) { return "sdfsdfsdf"; }
 	}
 }

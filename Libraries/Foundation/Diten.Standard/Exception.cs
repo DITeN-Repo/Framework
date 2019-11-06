@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
-
-#endregion
 
 #region Used Directives
 
@@ -34,10 +30,12 @@ using StackTrace = Diten.Diagnostics.StackTrace;
 namespace Diten
 {
 	/// <inheritdoc />
-	public sealed class Exception : EX
+	public sealed class Exception: EX
 	{
 		/// <inheritdoc />
-		public Exception(string message, EX innerException = null) : base(message, innerException)
+		public Exception(string message,
+		                 EX innerException = null): base(message,
+		                                                 innerException)
 		{
 			var assembly = Assembly.GetExecutingAssembly();
 			var stackTrace = new StackTrace();
@@ -45,56 +43,73 @@ namespace Diten
 			var date = DateTime.Now;
 			var index = 0;
 
-			message = Tools.DesignMessage("StackTrace", StackTrace.IsNull("Nothing")) +
-#if !DEBUG
+			message = Tools.DesignMessage("StackTrace",
+			                              StackTrace.IsNull("Nothing")) +
+			          #if !DEBUG
 			          Tools.DesignMessage("Environment StackTrace", System.Environment.StackTrace.IsNull("Nothing")) +
-#endif
-			          Tools.DesignMessage("Date", date.ToString(CultureInfo.InvariantCulture)) +
+			          #endif
+			          Tools.DesignMessage("Date",
+			                              date.ToString(CultureInfo.InvariantCulture)) +
 			          Tools.DesignMessage("Path",
-				          $"{Environment.UserDomainName}\\{Environment.MachineName}\\{Environment.UserName}\\{frame?.GetFileName()}\\{frame?.GetMethod().Name}\\{frame?.GetFileLineNumber().ToString()}") +
-			          Tools.DesignMessage("TargetSite.Name", TargetSite?.Name.Trim()) +
+			                              $"{Environment.UserDomainName}\\{Environment.MachineName}\\{Environment.UserName}\\{frame?.GetFileName()}\\{frame?.GetMethod().Name}\\{frame?.GetFileLineNumber().ToString()}") +
+			          Tools.DesignMessage("TargetSite.Name",
+			                              TargetSite?.Name.Trim()) +
 			          Tools.DesignMessage("TargetSite.MethodHandle.Value",
-				          TargetSite?.MethodHandle.Value.ToString().Trim()) +
-			          Tools.DesignMessage("HResult", HResult.ToString().Trim()) +
-			          Tools.DesignMessage("HelpLink", HelpLink?.Trim()) +
+			                              TargetSite?.MethodHandle.Value.ToString().Trim()) +
+			          Tools.DesignMessage("HResult",
+			                              HResult.ToString().Trim()) +
+			          Tools.DesignMessage("HelpLink",
+			                              HelpLink?.Trim()) +
 			          Environment.NewLine +
-			          Tools.DesignMessage("Message", message, 0, true) +
+			          Tools.DesignMessage("Message",
+			                              message,
+			                              0,
+			                              true) +
 			          Environment.NewLine +
-			          Tools.DesignMessage("Frames in StackTrace", new Func<string>(() => (stackTrace.GetFrames() ??
-			                                                                              throw new
-				                                                                              InvalidOperationException(
-					                                                                              Exceptions.Default
-						                                                                              .Diten_Exception_Exception)
-				          )
-				          .Aggregate(
-					          string.Empty,
-					          (current, stackFrame) => current +
-					                                   new Func<int, string>(i =>
-					                                   {
-						                                   i++;
-						                                   index = i;
-						                                   return Tools.DesignMessage(
-							                                   $"[{i}]:->ILOffset({stackFrame.GetILOffset().ToString()})",
-							                                   $"{stackFrame.GetMethod().Name}()", 1);
-					                                   }).Invoke(index))).Invoke(), 0, true);
+			          Tools.DesignMessage("Frames in StackTrace",
+			                              new Func<string>(() => (stackTrace.GetFrames() ??
+			                                                      throw new
+				                                                      InvalidOperationException(
+				                                                                                Exceptions.Default
+				                                                                                          .Diten_Exception_Exception)
+			                                                     )
+				                                               .Aggregate(
+				                                                          string.Empty,
+				                                                          (current,
+				                                                           stackFrame) => current +
+				                                                                          new Func<int, string>(i =>
+				                                                                                                {
+					                                                                                                i++;
+					                                                                                                index = i;
 
+					                                                                                                return Tools.DesignMessage(
+					                                                                                                                           $"[{i}]:->ILOffset({stackFrame.GetILOffset().ToString()})",
+					                                                                                                                           $"{stackFrame.GetMethod().Name}()",
+					                                                                                                                           1);
+				                                                                                                }).Invoke(index))).Invoke(),
+			                              0,
+			                              true);
 
-			message = Data.Cast<DictionaryEntry>().Aggregate(message,
-				(current, dictionaryEntry) =>
-					current +
-					$"{Tools.DesignMessage(dictionaryEntry.Key.ToString().Trim(), dictionaryEntry.Value.ToString().Trim())}");
+			message = Data.Cast<DictionaryEntry>()
+			              .Aggregate(message,
+			                         (current,
+			                          dictionaryEntry) =>
+				                         current +
+				                         $"{Tools.DesignMessage(dictionaryEntry.Key.ToString().Trim(), dictionaryEntry.Value.ToString().Trim())}");
 
 			EventLog.WriteEventLog(message,
-				$"{Constants.Default.DITeNFramework} [{assembly.GetName().Name} - {assembly.ImageRuntimeVersion}]",
-				EventLogEntryType.Error);
-#if DEBUG
+			                       $"{Constants.Default.DITeNFramework} [{assembly.GetName().Name} - {assembly.ImageRuntimeVersion}]",
+			                       EventLogEntryType.Error);
+			#if DEBUG
 			Debug.WriteLine(message);
-#endif
+			#endif
 		}
 
 		/// <inheritdoc cref="EX.InnerException" />
-		public new Exception InnerException => base.InnerException != null
-			? new Exception(base.InnerException.Message, base.InnerException)
-			: null;
+		public new Exception InnerException =>
+			base.InnerException != null
+				? new Exception(base.InnerException.Message,
+				                base.InnerException)
+				: null;
 	}
 }

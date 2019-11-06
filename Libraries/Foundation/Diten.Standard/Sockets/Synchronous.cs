@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/09/02 12:07 AM
-
-#endregion
 
 #region Used Directives
 
@@ -29,8 +25,53 @@ namespace Diten.Sockets
 {
 	/// <inheritdoc />
 	// ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
-	public class Synchronous : Socket
+	public class Synchronous: Socket
 	{
+		public class ReceiveDoneEventArgs
+		{
+			public ReceiveDoneEventArgs(Byte response) { Response = response; }
+
+			public Byte Response {get; set;}
+		}
+
+		public Synchronous(IPAddress serverIp,
+		                   int port,
+		                   Condition condition): base(AddressFamily.InterNetwork,
+		                                              SocketType.Stream,
+		                                              ProtocolType.Tcp)
+		{
+			Response = new Byte();
+
+			var iPEndPoint = new IPEndPoint(serverIp,
+			                                port);
+
+			switch (condition)
+			{
+				case Condition.Send:
+					Connect(iPEndPoint);
+
+					break;
+				case Condition.Receive:
+					Bind(iPEndPoint);
+					Listen(10);
+
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(condition),
+					                                      condition,
+					                                      null);
+			}
+		}
+
+		public Synchronous(string serverUrl,
+		                   int port,
+		                   Condition condition): this(
+		                                              Tools.Ping(serverUrl).Address,
+		                                              port,
+		                                              condition) {}
+
+		public Byte Response {get;}
+
 		// ReSharper disable once UnusedMember.Local
 		private int[] _officialPorts =
 		{
@@ -372,42 +413,6 @@ namespace Diten.Sockets
 			49151
 		};
 
-		public Synchronous(IPAddress serverIp,
-			int port,
-			Condition condition) : base(AddressFamily.InterNetwork,
-			SocketType.Stream,
-			ProtocolType.Tcp)
-		{
-			Response = new Byte();
-
-			var iPEndPoint = new IPEndPoint(serverIp, port);
-
-			switch (condition)
-			{
-				case Condition.Send:
-					Connect(iPEndPoint);
-
-					break;
-				case Condition.Receive:
-					Bind(iPEndPoint);
-					Listen(10);
-
-					break;
-				default:
-
-					throw new ArgumentOutOfRangeException(nameof(condition), condition, null);
-			}
-		}
-
-		public Synchronous(string serverUrl,
-			int port,
-			Condition condition) : this(
-			Tools.Ping(serverUrl).Address, port, condition)
-		{
-		}
-
-		public Byte Response { get; }
-
 		public new void Dispose()
 		{
 			Release();
@@ -428,10 +433,12 @@ namespace Diten.Sockets
 
 					Response.Append(bytes);
 
-					if (Encoding.ASCII.GetString(bytes, 0, bytesRec)
-						    .IndexOf(Char.ReservedChars.EndOfMedium.ToChar().ToString(), StringComparison.Ordinal) <=
-					    -1)
-						continue;
+					if (Encoding.ASCII.GetString(bytes,
+					                             0,
+					                             bytesRec)
+					            .IndexOf(Char.ReservedChars.EndOfMedium.ToChar().ToString(),
+					                     StringComparison.Ordinal) <=
+					    -1) continue;
 
 					break;
 				}
@@ -452,7 +459,8 @@ namespace Diten.Sockets
 		protected virtual void OnReceiveDone(ReceiveDoneEventArgs e)
 		{
 			var handler = ReceiveDone;
-			handler?.Invoke(this, e);
+			handler?.Invoke(this,
+			                e);
 		}
 
 		/// <summary>
@@ -469,10 +477,7 @@ namespace Diten.Sockets
 
 				return true;
 			}
-			catch (Exception)
-			{
-				return false;
-			}
+			catch (Exception) { return false; }
 		}
 
 		public new void Send(byte[] buffer)
@@ -481,13 +486,6 @@ namespace Diten.Sockets
 			var holder = new Byte(buffer);
 			holder.Append(Char.ReservedChars.EndOfMedium.ToChar().ToString());
 			base.Send(holder.Value);
-		}
-
-		public class ReceiveDoneEventArgs
-		{
-			public ReceiveDoneEventArgs(Byte response) => Response = response;
-
-			public Byte Response { get; set; }
 		}
 	}
 }

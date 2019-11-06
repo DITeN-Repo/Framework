@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,11 +11,9 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/09/04 10:05 PM
 
-#endregion
-
 namespace Diten.Windows.Forms
 {
-	public class ProgressBar : System.Windows.Forms.ProgressBar
+	public class ProgressBar: System.Windows.Forms.ProgressBar
 	{
 		public new int Maximum
 		{
@@ -42,31 +38,31 @@ namespace Diten.Windows.Forms
 		private void SetMaximum(int value)
 		{
 			if (InvokeRequired)
-				Invoke(new MaximumDelegate(SetMaximum), value);
-			else
-				base.Maximum = value;
+				Invoke(new MaximumDelegate(SetMaximum),
+				       value);
+			else base.Maximum = value;
 		}
 
 		private void SetText(string value)
 		{
 			if (InvokeRequired)
-				Invoke(new TextDelegate(SetText), value);
-			else
-				base.Text = value;
+				Invoke(new TextDelegate(SetText),
+				       value);
+			else base.Text = value;
 		}
 
 		private void SetValue(int value)
 		{
 			if (InvokeRequired)
-				Invoke(new ValueDelegate(SetValue), value);
-			else
-				base.Value = value;
+				Invoke(new ValueDelegate(SetValue),
+				       value);
+			else base.Value = value;
 		}
+
+		private delegate void MaximumDelegate(int value);
 
 		private delegate void TextDelegate(string value);
 
 		private delegate void ValueDelegate(int value);
-
-		private delegate void MaximumDelegate(int value);
 	}
 }

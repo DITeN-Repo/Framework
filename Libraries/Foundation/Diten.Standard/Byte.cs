@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/15 4:35 PM
-
-#endregion
 
 #region Used Directives
 
@@ -37,18 +33,18 @@ namespace Diten
 		/// <summary>
 		///    Constructor.
 		/// </summary>
-		public Byte() => Value = new byte[0];
+		public Byte() { Value = new byte[0]; }
 
 		/// <summary>
 		///    Constructor.
 		/// </summary>
 		/// <param name="data">System byte array data for creating diten byte.</param>
-		public Byte(byte[] data) => Value = data;
+		public Byte(byte[] data) { Value = data; }
 
 		/// <summary>
 		///    Value of diten framework byte type.
 		/// </summary>
-		public byte[] Value { get; private set; }
+		public byte[] Value {get; private set;}
 
 		public void Append(IEnumerable<byte> bytes)
 		{
@@ -61,33 +57,31 @@ namespace Diten
 		///    Appending some string at end of byte array.
 		/// </summary>
 		/// <param name="value"></param>
-		public void Append(string value)
-		{
-			Append(Encoding.UTF8.GetBytes(value.ToCharArray()));
-		}
+		public void Append(string value) { Append(Encoding.UTF8.GetBytes(value.ToCharArray())); }
 
 		/// <summary>
 		///    Clear value property of byte type.
 		/// </summary>
-		public void Clear()
-		{
-			Value = new byte[0];
-		}
+		public void Clear() { Value = new byte[0]; }
 
 		/// <summary>
 		///    Detect that byte array in value property has EOF tag or not.
 		/// </summary>
 		/// <returns>True if byte array has EOF tag.</returns>
-		public bool HasEOF() => HasTag(Char.ReservedChars.FileSeparator.ToString());
+		public bool HasEOF() { return HasTag(Char.ReservedChars.FileSeparator.ToString()); }
 
 		/// <summary>
 		///    Detect that byte array in value property has tag or not.
 		/// </summary>
 		/// <param name="tag"></param>
 		/// <returns>True if byte array has tag.</returns>
-		public bool HasTag(string tag) =>
-			Encoding.ASCII.GetString(Value)
-				.IndexOf(tag, StringComparison.Ordinal) <= -1;
+		public bool HasTag(string tag)
+		{
+			return Encoding.ASCII.GetString(Value)
+			               .IndexOf(tag,
+			                        StringComparison.Ordinal) <=
+			       -1;
+		}
 
 		/// <summary>
 		///    Removing EOF tag from end of byte array in value property.
@@ -96,14 +90,16 @@ namespace Diten
 		public Byte RemoveEOF()
 		{
 			var eofIndex = Encoding.ASCII.GetString(Value)
-				.IndexOf((char) Char.ReservedChars.EndOfMedium);
+			                       .IndexOf((char) Char.ReservedChars.EndOfMedium);
 
 			if (eofIndex <= -1)
-				throw new ArgumentOutOfRangeException(nameof(Value), Value,
-					Exceptions.Default.DIten_NoEOFTagInValue);
+				throw new ArgumentOutOfRangeException(nameof(Value),
+				                                      Value,
+				                                      Exceptions.Default.DIten_NoEOFTagInValue);
 
 			var value = Value.ToList();
-			value.RemoveRange(eofIndex, value.Count - eofIndex);
+			value.RemoveRange(eofIndex,
+			                  value.Count - eofIndex);
 			Value = value.ToArray();
 
 			return this;

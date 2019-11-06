@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -13,8 +11,6 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:20 AM
 
-#endregion
-
 #region Used Directives
 
 using Diten.Collections.Generic;
@@ -24,9 +20,9 @@ using Diten.Management.Hardware;
 
 namespace Diten.Net.Cloud
 {
-	public abstract class RelatedHost : Object<RelatedHost>
+	public abstract class RelatedHost: Object<RelatedHost>
 	{
-		public Computer Publisher { get; set; }
-		public List<Computer> Subscriptors { get; set; }
+		public Computer Publisher {get; set;}
+		public List<Computer> Subscriptors {get; set;}
 	}
 }

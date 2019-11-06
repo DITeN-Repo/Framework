@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -28,7 +30,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>default</LangVersion>
@@ -36,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,22 +50,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bookmarks\DataSetMain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMain.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Bookmarks\Extensions.cs" />
+    <Compile Include="Bookmarks\FormBookmarksOptimizer.Extentions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookmarks\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Crowlers\FormParsTV.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Crowlers\FormParsTV.Designer.cs">
       <DependentUpon>FormParsTV.cs</DependentUpon>
     </Compile>
-    <Compile Include="MDIParentMain.cs">
+    <Compile Include="Bookmarks\FormBookmarksOptimizer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MDIParentMain.Designer.cs">
-      <DependentUpon>MDIParentMain.cs</DependentUpon>
+    <Compile Include="Bookmarks\FormBookmarksOptimizer.Designer.cs">
+      <DependentUpon>FormBookmarksOptimizer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MDIParentMain.resx">
-      <DependentUpon>MDIParentMain.cs</DependentUpon>
+    <Compile Include="Temp\FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp\FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bookmarks\FormBookmarksOptimizer.resx">
+      <DependentUpon>FormBookmarksOptimizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookmarks\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,6 +101,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Temp\FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include=".editorconfig" />
+    <None Include="Bookmarks\DataSetMain.xsc">
+      <DependentUpon>DataSetMain.xsd</DependentUpon>
+    </None>
+    <None Include="Bookmarks\DataSetMain.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMain.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Bookmarks\DataSetMain.xss">
+      <DependentUpon>DataSetMain.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,22 +130,82 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Libraries\Foundation\Diten.Framework\Diten.Framework.csproj">
-      <Project>{129acdde-9d86-4596-be50-3326e26b9dbe}</Project>
-      <Name>Diten.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Libraries\Foundation\Diten.Repository\Diten.Repository.csproj">
-      <Project>{497bfa7b-b6e5-4961-b0a7-8a350e7b98cf}</Project>
-      <Name>Diten.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Libraries\Foundation\Diten.Standard\Diten.Standard.csproj">
-      <Project>{dc9fcf0d-0a97-4420-973f-646eef436f2a}</Project>
-      <Name>Diten.Standard</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Libraries\Foundation\Diten.Windows.Forms\Diten.Windows.Forms.csproj">
-      <Project>{934d07e2-88cf-4ec2-a04b-3f60534947ac}</Project>
-      <Name>Diten.Windows.Forms</Name>
-    </ProjectReference>
+    <None Include="Resources\Hopstarter-Sleek-Xp-Basic-Folder.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Martz90-Circle-Opera.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Photoshopedia-Xedia-Firefox.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Google-Chrome-Google-Chrome.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hopstarter-Sleek-Xp-Basic-Folder-Open.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Crc32C.NET">
+      <Version>1.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="DnsClient">
+      <Version>1.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="HtmlAgilityPack">
+      <Version>1.11.16</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
+      <Version>2.9.6</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.VersionCheckAnalyzer">
+      <Version>2.9.6</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeQuality.Analyzers">
+      <Version>2.9.6</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NetCore.Analyzers">
+      <Version>2.9.6</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NetFramework.Analyzers">
+      <Version>2.9.6</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MongoDB.Bson">
+      <Version>2.9.2</Version>
+    </PackageReference>
+    <PackageReference Include="MongoDB.Driver">
+      <Version>2.9.2</Version>
+    </PackageReference>
+    <PackageReference Include="MongoDB.Driver.Core">
+      <Version>2.9.2</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="SharpCompress">
+      <Version>0.24.0</Version>
+    </PackageReference>
+    <PackageReference Include="Snappy.NET">
+      <Version>1.1.1.8</Version>
+    </PackageReference>
+    <PackageReference Include="System.Buffers">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Configuration.ConfigurationManager">
+      <Version>4.6.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <Version>4.3.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

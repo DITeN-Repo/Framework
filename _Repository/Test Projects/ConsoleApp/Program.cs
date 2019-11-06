@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/07/30 4:59 PM
-
-#endregion
 
 #region Used Directives
 
@@ -40,67 +36,40 @@ namespace ConsoleApp
 	#region Car Classes
 
 	public class Car<TEngine, TCooler, TCabin>
-		where TEngine : EngineBase, new()
-		where TCooler : CoolerBase, new()
-		where TCabin : CabinBase, new()
+		where TEngine: EngineBase, new()
+		where TCooler: CoolerBase, new()
+		where TCabin: CabinBase, new()
 	{
+		public TCabin Cabin => new TCabin();
 		public TCooler Cooler => new TCooler();
 		public TEngine Engine => new TEngine();
-		public TCabin Cabin => new TCabin();
 	}
 
-	public class Benz2000zx : Car<Engine2000CC, Cooler1400CC, Cabin1600xsy>
+	public class Benz2000zx: Car<Engine2000CC, Cooler1400CC, Cabin1600xsy>
 	{
-		public Benz2000zx()
-		{
-			Console.WriteLine("Benz2000zx Car");
-		}
+		public Benz2000zx() { Console.WriteLine("Benz2000zx Car"); }
 
-		public void OpeningDoor()
-		{
-			Cabin.OpeningDoor(CabinBase.DoorTypes.FrontLeft);
-		}
+		public void OpeningDoor() { Cabin.OpeningDoor(CabinBase.DoorTypes.FrontLeft); }
 
-		public void PushStartButton()
-		{
-			Engine.StartEngine();
-		}
+		public void PushStartButton() { Engine.StartEngine(); }
 	}
 
-	public class Audi2000zx : Car<Engine2000CC, Cooler2000CC, Cabin1600xsy>
+	public class Audi2000zx: Car<Engine2000CC, Cooler2000CC, Cabin1600xsy>
 	{
-		public Audi2000zx()
-		{
-			Console.WriteLine("Audi2000zx Car");
-		}
+		public Audi2000zx() { Console.WriteLine("Audi2000zx Car"); }
 
-		public void OpeningDoor()
-		{
-			Cabin.OpeningDoor(CabinBase.DoorTypes.FrontLeft);
-		}
+		public void OpeningDoor() { Cabin.OpeningDoor(CabinBase.DoorTypes.FrontLeft); }
 
-		public void PushStartButton()
-		{
-			Engine.StartEngine();
-		}
+		public void PushStartButton() { Engine.StartEngine(); }
 	}
 
-	public class Bmw1400zx : Car<Engine1400CC, Cooler1400CC, Cabin1400zx>
+	public class Bmw1400zx: Car<Engine1400CC, Cooler1400CC, Cabin1400zx>
 	{
-		public Bmw1400zx()
-		{
-			Console.WriteLine("Bmw1400zx Car");
-		}
+		public Bmw1400zx() { Console.WriteLine("Bmw1400zx Car"); }
 
-		public void OpeningDoor()
-		{
-			Cabin.OpeningDoor(CabinBase.DoorTypes.FrontLeft);
-		}
+		public void OpeningDoor() { Cabin.OpeningDoor(CabinBase.DoorTypes.FrontLeft); }
 
-		public void PushStartButton()
-		{
-			Engine.StartEngine();
-		}
+		public void PushStartButton() { Engine.StartEngine(); }
 	}
 
 	#endregion
@@ -109,15 +78,12 @@ namespace ConsoleApp
 
 	public class EngineBase
 	{
-		public int Cylinder { get; set; }
+		public int Cylinder {get; set;}
 
-		public virtual void StartEngine()
-		{
-			Console.WriteLine(@"Standard Engine Start");
-		}
+		public virtual void StartEngine() { Console.WriteLine(@"Standard Engine Start"); }
 	}
 
-	public class Engine2000CC : EngineBase
+	public class Engine2000CC: EngineBase
 	{
 		public override void StartEngine()
 		{
@@ -126,7 +92,7 @@ namespace ConsoleApp
 		}
 	}
 
-	public class Engine1400CC : EngineBase
+	public class Engine1400CC: EngineBase
 	{
 		public override void StartEngine()
 		{
@@ -141,15 +107,12 @@ namespace ConsoleApp
 
 	public class CoolerBase
 	{
-		public int Cylinder { get; set; }
+		public int Cylinder {get; set;}
 
-		public virtual void StartCooler()
-		{
-			Console.WriteLine(@"Standard Cooler Start");
-		}
+		public virtual void StartCooler() { Console.WriteLine(@"Standard Cooler Start"); }
 	}
 
-	public class Cooler1400CC : CoolerBase
+	public class Cooler1400CC: CoolerBase
 	{
 		public override void StartCooler()
 		{
@@ -158,7 +121,7 @@ namespace ConsoleApp
 		}
 	}
 
-	public class Cooler2000CC : CoolerBase
+	public class Cooler2000CC: CoolerBase
 	{
 		public override void StartCooler()
 		{
@@ -188,20 +151,20 @@ namespace ConsoleApp
 			BackRight
 		}
 
-		public CabinTypes CabinType { get; set; }
+		public CabinTypes CabinType {get; set;}
 
 		public virtual void OpeningDoor(DoorTypes doorType)
 		{
-			Console.WriteLine($@"Standard opening door {Enum.GetName(typeof(DoorTypes), doorType)}");
+			Console.WriteLine($@"Standard opening door {
+					                  Enum.GetName(typeof(DoorTypes),
+					                               doorType)
+				                  }");
 		}
 
-		public virtual void OpeningWindow()
-		{
-			Console.WriteLine(@"Standard opening Window");
-		}
+		public virtual void OpeningWindow() { Console.WriteLine(@"Standard opening Window"); }
 	}
 
-	public class Cabin1600xsy : CabinBase
+	public class Cabin1600xsy: CabinBase
 	{
 		public override void OpeningDoor(DoorTypes doorType)
 		{
@@ -209,13 +172,10 @@ namespace ConsoleApp
 			Console.WriteLine($@"{GetType()} opening Door");
 		}
 
-		public override void OpeningWindow()
-		{
-			Console.WriteLine($@"{GetType()} opening Window");
-		}
+		public override void OpeningWindow() { Console.WriteLine($@"{GetType()} opening Window"); }
 	}
 
-	public class Cabin1400zx : CabinBase
+	public class Cabin1400zx: CabinBase
 	{
 		public override void OpeningDoor(DoorTypes doorType)
 		{
@@ -223,10 +183,7 @@ namespace ConsoleApp
 			Console.WriteLine($@"{GetType()} opening Door");
 		}
 
-		public override void OpeningWindow()
-		{
-			Console.WriteLine($@"{GetType()} opening Window");
-		}
+		public override void OpeningWindow() { Console.WriteLine($@"{GetType()} opening Window"); }
 	}
 
 	#endregion

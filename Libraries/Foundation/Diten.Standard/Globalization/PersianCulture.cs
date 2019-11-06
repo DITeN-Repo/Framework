@@ -1,6 +1,4 @@
-﻿#region DITeN Registration Info
-
-// Copyright alright reserved by DITeN™ ©® 2003 - 2019
+﻿// Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
 // 
@@ -12,8 +10,6 @@
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:16 AM
-
-#endregion
 
 #region Used Directives
 
@@ -29,16 +25,16 @@ namespace Diten.Globalization
 	/// <summary>
 	///    <Author>Aref Bozorgmehr</Author>
 	/// </summary>
-	public sealed class PersianCulture : CultureInfo
+	public sealed class PersianCulture: CultureInfo
 	{
-		public PersianCulture() : this("fa-IR", true)
-		{
-		}
+		public PersianCulture(): this("fa-IR",
+		                              true) {}
 
 		/// <param name="cultureName">fa-IR</param>
 		/// <param name="useUserOverride">true</param>
 		public PersianCulture(string cultureName,
-			bool useUserOverride) : base(cultureName, useUserOverride)
+		                      bool useUserOverride): base(cultureName,
+		                                                  useUserOverride)
 		{
 			var persianCalendar = new PersianCalendar();
 			CultureName = cultureName;
@@ -49,31 +45,38 @@ namespace Diten.Globalization
 			//populating new list of optional calendars.
 			var optionalCalendarsList = new List<Calendar>();
 			optionalCalendarsList.AddRange(base.OptionalCalendars);
-			optionalCalendarsList.Insert(0, persianCalendar);
+			optionalCalendarsList.Insert(0,
+			                             persianCalendar);
 
 			var dateTimeFormatInfoType = typeof(DateTimeFormatInfo);
 			var calendarType = typeof(Calendar);
 
-			var propertyInfo = calendarType.GetProperty("ID", BindingFlags.Instance | BindingFlags.NonPublic);
+			var propertyInfo = calendarType.GetProperty("ID",
+			                                            BindingFlags.Instance | BindingFlags.NonPublic);
 			var fieldInfo = dateTimeFormatInfoType.GetField("optionalCalendars",
-				BindingFlags.Instance | BindingFlags.NonPublic);
+			                                                BindingFlags.Instance | BindingFlags.NonPublic);
 
 			//populating new list of optional calendar ids
 			var optionalCalendarIDs = new int[optionalCalendarsList.Count];
 			int i;
-			for (i = 0; i < optionalCalendarIDs.Length; i++)
+			for (i = 0;
+			     i < optionalCalendarIDs.Length;
+			     i++)
 				if (propertyInfo != null)
-					optionalCalendarIDs[i] = (int) propertyInfo.GetValue(optionalCalendarsList[i], null);
+					optionalCalendarIDs[i] = (int) propertyInfo.GetValue(optionalCalendarsList[i],
+					                                                     null);
 
 			if (fieldInfo != null)
-				fieldInfo.SetValue(DateTimeFormat, optionalCalendarIDs);
+				fieldInfo.SetValue(DateTimeFormat,
+				                   optionalCalendarIDs);
 
 			OptionalCalendars = optionalCalendarsList.ToArray();
 			Calendar = OptionalCalendars[0];
 			DateTimeFormat.Calendar = OptionalCalendars[0];
 
 			DateTimeFormat.MonthNames = DateTimeFormat.MonthGenitiveNames = DateTimeFormat.AbbreviatedMonthNames =
-				DateTimeFormat.AbbreviatedMonthGenitiveNames = persianCalendar.GetMonthsNameInYear().ToArray();
+				                                                                DateTimeFormat.AbbreviatedMonthGenitiveNames =
+					                                                                persianCalendar.GetMonthsNameInYear().ToArray();
 
 			var dayShortNames = persianCalendar.GetDaysShortNameInWeek(ExPersianCalendar.Orders.Gregorian).ToArray();
 
@@ -96,14 +99,14 @@ namespace Diten.Globalization
 			 */
 		}
 
-		public override Calendar Calendar { get; }
+		public override Calendar Calendar {get;}
 
 		/// <summary>
 		///    Get culture name.
 		/// </summary>
-		public string CultureName { get; }
+		public string CultureName {get;}
 
-		public override Calendar[] OptionalCalendars { get; }
+		public override Calendar[] OptionalCalendars {get;}
 	}
 
 	/// <summary>

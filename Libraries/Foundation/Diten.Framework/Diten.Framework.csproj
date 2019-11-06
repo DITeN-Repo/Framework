@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Diten.Framework.Key.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -75,6 +81,7 @@
     <None Include="DirectoryServices\ActiveDirectory\ActiveDirectory.cd" />
     <None Include="DirectoryServices\DirectoryServices.cd" />
     <None Include="DirectoryServices\Local\Local.cd" />
+    <None Include="Diten.Framework.Key.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Diten.Repository\Diten.Repository.csproj">

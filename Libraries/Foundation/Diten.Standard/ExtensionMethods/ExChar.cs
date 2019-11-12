@@ -35,7 +35,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">A <see cref="char" /> that must be converted into <see cref="HtmlString" />.</param>
 		/// <returns>A <see cref="string" /> that represent <see cref="HtmlString" />.</returns>
-		public static string ToHtmlEncode(this char value) { return HttpUtility.HtmlEncode(value); }
+		public static System.String ToHtmlEncode(this char value) { return HttpUtility.HtmlEncode(value); }
 
 		/// <summary>
 		///    Converting

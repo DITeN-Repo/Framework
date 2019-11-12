@@ -17,10 +17,10 @@ namespace Diten
 	{
 		public struct RegisteredType
 		{
-			public string Name {get; set;}
-			public string Title {get; set;}
-			public string Description {get; set;}
-			public string IconCls {get; set;}
+			public System.String Name {get; set;}
+			public System.String Title {get; set;}
+			public System.String Description {get; set;}
+			public System.String IconCls {get; set;}
 		}
 	}
 }

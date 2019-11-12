@@ -47,11 +47,11 @@ using EX = Diten.Parameters.Exceptions;
 //			if (bytes == null)
 //				throw new ArgumentNullException(nameof(bytes));
 //			if (bytes.Length > 268435455)
-//				throw new ArgumentException(string.Format(EX.Argument_ArrayTooLarge, 8), nameof(bytes));
+//				throw new ArgumentException(System.String.Format(EX.Argument_ArrayTooLarge, 8), nameof(bytes));
 //			m_array = new int[GetInt32ArrayLengthFromByteLength(bytes.Length)];
 //			Count = bytes.Length * 8;
 //			var num1 = (uint) bytes.Length / 4U;
-//			var source = (ReadOnlySpan<byte>) bytes;
+//			var source = (ReadOnlySpan<System.Byte>) bytes;
 //			for (var index = 0; (long) index < (long) num1; ++index)
 //			{
 //				m_array[index] = BinaryPrimitives.ReadInt32LittleEndian(source);
@@ -96,7 +96,7 @@ using EX = Diten.Parameters.Exceptions;
 //			if (values == null)
 //				throw new ArgumentNullException(nameof(values));
 //			if (values.Length > 67108863)
-//				throw new ArgumentException(string.Format(EX.Argument_ArrayTooLarge, 32), nameof(values));
+//				throw new ArgumentException(System.String.Format(EX.Argument_ArrayTooLarge, 32), nameof(values));
 //			m_array = new int[values.Length];
 //			Array.Copy(values, 0, m_array, 0, values.Length);
 //			Count = values.Length * 32;
@@ -114,13 +114,13 @@ using EX = Diten.Parameters.Exceptions;
 //			_version = bits._version;
 //		}
 
-//		public bool this[int index]
+//		public Boolean this[int index]
 //		{
 //			get => Get(index);
 //			set => Set(index, value);
 //		}
 
-//		public int Length
+//		public Int32 Length
 //		{
 //			get => Count;
 //			set
@@ -145,7 +145,7 @@ using EX = Diten.Parameters.Exceptions;
 //			}
 //		}
 
-//		public bool IsReadOnly => false;
+//		public Boolean IsReadOnly => false;
 
 //		public object Clone() => new BitArray(this);
 
@@ -226,16 +226,16 @@ using EX = Diten.Parameters.Exceptions;
 //			}
 //		}
 
-//		public int Count { get; private set; }
+//		public Int32 Count { get; private set; }
 
 //		public object SyncRoot => this;
 
-//		public bool IsSynchronized => false;
+//		public Boolean IsSynchronized => false;
 
 //		public IEnumerator GetEnumerator() => new BitArrayEnumeratorSimple(this);
 
 //		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-//		public bool Get(int index)
+//		public Boolean Get(int index)
 //		{
 //			if ((uint) index >= (uint) Count)
 //				ThrowArgumentOutOfRangeException(index);

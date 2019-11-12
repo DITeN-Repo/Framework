@@ -20,6 +20,6 @@ namespace Diten.Web.UI.Themes
 		///    Get namespace of <inheritdoc cref="Theme" />.
 		/// </summary>
 		/// <returns></returns>
-		public static string GetNameSpace() { return "Diten.Web.UI.Themes"; }
+		public static System.String GetNameSpace() { return "Diten.Web.UI.Themes"; }
 	}
 }

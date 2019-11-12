@@ -30,7 +30,7 @@
 //    [ComVisible(true)]
 
 //    [Serializable]
-//    public sealed class StringBase : IComparable, ICloneable, System.IConvertible, IEnumerable, IComparable<string>, IEnumerable<char>, IEquatable<string>
+//    public sealed class StringBase : IComparable, ICloneable, System.IConvertible, IEnumerable, IComparable<System.String>, IEnumerable<char>, IEquatable<System.String>
 //    {
 //        [NonSerialized]
 //        private int m_stringLength;
@@ -140,13 +140,13 @@
 //        /// <paramref name="values" /> is <see langword="null" />. </exception>
 //        [ComVisible(false)]
 
-//        public static StringBase Join(StringBase separator, IEnumerable<string> values)
+//        public static StringBase Join(StringBase separator, IEnumerable<System.String> values)
 //        {
 //            if (values == null)
 //                throw new ArgumentNullException(nameof(values));
 //            if (separator == null)
 //                separator = string.Empty;
-//            using (IEnumerator<string> enumerator = values.GetEnumerator())
+//            using (IEnumerator<System.String> enumerator = values.GetEnumerator())
 //            {
 //                if (!enumerator.MoveNext())
 //                    return string.Empty;
@@ -400,7 +400,7 @@
 //        /// <see langword="true" /> if <paramref name="obj" /> is a <see cref="T:System.String" /> and its value is the same as this instance; otherwise, <see langword="false" />.  If <paramref name="obj" /> is <see langword="null" />, the method returns <see langword="false" />.</returns>
 //        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 
-//        public override bool Equals(object obj)
+//        public override bool Equals(System.Object obj)
 //        {
 //            if (this == null)
 //                throw new NullReferenceException();
@@ -420,7 +420,7 @@
 //        /// <see langword="true" /> if the value of the <paramref name="value" /> parameter is the same as the value of this instance; otherwise, <see langword="false" />. If <paramref name="value" /> is <see langword="null" />, the method returns <see langword="false" />. </returns>
 //        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 
-//        public bool Equals(StringBase value)
+//        public Boolean Equals(StringBase value)
 //        {
 //            if (this == null)
 //                throw new NullReferenceException();
@@ -442,7 +442,7 @@
 //        /// <paramref name="comparisonType" /> is not a <see cref="T:System.StringComparison" /> value. </exception>
 //        [SecuritySafeCritical]
 
-//        public bool Equals(StringBase value, StringComparison comparisonType)
+//        public Boolean Equals(StringBase value, StringComparison comparisonType)
 //        {
 //            switch (comparisonType)
 //            {
@@ -764,7 +764,7 @@
 //        /// <param name="separator">A character array that delimits the substrings in this string, an empty array that contains no delimiters, or <see langword="null" />. </param>
 //        /// <returns>An array whose elements contain the substrings from this instance that are delimited by one or more characters in <paramref name="separator" />. For more information, see the Remarks section.</returns>
 
-//        public string[] Split(params char[] separator)
+//        public System.String[] Split(params char[] separator)
 //        {
 //            return this.SplitInternal(separator, int.MaxValue, StringSplitOptions.None);
 //        }
@@ -776,7 +776,7 @@
 //        /// <exception cref="T:System.ArgumentOutOfRangeException">
 //        /// <paramref name="count" /> is negative. </exception>
 
-//        public string[] Split(char[] separator, int count)
+//        public System.String[] Split(char[] separator, int count)
 //        {
 //            return this.SplitInternal(separator, count, StringSplitOptions.None);
 //        }
@@ -790,7 +790,7 @@
 //        /// <paramref name="options" /> is not one of the <see cref="T:System.StringSplitOptions" /> values.</exception>
 //        [ComVisible(false)]
 
-//        public string[] Split(char[] separator, StringSplitOptions options)
+//        public System.String[] Split(char[] separator, StringSplitOptions options)
 //        {
 //            return this.SplitInternal(separator, int.MaxValue, options);
 //        }
@@ -807,7 +807,7 @@
 //        /// <paramref name="options" /> is not one of the <see cref="T:System.StringSplitOptions" /> values.</exception>
 //        [ComVisible(false)]
 
-//        public string[] Split(char[] separator, int count, StringSplitOptions options)
+//        public System.String[] Split(char[] separator, int count, StringSplitOptions options)
 //        {
 //            return this.SplitInternal(separator, count, options);
 //        }
@@ -845,7 +845,7 @@
 //        /// <paramref name="options" /> is not one of the <see cref="T:System.StringSplitOptions" /> values.</exception>
 //        [ComVisible(false)]
 
-//        public string[] Split(string[] separator, StringSplitOptions options)
+//        public System.String[] Split(System.String[] separator, StringSplitOptions options)
 //        {
 //            return this.Split(separator, int.MaxValue, options);
 //        }
@@ -862,7 +862,7 @@
 //        /// <paramref name="options" /> is not one of the <see cref="T:System.StringSplitOptions" /> values.</exception>
 //        [ComVisible(false)]
 
-//        public string[] Split(string[] separator, int count, StringSplitOptions options)
+//        public System.String[] Split(System.String[] separator, int count, StringSplitOptions options)
 //        {
 //            if (count < 0)
 //                throw new ArgumentOutOfRangeException(nameof(count), Environment.GetResourceString("ArgumentOutOfRange_NegativeCount"));
@@ -980,7 +980,7 @@
 //        }
 
 //        [SecuritySafeCritical]
-//        private unsafe int MakeSeparatorList(string[] separators, ref int[] sepList, ref int[] lengthList)
+//        private unsafe int MakeSeparatorList(System.String[] separators, ref int[] sepList, ref int[] lengthList)
 //        {
 //            int index1 = 0;
 //            int length1 = sepList.Length;
@@ -1219,7 +1219,7 @@
 //        /// <returns>
 //        /// <see langword="true" /> if this StringBase is in normalization form C; otherwise, <see langword="false" />.</returns>
 //        /// <exception cref="T:System.ArgumentException">The current instance contains invalid Unicode characters.</exception>
-//        public bool IsNormalized()
+//        public Boolean IsNormalized()
 //        {
 //            return this.IsNormalized(NormalizationForm.FormC);
 //        }
@@ -1230,7 +1230,7 @@
 //        /// <see langword="true" /> if this StringBase is in the normalization form specified by the <paramref name="normalizationForm" /> parameter; otherwise, <see langword="false" />.</returns>
 //        /// <exception cref="T:System.ArgumentException">The current instance contains invalid Unicode characters.</exception>
 //        [SecuritySafeCritical]
-//        public bool IsNormalized(NormalizationForm normalizationForm)
+//        public Boolean IsNormalized(NormalizationForm normalizationForm)
 //        {
 //            if (this.IsFastSort() && (normalizationForm == NormalizationForm.FormC || normalizationForm == NormalizationForm.FormKC || (normalizationForm == NormalizationForm.FormD || normalizationForm == NormalizationForm.FormKD)))
 //                return true;
@@ -1310,7 +1310,7 @@
 //            fixed (char* smem = value)
 //            {
 //                string.wstrcpy(dmem, smem, value.Length);
-//                str2 = (string)null;
+//                str2 = (System.String)null;
 //            }
 //            return str1;
 //        }
@@ -1336,7 +1336,7 @@
 //            fixed (char* chPtr = value)
 //            {
 //                string.wstrcpy(dmem, chPtr + startIndex, length);
-//                str2 = (string)null;
+//                str2 = (System.String)null;
 //            }
 //            return str1;
 //        }
@@ -1376,7 +1376,7 @@
 //                    }
 //                    if ((count & 1) != 0)
 //                        *chPtr2 = c;
-//                    str2 = (string)null;
+//                    str2 = (System.String)null;
 //                }
 //                return str1;
 //            }
@@ -1425,7 +1425,7 @@
 //                }
 //                finally
 //                {
-//                    str2 = (string)null;
+//                    str2 = (System.String)null;
 //                }
 //                return str1;
 //            }
@@ -1461,7 +1461,7 @@
 //                }
 //                finally
 //                {
-//                    str2 = (string)null;
+//                    str2 = (System.String)null;
 //                }
 //                return str1;
 //            }
@@ -1788,13 +1788,13 @@
 //        /// <paramref name="value" /> is <see langword="null" />. </returns>
 //        /// <exception cref="T:System.ArgumentException">
 //        /// <paramref name="value" /> is not a <see cref="T:System.String" />. </exception>
-//        public int CompareTo(object value)
+//        public Int32 CompareTo(System.Object value)
 //        {
 //            if (value == null)
 //                return 1;
 //            if (!(value is string))
 //                throw new ArgumentException(Environment.GetResourceString("Arg_MustBeString"));
-//            return string.Compare(this, (string)value, StringComparison.CurrentCulture);
+//            return string.Compare(this, (System.String)value, StringComparison.CurrentCulture);
 //        }
 
 //        /// <summary>Compares this instance with a specified <see cref="T:System.String" /> object and indicates whether this instance precedes, follows, or appears in the same position in the sort order as the specified string. </summary>
@@ -1802,7 +1802,7 @@
 //        /// <returns>A 32-bit signed integer that indicates whether this instance precedes, follows, or appears in the same position in the sort order as the <paramref name="strB" /> parameter.Value Condition Less than zero This instance precedes <paramref name="strB" />. Zero This instance has the same position in the sort order as <paramref name="strB" />. Greater than zero This instance follows <paramref name="strB" />.-or-
 //        /// <paramref name="strB" /> is <see langword="null" />. </returns>
 
-//        public int CompareTo(StringBase strB)
+//        public Int32 CompareTo(StringBase strB)
 //        {
 //            if (strB == null)
 //                return 1;
@@ -1859,7 +1859,7 @@
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="value" /> is <see langword="null" />. </exception>
 
-//        public bool Contains(StringBase value)
+//        public Boolean Contains(StringBase value)
 //        {
 //            return this.IndexOf(value, StringComparison.Ordinal) >= 0;
 //        }
@@ -1871,7 +1871,7 @@
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="value" /> is <see langword="null" />. </exception>
 
-//        public bool EndsWith(StringBase value)
+//        public Boolean EndsWith(StringBase value)
 //        {
 //            return this.EndsWith(value, StringComparison.CurrentCulture);
 //        }
@@ -1888,7 +1888,7 @@
 //        [SecuritySafeCritical]
 //        [ComVisible(false)]
 
-//        public bool EndsWith(StringBase value, StringComparison comparisonType)
+//        public Boolean EndsWith(StringBase value, StringComparison comparisonType)
 //        {
 //            if (value == null)
 //                throw new ArgumentNullException(nameof(value));
@@ -1937,7 +1937,7 @@
 //        /// <see langword="true" /> if the <paramref name="value" /> parameter matches the end of this string; otherwise, <see langword="false" />.</returns>
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="value" /> is <see langword="null" />. </exception>
-//        public bool EndsWith(StringBase value, bool ignoreCase, CultureInfo culture)
+//        public Boolean EndsWith(StringBase value, bool ignoreCase, CultureInfo culture)
 //        {
 //            if (value == null)
 //                throw new ArgumentNullException(nameof(value));
@@ -1956,7 +1956,7 @@
 //        /// <param name="value">A Unicode character to seek. </param>
 //        /// <returns>The zero-based index position of <paramref name="value" /> if that character is found, or -1 if it is not.</returns>
 
-//        public int IndexOf(char value)
+//        public Int32 IndexOf(char value)
 //        {
 //            return this.IndexOf(value, 0, this.Length);
 //        }
@@ -1968,7 +1968,7 @@
 //        /// <exception cref="T:System.ArgumentOutOfRangeException">
 //        /// <paramref name="startIndex" /> is less than 0 (zero) or greater than the length of the string. </exception>
 
-//        public int IndexOf(char value, int startIndex)
+//        public Int32 IndexOf(char value, int startIndex)
 //        {
 //            return this.IndexOf(value, startIndex, this.Length - startIndex);
 //        }
@@ -1993,7 +1993,7 @@
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="anyOf" /> is <see langword="null" />. </exception>
 
-//        public int IndexOfAny(char[] anyOf)
+//        public Int32 IndexOfAny(char[] anyOf)
 //        {
 //            return this.IndexOfAny(anyOf, 0, this.Length);
 //        }
@@ -2008,7 +2008,7 @@
 //        /// <paramref name="startIndex" /> is negative.-or-
 //        /// <paramref name="startIndex" /> is greater than the number of characters in this instance. </exception>
 
-//        public int IndexOfAny(char[] anyOf, int startIndex)
+//        public Int32 IndexOfAny(char[] anyOf, int startIndex)
 //        {
 //            return this.IndexOfAny(anyOf, startIndex, this.Length - startIndex);
 //        }
@@ -2034,7 +2034,7 @@
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="value" /> is <see langword="null" />. </exception>
 
-//        public int IndexOf(StringBase value)
+//        public Int32 IndexOf(StringBase value)
 //        {
 //            return this.IndexOf(value, StringComparison.CurrentCulture);
 //        }
@@ -2048,7 +2048,7 @@
 //        /// <exception cref="T:System.ArgumentOutOfRangeException">
 //        /// <paramref name="startIndex" /> is less than 0 (zero) or greater than the length of this string.</exception>
 
-//        public int IndexOf(StringBase value, int startIndex)
+//        public Int32 IndexOf(StringBase value, int startIndex)
 //        {
 //            return this.IndexOf(value, startIndex, StringComparison.CurrentCulture);
 //        }
@@ -2065,7 +2065,7 @@
 //        /// <paramref name="startIndex" /> is greater than the length of this string.-or-
 //        /// <paramref name="count" /> is greater than the length of this StringBase minus <paramref name="startIndex" />.</exception>
 
-//        public int IndexOf(StringBase value, int startIndex, int count)
+//        public Int32 IndexOf(StringBase value, int startIndex, int count)
 //        {
 //            if (startIndex < 0 || startIndex > this.Length)
 //                throw new ArgumentOutOfRangeException(nameof(startIndex), Environment.GetResourceString("ArgumentOutOfRange_Index"));
@@ -2083,7 +2083,7 @@
 //        /// <exception cref="T:System.ArgumentException">
 //        /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.</exception>
 
-//        public int IndexOf(StringBase value, StringComparison comparisonType)
+//        public Int32 IndexOf(StringBase value, StringComparison comparisonType)
 //        {
 //            return this.IndexOf(value, 0, this.Length, comparisonType);
 //        }
@@ -2100,7 +2100,7 @@
 //        /// <exception cref="T:System.ArgumentException">
 //        /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.</exception>
 
-//        public int IndexOf(StringBase value, int startIndex, StringComparison comparisonType)
+//        public Int32 IndexOf(StringBase value, int startIndex, StringComparison comparisonType)
 //        {
 //            return this.IndexOf(value, startIndex, this.Length - startIndex, comparisonType);
 //        }
@@ -2121,7 +2121,7 @@
 //        /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.</exception>
 //        [SecuritySafeCritical]
 
-//        public int IndexOf(StringBase value, int startIndex, int count, StringComparison comparisonType)
+//        public Int32 IndexOf(StringBase value, int startIndex, int count, StringComparison comparisonType)
 //        {
 //            if (value == null)
 //                throw new ArgumentNullException(nameof(value));
@@ -2154,7 +2154,7 @@
 //        /// <param name="value">The Unicode character to seek. </param>
 //        /// <returns>The zero-based index position of <paramref name="value" /> if that character is found, or -1 if it is not.</returns>
 
-//        public int LastIndexOf(char value)
+//        public Int32 LastIndexOf(char value)
 //        {
 //            return this.LastIndexOf(value, this.Length - 1, this.Length);
 //        }
@@ -2166,7 +2166,7 @@
 //        /// <exception cref="T:System.ArgumentOutOfRangeException">
 //        /// The current instance does not equal <see cref="F:System.String.Empty" />, and <paramref name="startIndex" /> is less than zero or greater than or equal to the length of this instance.</exception>
 
-//        public int LastIndexOf(char value, int startIndex)
+//        public Int32 LastIndexOf(char value, int startIndex)
 //        {
 //            return this.LastIndexOf(value, startIndex, startIndex + 1);
 //        }
@@ -2190,7 +2190,7 @@
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="anyOf" /> is <see langword="null" />. </exception>
 
-//        public int LastIndexOfAny(char[] anyOf)
+//        public Int32 LastIndexOfAny(char[] anyOf)
 //        {
 //            return this.LastIndexOfAny(anyOf, this.Length - 1, this.Length);
 //        }
@@ -2204,7 +2204,7 @@
 //        /// <exception cref="T:System.ArgumentOutOfRangeException">
 //        /// The current instance does not equal <see cref="F:System.String.Empty" />, and <paramref name="startIndex" /> specifies a position that is not within this instance. </exception>
 
-//        public int LastIndexOfAny(char[] anyOf, int startIndex)
+//        public Int32 LastIndexOfAny(char[] anyOf, int startIndex)
 //        {
 //            return this.LastIndexOfAny(anyOf, startIndex, startIndex + 1);
 //        }
@@ -2230,7 +2230,7 @@
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="value" /> is <see langword="null" />. </exception>
 
-//        public int LastIndexOf(StringBase value)
+//        public Int32 LastIndexOf(StringBase value)
 //        {
 //            return this.LastIndexOf(value, this.Length - 1, this.Length, StringComparison.CurrentCulture);
 //        }
@@ -2244,7 +2244,7 @@
 //        /// <exception cref="T:System.ArgumentOutOfRangeException">
 //        /// The current instance does not equal <see cref="F:System.String.Empty" />, and <paramref name="startIndex" /> is less than zero or greater than the length of the current instance. -or-The current instance equals <see cref="F:System.String.Empty" />, and <paramref name="startIndex" /> is less than -1 or greater than zero.</exception>
 
-//        public int LastIndexOf(StringBase value, int startIndex)
+//        public Int32 LastIndexOf(StringBase value, int startIndex)
 //        {
 //            return this.LastIndexOf(value, startIndex, startIndex + 1, StringComparison.CurrentCulture);
 //        }
@@ -2262,7 +2262,7 @@
 //        /// The current instance does not equal <see cref="F:System.String.Empty" />, and <paramref name="startIndex" /> is greater than the length of this instance.-or-
 //        /// The current instance does not equal <see cref="F:System.String.Empty" />, and <paramref name="startIndex" /> - <paramref name="count" />+ 1 specifies a position that is not within this instance. -or-The current instance equals <see cref="F:System.String.Empty" /> and <paramref name="start" /> is less than -1 or greater than zero. -or-The current instance equals <see cref="F:System.String.Empty" /> and <paramref name="count" /> is greater than 1. </exception>
 
-//        public int LastIndexOf(StringBase value, int startIndex, int count)
+//        public Int32 LastIndexOf(StringBase value, int startIndex, int count)
 //        {
 //            if (count < 0)
 //                throw new ArgumentOutOfRangeException(nameof(count), Environment.GetResourceString("ArgumentOutOfRange_Count"));
@@ -2278,7 +2278,7 @@
 //        /// <exception cref="T:System.ArgumentException">
 //        /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.</exception>
 
-//        public int LastIndexOf(StringBase value, StringComparison comparisonType)
+//        public Int32 LastIndexOf(StringBase value, StringComparison comparisonType)
 //        {
 //            return this.LastIndexOf(value, this.Length - 1, this.Length, comparisonType);
 //        }
@@ -2295,7 +2295,7 @@
 //        /// <exception cref="T:System.ArgumentException">
 //        /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.</exception>
 
-//        public int LastIndexOf(StringBase value, int startIndex, StringComparison comparisonType)
+//        public Int32 LastIndexOf(StringBase value, int startIndex, StringComparison comparisonType)
 //        {
 //            return this.LastIndexOf(value, startIndex, startIndex + 1, comparisonType);
 //        }
@@ -2317,7 +2317,7 @@
 //        /// <paramref name="comparisonType" /> is not a valid <see cref="T:System.StringComparison" /> value.</exception>
 //        [SecuritySafeCritical]
 
-//        public int LastIndexOf(StringBase value, int startIndex, int count, StringComparison comparisonType)
+//        public Int32 LastIndexOf(StringBase value, int startIndex, int count, StringComparison comparisonType)
 //        {
 //            if (value == null)
 //                throw new ArgumentNullException(nameof(value));
@@ -2413,7 +2413,7 @@
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="value" /> is <see langword="null" />. </exception>
 
-//        public bool StartsWith(StringBase value)
+//        public Boolean StartsWith(StringBase value)
 //        {
 //            if (value == null)
 //                throw new ArgumentNullException(nameof(value));
@@ -2432,7 +2432,7 @@
 //        [SecuritySafeCritical]
 //        [ComVisible(false)]
 
-//        public bool StartsWith(StringBase value, StringComparison comparisonType)
+//        public Boolean StartsWith(StringBase value, StringComparison comparisonType)
 //        {
 //            if (value == null)
 //                throw new ArgumentNullException(nameof(value));
@@ -2481,7 +2481,7 @@
 //        /// <see langword="true" /> if the <paramref name="value" /> parameter matches the beginning of this string; otherwise, <see langword="false" />.</returns>
 //        /// <exception cref="T:System.ArgumentNullException">
 //        /// <paramref name="value" /> is <see langword="null" />. </exception>
-//        public bool StartsWith(StringBase value, bool ignoreCase, CultureInfo culture)
+//        public Boolean StartsWith(StringBase value, bool ignoreCase, CultureInfo culture)
 //        {
 //            if (value == null)
 //                throw new ArgumentNullException(nameof(value));
@@ -2914,7 +2914,7 @@
 //        /// <param name="arg0">The object to represent, or <see langword="null" />. </param>
 //        /// <returns>The StringBase representation of the value of <paramref name="arg0" />, or <see cref="F:System.String.Empty" /> if <paramref name="arg0" /> is <see langword="null" />.</returns>
 
-//        public static StringBase Concat(object arg0)
+//        public static StringBase Concat(System.Object arg0)
 //        {
 //            if (arg0 == null)
 //                return string.Empty;
@@ -2926,7 +2926,7 @@
 //        /// <param name="arg1">The second object to concatenate. </param>
 //        /// <returns>The concatenated StringBase representations of the values of <paramref name="arg0" /> and <paramref name="arg1" />.</returns>
 
-//        public static StringBase Concat(object arg0, object arg1)
+//        public static StringBase Concat(System.Object arg0, object arg1)
 //        {
 //            if (arg0 == null)
 //                arg0 = (object)string.Empty;
@@ -2941,7 +2941,7 @@
 //        /// <param name="arg2">The third object to concatenate. </param>
 //        /// <returns>The concatenated StringBase representations of the values of <paramref name="arg0" />, <paramref name="arg1" />, and <paramref name="arg2" />.</returns>
 
-//        public static StringBase Concat(object arg0, object arg1, object arg2)
+//        public static StringBase Concat(System.Object arg0, object arg1, object arg2)
 //        {
 //            if (arg0 == null)
 //                arg0 = (object)string.Empty;
@@ -2953,7 +2953,7 @@
 //        }
 
 //        [CLSCompliant(false)]
-//        public static StringBase Concat(object arg0, object arg1, object arg2, object arg3, __arglist)
+//        public static StringBase Concat(System.Object arg0, object arg1, object arg2, object arg3, __arglist)
 //        {
 //            ArgIterator argIterator = new ArgIterator(__arglist);
 //            int length = argIterator.GetRemainingCount() + 4;
@@ -3028,12 +3028,12 @@
 //        /// <paramref name="values" /> is <see langword="null" />. </exception>
 //        [ComVisible(false)]
 
-//        public static StringBase Concat(IEnumerable<string> values)
+//        public static StringBase Concat(IEnumerable<System.String> values)
 //        {
 //            if (values == null)
 //                throw new ArgumentNullException(nameof(values));
 //            StringBuilder sb = StringBuilderCache.Acquire(16);
-//            using (IEnumerator<string> enumerator = values.GetEnumerator())
+//            using (IEnumerator<System.String> enumerator = values.GetEnumerator())
 //            {
 //                while (enumerator.MoveNext())
 //                {
@@ -3052,13 +3052,13 @@
 
 //        public static StringBase Concat(StringBase str0, StringBase str1)
 //        {
-//            if (string.IsNullOrEmpty(str0))
+//            if (System.String.IsNullOrEmpty(str0))
 //            {
-//                if (string.IsNullOrEmpty(str1))
+//                if (System.String.IsNullOrEmpty(str1))
 //                    return string.Empty;
 //                return str1;
 //            }
-//            if (string.IsNullOrEmpty(str1))
+//            if (System.String.IsNullOrEmpty(str1))
 //                return str0;
 //            int length = str0.Length;
 //            StringBase dest = string.FastAllocateString(length + str1.Length);
@@ -3120,7 +3120,7 @@
 //        }
 
 //        [SecuritySafeCritical]
-//        private static StringBase ConcatArray(string[] values, int totalLength)
+//        private static StringBase ConcatArray(System.String[] values, int totalLength)
 //        {
 //            StringBase dest = string.FastAllocateString(totalLength);
 //            int destPos = 0;

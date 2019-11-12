@@ -17,6 +17,7 @@
 
 #region Used Directives
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,10 +34,10 @@ namespace Diten.Drawing.Bitmap
 		/// <param name="g">Green value of the pixel.</param>
 		/// <param name="b">Blue value of the pixel.</param>
 		/// <param name="a">Alpha value of the pixel.</param>
-		public Pixel(short r,
-		             short g,
-		             short b,
-		             short a)
+		public Pixel(Int16 r,
+		             Int16 g,
+		             Int16 b,
+		             Int16 a)
 		{
 			R = r;
 			G = g;
@@ -47,34 +48,34 @@ namespace Diten.Drawing.Bitmap
 		/// <summary>
 		///    Get alpha value of the pixel.
 		/// </summary>
-		public short A {get;}
+		public Int16 A {get;}
 
 		/// <summary>
 		///    Get blue value of the pixel.
 		/// </summary>
-		public short B {get;}
+		public Int16 B {get;}
 
 		/// <summary>
 		///    Get the color of the pixel.
 		/// </summary>
-		public IEnumerable<byte> Color => R.ToBytes().Append(G.ToBytes()[0]).Append(B.ToBytes()[0]).Append(A.ToBytes()[0]);
+		public IEnumerable<System.Byte> Color => R.ToBytes().Append(G.ToBytes()[0]).Append(B.ToBytes()[0]).Append(A.ToBytes()[0]);
 
 		/// <summary>
 		///    Get green value of the pixel.
 		/// </summary>
-		public short G {get;}
+		public Int16 G {get;}
 
 		/// <summary>
 		///    Get red value of the pixel.
 		/// </summary>
-		public short R {get;}
+		public Int16 R {get;}
 
 		/// <summary>
 		///    Overlaying current pixel with another pixel.
 		/// </summary>
 		/// <param name="pixel"></param>
 		/// <returns></returns>
-		public IEnumerable<byte> Overlay(Pixel pixel)
+		public IEnumerable<System.Byte> Overlay(Pixel pixel)
 		{
 			return ((Color.ToInt32() * A + pixel.Color.ToInt32() * pixel.A * (1 - A)) / (A + pixel.A * (1 - A))).ToBytes();
 		}

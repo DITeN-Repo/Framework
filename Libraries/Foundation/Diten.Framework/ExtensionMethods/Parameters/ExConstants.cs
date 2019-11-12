@@ -15,10 +15,10 @@ namespace Diten.Parameters
 {
 	public static class ExConstants
 	{
-		public static string NoReplyMailAddress {get;}
+		public static System.String NoReplyMailAddress {get;}
 
-		private static string NoReplyMailAddressMethod(this Constants value) { return "sdfsdfsdf"; }
+		private static System.String NoReplyMailAddressMethod(this Constants value) { return "sdfsdfsdf"; }
 
-		private static string SmtpPasswordMetod(this Constants value) { return "sdfsdfsdf"; }
+		private static System.String SmtpPasswordMetod(this Constants value) { return "sdfsdfsdf"; }
 	}
 }

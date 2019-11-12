@@ -43,7 +43,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="username">Username of a user that has privilege to do jobs on Active Directory.</param>
 		/// <param name="password">Password of user.</param>
-		public Objects(string username,
+		public Objects(System.String username,
 		               string password)
 		{
 			UserName = username;
@@ -64,7 +64,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="valuesCollection">Values collection</param>
 		/// <param name="recursive">Read attributes recursively.</param>
 		/// <returns>Values collection.</returns>
-		public ArrayList AttributeValuesMultiString(string attributeName,
+		public ArrayList AttributeValuesMultiString(System.String attributeName,
 		                                            string objectDn,
 		                                            ArrayList valuesCollection,
 		                                            bool recursive)
@@ -101,7 +101,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="attributeName">Name of attribute.</param>
 		/// <param name="objectDn">Object Distinguished name.</param>
 		/// <returns>Value of attribute.</returns>
-		public string AttributeValuesSingleString(string attributeName,
+		public string AttributeValuesSingleString(System.String attributeName,
 		                                          string objectDn)
 		{
 			var ent = new DirectoryEntry(objectDn,
@@ -120,7 +120,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="ouPath">Organization unit path.</param>
 		/// <param name="name">Name of new group.</param>
-		public void CreateGroup(string ouPath,
+		public void CreateGroup(System.String ouPath,
 		                        string name)
 		{
 			if (!DirectoryEntry.Exists($"LDAP://CN={name},{ouPath}"))
@@ -146,7 +146,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="shareUncPath"></param>
 		/// <param name="shareDescription"></param>
 		/// <example>CreateShareEntry("OU=HOME,dc=baileysoft,dc=com", "Music", @"\\192.168.2.1\Music", "mp3 Server Share");</example>
-		public void CreateShareEntry(string ldapPath,
+		public void CreateShareEntry(System.String ldapPath,
 		                             string shareName,
 		                             string shareUncPath,
 		                             string shareDescription)
@@ -170,7 +170,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="ouPath">Organization unit path.</param>
 		/// <param name="groupPath">Group pat.</param>
-		public void DeleteGroup(string ouPath,
+		public void DeleteGroup(System.String ouPath,
 		                        string groupPath)
 		{
 			if (DirectoryEntry.Exists("LDAP://" + groupPath))
@@ -193,7 +193,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="objectPath">Path of the object in AD.</param>
 		/// <returns>True if object exist.</returns>
-		public static bool Exists(string objectPath) { return DirectoryEntry.Exists($"LDAP://{objectPath}"); }
+		public static bool Exists(System.String objectPath) { return DirectoryEntry.Exists($"LDAP://{objectPath}"); }
 
 		/// <summary>
 		///    Get an Object DistinguishedName.
@@ -269,11 +269,11 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="objectDn">Object domain name.</param>
 		/// <returns>Array of attribute's names.</returns>
-		public ArrayList GetUsedAttributes(string objectDn)
+		public ArrayList GetUsedAttributes(System.String objectDn)
 		{
 			var props = new ArrayList();
 
-			foreach (string strAttrName in new DirectoryEntry($"LDAP://{objectDn}",
+			foreach (System.String strAttrName in new DirectoryEntry($"LDAP://{objectDn}",
 			                                                  UserName,
 			                                                  Password).Properties
 			                                                           .PropertyNames) props.Add(strAttrName);
@@ -290,7 +290,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="objectLocation">Location of object.</param>
 		/// <param name="newLocation">New location of object.</param>
-		public void Move(string objectLocation,
+		public void Move(System.String objectLocation,
 		                 string newLocation)
 		{
 			//For brevity, removed existence checks

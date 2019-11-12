@@ -31,7 +31,7 @@ namespace Diten.Security.Cryptography
 		/// </summary>
 		/// <param name="data">Text for encoding.</param>
 		/// <returns>MD5 hashed text.</returns>
-		public static string Encrypt(string data)
+		public static System.String Encrypt(System.String data)
 		{
 			using (var md5Hash = MD5.Create())
 			{
@@ -40,7 +40,7 @@ namespace Diten.Security.Cryptography
 			}
 		}
 
-		private static string GetMd5Hash(HashAlgorithm md5Hash,
+		private static System.String GetMd5Hash(HashAlgorithm md5Hash,
 		                                 string input)
 		{
 			// Convert the input string to a byte array and compute the hash.
@@ -59,7 +59,7 @@ namespace Diten.Security.Cryptography
 		}
 
 		// Verify a hash against a string.
-		public static bool VerifyMd5Hash(string input,
+		public static bool VerifyMd5Hash(System.String input,
 		                                 string hash)
 		{
 			// Hash the input.

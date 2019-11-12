@@ -33,8 +33,8 @@ namespace Diten.Parameters
 		/// <summary>
 		///    System database server address in web.config file.
 		/// </summary>
-		public static string DatabaseServerAddress =>
-			Application.GetConfig(Names.Default.SystemDatabaseServerAddress).Equals(string.Empty)
+		public static System.String DatabaseServerAddress =>
+			Application.GetConfig(Names.Default.SystemDatabaseServerAddress).Equals(System.String.Empty)
 				? Default.LocalIp
 				: Application.GetConfig(Names.Default.SystemDatabaseServerAddress);
 
@@ -49,7 +49,7 @@ namespace Diten.Parameters
 			/// <param name="key">Key in config file AppSettings section.</param>
 			/// <param name="fileName">Name of config file.</param>
 			/// <returns>Value of the key.</returns>
-			public static string GetConfig(string key,
+			public static System.String GetConfig(System.String key,
 			                               string fileName = "web")
 			{
 				try
@@ -58,13 +58,13 @@ namespace Diten.Parameters
 						WebConfigurationManager.OpenWebConfiguration($@"~/{fileName}.{Default.ConfigFileExtention}");
 
 					if (configuration.AppSettings.Settings.Count <= 0)
-						throw new ArgumentException(string.Format(
+						throw new ArgumentException(System.String.Format(
 						                                          Exceptions.Default.Diten_Variables_GetConfig_ArgumentException_KeyNotFound,
 						                                          key));
 
 					var customSetting = configuration.AppSettings.Settings.AllKeys.Contains(key)
 						                    ? configuration.AppSettings.Settings[key]
-						                    : throw new ArgumentException(string.Format(
+						                    : throw new ArgumentException(System.String.Format(
 						                                                                Exceptions
 							                                                                .Default.Diten_Variables_GetConfig_ArgumentException_KeyNotFound,
 						                                                                key));
@@ -82,29 +82,29 @@ namespace Diten.Parameters
 			/// <summary>
 			///    Encrypted uri parameter name in web.config file
 			/// </summary>
-			public static string EncryptedUriParameter => GetConfig(Names.Default.EncryptedUriParameter);
+			public static System.String EncryptedUriParameter => GetConfig(Names.Default.EncryptedUriParameter);
 
 			/// <summary>
 			///    Path of resources in web.config file
 			/// </summary>
-			public static string ResourcesPath => GetConfig(Names.Default.ResourcesPath);
+			public static System.String ResourcesPath => GetConfig(Names.Default.ResourcesPath);
 
 			/// <summary>
 			///    Additional assembly names in web.config file
 			/// </summary>
-			public static string AssemblyNames => GetConfig(Names.Default.AssemblyNames);
+			public static System.String AssemblyNames => GetConfig(Names.Default.AssemblyNames);
 
 			#if DEBUG
 			/// <summary>
 			///    Solution directory.
 			/// </summary>
-			public static string SolutionDir => $@"{Environment.CurrentDirectory}\..\..\..\..";
+			public static System.String SolutionDir => $@"{Environment.CurrentDirectory}\..\..\..\..";
 			#endif
 
 			/// <summary>
 			///    Application directory
 			/// </summary>
-			public static string ApplicationDir => $@"{Environment.CurrentDirectory}\..\..\..";
+			public static System.String ApplicationDir => $@"{Environment.CurrentDirectory}\..\..\..";
 		}
 
 		/// <summary>
@@ -115,12 +115,12 @@ namespace Diten.Parameters
 			/// <summary>
 			///    Diten services server.
 			/// </summary>
-			public static string ServicesServer => Application.GetConfig(typeof(object).GetFrameName());
+			public static System.String ServicesServer => Application.GetConfig(typeof(object).GetFrameName());
 
 			/// <summary>
 			///    Diten handler service.
 			/// </summary>
-			public static string HandlerService => $@"http://{ServicesServer}/Handler.svc";
+			public static System.String HandlerService => $@"http://{ServicesServer}/Handler.svc";
 
 			/// <summary>
 			///    Diten default separator character.
@@ -130,7 +130,7 @@ namespace Diten.Parameters
 			/// <summary>
 			///    Cache environment encryption key.
 			/// </summary>
-			public static string EnvironmentEncryptionKey
+			public static System.String EnvironmentEncryptionKey
 			{
 				get
 				{
@@ -153,18 +153,18 @@ namespace Diten.Parameters
 			/// <summary>
 			///    System standard no reply mail address.
 			/// </summary>
-			public static string NoReplyMailAddress => Application.GetConfig(typeof(object).GetFrameName());
+			public static System.String NoReplyMailAddress => Application.GetConfig(typeof(object).GetFrameName());
 
 			/// <summary>
 			///    System SMTP mail password.
 			/// </summary>
-			public static string SmtpPassword => Application.GetConfig(typeof(object).GetFrameName());
+			public static System.String SmtpPassword => Application.GetConfig(typeof(object).GetFrameName());
 
 			/// <summary>
 			///    System database server address in web.config file.
 			/// </summary>
-			public static string DatabaseServerAddress =>
-				Application.GetConfig(Names.Default.SystemDatabaseServerAddress).Equals(string.Empty)
+			public static System.String DatabaseServerAddress =>
+				Application.GetConfig(Names.Default.SystemDatabaseServerAddress).Equals(System.String.Empty)
 					? Default.LocalIp
 					: Application.GetConfig(Names.Default.SystemDatabaseServerAddress);
 
@@ -176,13 +176,13 @@ namespace Diten.Parameters
 			/// <summary>
 			///    System physical path address.
 			/// </summary>
-			public static string PhysicalPath =>
+			public static System.String PhysicalPath =>
 				$@"{System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFiles)}\{Default.CloudAppPhysicalPath}";
 
 			/// <summary>
 			///    System temporary folder path.
 			/// </summary>
-			public static string TempFolderPath
+			public static System.String TempFolderPath
 			{
 				get
 				{
@@ -202,7 +202,7 @@ namespace Diten.Parameters
 			/// <summary>
 			///    System cache folder path.
 			/// </summary>
-			public static string CacheFolderPath
+			public static System.String CacheFolderPath
 			{
 				get
 				{
@@ -222,12 +222,12 @@ namespace Diten.Parameters
 			/// <summary>
 			///    System smtp server address in web.config file.
 			/// </summary>
-			public static string SmtpServerAddress => Application.GetConfig(typeof(object).GetFrameName());
+			public static System.String SmtpServerAddress => Application.GetConfig(typeof(object).GetFrameName());
 
 			/// <summary>
 			///    System web address in web.config file.
 			/// </summary>
-			public static string WebAddress => Application.GetConfig(typeof(object).GetFrameName());
+			public static System.String WebAddress => Application.GetConfig(typeof(object).GetFrameName());
 		}
 	}
 }

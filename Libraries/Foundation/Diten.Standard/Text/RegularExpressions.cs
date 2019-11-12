@@ -34,7 +34,7 @@ namespace Diten.Text
 			VeryStrong = 5
 		}
 
-		public static PasswordScore IsPasswordStrengthPassed(string password)
+		public static PasswordScore IsPasswordStrengthPassed(System.String password)
 		{
 			var score = 0;
 
@@ -68,7 +68,7 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="computerName">Computer name for validation.</param>
 		/// <returns>True if user name is valid.</returns>
-		public static bool IsValidComputerName(string computerName)
+		public static bool IsValidComputerName(System.String computerName)
 		{
 			return Regex.IsMatch(computerName,
 			                     @"^[a-zA-Z0-9_\-]*$");
@@ -79,7 +79,7 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="domainName">Domain name for validation.</param>
 		/// <returns>True if domain name is valid.</returns>
-		public static bool IsValidDomainName(string domainName)
+		public static bool IsValidDomainName(System.String domainName)
 		{
 			return Regex.IsMatch(domainName,
 			                     @"/^[^\.].*/^[a-zA-Z0-9_\-\.]*$");
@@ -90,7 +90,7 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="emailAddress">Email address for validation.</param>
 		/// <returns>True if email address is valid.</returns>
-		public static bool IsValidEMailAddress(string emailAddress)
+		public static bool IsValidEMailAddress(System.String emailAddress)
 		{
 			return Regex.IsMatch(emailAddress,
 			                     @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$");
@@ -101,7 +101,7 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="groupName">Group name for validation.</param>
 		/// <returns>True if domain name is valid.</returns>
-		public static bool IsValidGroupName(string groupName)
+		public static bool IsValidGroupName(System.String groupName)
 		{
 			return Regex.IsMatch(groupName,
 			                     @"^[a-zA-Z0-9_\-]*$");
@@ -112,9 +112,9 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="nationalCode">National code for validation.</param>
 		/// <returns>True if national code is valid.</returns>
-		public static bool IsValidNationalCode(string nationalCode)
+		public static bool IsValidNationalCode(System.String nationalCode)
 		{
-			if (string.IsNullOrEmpty(nationalCode)) throw new InvalidDataException("Lotfan yek code melli sahih vared namaaeid.");
+			if (System.String.IsNullOrEmpty(nationalCode)) throw new InvalidDataException("Lotfan yek code melli sahih vared namaaeid.");
 
 			if (nationalCode.Length != 10) throw new InvalidOperationException("Code melli baayad hadeaghal 10 kaaraakter daashteh baashad.");
 
@@ -156,7 +156,7 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="password">Password for validation.</param>
 		/// <returns>True if user name is valid.</returns>
-		public static bool IsValidPassword(string password)
+		public static bool IsValidPassword(System.String password)
 		{
 			return Regex.IsMatch(password,
 			                     @"^([a-zA-Z0-9_\.~!@#$%^&*()\-+=<>,\\|{}\[\]'/`?\:\;]{8,20})*$");
@@ -167,7 +167,7 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="word">Word for validation.</param>
 		/// <returns>True if word is system word.</returns>
-		public static bool IsValidSystemWord(string word)
+		public static bool IsValidSystemWord(System.String word)
 		{
 			return Regex.IsMatch(word,
 			                     @"\[*[A-Z0-9_]*\]");
@@ -178,7 +178,7 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="userName">User name for validation.</param>
 		/// <returns>True if user name is valid.</returns>
-		public static bool IsValidUserName(string userName)
+		public static bool IsValidUserName(System.String userName)
 		{
 			return Regex.IsMatch(userName,
 			                     @"^[a-zA-Z0-9_\.]*$");

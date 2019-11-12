@@ -57,7 +57,7 @@ namespace Diten.Management.Hardware
 		/// <summary>
 		///    Get name of the current <see cref="Computer" />.
 		/// </summary>
-		public static string MachineName => System.Environment.MachineName;
+		public static System.String MachineName => System.Environment.MachineName;
 
 		/// <summary>
 		///    Get <see cref="NetworkInterface" />s that are plugged on the <see cref="Computer" />.
@@ -91,7 +91,7 @@ namespace Diten.Management.Hardware
 				                      }{
 					                      MachineName
 				                      }{
-					                      Processors.Aggregate(string.Empty,
+					                      Processors.Aggregate(System.String.Empty,
 					                                           (current,
 					                                            processor) =>
 						                                           current +

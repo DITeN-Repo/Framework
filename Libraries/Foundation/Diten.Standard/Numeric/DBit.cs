@@ -34,7 +34,7 @@ namespace Diten.Numeric
 		#region Implementation of IComparable
 
 		/// <inheritdoc cref="IComparable.CompareTo" />
-		public int CompareTo(object obj)
+		public Int32 CompareTo(System.Object obj)
 		{
 			if (obj is DBit) return CompareTo((DBit) obj);
 
@@ -46,7 +46,7 @@ namespace Diten.Numeric
 		#region Implementation of IComparable<in bool>
 
 		/// <inheritdoc cref="IComparable{T}.CompareTo" />
-		public int CompareTo(bool other)
+		public Int32 CompareTo(bool other)
 		{
 			if (Value[0] == other) return 0;
 
@@ -63,7 +63,7 @@ namespace Diten.Numeric
 		///    true if the current object is equal to the <paramref name="other">other</paramref> parameter; otherwise,
 		///    false.
 		/// </returns>
-		public bool Equals(bool other) => System.Convert.ToBoolean(Value[0]);
+		public Boolean Equals(bool other) => System.Convert.ToBoolean(Value[0]);
 
 		#endregion
 
@@ -79,7 +79,7 @@ namespace Diten.Numeric
 		///    Basic) to obtain the numeric format information from the current locale setting of the operating system.
 		/// </param>
 		/// <returns>The value of the current instance in the specified format.</returns>
-		public string ToString(string format,
+		public System.String ToString(System.String format,
 		                       IFormatProvider formatProvider) =>
 			System.Convert.ToString(Value[0]);
 
@@ -95,7 +95,7 @@ namespace Diten.Numeric
 		}
 
 		/// <inheritdoc cref="IComparable{T}.CompareTo" />
-		public int CompareTo(DBit other)
+		public Int32 CompareTo(DBit other)
 		{
 			if (other == null) return -1;
 
@@ -122,7 +122,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A Boolean value equivalent to the value of this instance.</returns>
-		public bool ToBoolean(IFormatProvider provider) => System.Convert.ToBoolean(Value[0]);
+		public Boolean ToBoolean(IFormatProvider provider) => System.Convert.ToBoolean(Value[0]);
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 8-bit unsigned integer using the specified
@@ -188,7 +188,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 16-bit signed integer equivalent to the value of this instance.</returns>
-		public short ToInt16(IFormatProvider provider) => System.Convert.ToInt16(Value[0]);
+		public Int16 ToInt16(IFormatProvider provider) => System.Convert.ToInt16(Value[0]);
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 32-bit signed integer using the specified
@@ -199,7 +199,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>An 32-bit signed integer equivalent to the value of this instance.</returns>
-		public int ToInt32(IFormatProvider provider) => System.Convert.ToInt32(Value[0]);
+		public Int32 ToInt32(IFormatProvider provider) => System.Convert.ToInt32(Value[0]);
 
 		/// <summary>
 		///    Converts the value of this instance to an equivalent 64-bit signed integer using the specified
@@ -243,7 +243,7 @@ namespace Diten.Numeric
 		///    culture-specific formatting information.
 		/// </param>
 		/// <returns>A <see cref="T:System.String"></see> instance equivalent to the value of this instance.</returns>
-		public string ToString(IFormatProvider provider) => System.Convert.ToString(Value[0]);
+		public System.String ToString(IFormatProvider provider) => System.Convert.ToString(Value[0]);
 
 		/// <summary>
 		///    Converts the value of this instance to an <see cref="T:System.Object"></see> of the specified

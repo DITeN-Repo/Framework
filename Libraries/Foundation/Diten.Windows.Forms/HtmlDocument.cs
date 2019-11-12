@@ -24,6 +24,6 @@ namespace Diten.Windows.Forms
 	{
 		public HtmlDocument() {}
 
-		public HtmlDocument(string url) { Load(new WebClient {Encoding = Encoding.UTF8}.OpenRead(url)); }
+		public HtmlDocument(System.String url) { Load(new WebClient {Encoding = Encoding.UTF8}.OpenRead(url)); }
 	}
 }

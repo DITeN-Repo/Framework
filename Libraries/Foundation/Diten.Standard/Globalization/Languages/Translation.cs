@@ -15,7 +15,7 @@ namespace Diten.Globalization.Languages
 {
 	public class Translation
 	{
-		public static string Translate(string source,
+		public static System.String Translate(System.String source,
 		                               string systemCultureName,
 		                               string cultureName)
 		{
@@ -25,7 +25,7 @@ namespace Diten.Globalization.Languages
 			                 false);
 		}
 
-		public static string Translate(string source,
+		public static System.String Translate(System.String source,
 		                               string systemCultureName,
 		                               string cultureName,
 		                               bool isValidSystemWord)

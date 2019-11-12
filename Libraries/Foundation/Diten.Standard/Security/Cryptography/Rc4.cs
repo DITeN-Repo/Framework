@@ -32,7 +32,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="key">Key of encryption.</param>
 		/// <param name="data">Encrypted Data for decryption.</param>
 		/// <returns>Text decrypted data.</returns>
-		public static string Decrypt(string key,
+		public static System.String Decrypt(System.String key,
 		                             byte[] data)
 		{
 			return data == null
@@ -47,7 +47,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="key">Key of encryption.</param>
 		/// <param name="data">Encrypted Data for decryption.</param>
 		/// <returns>Text decrypted data.</returns>
-		public static string Decrypt(string key,
+		public static System.String Decrypt(System.String key,
 		                             string data)
 		{
 			return data == null
@@ -62,7 +62,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="key">Key of encryption.</param>
 		/// <param name="data">Binary data for decryption.</param>
 		/// <returns>Binary decrypted data.</returns>
-		public static string Decrypt(byte[] key,
+		public static System.String Decrypt(byte[] key,
 		                             byte[] data)
 		{
 			return Encoding.Unicode.GetString(EncryptOutput(key,
@@ -76,7 +76,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="key">Key of encryption.</param>
 		/// <param name="data">Data for encryption.</param>
 		/// <returns>Text RC4 encrypted data.</returns>
-		public static string Encrypt(string key,
+		public static System.String Encrypt(System.String key,
 		                             byte[] data)
 		{
 			return data == null
@@ -91,7 +91,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="key">Key of encryption.</param>
 		/// <param name="data">Data for encryption.</param>
 		/// <returns>Text RC4 encrypted data.</returns>
-		public static string Encrypt(string key,
+		public static System.String Encrypt(System.String key,
 		                             string data)
 		{
 			return data == null
@@ -106,7 +106,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="key">Key of encryption.</param>
 		/// <param name="data">Binary data for encryption.</param>
 		/// <returns>Binary encrypted data.</returns>
-		public static string Encrypt(byte[] key,
+		public static System.String Encrypt(byte[] key,
 		                             byte[] data)
 		{
 			return Encoding.Unicode.GetString(EncryptOutput(key,
@@ -114,7 +114,7 @@ namespace Diten.Security.Cryptography
 				                                  .ToArray());
 		}
 
-		private static byte[] EncryptInitalize(IReadOnlyList<byte> key)
+		private static byte[] EncryptInitalize(IReadOnlyList<System.Byte> key)
 		{
 			var s = Enumerable.Range(0,
 			                         256)
@@ -136,8 +136,8 @@ namespace Diten.Security.Cryptography
 			return s;
 		}
 
-		private static IEnumerable<byte> EncryptOutput(IReadOnlyList<byte> key,
-		                                               IEnumerable<byte> data)
+		private static IEnumerable<System.Byte> EncryptOutput(IReadOnlyList<System.Byte> key,
+		                                               IEnumerable<System.Byte> data)
 		{
 			var s = EncryptInitalize(key);
 			var i = 0;
@@ -156,7 +156,7 @@ namespace Diten.Security.Cryptography
 			                   });
 		}
 
-		private static void Swap(IList<byte> s,
+		private static void Swap(IList<System.Byte> s,
 		                         int i,
 		                         int j)
 		{

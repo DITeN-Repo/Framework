@@ -115,7 +115,7 @@ namespace Diten.Collections.Generic
 		private IMongoCollection<TObject> _collection;
 
 		//ToDo: Check Commented code.
-		//protected Concept(string connectionString = null, string databaseServerAddress = "localhost")
+		//protected Concept(System.String connectionString = null, string databaseServerAddress = "localhost")
 		//{
 		//	if (IgnoreDB)
 		//		return;

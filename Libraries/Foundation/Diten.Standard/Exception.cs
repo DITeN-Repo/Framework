@@ -33,7 +33,7 @@ namespace Diten
 	public sealed class Exception: EX
 	{
 		/// <inheritdoc />
-		public Exception(string message,
+		public Exception(System.String message,
 		                 EX innerException = null): base(message,
 		                                                 innerException)
 		{
@@ -67,7 +67,7 @@ namespace Diten
 			                              true) +
 			          Environment.NewLine +
 			          Tools.DesignMessage("Frames in StackTrace",
-			                              new Func<string>(() => (stackTrace.GetFrames() ??
+			                              new Func<System.String>(() => (stackTrace.GetFrames() ??
 			                                                      throw new
 				                                                      InvalidOperationException(
 				                                                                                Exceptions.Default

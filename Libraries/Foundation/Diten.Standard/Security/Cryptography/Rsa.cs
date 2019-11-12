@@ -44,7 +44,7 @@ namespace Diten.Security.Cryptography
 			return decryptedData;
 		}
 
-		public string Decrypt(string value)
+		public System.String Decrypt(System.String value)
 		{
 			return UnicodeEncoding.GetString(Decrypt(UnicodeEncoding.GetBytes(value),
 			                                         RsaCryptoServiceProvider.ExportParameters(true),
@@ -67,7 +67,7 @@ namespace Diten.Security.Cryptography
 			return encryptedData;
 		}
 
-		public string Encrypt(string value)
+		public System.String Encrypt(System.String value)
 		{
 			return UnicodeEncoding.GetString(Encrypt(UnicodeEncoding.GetBytes(value),
 			                                         RsaCryptoServiceProvider.ExportParameters(false),

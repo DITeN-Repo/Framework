@@ -25,6 +25,6 @@ namespace Diten
 		public NotImplementedException(): this(
 		                                       $@"Module [{Assembly.GetCurrentMethodName()}] must be controlled later for logical mistakes.") {}
 
-		public NotImplementedException(string message): base(message) {}
+		public NotImplementedException(System.String message): base(message) {}
 	}
 }

@@ -72,7 +72,7 @@ namespace Diten.Sockets
 			}
 		}
 
-		public Asynchronous(string serverUrl,
+		public Asynchronous(System.String serverUrl,
 		                    int port,
 		                    Condition condition): this(
 		                                               Tools.Ping(serverUrl).Address,
@@ -82,8 +82,8 @@ namespace Diten.Sockets
 		// ReSharper disable once MemberCanBePrivate.Global
 		public Byte Response {get;}
 
-		public bool Sleep {get; set;} = false;
-		public bool StopListening {get; set;} = false;
+		public Boolean Sleep {get; set;} = false;
+		public Boolean StopListening {get; set;} = false;
 		private readonly ManualResetEvent _allDone;
 		private readonly ManualResetEvent _connectDone;
 		private readonly ManualResetEvent _receiveDone;
@@ -175,7 +175,7 @@ namespace Diten.Sockets
 			else { _receiveDone.Set(); }
 		}
 
-		public bool Release()
+		public Boolean Release()
 		{
 			try
 			{

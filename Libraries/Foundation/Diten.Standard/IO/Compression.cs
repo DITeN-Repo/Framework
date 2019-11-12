@@ -23,7 +23,7 @@ namespace Diten.IO
 {
 	public class Compression
 	{
-		public static string UnZip(string value)
+		public static System.String UnZip(System.String value)
 		{
 			//Transform string into byte[]
 			var byteArray = new byte[value.Length];
@@ -60,7 +60,7 @@ namespace Diten.IO
 			return stringBuilder.ToString();
 		}
 
-		public static string Zip(string value)
+		public static System.String Zip(System.String value)
 		{
 			//Transform string into byte[]  
 			var byteArray = new byte[value.Length];

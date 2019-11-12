@@ -63,7 +63,7 @@ namespace Diten.Sockets
 			}
 		}
 
-		public Synchronous(string serverUrl,
+		public Synchronous(System.String serverUrl,
 		                   int port,
 		                   Condition condition): this(
 		                                              Tools.Ping(serverUrl).Address,
@@ -468,7 +468,7 @@ namespace Diten.Sockets
 		/// </summary>
 		public event EventHandler<ReceiveDoneEventArgs> ReceiveDone;
 
-		public bool Release()
+		public Boolean Release()
 		{
 			try
 			{

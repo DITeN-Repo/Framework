@@ -38,6 +38,6 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">A <see cref="Char.ReservedChars" /> that must be converted into <see cref="string" />.</param>
 		/// <returns>An <see cref="string" />.</returns>
-		public static string ToCharString(this Char.ReservedChars value) { return value.ToChar().ToString(); }
+		public static System.String ToCharString(this Char.ReservedChars value) { return value.ToChar().ToString(); }
 	}
 }

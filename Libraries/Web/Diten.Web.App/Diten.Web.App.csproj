@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D34CBABE-E8B0-46DD-B6DC-3E4B9F9E5B20}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diten.Web.App</RootNamespace>
+    <AssemblyName>Diten.Web.App</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Ext.NET">
+      <Version>4.8.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Diten.Core\Diten.Core.csproj">
+      <Project>{A6770266-B0CC-4965-BE7E-FDA40003D3B4}</Project>
+      <Name>Diten.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Foundation\Diten.Web\Diten.Web.csproj">
+      <Project>{B12D20D5-9BCA-4D46-B78E-1594321425D5}</Project>
+      <Name>Diten.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Diten\Diten.csproj">
+      <Project>{09fee88c-705a-4c19-903a-3db3c437887d}</Project>
+      <Name>Diten</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diten.Web.UI.Apps\Diten.Web.UI.Apps.csproj">
+      <Project>{6ddf7ce9-a9ae-4b18-a502-0b6956ddfa09}</Project>
+      <Name>Diten.Web.UI.Apps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diten.Web.UI\Diten.Web.UI.csproj">
+      <Project>{76cba1a7-05f5-4474-ac20-ca01a932b046}</Project>
+      <Name>Diten.Web.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CACHE\App.Diten_Web_UI_WebControls_Templates_Application_ApplicationTemplate_ButtonHistory.png" />
+    <Content Include="CACHE\App.Diten_Web_UI_WebControls_Templates_Application_ApplicationTemplate_ButtonInvertSelection.png" />
+    <Content Include="CACHE\App.Diten_Web_UI_WebControls_Templates_Application_ApplicationTemplate_ButtonPinTo.png" />
+    <Content Include="CACHE\App.Diten_Web_UI_WebControls_Templates_Application_ApplicationTemplate_ButtonRename.png" />
+    <Content Include="CACHE\App.Diten_Web_UI_WebControls_Templates_Application_ApplicationTemplate_ButtonSelectAll.png" />
+    <Content Include="CACHE\App.Diten_Web_UI_WebControls_Templates_Application_ApplicationTemplate_ButtonSelectNone.png" />
+    <Content Include="CACHE\Diten_Web_UI_WebControls_Templates_Application_ApplicationTemplate.png" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <None Include="Resources\cmd.png" />
+    <None Include="Resources\desktop.css" />
+    <None Include="Resources\grid48x48.png" />
+    <None Include="Resources\im48x48.gif" />
+    <None Include="Resources\Logo.png" />
+    <None Include="Resources\logo-ext.png" />
+    <None Include="Resources\Logo-Full.png" />
+    <None Include="Resources\notepadLarge.png" />
+    <None Include="Resources\powered.png" />
+    <None Include="Resources\statusLarge.png" />
+    <None Include="Resources\user48x48.png" />
+    <None Include="Resources\window48x48.png" />
+    <Content Include="Resources\wallpapers\Background001.jpg" />
+    <Content Include="Resources\wallpapers\Background002.jpg" />
+    <Content Include="Resources\wallpapers\Blue.jpg" />
+    <Content Include="Resources\wallpapers\desk.jpg" />
+    <Content Include="TEMP\Desktop.aspx" />
+    <Content Include="TEMP\TestControl.exe.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TEMP\TestControl.exe.ascx.cs">
+      <DependentUpon>TestControl.exe.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TEMP\TestControl.exe.ascx.designer.cs">
+      <DependentUpon>TestControl.exe.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TEMP\CreatorWorks.xls" />
+    <Content Include="TEMP\CreatorWorks.xlsx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UPS Demo|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>iisreset</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

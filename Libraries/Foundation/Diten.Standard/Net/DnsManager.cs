@@ -27,7 +27,7 @@ namespace Diten.Net
 
 	internal class Program
 	{
-		private static void Main(string[] args)
+		private static void Main(System.String[] args)
 		{
 			Console.Write("Connecting to the DNS Server...");
 			var d = new Dns("vex.nullify.net"); //my internal DNS Server, change to yours.
@@ -96,7 +96,7 @@ namespace Diten.Net
 		///    Create a new DNS Server connection
 		/// </summary>
 		/// <param name="server">The hostname, IP or FQDN of a DNS server you have access to with the current credentials</param>
-		public Dns(string server)
+		public Dns(System.String server)
 		{
 			var co = new ConnectionOptions();
 			_scope = new ManagementScope($@"\\{server}\Root\MicrosoftDNS",
@@ -112,7 +112,7 @@ namespace Diten.Net
 		/// <param name="server">The hostname, IP or FQDN of a DNS server you have access to with the current credentials</param>
 		/// <param name="username">The username to connect with</param>
 		/// <param name="password">The users password</param>
-		public Dns(string server,
+		public Dns(System.String server,
 		           string username,
 		           string password)
 		{
@@ -130,7 +130,7 @@ namespace Diten.Net
 		/// <summary>
 		///    The server this connection applies to
 		/// </summary>
-		public string Server {get;} = "";
+		public System.String Server {get;} = "";
 
 		private readonly ManagementScope _scope;
 
@@ -140,7 +140,7 @@ namespace Diten.Net
 		/// <param name="zone"></param>
 		/// <param name="bindStyleHostEntry"></param>
 		/// <returns></returns>
-		public void CreateDnsRecord(string zone,
+		public void CreateDnsRecord(System.String zone,
 		                            string bindStyleHostEntry)
 		{
 			try
@@ -171,7 +171,7 @@ namespace Diten.Net
 		/// </summary>
 		/// <param name="zone"></param>
 		/// <param name="record"></param>
-		public void CreateDnsRecord(string zone,
+		public void CreateDnsRecord(System.String zone,
 		                            DnsRecord record)
 		{
 			CreateDnsRecord(zone,
@@ -184,7 +184,7 @@ namespace Diten.Net
 		/// <param name="zoneName">The zone to create</param>
 		/// <param name="zoneType">The type of zone to create</param>
 		/// <returns>The domain</returns>
-		public DnsDomain CreateNewZone(string zoneName,
+		public DnsDomain CreateNewZone(System.String zoneName,
 		                               NewZoneType zoneType)
 		{
 			try
@@ -238,7 +238,7 @@ namespace Diten.Net
 		/// </remarks>
 		/// <param name="hostName">The name to look up</param>
 		/// <returns></returns>
-		public DnsRecord[] GetExistingDnsRecords(string hostName)
+		public DnsRecord[] GetExistingDnsRecords(System.String hostName)
 		{
 			var query = $"SELECT * FROM MicrosoftDNS_ResourceRecord WHERE OwnerName='{hostName}'";
 			var searcher = new ManagementObjectSearcher(_scope,
@@ -250,7 +250,7 @@ namespace Diten.Net
 			        select new DnsRecord(p)).ToArray();
 		}
 
-		public static List<IPAddress> GetHostAddresses(string hostName)
+		public static List<IPAddress> GetHostAddresses(System.String hostName)
 		{
 			var _return = new List<IPAddress>();
 
@@ -265,7 +265,7 @@ namespace Diten.Net
 		/// </summary>
 		/// <param name="ip">IP address.</param>
 		/// <returns>Host name.</returns>
-		public static string GetHostName(IPAddress ip)
+		public static System.String GetHostName(IPAddress ip)
 		{
 			var hostName = "HostName";
 
@@ -311,7 +311,7 @@ namespace Diten.Net
 		/// </summary>
 		/// <param name="domain">The domain to connect to</param>
 		/// <returns></returns>
-		public DnsRecord[] GetRecordsForDomain(string domain)
+		public DnsRecord[] GetRecordsForDomain(System.String domain)
 		{
 			var query = $"SELECT * FROM MicrosoftDNS_ResourceRecord WHERE DomainName='{domain}'";
 			var searcher = new ManagementObjectSearcher(_scope,
@@ -364,7 +364,7 @@ namespace Diten.Net
 			/// <param name="name">The name of the DNS zone</param>
 			/// <param name="wmiObject">The object that represents it in MS DNS server</param>
 			/// <param name="server">The DNS Server it is to be managed by</param>
-			public DnsDomain(string name,
+			public DnsDomain(System.String name,
 			                 ManagementBaseObject wmiObject,
 			                 Dns server)
 			{
@@ -376,12 +376,12 @@ namespace Diten.Net
 			/// <summary>
 			///    The name of the DNS zone
 			/// </summary>
-			public string Name {get; set;}
+			public System.String Name {get; set;}
 
 			/// <summary>
 			///    Is this a reverse DNS zone?
 			/// </summary>
-			public bool ReverseZone => _wmiObject["Reverse"].ToString() == "1";
+			public Boolean ReverseZone => _wmiObject["Reverse"].ToString() == "1";
 
 			/// <summary>
 			///    The zone type
@@ -423,7 +423,7 @@ namespace Diten.Net
 			/// <param name="domain"></param>
 			/// <param name="recordType"></param>
 			/// <param name="target"></param>
-			public DnsRecord(string domain,
+			public DnsRecord(System.String domain,
 			                 DnsRecordType recordType,
 			                 string target):
 				this(domain,
@@ -440,7 +440,7 @@ namespace Diten.Net
 			/// <param name="recordType"></param>
 			/// <param name="target"></param>
 			/// <param name="ttl"></param>
-			public DnsRecord(string domain,
+			public DnsRecord(System.String domain,
 			                 DnsRecordType recordType,
 			                 string target,
 			                 TimeSpan ttl)
@@ -473,7 +473,7 @@ namespace Diten.Net
 			/// <summary>
 			///    The location in the DNS system for this record
 			/// </summary>
-			public string DomainHost {get; set;}
+			public System.String DomainHost {get; set;}
 
 			/// <summary>
 			///    The record type
@@ -484,7 +484,7 @@ namespace Diten.Net
 			///    The value of the target is what is written to DNS as the value of a record
 			/// </summary>
 			/// <remarks>For MX records include the priority as a number with a space or tab between it and the actual target</remarks>
-			public string Target {get; set;}
+			public System.String Target {get; set;}
 
 			/// <summary>
 			///    The time that the resolvers should cache this record for
@@ -665,17 +665,17 @@ namespace Diten.Net
 			///    Create a new DNS record type
 			/// </summary>
 			/// <param name="textRepresentation">The type to create</param>
-			public DnsRecordType(string textRepresentation) { _textRepresentation = textRepresentation; }
+			public DnsRecordType(System.String textRepresentation) { _textRepresentation = textRepresentation; }
 
 			/// <summary>
 			///    The mode of the record, usually IN but could oneday be something else like OUT
 			/// </summary>
-			public string RecordMode {get; set;} = "IN";
+			public System.String RecordMode {get; set;} = "IN";
 
 			/// <summary>
 			///    The text representation of the record type
 			/// </summary>
-			public string TextRepresentation => _textRepresentation.ToUpper();
+			public System.String TextRepresentation => _textRepresentation.ToUpper();
 
 			private readonly string _textRepresentation;
 

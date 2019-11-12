@@ -31,7 +31,7 @@ namespace Diten
 		///    <para>length</para>
 		///    repeat of character '-' (Dash).
 		/// </returns>
-		internal static string ToSeparator(this string value)
+		internal static System.String ToSeparator(this string value)
 		{
 			var length = SystemParameters.FullPrimaryScreenWidth / 10 - value.Length - 75 - 6;
 

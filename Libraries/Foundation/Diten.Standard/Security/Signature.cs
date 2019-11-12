@@ -70,10 +70,10 @@ namespace Diten.Security
 		public Signature(): this(null) {}
 
 		/// <inheritdoc />
-		public Signature(object value = null): this(value.ToBytes()) {}
+		public Signature(System.Object value = null): this(value.ToBytes()) {}
 
 		/// <inheritdoc />
-		public Signature(IEnumerable<byte> value = null)
+		public Signature(IEnumerable<System.Byte> value = null)
 		{
 			using (var shaKey = new SHAKey<TKey>(Value.Value.Append(value))) { Value = shaKey.Value.ToByte(); }
 		}

@@ -20,6 +20,6 @@ namespace Diten.Web.UI.Themes.Default
 		///    Get namespace of <inheritdoc cref="Default" />.
 		/// </summary>
 		/// <returns></returns>
-		public new static string GetNameSpace() { return @"Diten.Web.UI.Themes.Default"; }
+		public new static System.String GetNameSpace() { return @"Diten.Web.UI.Themes.Default"; }
 	}
 }

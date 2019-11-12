@@ -34,7 +34,7 @@ namespace Diten.Blockchain
 		/// </summary>
 		public Signature<TKey> Signature =>
 			new Signature<TKey>(SHA256.Encrypt(Computer.Processors.ToList()
-			                                           .Aggregate(string.Empty,
+			                                           .Aggregate(System.String.Empty,
 			                                                      (result,
 			                                                       next) => $@"{
 					                                                                next.Manufacturer

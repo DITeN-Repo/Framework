@@ -15,7 +15,7 @@ namespace Diten.Globalization
 {
 	public class Cultures
 	{
-		public static string Translate(string value,
+		public static System.String Translate(System.String value,
 		                               CultureTypes sourceCulture = CultureTypes.Persian,
 		                               CultureTypes destinationCulture = CultureTypes.EnglishUs)
 		{

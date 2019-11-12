@@ -15,6 +15,6 @@ namespace Diten.Net.Http
 {
 	public class Tools
 	{
-		public static string GetDomainName(string url) { return url.Split("/".ToCharArray())[2]; }
+		public static System.String GetDomainName(System.String url) { return url.Split("/".ToCharArray())[2]; }
 	}
 }

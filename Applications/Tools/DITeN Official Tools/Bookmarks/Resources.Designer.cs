@@ -73,7 +73,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to Bookmarks Menu.
         /// </summary>
-        public static string Diten_Bookmarks_Menu {
+        public static System.String Diten_Bookmarks_Menu {
             get {
                 return ResourceManager.GetString("Diten_Bookmarks_Menu", resourceCulture);
             }
@@ -122,7 +122,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to ADD_DATE.
         /// </summary>
-        public static string PropADD_DATE {
+        public static System.String PropADD_DATE {
             get {
                 return ResourceManager.GetString("PropADD_DATE", resourceCulture);
             }
@@ -131,7 +131,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to HREF.
         /// </summary>
-        public static string PropHREF {
+        public static System.String PropHREF {
             get {
                 return ResourceManager.GetString("PropHREF", resourceCulture);
             }
@@ -140,7 +140,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to ICON.
         /// </summary>
-        public static string PropICON {
+        public static System.String PropICON {
             get {
                 return ResourceManager.GetString("PropICON", resourceCulture);
             }
@@ -149,7 +149,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to ICON_URI.
         /// </summary>
-        public static string PropICON_URI {
+        public static System.String PropICON_URI {
             get {
                 return ResourceManager.GetString("PropICON_URI", resourceCulture);
             }
@@ -158,7 +158,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to LAST_MODIFIED.
         /// </summary>
-        public static string PropLAST_MODIFIED {
+        public static System.String PropLAST_MODIFIED {
             get {
                 return ResourceManager.GetString("PropLAST_MODIFIED", resourceCulture);
             }
@@ -167,7 +167,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to SHORTCUTURL.
         /// </summary>
-        public static string PropSHORTCUTURL {
+        public static System.String PropSHORTCUTURL {
             get {
                 return ResourceManager.GetString("PropSHORTCUTURL", resourceCulture);
             }
@@ -176,7 +176,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to TAGS.
         /// </summary>
-        public static string PropTAGS {
+        public static System.String PropTAGS {
             get {
                 return ResourceManager.GetString("PropTAGS", resourceCulture);
             }
@@ -185,7 +185,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to A.
         /// </summary>
-        public static string TagA {
+        public static System.String TagA {
             get {
                 return ResourceManager.GetString("TagA", resourceCulture);
             }
@@ -194,7 +194,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to #comment.
         /// </summary>
-        public static string TagComment {
+        public static System.String TagComment {
             get {
                 return ResourceManager.GetString("TagComment", resourceCulture);
             }
@@ -203,7 +203,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to DL.
         /// </summary>
-        public static string TagDL {
+        public static System.String TagDL {
             get {
                 return ResourceManager.GetString("TagDL", resourceCulture);
             }
@@ -212,7 +212,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to DOCTYPE.
         /// </summary>
-        public static string TagDOCTYPE {
+        public static System.String TagDOCTYPE {
             get {
                 return ResourceManager.GetString("TagDOCTYPE", resourceCulture);
             }
@@ -221,7 +221,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to DT.
         /// </summary>
-        public static string TagDT {
+        public static System.String TagDT {
             get {
                 return ResourceManager.GetString("TagDT", resourceCulture);
             }
@@ -230,7 +230,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to H1.
         /// </summary>
-        public static string TagH1 {
+        public static System.String TagH1 {
             get {
                 return ResourceManager.GetString("TagH1", resourceCulture);
             }
@@ -239,7 +239,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to H3.
         /// </summary>
-        public static string TagH3 {
+        public static System.String TagH3 {
             get {
                 return ResourceManager.GetString("TagH3", resourceCulture);
             }
@@ -248,7 +248,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to META.
         /// </summary>
-        public static string TagMETA {
+        public static System.String TagMETA {
             get {
                 return ResourceManager.GetString("TagMETA", resourceCulture);
             }
@@ -257,7 +257,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to p.
         /// </summary>
-        public static string TagP {
+        public static System.String TagP {
             get {
                 return ResourceManager.GetString("TagP", resourceCulture);
             }
@@ -266,7 +266,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
         /// <summary>
         ///   Looks up a localized string similar to TITLE.
         /// </summary>
-        public static string TagTITLE {
+        public static System.String TagTITLE {
             get {
                 return ResourceManager.GetString("TagTITLE", resourceCulture);
             }

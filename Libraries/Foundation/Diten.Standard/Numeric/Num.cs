@@ -20,7 +20,7 @@
 //	public class Num<TNumeric> : Object<TNumeric>, IDBit<TNumeric>
 //		where TNumeric : IComparable, IFormattable, IConvertible, IComparable<TNumeric>, IEquatable<TNumeric>
 //	{
-//		public int CompareTo(object obj)
+//		public Int32 CompareTo(System.Object obj)
 //		{
 //			if (obj == null)
 //				return 1;
@@ -33,13 +33,13 @@
 //			return ((IComparable) this).CompareTo(obj);
 //		}
 
-//		public int CompareTo(TNumeric other) => throw new NotImplementedException();
+//		public Int32 CompareTo(TNumeric other) => throw new NotImplementedException();
 
-//		public bool Equals(TNumeric other) => throw new NotImplementedException();
+//		public Boolean Equals(TNumeric other) => throw new NotImplementedException();
 
 //		public TypeCode GetTypeCode() => throw new NotImplementedException();
 
-//		public bool ToBoolean(IFormatProvider provider) => throw new NotImplementedException();
+//		public Boolean ToBoolean(IFormatProvider provider) => throw new NotImplementedException();
 
 //		public byte ToByte(IFormatProvider provider) => throw new NotImplementedException();
 
@@ -51,9 +51,9 @@
 
 //		public double ToDouble(IFormatProvider provider) => throw new NotImplementedException();
 
-//		public short ToInt16(IFormatProvider provider) => throw new NotImplementedException();
+//		public Int16 ToInt16(IFormatProvider provider) => throw new NotImplementedException();
 
-//		public int ToInt32(IFormatProvider provider) => throw new NotImplementedException();
+//		public Int32 ToInt32(IFormatProvider provider) => throw new NotImplementedException();
 
 //		public long ToInt64(IFormatProvider provider) => throw new NotImplementedException();
 
@@ -61,9 +61,9 @@
 
 //		public float ToSingle(IFormatProvider provider) => throw new NotImplementedException();
 
-//		public string ToString(IFormatProvider provider) => throw new NotImplementedException();
+//		public System.String ToString(IFormatProvider provider) => throw new NotImplementedException();
 
-//		public string ToString(string format, IFormatProvider formatProvider) => throw new NotImplementedException();
+//		public System.String ToString(System.String format, IFormatProvider formatProvider) => throw new NotImplementedException();
 
 //		public object ToType(Type conversionType, IFormatProvider provider) => throw new NotImplementedException();
 

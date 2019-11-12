@@ -85,7 +85,6 @@ namespace Diten.Collections.Generic
 	// ReSharper disable once UnusedTypeParameter
 	public interface IObject<TObject, TKey>: IEntity<TKey>
 		where TKey: ISHA
-		where TObject: ISerializable
 	{
 		/// <summary>
 		///    Get children of the object.
@@ -175,7 +174,7 @@ namespace Diten.Collections.Generic
 		/// </summary>
 		/// <param name="path">Path to the object in repository.</param>
 		/// <returns>Return object.</returns>
-		TObject Load(string path);
+		TObject Load(System.String path);
 
 		/// <summary>
 		///    Save data into repository.

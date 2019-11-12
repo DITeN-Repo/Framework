@@ -28,7 +28,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("خطا")]
         public string Error {
             get {
-                return ((string)(this["Error"]));
+                return ((System.String)(this["Error"]));
             }
         }
         
@@ -37,7 +37,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("هشدار")]
         public string Warning {
             get {
-                return ((string)(this["Warning"]));
+                return ((System.String)(this["Warning"]));
             }
         }
         
@@ -46,7 +46,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("اطلاعات")]
         public string Information {
             get {
-                return ((string)(this["Information"]));
+                return ((System.String)(this["Information"]));
             }
         }
         
@@ -55,7 +55,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("بله")]
         public string Yes {
             get {
-                return ((string)(this["Yes"]));
+                return ((System.String)(this["Yes"]));
             }
         }
         
@@ -64,7 +64,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("خیر")]
         public string No {
             get {
-                return ((string)(this["No"]));
+                return ((System.String)(this["No"]));
             }
         }
         
@@ -73,7 +73,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("بارگذاری")]
         public string Loading {
             get {
-                return ((string)(this["Loading"]));
+                return ((System.String)(this["Loading"]));
             }
         }
         
@@ -82,7 +82,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("قاب کاری توفاش")]
         public string DITeNFramework {
             get {
-                return ((string)(this["DITeNFramework"]));
+                return ((System.String)(this["DITeNFramework"]));
             }
         }
         
@@ -91,7 +91,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("پوشه جدید")]
         public string NewFolder {
             get {
-                return ((string)(this["NewFolder"]));
+                return ((System.String)(this["NewFolder"]));
             }
         }
         
@@ -100,7 +100,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("میانبر جدید")]
         public string NewShortcut {
             get {
-                return ((string)(this["NewShortcut"]));
+                return ((System.String)(this["NewShortcut"]));
             }
         }
         
@@ -109,7 +109,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("ساختن میانبر")]
         public string CreateShortCut {
             get {
-                return ((string)(this["CreateShortCut"]));
+                return ((System.String)(this["CreateShortCut"]));
             }
         }
         
@@ -118,7 +118,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("میز کار")]
         public string Desktop {
             get {
-                return ((string)(this["Desktop"]));
+                return ((System.String)(this["Desktop"]));
             }
         }
         
@@ -127,7 +127,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("نام")]
         public string Name {
             get {
-                return ((string)(this["Name"]));
+                return ((System.String)(this["Name"]));
             }
         }
         
@@ -136,7 +136,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("نوع")]
         public string Type {
             get {
-                return ((string)(this["Type"]));
+                return ((System.String)(this["Type"]));
             }
         }
         
@@ -145,7 +145,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("تاریخ ایجاد")]
         public string CreationDate {
             get {
-                return ((string)(this["CreationDate"]));
+                return ((System.String)(this["CreationDate"]));
             }
         }
         
@@ -154,7 +154,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("تاریخ تغییر")]
         public string DateModified {
             get {
-                return ((string)(this["DateModified"]));
+                return ((System.String)(this["DateModified"]));
             }
         }
         
@@ -163,7 +163,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("باز کردن")]
         public string Openning {
             get {
-                return ((string)(this["Openning"]));
+                return ((System.String)(this["Openning"]));
             }
         }
         
@@ -172,7 +172,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("جدید")]
         public string New {
             get {
-                return ((string)(this["New"]));
+                return ((System.String)(this["New"]));
             }
         }
         
@@ -181,7 +181,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("برش")]
         public string Cut {
             get {
-                return ((string)(this["Cut"]));
+                return ((System.String)(this["Cut"]));
             }
         }
         
@@ -190,7 +190,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("کپی")]
         public string Copy {
             get {
-                return ((string)(this["Copy"]));
+                return ((System.String)(this["Copy"]));
             }
         }
         
@@ -199,7 +199,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("چسباندن")]
         public string Paste {
             get {
-                return ((string)(this["Paste"]));
+                return ((System.String)(this["Paste"]));
             }
         }
         
@@ -208,7 +208,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("ارسال به")]
         public string SendTo {
             get {
-                return ((string)(this["SendTo"]));
+                return ((System.String)(this["SendTo"]));
             }
         }
         
@@ -217,7 +217,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("حذف")]
         public string Delete {
             get {
-                return ((string)(this["Delete"]));
+                return ((System.String)(this["Delete"]));
             }
         }
         
@@ -226,7 +226,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("تغییر نام")]
         public string Rename {
             get {
-                return ((string)(this["Rename"]));
+                return ((System.String)(this["Rename"]));
             }
         }
         
@@ -235,7 +235,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("خصوصیات")]
         public string PropertiesText {
             get {
-                return ((string)(this["PropertiesText"]));
+                return ((System.String)(this["PropertiesText"]));
             }
         }
     }

@@ -70,7 +70,7 @@ namespace Diten.Windows.Forms
 					                             }.imp]?") ? File.ReadAllLines(Imp).ToList() : null : File.ReadAllLines(Imp).ToList()
 				: null;
 
-		public bool AskQuestion(string question)
+		public bool AskQuestion(System.String question)
 		{
 			return MessageBox.Show(
 			                       Cultures.Translate(

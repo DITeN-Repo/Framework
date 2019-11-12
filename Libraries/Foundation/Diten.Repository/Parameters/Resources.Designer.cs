@@ -80,7 +80,7 @@ namespace Diten.Parameters {
         ///17,Device control 1,
         ///1 [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string AsciiTable {
+        public static System.String AsciiTable {
             get {
                 return ResourceManager.GetString("AsciiTable", resourceCulture);
             }
@@ -113,7 +113,7 @@ namespace Diten.Parameters {
         ///			&lt;ScheduleByDay&gt;
         ///				&lt;DaysInterval&gt;1&lt;/Da [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Manifest000 {
+        public static System.String Manifest000 {
             get {
                 return ResourceManager.GetString("Manifest000", resourceCulture);
             }
@@ -123,7 +123,7 @@ namespace Diten.Parameters {
         ///   Looks up a localized string similar to &quot;C:\Program Files (x86)\Log Parser 2.2\logparser&quot; &quot;SELECT * INTO W3SVC%1 FROM %2\W3SVC%1\*.log&quot; -i:iisw3c -o:SQL -server:localhost -database:DTDB003V100 -username:IISLOGUSR -password:85kE47Ck6G67hJNyA3J6RDrR6mEpuJn4gNEyC9v3Ka6n68Tf5c -createTable: ON
         ///erase C:\inetpub\logs\LogFiles\W3SVC2\*.log.
         /// </summary>
-        public static string Script000 {
+        public static System.String Script000 {
             get {
                 return ResourceManager.GetString("Script000", resourceCulture);
             }

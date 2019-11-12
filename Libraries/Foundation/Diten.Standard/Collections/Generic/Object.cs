@@ -135,7 +135,7 @@ namespace Diten.Collections.Generic
 				.First();
 		}
 
-		public bool HasItem()
+		public Boolean HasItem()
 		{
 			return Collection
 			       .FindAsync(Builders<TObject>.Filter.Eq(Enum.GetName(Enum.PropertyNames._id),
@@ -155,7 +155,7 @@ namespace Diten.Collections.Generic
 		//    return result.Current.First() != null;
 		//}
 
-		public bool HasItem(ObjectId id)
+		public Boolean HasItem(ObjectId id)
 		{
 			return Collection
 			       .FindAsync(Builders<TObject>.Filter.Eq(Enum.GetName(Enum.PropertyNames._id),
@@ -165,7 +165,7 @@ namespace Diten.Collections.Generic
 			       .Result;
 		}
 
-		public bool HasItem(FilterDefinition<TObject> filter) { return Collection.FindAsync(filter).Result.AnyAsync().Result; }
+		public Boolean HasItem(FilterDefinition<TObject> filter) { return Collection.FindAsync(filter).Result.AnyAsync().Result; }
 
 		/// <summary>
 		///    Get a dictionary collection of <see cref="Object{TObject,TKey}" /> that hold history of
@@ -180,7 +180,7 @@ namespace Diten.Collections.Generic
 		///    Get that <see cref="Object{TObject,TKey}" /> is loaded from repository.
 		/// </summary>
 		[BsonIgnore]
-		public bool IsLoaded {get; private set;}
+		public Boolean IsLoaded {get; private set;}
 
 		[DataMember]
 		public ObjectId ParentID {get; set;}
@@ -353,7 +353,7 @@ namespace Diten.Collections.Generic
 			return first;
 		}
 
-		public TObject Load(string path)
+		public TObject Load(System.String path)
 		{
 			return Find(o => o.GetType()
 			                  .GetProperty(Enum.GetName(Enum.PropertyNames.Path))

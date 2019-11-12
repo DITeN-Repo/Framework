@@ -22,12 +22,12 @@ namespace dotNetCoreWebApplication
 {
 	public class Program
 	{
-		public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+		public static IWebHostBuilder CreateWebHostBuilder(System.String[] args)
 		{
 			return WebHost.CreateDefaultBuilder(args)
 			              .UseStartup<Startup>();
 		}
 
-		public static void Main(string[] args) { CreateWebHostBuilder(args).Build().Run(); }
+		public static void Main(System.String[] args) { CreateWebHostBuilder(args).Build().Run(); }
 	}
 }

@@ -33,14 +33,14 @@ namespace Diten
 		/// <param name="buffer">Bytes that must be appended into current byte array.</param>
 		/// <returns>A byte array.</returns>
 		public static byte[] Append(this byte[] value,
-		                            IEnumerable<byte> buffer)
+		                            IEnumerable<System.Byte> buffer)
 		{
 			foreach (var b in buffer) value.Append(b);
 
 			return value;
 		}
 
-		public static string ToBase64Text(this byte[] value)
+		public static System.String ToBase64Text(this byte[] value)
 		{
 			using (var memoryStream = new MemoryStream(value)) { return Base64Text.Encrypt(memoryStream); }
 		}
@@ -57,9 +57,9 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Integer number.</param>
 		/// <returns>A hexadecimal number.</returns>
-		public static string ToHex(this IEnumerable<byte> value)
+		public static System.String ToHex(this IEnumerable<System.Byte> value)
 		{
-			return value.Aggregate(string.Empty,
+			return value.Aggregate(System.String.Empty,
 			                       (current,
 			                        b) => current +
 			                              BitConverter.ToInt32(b.ToBytes(),
@@ -93,7 +93,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Data for conversion.</param>
 		/// <returns>A string.</returns>
-		public static string ToString(this byte[] value)
+		public static System.String ToString(this byte[] value)
 		{
 			return Encoding.UTF8.GetString(value,
 			                               0,

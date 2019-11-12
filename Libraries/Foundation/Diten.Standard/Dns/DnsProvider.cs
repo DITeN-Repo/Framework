@@ -13,6 +13,7 @@
 
 #region Used Directives
 
+using System;
 using System.Management;
 using Diten.Parameters;
 
@@ -22,7 +23,7 @@ namespace Diten.Dns
 {
 	public class DnsProvider
 	{
-		public DnsProvider(string serverName,
+		public DnsProvider(System.String serverName,
 		                   string userName,
 		                   string password)
 		{
@@ -53,8 +54,8 @@ namespace Diten.Dns
 		#region Members
 
 		private ManagementScope _session;
-		public string Server;
-		public string User;
+		public System.String Server;
+		public System.String User;
 		private readonly string _password;
 
 		#endregion
@@ -77,7 +78,7 @@ namespace Diten.Dns
 			x = null;
 		}
 
-		public bool DomainExists(string domainName)
+		public Boolean DomainExists(System.String domainName)
 		{
 			var retval = false;
 			var wql = "SELECT *";
@@ -93,7 +94,7 @@ namespace Diten.Dns
 			return retval;
 		}
 
-		public void AddDomain(string domainName,
+		public void AddDomain(System.String domainName,
 		                      string ipDestination)
 		{
 			//check if domain already exists
@@ -120,7 +121,7 @@ namespace Diten.Dns
 			           ipDestination);
 		}
 
-		public void RemoveDomain(string domainName)
+		public void RemoveDomain(System.String domainName)
 		{
 			var wql = "SELECT *";
 			wql += " FROM MicrosoftDNS_Zone";
@@ -137,7 +138,7 @@ namespace Diten.Dns
 			}
 		}
 
-		public void AddARecord(string domain,
+		public void AddARecord(System.String domain,
 		                       string recordName,
 		                       string ipDestination)
 		{
@@ -156,7 +157,7 @@ namespace Diten.Dns
 			                 null);
 		}
 
-		public void RemoveARecord(string domain,
+		public void RemoveARecord(System.String domain,
 		                          string aRecord)
 		{
 			var wql = "SELECT *";
@@ -178,9 +179,9 @@ namespace Diten.Dns
 
 		#region Properties
 
-		public string NameSpace {get; private set;}
+		public System.String NameSpace {get; private set;}
 
-		public bool Enabled
+		public Boolean Enabled
 		{
 			get
 			{
@@ -199,7 +200,7 @@ namespace Diten.Dns
 			}
 		}
 
-		public ManagementClass Manage(string path)
+		public ManagementClass Manage(System.String path)
 		{
 			//ManagementClass retval=new ManagementClass(path);
 			var retval = new ManagementClass(_session,

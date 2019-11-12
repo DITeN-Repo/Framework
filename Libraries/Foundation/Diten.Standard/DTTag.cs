@@ -22,37 +22,30 @@ namespace Diten
 	/// <inheritdoc />
 	public class DTTag: String
 	{
-		public DTTag(string value)
+		public DTTag(System.String value)
 		{
 			Value =
 				SHA1.Encrypt(
-				             $@"{
-						             Char.ReservedChars.ShiftIn.ToChar().ToString()
-					             }{
-						             value
-					             }{
-						             UniqueSignature
-					             }{
-						             Char.ReservedChars.ShiftOut.ToChar().ToString()
-					             }");
+				             $@"{Char.ReservedChars.ShiftIn.ToChar().ToString()}{value}{Char.ReservedChars.ShiftOut.ToChar().ToString()}")
+				    .ToHex();
 		}
 
 		/// <summary>
 		///    Get end tag.
 		/// </summary>
 		/// <returns>An end tag</returns>
-		public string EndTag => $"</{Value}>";
+		public System.String EndTag => $"</{Value}>";
 
 		/// <summary>
 		///    Get start tag.
 		/// </summary>
 		/// <returns>A start tag.</returns>
-		public string StartTag => $"<{Value}>";
+		public System.String StartTag => $"<{Value}>";
 
 		/// <summary>
 		///    Get closed tag.
 		/// </summary>
-		public string Tag => $"<{Value} />";
+		public System.String Tag => $"<{Value} />";
 
 		/// <summary>
 		///    Converting value into tag.

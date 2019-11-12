@@ -28,7 +28,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("ApplicationModule must have one application. Please set Application property.")]
         public string ApplicationModule_Application_ArgumentNullException {
             get {
-                return ((string)(this["ApplicationModule_Application_ArgumentNullException"]));
+                return ((System.String)(this["ApplicationModule_Application_ArgumentNullException"]));
             }
         }
         
@@ -38,7 +38,7 @@ namespace Diten.Parameters {
             "null.")]
         public string ApplicationModule_Initialize_NullReferenceException {
             get {
-                return ((string)(this["ApplicationModule_Initialize_NullReferenceException"]));
+                return ((System.String)(this["ApplicationModule_Initialize_NullReferenceException"]));
             }
         }
         
@@ -47,7 +47,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Application name cannot be null.")]
         public string Diten_Web_UI_Application_ApplicationName_Message {
             get {
-                return ((string)(this["Diten_Web_UI_Application_ApplicationName_Message"]));
+                return ((System.String)(this["Diten_Web_UI_Application_ApplicationName_Message"]));
             }
         }
         
@@ -56,7 +56,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("ApplicationName")]
         public string Diten_Web_UI_Application_ApplicationName_ParamName {
             get {
-                return ((string)(this["Diten_Web_UI_Application_ApplicationName_ParamName"]));
+                return ((System.String)(this["Diten_Web_UI_Application_ApplicationName_ParamName"]));
             }
         }
         
@@ -65,7 +65,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Base type is null. This component is not inherited form an object.")]
         public string Diten_Web_UI_WebControls_Button_XType {
             get {
-                return ((string)(this["Diten_Web_UI_WebControls_Button_XType"]));
+                return ((System.String)(this["Diten_Web_UI_WebControls_Button_XType"]));
             }
         }
         
@@ -74,7 +74,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Key [{0}] not found.")]
         public string Diten_Variables_GetConfig_ArgumentException_KeyNotFound {
             get {
-                return ((string)(this["Diten_Variables_GetConfig_ArgumentException_KeyNotFound"]));
+                return ((System.String)(this["Diten_Variables_GetConfig_ArgumentException_KeyNotFound"]));
             }
         }
         
@@ -83,7 +83,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Value of key [{0}] is null.")]
         public string Diten_Variables_GetConfig_ArgumentException_ValueNotFound {
             get {
-                return ((string)(this["Diten_Variables_GetConfig_ArgumentException_ValueNotFound"]));
+                return ((System.String)(this["Diten_Variables_GetConfig_ArgumentException_ValueNotFound"]));
             }
         }
         
@@ -92,7 +92,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Resource not found in [{}].")]
         public string Diten_Web_ResourceProvider_GetFile {
             get {
-                return ((string)(this["Diten_Web_ResourceProvider_GetFile"]));
+                return ((System.String)(this["Diten_Web_ResourceProvider_GetFile"]));
             }
         }
         
@@ -101,7 +101,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Parameter [value] must be a hexadecimal string.")]
         public string Diten_ExtensionMethods_ExString_ToString_Hexadecimal {
             get {
-                return ((string)(this["Diten_ExtensionMethods_ExString_ToString_Hexadecimal"]));
+                return ((System.String)(this["Diten_ExtensionMethods_ExString_ToString_Hexadecimal"]));
             }
         }
         
@@ -110,7 +110,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("A string can not contains [{0}] (UnsafeStringTag) in diten framework.")]
         public string Diten_ExtensionMethods_ExString_ToSafeString {
             get {
-                return ((string)(this["Diten_ExtensionMethods_ExString_ToSafeString"]));
+                return ((System.String)(this["Diten_ExtensionMethods_ExString_ToSafeString"]));
             }
         }
         
@@ -119,7 +119,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("The object of type [{0}] is not a [{1}] object.")]
         public string Diten_Numeric_Number_CompareTo_PObject {
             get {
-                return ((string)(this["Diten_Numeric_Number_CompareTo_PObject"]));
+                return ((System.String)(this["Diten_Numeric_Number_CompareTo_PObject"]));
             }
         }
         
@@ -128,7 +128,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("DITeN Debug Message")]
         public string DebugMessage {
             get {
-                return ((string)(this["DebugMessage"]));
+                return ((System.String)(this["DebugMessage"]));
             }
         }
         
@@ -137,7 +137,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("There is no frame in StackTrace.")]
         public string Diten_Exception_Exception {
             get {
-                return ((string)(this["Diten_Exception_Exception"]));
+                return ((System.String)(this["Diten_Exception_Exception"]));
             }
         }
         
@@ -146,7 +146,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("There is no EOF tag inside of value property.")]
         public string DIten_NoEOFTagInValue {
             get {
-                return ((string)(this["DIten_NoEOFTagInValue"]));
+                return ((System.String)(this["DIten_NoEOFTagInValue"]));
             }
         }
         
@@ -155,7 +155,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Invalid cast from [{0}] to [{1}].")]
         public string InvalidCast_FromTo {
             get {
-                return ((string)(this["InvalidCast_FromTo"]));
+                return ((System.String)(this["InvalidCast_FromTo"]));
             }
         }
         
@@ -164,7 +164,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Invalid cast to [DBNull]")]
         public string InvalidCast_DBNull {
             get {
-                return ((string)(this["InvalidCast_DBNull"]));
+                return ((System.String)(this["InvalidCast_DBNull"]));
             }
         }
         
@@ -173,7 +173,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Invalid cast to [Empty]")]
         public string InvalidCast_Empty {
             get {
-                return ((string)(this["InvalidCast_Empty"]));
+                return ((System.String)(this["InvalidCast_Empty"]));
             }
         }
         
@@ -182,7 +182,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_InvalidTypeWithPointersNotSupported {
             get {
-                return ((string)(this["Argument_InvalidTypeWithPointersNotSupported"]));
+                return ((System.String)(this["Argument_InvalidTypeWithPointersNotSupported"]));
             }
         }
         
@@ -191,7 +191,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_DestinationTooShort {
             get {
-                return ((string)(this["Argument_DestinationTooShort"]));
+                return ((System.String)(this["Argument_DestinationTooShort"]));
             }
         }
         
@@ -200,7 +200,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_OverlapAlignmentMismatch {
             get {
-                return ((string)(this["Argument_OverlapAlignmentMismatch"]));
+                return ((System.String)(this["Argument_OverlapAlignmentMismatch"]));
             }
         }
         
@@ -209,7 +209,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("fg")]
         public string NotSupported_Type {
             get {
-                return ((string)(this["NotSupported_Type"]));
+                return ((System.String)(this["NotSupported_Type"]));
             }
         }
         
@@ -218,7 +218,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_CannotExtractScalar {
             get {
-                return ((string)(this["Argument_CannotExtractScalar"]));
+                return ((System.String)(this["Argument_CannotExtractScalar"]));
             }
         }
         
@@ -227,7 +227,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_Index {
             get {
-                return ((string)(this["ArgumentOutOfRange_Index"]));
+                return ((System.String)(this["ArgumentOutOfRange_Index"]));
             }
         }
         
@@ -236,7 +236,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_NeedNonNegNum {
             get {
-                return ((string)(this["ArgumentOutOfRange_NeedNonNegNum"]));
+                return ((System.String)(this["ArgumentOutOfRange_NeedNonNegNum"]));
             }
         }
         
@@ -245,7 +245,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_Count {
             get {
-                return ((string)(this["ArgumentOutOfRange_Count"]));
+                return ((System.String)(this["ArgumentOutOfRange_Count"]));
             }
         }
         
@@ -254,7 +254,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_AddingDuplicateWithKey {
             get {
-                return ((string)(this["Argument_AddingDuplicateWithKey"]));
+                return ((System.String)(this["Argument_AddingDuplicateWithKey"]));
             }
         }
         
@@ -263,7 +263,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_EnumFailedVersion {
             get {
-                return ((string)(this["InvalidOperation_EnumFailedVersion"]));
+                return ((System.String)(this["InvalidOperation_EnumFailedVersion"]));
             }
         }
         
@@ -272,7 +272,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_EnumOpCantHappen {
             get {
-                return ((string)(this["InvalidOperation_EnumOpCantHappen"]));
+                return ((System.String)(this["InvalidOperation_EnumOpCantHappen"]));
             }
         }
         
@@ -281,7 +281,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_NoValue {
             get {
-                return ((string)(this["InvalidOperation_NoValue"]));
+                return ((System.String)(this["InvalidOperation_NoValue"]));
             }
         }
         
@@ -290,7 +290,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_ConcurrentOperationsNotSupported {
             get {
-                return ((string)(this["InvalidOperation_ConcurrentOperationsNotSupported"]));
+                return ((System.String)(this["InvalidOperation_ConcurrentOperationsNotSupported"]));
             }
         }
         
@@ -299,7 +299,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_HandleIsNotInitialized {
             get {
-                return ((string)(this["InvalidOperation_HandleIsNotInitialized"]));
+                return ((System.String)(this["InvalidOperation_HandleIsNotInitialized"]));
             }
         }
         
@@ -308,7 +308,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_HandleIsNotPinned {
             get {
-                return ((string)(this["InvalidOperation_HandleIsNotPinned"]));
+                return ((System.String)(this["InvalidOperation_HandleIsNotPinned"]));
             }
         }
         
@@ -317,7 +317,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_BadFormatSpecifier {
             get {
-                return ((string)(this["Argument_BadFormatSpecifier"]));
+                return ((System.String)(this["Argument_BadFormatSpecifier"]));
             }
         }
         
@@ -326,7 +326,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_PrecisionTooLarge {
             get {
-                return ((string)(this["Argument_PrecisionTooLarge"]));
+                return ((System.String)(this["Argument_PrecisionTooLarge"]));
             }
         }
         
@@ -335,7 +335,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_InvalidOffLen {
             get {
-                return ((string)(this["Argument_InvalidOffLen"]));
+                return ((System.String)(this["Argument_InvalidOffLen"]));
             }
         }
         
@@ -344,7 +344,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_WrongType {
             get {
-                return ((string)(this["Arg_WrongType"]));
+                return ((System.String)(this["Arg_WrongType"]));
             }
         }
         
@@ -353,7 +353,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_KeyNotFoundWithKey {
             get {
-                return ((string)(this["Arg_KeyNotFoundWithKey"]));
+                return ((System.String)(this["Arg_KeyNotFoundWithKey"]));
             }
         }
         
@@ -362,7 +362,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_EnumNotStarted {
             get {
-                return ((string)(this["InvalidOperation_EnumNotStarted"]));
+                return ((System.String)(this["InvalidOperation_EnumNotStarted"]));
             }
         }
         
@@ -371,7 +371,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_EnumEnded {
             get {
-                return ((string)(this["InvalidOperation_EnumEnded"]));
+                return ((System.String)(this["InvalidOperation_EnumEnded"]));
             }
         }
         
@@ -380,7 +380,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_TypeNotSupported {
             get {
-                return ((string)(this["Arg_TypeNotSupported"]));
+                return ((System.String)(this["Arg_TypeNotSupported"]));
             }
         }
         
@@ -389,7 +389,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_IndexCount {
             get {
-                return ((string)(this["ArgumentOutOfRange_IndexCount"]));
+                return ((System.String)(this["ArgumentOutOfRange_IndexCount"]));
             }
         }
         
@@ -398,7 +398,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_IndexCountBuffer {
             get {
-                return ((string)(this["ArgumentOutOfRange_IndexCountBuffer"]));
+                return ((System.String)(this["ArgumentOutOfRange_IndexCountBuffer"]));
             }
         }
         
@@ -407,7 +407,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_ArrayPlusOffTooSmall {
             get {
-                return ((string)(this["Arg_ArrayPlusOffTooSmall"]));
+                return ((System.String)(this["Arg_ArrayPlusOffTooSmall"]));
             }
         }
         
@@ -416,7 +416,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NotSupported_ReadOnlyCollection {
             get {
-                return ((string)(this["NotSupported_ReadOnlyCollection"]));
+                return ((System.String)(this["NotSupported_ReadOnlyCollection"]));
             }
         }
         
@@ -425,7 +425,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_RankMultiDimNotSupported {
             get {
-                return ((string)(this["Arg_RankMultiDimNotSupported"]));
+                return ((System.String)(this["Arg_RankMultiDimNotSupported"]));
             }
         }
         
@@ -434,7 +434,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_NonZeroLowerBound {
             get {
-                return ((string)(this["Arg_NonZeroLowerBound"]));
+                return ((System.String)(this["Arg_NonZeroLowerBound"]));
             }
         }
         
@@ -443,7 +443,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_ListInsert {
             get {
-                return ((string)(this["ArgumentOutOfRange_ListInsert"]));
+                return ((System.String)(this["ArgumentOutOfRange_ListInsert"]));
             }
         }
         
@@ -452,7 +452,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_SmallCapacity {
             get {
-                return ((string)(this["ArgumentOutOfRange_SmallCapacity"]));
+                return ((System.String)(this["ArgumentOutOfRange_SmallCapacity"]));
             }
         }
         
@@ -461,7 +461,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_BiggerThanCollection {
             get {
-                return ((string)(this["ArgumentOutOfRange_BiggerThanCollection"]));
+                return ((System.String)(this["ArgumentOutOfRange_BiggerThanCollection"]));
             }
         }
         
@@ -470,7 +470,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Serialization_MissingKeys {
             get {
-                return ((string)(this["Serialization_MissingKeys"]));
+                return ((System.String)(this["Serialization_MissingKeys"]));
             }
         }
         
@@ -479,7 +479,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Serialization_NullKey {
             get {
-                return ((string)(this["Serialization_NullKey"]));
+                return ((System.String)(this["Serialization_NullKey"]));
             }
         }
         
@@ -488,7 +488,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NotSupported_KeyCollectionSet {
             get {
-                return ((string)(this["NotSupported_KeyCollectionSet"]));
+                return ((System.String)(this["NotSupported_KeyCollectionSet"]));
             }
         }
         
@@ -497,7 +497,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NotSupported_ValueCollectionSet {
             get {
-                return ((string)(this["NotSupported_ValueCollectionSet"]));
+                return ((System.String)(this["NotSupported_ValueCollectionSet"]));
             }
         }
         
@@ -510,7 +510,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_NullArray {
             get {
-                return ((string)(this["InvalidOperation_NullArray"]));
+                return ((System.String)(this["InvalidOperation_NullArray"]));
             }
         }
         
@@ -519,7 +519,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TaskT_TransitionToFinal_AlreadyCompleted {
             get {
-                return ((string)(this["TaskT_TransitionToFinal_AlreadyCompleted"]));
+                return ((System.String)(this["TaskT_TransitionToFinal_AlreadyCompleted"]));
             }
         }
         
@@ -528,7 +528,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TaskCompletionSourceT_TrySetException_NullException {
             get {
-                return ((string)(this["TaskCompletionSourceT_TrySetException_NullException"]));
+                return ((System.String)(this["TaskCompletionSourceT_TrySetException_NullException"]));
             }
         }
         
@@ -537,7 +537,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TaskCompletionSourceT_TrySetException_NoExceptions {
             get {
-                return ((string)(this["TaskCompletionSourceT_TrySetException_NoExceptions"]));
+                return ((System.String)(this["TaskCompletionSourceT_TrySetException_NoExceptions"]));
             }
         }
         
@@ -546,7 +546,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NotSupported_StringComparison {
             get {
-                return ((string)(this["NotSupported_StringComparison"]));
+                return ((System.String)(this["NotSupported_StringComparison"]));
             }
         }
         
@@ -555,7 +555,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ConcurrentCollection_SyncRoot_NotSupported {
             get {
-                return ((string)(this["ConcurrentCollection_SyncRoot_NotSupported"]));
+                return ((System.String)(this["ConcurrentCollection_SyncRoot_NotSupported"]));
             }
         }
         
@@ -564,7 +564,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_MultiTaskContinuation_NullTask {
             get {
-                return ((string)(this["Task_MultiTaskContinuation_NullTask"]));
+                return ((System.String)(this["Task_MultiTaskContinuation_NullTask"]));
             }
         }
         
@@ -573,7 +573,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_MultiTaskContinuation_EmptyTaskList {
             get {
-                return ((string)(this["Task_MultiTaskContinuation_EmptyTaskList"]));
+                return ((System.String)(this["Task_MultiTaskContinuation_EmptyTaskList"]));
             }
         }
         
@@ -582,7 +582,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_Start_TaskCompleted {
             get {
-                return ((string)(this["Task_Start_TaskCompleted"]));
+                return ((System.String)(this["Task_Start_TaskCompleted"]));
             }
         }
         
@@ -591,7 +591,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_WrongAsyncResultOrEndCalledMultiple {
             get {
-                return ((string)(this["InvalidOperation_WrongAsyncResultOrEndCalledMultiple"]));
+                return ((System.String)(this["InvalidOperation_WrongAsyncResultOrEndCalledMultiple"]));
             }
         }
         
@@ -600,7 +600,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_Start_Promise {
             get {
-                return ((string)(this["Task_Start_Promise"]));
+                return ((System.String)(this["Task_Start_Promise"]));
             }
         }
         
@@ -609,7 +609,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_Start_ContinuationTask {
             get {
-                return ((string)(this["Task_Start_ContinuationTask"]));
+                return ((System.String)(this["Task_Start_ContinuationTask"]));
             }
         }
         
@@ -618,7 +618,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_Start_AlreadyStarted {
             get {
-                return ((string)(this["Task_Start_AlreadyStarted"]));
+                return ((System.String)(this["Task_Start_AlreadyStarted"]));
             }
         }
         
@@ -627,7 +627,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_RunSynchronously_Continuation {
             get {
-                return ((string)(this["Task_RunSynchronously_Continuation"]));
+                return ((System.String)(this["Task_RunSynchronously_Continuation"]));
             }
         }
         
@@ -636,7 +636,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_RunSynchronously_Promise {
             get {
-                return ((string)(this["Task_RunSynchronously_Promise"]));
+                return ((System.String)(this["Task_RunSynchronously_Promise"]));
             }
         }
         
@@ -645,7 +645,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_RunSynchronously_TaskCompleted {
             get {
-                return ((string)(this["Task_RunSynchronously_TaskCompleted"]));
+                return ((System.String)(this["Task_RunSynchronously_TaskCompleted"]));
             }
         }
         
@@ -654,7 +654,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_RunSynchronously_AlreadyStarted {
             get {
-                return ((string)(this["Task_RunSynchronously_AlreadyStarted"]));
+                return ((System.String)(this["Task_RunSynchronously_AlreadyStarted"]));
             }
         }
         
@@ -663,7 +663,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string AsyncMethodBuilder_InstanceNotInitialized {
             get {
-                return ((string)(this["AsyncMethodBuilder_InstanceNotInitialized"]));
+                return ((System.String)(this["AsyncMethodBuilder_InstanceNotInitialized"]));
             }
         }
         
@@ -672,7 +672,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_ContinueWith_ESandLR {
             get {
-                return ((string)(this["Task_ContinueWith_ESandLR"]));
+                return ((System.String)(this["Task_ContinueWith_ESandLR"]));
             }
         }
         
@@ -681,7 +681,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_ContinueWith_NotOnAnything {
             get {
-                return ((string)(this["Task_ContinueWith_NotOnAnything"]));
+                return ((System.String)(this["Task_ContinueWith_NotOnAnything"]));
             }
         }
         
@@ -690,7 +690,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_Delay_InvalidDelay {
             get {
-                return ((string)(this["Task_Delay_InvalidDelay"]));
+                return ((System.String)(this["Task_Delay_InvalidDelay"]));
             }
         }
         
@@ -699,7 +699,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_Delay_InvalidMillisecondsDelay {
             get {
-                return ((string)(this["Task_Delay_InvalidMillisecondsDelay"]));
+                return ((System.String)(this["Task_Delay_InvalidMillisecondsDelay"]));
             }
         }
         
@@ -708,7 +708,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_Dispose_NotCompleted {
             get {
-                return ((string)(this["Task_Dispose_NotCompleted"]));
+                return ((System.String)(this["Task_Dispose_NotCompleted"]));
             }
         }
         
@@ -717,7 +717,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_ThrowIfDisposed {
             get {
-                return ((string)(this["Task_ThrowIfDisposed"]));
+                return ((System.String)(this["Task_ThrowIfDisposed"]));
             }
         }
         
@@ -726,7 +726,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Task_WaitMulti_NullTask {
             get {
-                return ((string)(this["Task_WaitMulti_NullTask"]));
+                return ((System.String)(this["Task_WaitMulti_NullTask"]));
             }
         }
         
@@ -735,7 +735,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentException_OtherNotArrayOfCorrectLength {
             get {
-                return ((string)(this["ArgumentException_OtherNotArrayOfCorrectLength"]));
+                return ((System.String)(this["ArgumentException_OtherNotArrayOfCorrectLength"]));
             }
         }
         
@@ -744,7 +744,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentNull_Array {
             get {
-                return ((string)(this["ArgumentNull_Array"]));
+                return ((System.String)(this["ArgumentNull_Array"]));
             }
         }
         
@@ -753,7 +753,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentNull_SafeHandle {
             get {
-                return ((string)(this["ArgumentNull_SafeHandle"]));
+                return ((System.String)(this["ArgumentNull_SafeHandle"]));
             }
         }
         
@@ -762,7 +762,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_EndIndexStartIndex {
             get {
-                return ((string)(this["ArgumentOutOfRange_EndIndexStartIndex"]));
+                return ((System.String)(this["ArgumentOutOfRange_EndIndexStartIndex"]));
             }
         }
         
@@ -771,7 +771,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_Enum {
             get {
-                return ((string)(this["ArgumentOutOfRange_Enum"]));
+                return ((System.String)(this["ArgumentOutOfRange_Enum"]));
             }
         }
         
@@ -780,7 +780,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ArgumentOutOfRange_HugeArrayNotSupported {
             get {
-                return ((string)(this["ArgumentOutOfRange_HugeArrayNotSupported"]));
+                return ((System.String)(this["ArgumentOutOfRange_HugeArrayNotSupported"]));
             }
         }
         
@@ -789,7 +789,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_AddingDuplicate {
             get {
-                return ((string)(this["Argument_AddingDuplicate"]));
+                return ((System.String)(this["Argument_AddingDuplicate"]));
             }
         }
         
@@ -798,7 +798,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Argument_InvalidArgumentForComparison {
             get {
-                return ((string)(this["Argument_InvalidArgumentForComparison"]));
+                return ((System.String)(this["Argument_InvalidArgumentForComparison"]));
             }
         }
         
@@ -807,7 +807,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_LowerBoundsMustMatch {
             get {
-                return ((string)(this["Arg_LowerBoundsMustMatch"]));
+                return ((System.String)(this["Arg_LowerBoundsMustMatch"]));
             }
         }
         
@@ -816,7 +816,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_MustBeType {
             get {
-                return ((string)(this["Arg_MustBeType"]));
+                return ((System.String)(this["Arg_MustBeType"]));
             }
         }
         
@@ -825,7 +825,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_Need1DArray {
             get {
-                return ((string)(this["Arg_Need1DArray"]));
+                return ((System.String)(this["Arg_Need1DArray"]));
             }
         }
         
@@ -834,7 +834,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_NeedAtLeast1Rank {
             get {
-                return ((string)(this["Arg_NeedAtLeast1Rank"]));
+                return ((System.String)(this["Arg_NeedAtLeast1Rank"]));
             }
         }
         
@@ -843,7 +843,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_Need2DArray {
             get {
-                return ((string)(this["Arg_Need2DArray"]));
+                return ((System.String)(this["Arg_Need2DArray"]));
             }
         }
         
@@ -852,7 +852,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_Need3DArray {
             get {
-                return ((string)(this["Arg_Need3DArray"]));
+                return ((System.String)(this["Arg_Need3DArray"]));
             }
         }
         
@@ -861,7 +861,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_RankIndices {
             get {
-                return ((string)(this["Arg_RankIndices"]));
+                return ((System.String)(this["Arg_RankIndices"]));
             }
         }
         
@@ -870,7 +870,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Arg_RanksAndBounds {
             get {
-                return ((string)(this["Arg_RanksAndBounds"]));
+                return ((System.String)(this["Arg_RanksAndBounds"]));
             }
         }
         
@@ -879,7 +879,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string InvalidOperation_IComparerFailed {
             get {
-                return ((string)(this["InvalidOperation_IComparerFailed"]));
+                return ((System.String)(this["InvalidOperation_IComparerFailed"]));
             }
         }
         
@@ -888,7 +888,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NotSupported_FixedSizeCollection {
             get {
-                return ((string)(this["NotSupported_FixedSizeCollection"]));
+                return ((System.String)(this["NotSupported_FixedSizeCollection"]));
             }
         }
         
@@ -897,7 +897,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Rank_MultiDimNotSupported {
             get {
-                return ((string)(this["Rank_MultiDimNotSupported"]));
+                return ((System.String)(this["Rank_MultiDimNotSupported"]));
             }
         }
         
@@ -906,7 +906,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("The length of {0} must be the same.")]
         public string Diten_SameLenght {
             get {
-                return ((string)(this["Diten_SameLenght"]));
+                return ((System.String)(this["Diten_SameLenght"]));
             }
         }
         
@@ -919,7 +919,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("{0} cannot be of type [type name: {1} | type :{2)}]")]
         public string Diten_TypeException {
             get {
-                return ((string)(this["Diten_TypeException"]));
+                return ((System.String)(this["Diten_TypeException"]));
             }
         }
     }

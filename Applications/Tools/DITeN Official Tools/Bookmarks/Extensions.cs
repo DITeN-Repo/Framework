@@ -7,10 +7,10 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks
 {
 	public static class Extensions
 	{
-		public static string ToClosedTag(this string value) => $@"</{value}>";
-		public static string ToOpenTag(this string value) => $@"<{value}>";
+		public static System.String ToClosedTag(this string value) => $@"</{value}>";
+		public static System.String ToOpenTag(this string value) => $@"<{value}>";
 
-		public static string Repeat(this string value,
+		public static System.String Repeat(this string value,
 		                            int count = 10)
 		{
 			var outPut = string.Empty;
@@ -26,12 +26,12 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks
 
 		public static bool IsNullString(this string value) => string.IsNullOrEmpty(value) && string.IsNullOrWhiteSpace(value);
 
-		public static string ReplaceWithEmpty(this string value,
+		public static System.String ReplaceWithEmpty(this string value,
 		                                      string param) =>
 			value.Replace(param,
 			              string.Empty);
 
-		public static string Save(this string value,
+		public static System.String Save(this string value,
 		                          string path)
 		{
 			File.WriteAllText(path,
@@ -41,7 +41,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks
 			return $@"{path}";
 		}
 
-		public static string GetAttrValue(this HtmlNode value,
+		public static System.String GetAttrValue(this HtmlNode value,
 		                                  string attribute)
 		{
 			try { return value.Attributes[attribute].Value; }

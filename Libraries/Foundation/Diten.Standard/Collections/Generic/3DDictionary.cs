@@ -54,13 +54,13 @@ namespace Diten.Collections.Generic
 			                             value));
 		}
 
-		public bool ContainsKey(T1 key1,
+		public Boolean ContainsKey(T1 key1,
 		                        T2 key2)
 		{
 			return this.Any(i => i.Key.Equals(key1) && i.Value.Key.Equals(key2));
 		}
 
-		public bool ContainsValue(T3 value) { return this.Any(i => i.Value.Value.Equals(value)); }
+		public Boolean ContainsValue(T3 value) { return this.Any(i => i.Value.Value.Equals(value)); }
 
 		private static KeyValuePair<T1, KeyValuePair<T2, T3>> ExecuteMethod(KeyValuePair<T1, KeyValuePair<T2, T3>> item,
 		                                                                    Enum.MethodNames method)

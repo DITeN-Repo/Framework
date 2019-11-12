@@ -35,7 +35,7 @@ namespace Diten.Xml
 
 		public XmlDocument XmlDocument {get; set;}
 
-		public List<Dictionary<string, string>> GetAttributes(string path)
+		public List<Dictionary<System.String, string>> GetAttributes(System.String path)
 		{
 			Path = path.Split(".".ToCharArray());
 
@@ -45,7 +45,7 @@ namespace Diten.Xml
 			        select ReadAttributes(node)).ToList();
 		}
 
-		private static Dictionary<string, string> ReadAttributes(XmlNode xmlNode)
+		private static Dictionary<System.String, string> ReadAttributes(XmlNode xmlNode)
 		{
 			return (xmlNode.Attributes ?? throw new InvalidOperationException(@"XML node attributes is empty."))
 			       .Cast<XmlAttribute>()

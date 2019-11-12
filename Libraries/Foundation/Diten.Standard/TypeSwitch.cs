@@ -24,7 +24,7 @@ namespace Diten
 		public class CaseInfo
 		{
 			public Action<object> Action {get; set;}
-			public bool IsDefault {get; set;}
+			public Boolean IsDefault {get; set;}
 
 			public Type Target {get; set;}
 		}
@@ -59,7 +59,7 @@ namespace Diten
 			};
 		}
 
-		public static void Do(object source,
+		public static void Do(System.Object source,
 		                      params CaseInfo[] cases)
 		{
 			var type = source.GetType();

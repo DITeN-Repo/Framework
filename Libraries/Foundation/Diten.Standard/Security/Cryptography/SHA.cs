@@ -43,7 +43,7 @@ namespace Diten.Security.Cryptography
 	{
 		/// <inheritdoc cref="SHA{TSHA}()" />
 		/// <param name="value">The data in <see cref="object" /> that must be hashed.</param>
-		public SHA(object value): this(value.ToBytes()) {}
+		public SHA(System.Object value): this(value.ToBytes()) {}
 
 		/// <summary>
 		///    Constructor of <see cref="SHA{TSHA}" /> hashing engine.
@@ -91,11 +91,11 @@ namespace Diten.Security.Cryptography
 
 		/// <inheritdoc cref="Encrypt(byte[])" />
 		/// <param name="value">The data in <see cref="string" /> that must be hashed.</param>
-		public static byte[] Encrypt(string value) { return Encrypt(new Byte(value.ToBytes())); }
+		public static byte[] Encrypt(System.String value) { return Encrypt(new Byte(value.ToBytes())); }
 
 		/// <inheritdoc cref="Encrypt(byte[])" />
 		/// <param name="value">The data in <see cref="object" /> that must be hashed.</param>
-		public static byte[] Encrypt(object value) { return Encrypt(new Byte(value.ToBytes())); }
+		public static byte[] Encrypt(System.Object value) { return Encrypt(new Byte(value.ToBytes())); }
 
 		/// <inheritdoc cref="Encrypt(byte[])" />
 		/// <param name="value">The data in <see cref="Byte" /> that must be hashed.</param>

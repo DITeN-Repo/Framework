@@ -28,7 +28,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Module")]
         public string Null {
             get {
-                return ((string)(this["Null"]));
+                return ((System.String)(this["Null"]));
             }
         }
         
@@ -37,7 +37,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("MenuItem")]
         public string MenuItem {
             get {
-                return ((string)(this["MenuItem"]));
+                return ((System.String)(this["MenuItem"]));
             }
         }
         
@@ -46,7 +46,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Window")]
         public string Window {
             get {
-                return ((string)(this["Window"]));
+                return ((System.String)(this["Window"]));
             }
         }
         
@@ -55,7 +55,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("CacheEnvironmentEncryptionKey")]
         public string CacheEnvironmentEncryptionKey {
             get {
-                return ((string)(this["CacheEnvironmentEncryptionKey"]));
+                return ((System.String)(this["CacheEnvironmentEncryptionKey"]));
             }
         }
         
@@ -64,7 +64,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("StandardContextMenu")]
         public string StandardContextMenu {
             get {
-                return ((string)(this["StandardContextMenu"]));
+                return ((System.String)(this["StandardContextMenu"]));
             }
         }
         
@@ -73,7 +73,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("DeleteConfirmationDialog")]
         public string DeleteConfirmationDialog {
             get {
-                return ((string)(this["DeleteConfirmationDialog"]));
+                return ((System.String)(this["DeleteConfirmationDialog"]));
             }
         }
         
@@ -82,7 +82,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Configuration")]
         public string Configuration {
             get {
-                return ((string)(this["Configuration"]));
+                return ((System.String)(this["Configuration"]));
             }
         }
         
@@ -91,7 +91,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("RegisteredTypes")]
         public string RegisteredTypes {
             get {
-                return ((string)(this["RegisteredTypes"]));
+                return ((System.String)(this["RegisteredTypes"]));
             }
         }
         
@@ -100,7 +100,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("New")]
         public string New {
             get {
-                return ((string)(this["New"]));
+                return ((System.String)(this["New"]));
             }
         }
         
@@ -109,7 +109,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("SendTo")]
         public string SendTo {
             get {
-                return ((string)(this["SendTo"]));
+                return ((System.String)(this["SendTo"]));
             }
         }
         
@@ -118,7 +118,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("EncryptedUriParameter")]
         public string EncryptedUriParameter {
             get {
-                return ((string)(this["EncryptedUriParameter"]));
+                return ((System.String)(this["EncryptedUriParameter"]));
             }
         }
         
@@ -127,7 +127,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("ResourcesPath")]
         public string ResourcesPath {
             get {
-                return ((string)(this["ResourcesPath"]));
+                return ((System.String)(this["ResourcesPath"]));
             }
         }
         
@@ -136,7 +136,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("AssemblyNames")]
         public string AssemblyNames {
             get {
-                return ((string)(this["AssemblyNames"]));
+                return ((System.String)(this["AssemblyNames"]));
             }
         }
         
@@ -145,7 +145,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("SystemDatabaseServerAddress")]
         public string SystemDatabaseServerAddress {
             get {
-                return ((string)(this["SystemDatabaseServerAddress"]));
+                return ((System.String)(this["SystemDatabaseServerAddress"]));
             }
         }
         
@@ -154,7 +154,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Name")]
         public string Name {
             get {
-                return ((string)(this["Name"]));
+                return ((System.String)(this["Name"]));
             }
         }
         
@@ -163,7 +163,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Description")]
         public string Description {
             get {
-                return ((string)(this["Description"]));
+                return ((System.String)(this["Description"]));
             }
         }
         
@@ -172,7 +172,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Title")]
         public string Title {
             get {
-                return ((string)(this["Title"]));
+                return ((System.String)(this["Title"]));
             }
         }
         
@@ -181,7 +181,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("IconCls")]
         public string IconCls {
             get {
-                return ((string)(this["IconCls"]));
+                return ((System.String)(this["IconCls"]));
             }
         }
         
@@ -190,7 +190,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Bin")]
         public string Bin {
             get {
-                return ((string)(this["Bin"]));
+                return ((System.String)(this["Bin"]));
             }
         }
         
@@ -199,7 +199,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Temp")]
         public string Temp {
             get {
-                return ((string)(this["Temp"]));
+                return ((System.String)(this["Temp"]));
             }
         }
         
@@ -208,7 +208,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Cache")]
         public string Cache {
             get {
-                return ((string)(this["Cache"]));
+                return ((System.String)(this["Cache"]));
             }
         }
         
@@ -217,7 +217,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("NewFolder")]
         public string NewFolder {
             get {
-                return ((string)(this["NewFolder"]));
+                return ((System.String)(this["NewFolder"]));
             }
         }
         
@@ -226,7 +226,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("NewShortcut")]
         public string NewShortcut {
             get {
-                return ((string)(this["NewShortcut"]));
+                return ((System.String)(this["NewShortcut"]));
             }
         }
         
@@ -235,7 +235,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("DesktopMenuItem")]
         public string DesktopMenuItem {
             get {
-                return ((string)(this["DesktopMenuItem"]));
+                return ((System.String)(this["DesktopMenuItem"]));
             }
         }
         
@@ -244,7 +244,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("CacheDependency")]
         public string CacheDependency {
             get {
-                return ((string)(this["CacheDependency"]));
+                return ((System.String)(this["CacheDependency"]));
             }
         }
     }

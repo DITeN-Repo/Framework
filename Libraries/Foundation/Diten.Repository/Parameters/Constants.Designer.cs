@@ -32,7 +32,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("!@#$%")]
         public string InjectionCharactersGroup01 {
             get {
-                return ((string)(this["InjectionCharactersGroup01"]));
+                return ((System.String)(this["InjectionCharactersGroup01"]));
             }
         }
         
@@ -45,7 +45,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("^&*()-=_+~`")]
         public string InjectionCharactersGroup02 {
             get {
-                return ((string)(this["InjectionCharactersGroup02"]));
+                return ((System.String)(this["InjectionCharactersGroup02"]));
             }
         }
         
@@ -58,7 +58,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("{}[]:\";\'<>,.?/\'\\")]
         public string InjectionCharactersGroup03 {
             get {
-                return ((string)(this["InjectionCharactersGroup03"]));
+                return ((System.String)(this["InjectionCharactersGroup03"]));
             }
         }
         
@@ -71,7 +71,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("ABCDEF1234567890")]
         public string HexCharacters {
             get {
-                return ((string)(this["HexCharacters"]));
+                return ((System.String)(this["HexCharacters"]));
             }
         }
         
@@ -80,7 +80,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Persian (Iran)")]
         public string PersianCultureDisplayName {
             get {
-                return ((string)(this["PersianCultureDisplayName"]));
+                return ((System.String)(this["PersianCultureDisplayName"]));
             }
         }
         
@@ -89,7 +89,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("sys-sys")]
         public string CultureName {
             get {
-                return ((string)(this["CultureName"]));
+                return ((System.String)(this["CultureName"]));
             }
         }
         
@@ -98,7 +98,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("...")]
         public string MaskDots {
             get {
-                return ((string)(this["MaskDots"]));
+                return ((System.String)(this["MaskDots"]));
             }
         }
         
@@ -107,7 +107,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("DITeN.Net")]
         public string DomainName {
             get {
-                return ((string)(this["DomainName"]));
+                return ((System.String)(this["DomainName"]));
             }
         }
         
@@ -142,7 +142,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("9964D1A2B3FA4A3E9D5AB132576902831343AAE978BD42D7918A4B5D6F64C05B")]
         public string Password {
             get {
-                return ((string)(this["Password"]));
+                return ((System.String)(this["Password"]));
             }
         }
         
@@ -155,7 +155,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
         public string LocalIp {
             get {
-                return ((string)(this["LocalIp"]));
+                return ((System.String)(this["LocalIp"]));
             }
         }
         
@@ -164,7 +164,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("DITeN Framework")]
         public string DITeNFramework {
             get {
-                return ((string)(this["DITeNFramework"]));
+                return ((System.String)(this["DITeNFramework"]));
             }
         }
         
@@ -177,7 +177,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("DTI")]
         public string TempFolderItemExtention {
             get {
-                return ((string)(this["TempFolderItemExtention"]));
+                return ((System.String)(this["TempFolderItemExtention"]));
             }
         }
         
@@ -186,7 +186,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("manifest")]
         public string ManifestFileExtention {
             get {
-                return ((string)(this["ManifestFileExtention"]));
+                return ((System.String)(this["ManifestFileExtention"]));
             }
         }
         
@@ -195,7 +195,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Initialize")]
         public string InitializeMethodName {
             get {
-                return ((string)(this["InitializeMethodName"]));
+                return ((System.String)(this["InitializeMethodName"]));
             }
         }
         
@@ -204,7 +204,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("▒")]
         public string Separator {
             get {
-                return ((string)(this["Separator"]));
+                return ((System.String)(this["Separator"]));
             }
         }
         
@@ -213,7 +213,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Diten\\Cloud")]
         public string CloudAppPhysicalPath {
             get {
-                return ((string)(this["CloudAppPhysicalPath"]));
+                return ((System.String)(this["CloudAppPhysicalPath"]));
             }
         }
         
@@ -222,7 +222,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("bin")]
         public string BinFolder {
             get {
-                return ((string)(this["BinFolder"]));
+                return ((System.String)(this["BinFolder"]));
             }
         }
         
@@ -231,7 +231,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("config")]
         public string ConfigFileExtention {
             get {
-                return ((string)(this["ConfigFileExtention"]));
+                return ((System.String)(this["ConfigFileExtention"]));
             }
         }
         
@@ -244,7 +244,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("HTTP_X_FORWARDED_FOR")]
         public string ServerVariables000 {
             get {
-                return ((string)(this["ServerVariables000"]));
+                return ((System.String)(this["ServerVariables000"]));
             }
         }
         
@@ -257,7 +257,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("REMOTE_ADDR")]
         public string ServerVariables001 {
             get {
-                return ((string)(this["ServerVariables001"]));
+                return ((System.String)(this["ServerVariables001"]));
             }
         }
     }

@@ -44,19 +44,6 @@ namespace Diten.Collections.Generic
 			}
 		}
 
-		/// <summary>
-		///    Unique key of the hardware.
-		/// </summary>
-		public new Signature Signature
-		{
-			get
-			{
-				Touch();
-
-				return new Signature<TKey>();
-			}
-		}
-
 		public List<THardware> Touch()
 		{
 			var _return = new List<THardware>();

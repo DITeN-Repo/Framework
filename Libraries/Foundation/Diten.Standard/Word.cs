@@ -1,3 +1,5 @@
+#region Copyright
+
 // Copyright alright reserved by DITeN™ ©® 2003 - 2019
 // ----------------------------------------------------------------------------------------------
 // Agreement:
@@ -9,7 +11,9 @@
 // ----------------------------------------------------------------------------------------------
 // Solution: Diten Framework (V 2.1)
 // Author: Arash Rahimian
-// Creation Date: 2019/08/15 4:35 PM
+// Creation Date: 2019/11/08 12:05 PM
+
+#endregion
 
 #region Used Directives
 
@@ -34,44 +38,40 @@ namespace Diten
 	public class Word: Object<Word>
 	{
 		/// <summary>
-		///    Constructor.
+		///   Constructor.
 		/// </summary>
 		public Word() {}
 
 		/// <summary>
-		///    Constructor.
+		///   Constructor.
 		/// </summary>
 		/// <param name="value">Word string.</param>
-		public Word(string value) { Value = value; }
+		public Word(System.String value) => Value = value;
 
 		/// <summary>
-		///    Get or Set value of the word in <see cref="string" />
+		///   Get or Set value of the word in <see cref="string" />
 		/// </summary>
-		public string Value
-		{
-			get => _value;
-			set => _value = value.ToSafe();
-		}
+		public System.String Value {get => _value; set => _value = value.ToSafe();}
 
-		private string _value;
+		private System.String _value;
 
 		//ToDo: Check commented code
 		//ToDo: The code must be controlled for logical mistakes.
 		//[return: Nullable(1)]
 		//private ArgumentException GetAddingDuplicateWithKeyArgumentException(
 		//	[Nullable(2)] object key) =>
-		//	new ArgumentException(string.Format(EX.Argument_AddingDuplicateWithKey, key));
+		//	new ArgumentException(System.String.Format(EX.Argument_AddingDuplicateWithKey, key));
 
 		/// <summary>
-		///    Decrypting encrypted <see cref="Diten.Word" /> string into <see cref="string" />.
+		///   Decrypting encrypted <see cref="Diten.Word" /> string into <see cref="string" />.
 		/// </summary>
 		/// <param name="value">value of type <see cref="string" /></param>
 		/// <returns>A decrypted <see cref="string" /></returns>
-		public static string Decrypt(string value)
+		public static System.String Decrypt(System.String value)
 		{
 			var position = 0;
 
-			string Key()
+			System.String Key()
 			{
 				position++;
 
@@ -79,7 +79,7 @@ namespace Diten
 			}
 
 			return Enumerable.ToArray(value)
-			                 .Aggregate(string.Empty,
+			                 .Aggregate(System.String.Empty,
 			                            (result,
 			                             current) => result +
 			                                         $@"{
@@ -89,15 +89,15 @@ namespace Diten
 		}
 
 		/// <summary>
-		///    Encrypting an <see cref="string" />.
+		///   Encrypting an <see cref="string" />.
 		/// </summary>
 		/// <param name="value">A <see cref="string" /></param>
 		/// <returns>An encrypted <see cref="string" /></returns>
-		public static string Encrypt(string value)
+		public static System.String Encrypt(System.String value)
 		{
 			var position = 0;
 
-			string Key()
+			System.String Key()
 			{
 				position++;
 
@@ -105,7 +105,7 @@ namespace Diten
 			}
 
 			return value.ToCharArray()
-			            .Aggregate(string.Empty,
+			            .Aggregate(System.String.Empty,
 			                       (current,
 			                        ch) => current +
 			                               $@"{
@@ -115,23 +115,23 @@ namespace Diten
 		}
 
 		/// <summary>
-		///    Find an <see cref="string" /> in the  <see cref="Diten.Word" />.
+		///   Find an <see cref="string" /> in the  <see cref="Diten.Word" />.
 		/// </summary>
 		/// <param name="word">An <see cref="string" />.</param>
 		/// <returns>A <see cref="Word" /> that contains <see cref="string" /> value.</returns>
-		public Word Find(string word)
+		public Word Find(System.String word)
 		{
 			if (!word.Contains(" "))
 				return Find(Builders<Word>.Filter.Eq("Value",
 				                                     Encrypt(word)))[0];
 
-			const string paramName = "Word could not has ' ' (Space).";
+			const System.String paramName = "Word could not has ' ' (Space).";
 
 			throw new ArgumentOutOfRangeException(paramName);
 		}
 
 		/// <summary>
-		///    Load this word from database.
+		///   Load this word from database.
 		/// </summary>
 		/// <returns></returns>
 		public new Word Load()
@@ -144,7 +144,7 @@ namespace Diten
 		}
 
 		/// <summary>
-		///    Save this word into database.
+		///   Save this word into database.
 		/// </summary>
 		public void Save()
 		{
@@ -157,14 +157,15 @@ namespace Diten
 				Save(this);
 			}
 
-			ID = Find(v => v.Value,
-			          holder)[0]
-				.ID;
+			//ToDo: Check commented code
+			//ID = Find(v => v.Value,
+			//          holder)[0]
+			//	.ID;
 		}
 
 		/// <summary>Returns this instance of <see cref="T:Diten.Word" />; no actual conversion is performed.</summary>
 		/// <returns>The current word value.</returns>
-		public override string ToString() { return Value; }
+		public override System.String ToString() => Value;
 	}
 }
 

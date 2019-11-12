@@ -29,7 +29,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="username">Username of a user that has privilege to do jobs on Active Directory.</param>
 		/// <param name="password">Password of user.</param>
-		public UsersTasks(string username,
+		public UsersTasks(System.String username,
 		                  string password)
 		{
 			UserName = username;
@@ -45,7 +45,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
 		/// <param name="groupDn">Group distinguished name.</param>
-		public void AddToGroup(string userDn,
+		public void AddToGroup(System.String userDn,
 		                       string groupDn)
 		{
 			var dirEntry = new DirectoryEntry($"LDAP://{groupDn}",
@@ -63,7 +63,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="password"></param>
 		/// <param name="domain"></param>
 		/// <returns>True if user is authenticated.</returns>
-		private bool Authenticate(string userName,
+		private bool Authenticate(System.String userName,
 		                          string password,
 		                          string domain)
 		{
@@ -95,7 +95,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="description">Description.</param>
 		/// <param name="fullName">Fullname of user.</param>
 		/// <returns>GUID of user.</returns>
-		public Guid CreateUserAccount(string ldapPath,
+		public Guid CreateUserAccount(System.String ldapPath,
 		                              string userName,
 		                              string userPassword,
 		                              string principalName = "",
@@ -132,7 +132,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		///    Disable a User Account.
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
-		public void Disable(string userDn)
+		public void Disable(System.String userDn)
 		{
 			var user = new DirectoryEntry(userDn,
 			                              UserName,
@@ -151,7 +151,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
 		/// <param name="userFlag">User flag.</param>
-		public void DisableUserFlag(string userDn,
+		public void DisableUserFlag(System.String userDn,
 		                            UserFlags userFlag)
 		{
 			var user = new DirectoryEntry(userDn,
@@ -170,7 +170,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		///    Enable a User Account.
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
-		public void Enable(string userDn)
+		public void Enable(System.String userDn)
 		{
 			var user = new DirectoryEntry(userDn,
 			                              UserName,
@@ -189,7 +189,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
 		/// <param name="userFlag">User flag.</param>
-		public void EnableUserFlag(string userDn,
+		public void EnableUserFlag(System.String userDn,
 		                           UserFlags userFlag)
 		{
 			var user = new DirectoryEntry(userDn,
@@ -228,7 +228,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// <param name="userDn">user distinguished name.</param>
 		/// <param name="recursive">Get groups recursively</param>
 		/// <returns>Array list of user group.</returns>
-		public ArrayList GetGroups(string userDn,
+		public ArrayList GetGroups(System.String userDn,
 		                           bool recursive)
 		{
 			var groupMemberships = new ArrayList();
@@ -244,7 +244,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		///    Lock a User Account.
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
-		public void Lock(string userDn)
+		public void Lock(System.String userDn)
 		{
 			var uEntry = new DirectoryEntry(userDn,
 			                                UserName,
@@ -260,7 +260,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
 		/// <param name="groupDn">Group distinguished name.</param>
-		public void RemoveUserFromGroup(string userDn,
+		public void RemoveUserFromGroup(System.String userDn,
 		                                string groupDn)
 		{
 			var dirEntry = new DirectoryEntry($"LDAP://{groupDn}",
@@ -276,7 +276,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="objectDn">Object distinguished name.</param>
 		/// <param name="newName">New name.</param>
-		public void Rename(string objectDn,
+		public void Rename(System.String objectDn,
 		                   string newName)
 		{
 			new DirectoryEntry($"LDAP://{objectDn}",
@@ -289,7 +289,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
 		/// <param name="password">Password.</param>
-		public void ResetPassword(string userDn,
+		public void ResetPassword(System.String userDn,
 		                          string password)
 		{
 			var uEntry = new DirectoryEntry(userDn,
@@ -307,7 +307,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		///    Unlock a User Account.
 		/// </summary>
 		/// <param name="userDn">user distinguished name.</param>
-		public void Unlock(string userDn)
+		public void Unlock(System.String userDn)
 		{
 			var uEntry = new DirectoryEntry(userDn,
 			                                UserName,

@@ -27,11 +27,11 @@ namespace Diten.Management
 		/// <summary>
 		///    Operating system version.
 		/// </summary>
-		public string Caption {get; set;}
+		public System.String Caption {get; set;}
 
 		/// <summary>
 		///    Operating system version.
 		/// </summary>
-		public string OSVersion => Caption;
+		public System.String OSVersion => Caption;
 	}
 }

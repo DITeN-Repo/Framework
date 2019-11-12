@@ -63,21 +63,21 @@ namespace Diten
 		/// </summary>
 		/// <param name="methodName">Method names in diten object inherited classes.</param>
 		/// <returns>Name of a method in object inherited class.</returns>
-		public static string GetName(MethodNames methodName) { return GetName(enumerator: methodName); }
+		public static System.String GetName(MethodNames methodName) { return GetName(enumerator: methodName); }
 
 		/// <summary>
 		///    Get name of property.
 		/// </summary>
 		/// <param name="methodName">Property names in diten object inherited classes.</param>
 		/// <returns>Name of a method in object inherited class.</returns>
-		public static string GetName(PropertyNames propertyName) { return GetName(enumerator: propertyName); }
+		public static System.String GetName(PropertyNames propertyName) { return GetName(enumerator: propertyName); }
 
 		/// <summary>
 		///    Get name of an enumerator.
 		/// </summary>
 		/// <param name="enumerator">Source enumerator.</param>
 		/// <returns>Name on enumerator.</returns>
-		public static string GetName(this System.Enum enumerator)
+		public static System.String GetName(this System.Enum enumerator)
 		{
 			return System.Enum.GetName(enumerator.GetType(),
 			                           enumerator) ??
@@ -89,13 +89,13 @@ namespace Diten
 		/// </summary>
 		/// <param name="enumerator">Source enumerator.</param>
 		/// <returns>Name array of enumerator.</returns>
-		public static IEnumerable<string> GetNames(this System.Enum enumerator) { return System.Enum.GetNames(enumerator.GetType()); }
+		public static IEnumerable<System.String> GetNames(this System.Enum enumerator) { return System.Enum.GetNames(enumerator.GetType()); }
 
 		/// <summary>
 		///    Get the environmental variable.
 		/// </summary>
 		/// <returns>Environmental variable.</returns>
-		internal static string GetPath()
+		internal static System.String GetPath()
 		{
 			var path =
 				$@"{
@@ -133,7 +133,7 @@ namespace Diten
 		/// <exception cref="T:System.ArgumentException">
 		///    <paramref name="TEnum" /> is not an enumeration type.
 		/// </exception>
-		public static TEnum Parse<TEnum>(string value) where TEnum: struct
+		public static TEnum Parse<TEnum>(System.String value) where TEnum: struct
 		{
 			return (TEnum) System.Enum.Parse(typeof(TEnum),
 			                                 value);
@@ -159,7 +159,7 @@ namespace Diten
 		/// <exception cref="T:System.ArgumentException">
 		///    <paramref name="TEnum" /> is not an enumeration type.
 		/// </exception>
-		public static bool TryParse<TEnum>(string value,
+		public static bool TryParse<TEnum>(System.String value,
 		                                   out TEnum result) where TEnum: struct
 		{
 			return System.Enum.TryParse(value,

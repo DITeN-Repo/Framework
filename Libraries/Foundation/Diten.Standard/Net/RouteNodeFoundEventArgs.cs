@@ -35,7 +35,7 @@ namespace Diten.Net
 		///    Indicates whether the value of the Node propert is the last node
 		///    found by Tracert
 		/// </summary>
-		public bool IsLastNode {get;}
+		public Boolean IsLastNode {get;}
 
 		/// <summary>
 		///    A node encountered during the route tracing.

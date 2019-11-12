@@ -68,7 +68,7 @@ namespace Diten.Numeric
 		///    Basic) to obtain the numeric format information from the current locale setting of the operating system.
 		/// </param>
 		/// <returns>The value of the current instance in the specified format.</returns>
-		public string ToString(string format,
+		public string ToString(System.String format,
 		                       IFormatProvider formatProvider)
 		{
 			throw new NotImplementedException();

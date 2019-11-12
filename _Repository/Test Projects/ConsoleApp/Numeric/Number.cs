@@ -153,7 +153,7 @@ namespace Diten.Numeric
 	//	}
 
 	//	/// <inheritdoc />
-	//	public string ToString(string format, System.IFormatProvider formatProvider)
+	//	public string ToString(System.String format, System.IFormatProvider formatProvider)
 	//	{
 	//		throw new NotImplementedException();
 	//	}
@@ -271,7 +271,7 @@ namespace Diten.Numeric
 
 	//	public override string ToString()
 	//	{
-	//		return Number.FormatInt32(this, (string)null, NumberFormatInfo.CurrentInfo);
+	//		return Number.FormatInt32(this, (System.String)null, NumberFormatInfo.CurrentInfo);
 	//	}
 
 	//	/// <summary>Converts the numeric value of this instance to its equivalent string representation, using the specified format.</summary>
@@ -281,7 +281,7 @@ namespace Diten.Numeric
 	//	/// <paramref name="format" /> is invalid or not supported.</exception>
 	//	[SecuritySafeCritical]
 
-	//	public string ToString(string format)
+	//	public string ToString(System.String format)
 	//	{
 	//		return Number.FormatInt32(this, format, NumberFormatInfo.CurrentInfo);
 	//	}
@@ -293,7 +293,7 @@ namespace Diten.Numeric
 
 	//	public string ToString(System.IFormatProvider provider)
 	//	{
-	//		return Number.FormatInt32(this, (string)null, NumberFormatInfo.GetInstance(provider));
+	//		return Number.FormatInt32(this, (System.String)null, NumberFormatInfo.GetInstance(provider));
 	//	}
 
 	//	/// <summary>Converts the numeric value of this instance to its equivalent string representation using the specified format and culture-specific format information.</summary>
@@ -304,7 +304,7 @@ namespace Diten.Numeric
 	//	/// <paramref name="format" /> is invalid or not supported.</exception>
 	//	[SecuritySafeCritical]
 
-	//	public string ToString(string format, System.IFormatProvider provider)
+	//	public string ToString(System.String format, System.IFormatProvider provider)
 	//	{
 	//		return Number.FormatInt32(this, format, NumberFormatInfo.GetInstance(provider));
 	//	}
@@ -319,7 +319,7 @@ namespace Diten.Numeric
 	//	/// <exception cref="T:System.OverflowException">
 	//	/// <paramref name="s" /> represents a number less than <see cref="F:System.Int32.MinValue" /> or greater than <see cref="F:System.Int32.MaxValue" />.</exception>
 
-	//	public static int Parse(string s)
+	//	public static int Parse(System.String s)
 	//	{
 	//		return Number.ParseInt32(s, NumberStyles.Integer, NumberFormatInfo.CurrentInfo);
 	//	}
@@ -341,7 +341,7 @@ namespace Diten.Numeric
 	//	/// -or-
 	//	/// <paramref name="s" /> includes non-zero, fractional digits.</exception>
 
-	//	public static int Parse(string s, NumberStyles style)
+	//	public static int Parse(System.String s, NumberStyles style)
 	//	{
 	//		NumberFormatInfo.ValidateParseStyleInteger(style);
 	//		return Number.ParseInt32(s, style, NumberFormatInfo.CurrentInfo);
@@ -358,7 +358,7 @@ namespace Diten.Numeric
 	//	/// <exception cref="T:System.OverflowException">
 	//	/// <paramref name="s" /> represents a number less than <see cref="F:System.Int32.MinValue" /> or greater than <see cref="F:System.Int32.MaxValue" />.</exception>
 
-	//	public static int Parse(string s, System.IFormatProvider provider)
+	//	public static int Parse(System.String s, System.IFormatProvider provider)
 	//	{
 	//		return Number.ParseInt32(s, NumberStyles.Integer, NumberFormatInfo.GetInstance(provider));
 	//	}
@@ -381,7 +381,7 @@ namespace Diten.Numeric
 	//	/// -or-
 	//	/// <paramref name="s" /> includes non-zero, fractional digits.</exception>
 
-	//	public static int Parse(string s, NumberStyles style, System.IFormatProvider provider)
+	//	public static int Parse(System.String s, NumberStyles style, System.IFormatProvider provider)
 	//	{
 	//		NumberFormatInfo.ValidateParseStyleInteger(style);
 	//		return Number.ParseInt32(s, style, NumberFormatInfo.GetInstance(provider));
@@ -393,7 +393,7 @@ namespace Diten.Numeric
 	//	/// <returns>
 	//	/// <see langword="true" /> if <paramref name="s" /> was converted successfully; otherwise, <see langword="false" />.</returns>
 
-	//	public static bool TryParse(string s, out int result)
+	//	public static bool TryParse(System.String s, out int result)
 	//	{
 	//		return Number.TryParseInt32(s, NumberStyles.Integer, NumberFormatInfo.CurrentInfo, out result);
 	//	}

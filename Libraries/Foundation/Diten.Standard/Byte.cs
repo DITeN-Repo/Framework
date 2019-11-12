@@ -46,7 +46,7 @@ namespace Diten
 		/// </summary>
 		public byte[] Value {get; private set;}
 
-		public void Append(IEnumerable<byte> bytes)
+		public void Append(IEnumerable<System.Byte> bytes)
 		{
 			var holder = Value.ToList();
 			holder.AddRange(bytes);
@@ -57,7 +57,7 @@ namespace Diten
 		///    Appending some string at end of byte array.
 		/// </summary>
 		/// <param name="value"></param>
-		public void Append(string value) { Append(Encoding.UTF8.GetBytes(value.ToCharArray())); }
+		public void Append(System.String value) { Append(Encoding.UTF8.GetBytes(value.ToCharArray())); }
 
 		/// <summary>
 		///    Clear value property of byte type.
@@ -68,14 +68,14 @@ namespace Diten
 		///    Detect that byte array in value property has EOF tag or not.
 		/// </summary>
 		/// <returns>True if byte array has EOF tag.</returns>
-		public bool HasEOF() { return HasTag(Char.ReservedChars.FileSeparator.ToString()); }
+		public Boolean HasEOF() { return HasTag(Char.ReservedChars.FileSeparator.ToString()); }
 
 		/// <summary>
 		///    Detect that byte array in value property has tag or not.
 		/// </summary>
 		/// <param name="tag"></param>
 		/// <returns>True if byte array has tag.</returns>
-		public bool HasTag(string tag)
+		public Boolean HasTag(System.String tag)
 		{
 			return Encoding.ASCII.GetString(Value)
 			               .IndexOf(tag,

@@ -22,8 +22,8 @@ namespace Diten.Management.Hardware
 	public class DisplayAdapter: Hardware<DisplayAdapter>
 	{
 		public double ClockSpeed {get; set;}
-		public string HardwareID {get; set;}
-		public string Info {get; set;}
-		public string Model {get; set;}
+		public System.String HardwareID {get; set;}
+		public System.String Info {get; set;}
+		public System.String Model {get; set;}
 	}
 }

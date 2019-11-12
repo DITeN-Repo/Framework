@@ -24,7 +24,7 @@ namespace Diten.Reflection
 	public class Assembly: System.Reflection.Assembly
 	{
 		/// <inheritdoc cref="System.Reflection.Assembly.GetExecutingAssembly()" />
-		public static string ExecutingAssemblyPath
+		public static System.String ExecutingAssemblyPath
 		{
 			get
 			{
@@ -41,13 +41,13 @@ namespace Diten.Reflection
 		/// </summary>
 		/// <returns>An <inheritdoc cref="string" /> that contains name of currently executed method.</returns>
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static string GetCurrentMethodName() { return new StackTrace().GetFrame(1).GetMethod().Name; }
+		public static System.String GetCurrentMethodName() { return new StackTrace().GetFrame(1).GetMethod().Name; }
 
 		/// <summary>
 		///    Get current executed property name in <inheritdoc cref="string" />.
 		/// </summary>
 		/// <returns>An <inheritdoc cref="string" /> that contains name of currently executed property.</returns>
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static string GetCurrentPropertyName() { return new StackTrace().GetFrame(2).GetMethod().Name; }
+		public static System.String GetCurrentPropertyName() { return new StackTrace().GetFrame(2).GetMethod().Name; }
 	}
 }

@@ -21,7 +21,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 {
 	public class DirectoryEntryConfiguration
 	{
-		public DirectoryEntryConfiguration(string domainADsPath) { EntryConfiguration = new DirectoryEntry(domainADsPath).Options; }
+		public DirectoryEntryConfiguration(System.String domainADsPath) { EntryConfiguration = new DirectoryEntry(domainADsPath).Options; }
 
 		private System.DirectoryServices.DirectoryEntryConfiguration EntryConfiguration {get;}
 

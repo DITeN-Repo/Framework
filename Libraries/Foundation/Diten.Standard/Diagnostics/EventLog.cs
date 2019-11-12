@@ -23,7 +23,7 @@ namespace Diten.Diagnostics
 	// ReSharper disable once ClassNeverInstantiated.Global
 	public class EventLog: System.Diagnostics.EventLog
 	{
-		public static void WriteEventLog(string message,
+		public static void WriteEventLog(System.String message,
 		                                 string source,
 		                                 EventLogEntryType eventLogEntryType = EventLogEntryType.Information)
 		{
@@ -31,7 +31,7 @@ namespace Diten.Diagnostics
 				CreateEventSource(source,
 				                  string.Empty);
 
-			using (var eventLog = new System.Diagnostics.EventLog(string.Empty,
+			using (var eventLog = new System.Diagnostics.EventLog(System.String.Empty,
 			                                                      System.Environment.MachineName,
 			                                                      source))
 			{

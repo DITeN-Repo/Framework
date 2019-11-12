@@ -21,6 +21,6 @@ namespace dotNetCoreConsoleApp
 {
 	internal class Program
 	{
-		private static void Main(string[] args) { Console.WriteLine("Hello World!"); }
+		private static void Main(System.String[] args) { Console.WriteLine("Hello World!"); }
 	}
 }

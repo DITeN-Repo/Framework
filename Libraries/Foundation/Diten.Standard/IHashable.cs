@@ -23,6 +23,6 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">The current entity that must be converted into Base64Text encryption.</param>
 		/// <returns>A Base64Text hashed string.</returns>
-		string ToBase64Text(string value);
+		string ToBase64Text(System.String value);
 	}
 }

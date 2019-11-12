@@ -37,7 +37,7 @@ namespace Diten.Parameters
 			          .Select(x => (char) x)
 			          .ToArray();
 
-		private static string FrameName
+		private static System.String FrameName
 		{
 			get
 			{
@@ -173,7 +173,7 @@ namespace Diten.Parameters
 				                 return _return.ToArray();
 			                 }).Invoke();
 
-		public static IEnumerable<string> GetGlobalAssemblyCacheFiles(string path)
+		public static IEnumerable<string> GetGlobalAssemblyCacheFiles(System.String path)
 		{
 			var directoryInfo = new DirectoryInfo(path);
 

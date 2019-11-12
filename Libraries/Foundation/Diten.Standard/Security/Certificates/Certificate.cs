@@ -25,7 +25,7 @@ namespace Diten.Security.Certificates
 {
 	internal static class Certificate
 	{
-		internal static IEnumerable<byte> Value
+		internal static IEnumerable<System.Byte> Value
 		{
 			get
 			{

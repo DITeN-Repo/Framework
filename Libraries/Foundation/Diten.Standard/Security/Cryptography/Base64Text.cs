@@ -30,20 +30,20 @@ namespace Diten.Security.Cryptography
 		/// </summary>
 		/// <param name="base64EncodedData">Base64 encoded data.</param>
 		/// <returns>Decoded text.</returns>
-		public static string Decrypt(string base64EncodedData) { return Encoding.UTF8.GetString(System.Convert.FromBase64String(base64EncodedData)); }
+		public static System.String Decrypt(System.String base64EncodedData) { return Encoding.UTF8.GetString(System.Convert.FromBase64String(base64EncodedData)); }
 
 		/// <summary>
 		///    Text base64 encoding.
 		/// </summary>
 		/// <param name="data">Plain text for encoding.</param>
 		/// <returns>Encoded text.</returns>
-		public static string Encrypt(string data) { return System.Convert.ToBase64String(Encoding.UTF8.GetBytes(data)); }
+		public static System.String Encrypt(System.String data) { return System.Convert.ToBase64String(Encoding.UTF8.GetBytes(data)); }
 
 		/// <summary>
 		///    Text base64 encoding.
 		/// </summary>
 		/// <param name="data">Plain text for encoding.</param>
 		/// <returns>Encoded text.</returns>
-		public static string Encrypt(Stream data) { return Encrypt(Convert.ToString(new MemoryStream(data.ToBytes()))); }
+		public static System.String Encrypt(Stream data) { return Encrypt(Convert.ToString(new MemoryStream(data.ToBytes()))); }
 	}
 }

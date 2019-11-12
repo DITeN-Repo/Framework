@@ -68,7 +68,7 @@ using EX = Diten.Parameters.Exceptions;
 //		}
 
 //		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-//		public bool Equals(Vector128<T> other)
+//		public Boolean Equals(Vector128<T> other)
 //		{
 //			ThrowHelper.ThrowForUnsupportedVectorBaseType<T>();
 //			if (Sse.IsSupported && typeof(T) == typeof(float))
@@ -108,10 +108,10 @@ using EX = Diten.Parameters.Exceptions;
 //		public override string ToString() => ToString("G");
 
 //		[return: Nullable(1)]
-//		public string ToString([Nullable(2)] string format) => ToString(format, null);
+//		public System.String ToString([Nullable(2)] string format) => ToString(format, null);
 
 //		[return: Nullable(1)]
-//		public string ToString([Nullable(2)] string format, [Nullable(2)] IFormatProvider formatProvider)
+//		public System.String ToString([Nullable(2)] string format, [Nullable(2)] IFormatProvider formatProvider)
 //		{
 //			ThrowHelper.ThrowForUnsupportedVectorBaseType<T>();
 //			var numberGroupSeparator = NumberFormatInfo.GetInstance(formatProvider).NumberGroupSeparator;

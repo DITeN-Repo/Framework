@@ -16,6 +16,6 @@ namespace Diten.Web
 	/// <inheritdoc />
 	public abstract class HttpException: System.Web.HttpException
 	{
-		protected HttpException(string message): base(message) {}
+		protected HttpException(System.String message): base(message) {}
 	}
 }

@@ -31,7 +31,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Current frame container object.</param>
 		/// <returns>Name of current frame.</returns>
-		public static string GetFrameName(this object value)
+		public static System.String GetFrameName(this object value)
 		{
 			var _return = new StackTrace().GetFrame(2).GetMethod().Name;
 
@@ -73,14 +73,14 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">An <see cref="UnmanagedMemoryStream" />.</param>
 		/// <returns>A <see cref="MemoryStream" />.</returns>
-		public static MemoryStream ToMemoryStream(object value) { return ((UnmanagedMemoryStream) value).ToMemoryStream(); }
+		public static MemoryStream ToMemoryStream(System.Object value) { return ((UnmanagedMemoryStream) value).ToMemoryStream(); }
 
 		/// <summary>
 		///    Converting object to array of object bytes then convert it to string.
 		/// </summary>
 		/// <param name="value">Object that must be converted.</param>
 		/// <returns>A string that represent string converted bytes of the current object.</returns>
-		public static string ToString(this object value) { return value.ToBytes().ToString(); }
+		public static System.String ToString(this object value) { return value.ToBytes().ToString(); }
 
 		/// <summary>
 		///    Try to casting an object into type <see cref="T" />.

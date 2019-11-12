@@ -43,7 +43,7 @@ namespace Diten.Windows.Forms
 			else base.Maximum = value;
 		}
 
-		private void SetText(string value)
+		private void SetText(System.String value)
 		{
 			if (InvokeRequired)
 				Invoke(new TextDelegate(SetText),
@@ -61,7 +61,7 @@ namespace Diten.Windows.Forms
 
 		private delegate void MaximumDelegate(int value);
 
-		private delegate void TextDelegate(string value);
+		private delegate void TextDelegate(System.String value);
 
 		private delegate void ValueDelegate(int value);
 	}

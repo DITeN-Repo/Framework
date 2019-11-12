@@ -28,7 +28,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="username">Username of a user that has privilege to do jobs on Active Directory.</param>
 		/// <param name="password">Password of user.</param>
-		public Management(string username,
+		public Management(System.String username,
 		                  string password)
 		{
 			UserName = username;
@@ -44,7 +44,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="sourceForestName">Source forest name.</param>
 		/// <param name="targetForestName">Target forest name.</param>
-		public void CreateTrust(string sourceForestName,
+		public void CreateTrust(System.String sourceForestName,
 		                        string targetForestName)
 		{
 			var sourceForest = Forest.GetForest(new DirectoryContext(
@@ -70,7 +70,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </summary>
 		/// <param name="sourceForestName">Source forest name.</param>
 		/// <param name="targetForestName">Target forest name.</param>
-		public void DeleteTrust(string sourceForestName,
+		public void DeleteTrust(System.String sourceForestName,
 		                        string targetForestName)
 		{
 			var sourceForest = Forest.GetForest(new DirectoryContext(
@@ -125,7 +125,7 @@ namespace Diten.DirectoryServices.ActiveDirectory
 		/// </param>
 		/// <returns></returns>
 		// ReSharper disable once InconsistentNaming
-		public ArrayList EnumerateOU(string ouDn)
+		public ArrayList EnumerateOU(System.String ouDn)
 		{
 			var alObjects = new ArrayList();
 			var directoryObject = new DirectoryEntry($"LDAP://{ouDn}",

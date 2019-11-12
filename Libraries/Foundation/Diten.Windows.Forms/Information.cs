@@ -88,7 +88,7 @@ namespace Diten.Windows.Forms
 			//else
 			//    throw new ArgumentOutOfRangeException(nameof(parameters), @"Parameters count is more than selected posts.");
 
-			void SetValue(string part)
+			void SetValue(System.String part)
 			{
 				SelectionColor = text.Color;
 				SetText(part);
@@ -151,7 +151,7 @@ namespace Diten.Windows.Forms
 			           null);
 		}
 
-		public void AppendText(string text,
+		public void AppendText(System.String text,
 		                       Color color,
 		                       bool newLine = true)
 		{

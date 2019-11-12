@@ -25,7 +25,7 @@ using EX = Diten.Parameters.Exceptions;
 //		[return: Nullable(1)]
 //		private ArgumentException GetAddingDuplicateWithKeyArgumentException(
 //			[Nullable(2)] object key) =>
-//			new ArgumentException(string.Format(EX.Argument_AddingDuplicateWithKey, key));
+//			new ArgumentException(System.String.Format(EX.Argument_AddingDuplicateWithKey, key));
 
 //		[return: Nullable(1)]
 //		private static ArgumentException GetArgumentException(
@@ -39,7 +39,7 @@ using EX = Diten.Parameters.Exceptions;
 //			new ArgumentException(GetResourceString(resource), GetArgumentName(argument));
 
 //		[return: Nullable(1)]
-//		private static string GetArgumentName(ExceptionArgument argument)
+//		private static System.String GetArgumentName(ExceptionArgument argument)
 //		{
 //			switch (argument)
 //			{
@@ -264,10 +264,10 @@ using EX = Diten.Parameters.Exceptions;
 
 //		[return: Nullable(1)]
 //		private static KeyNotFoundException GetKeyNotFoundException([Nullable(2)] object key) =>
-//			new KeyNotFoundException(string.Format(EX.Arg_KeyNotFoundWithKey, key));
+//			new KeyNotFoundException(System.String.Format(EX.Arg_KeyNotFoundWithKey, key));
 
 //		[return: Nullable(1)]
-//		private static string GetResourceString(ExceptionResource resource)
+//		private static System.String GetResourceString(ExceptionResource resource)
 //		{
 //			switch (resource)
 //			{
@@ -406,13 +406,13 @@ using EX = Diten.Parameters.Exceptions;
 //		private static ArgumentException GetWrongKeyTypeArgumentException(
 //			[Nullable(2)] object key,
 //			[Nullable(1)] Type targetType) =>
-//			new ArgumentException(string.Format(EX.Arg_WrongType, key, targetType), nameof(key));
+//			new ArgumentException(System.String.Format(EX.Arg_WrongType, key, targetType), nameof(key));
 
 //		[return: Nullable(1)]
 //		private static ArgumentException GetWrongValueTypeArgumentException(
 //			[Nullable(2)] object value,
 //			[Nullable(1)] Type targetType) =>
-//			new ArgumentException(string.Format(EX.Arg_WrongType, value, targetType), nameof(value));
+//			new ArgumentException(System.String.Format(EX.Arg_WrongType, value, targetType), nameof(value));
 
 //		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 //		internal static void IfNullAndNullsAreIllegalThenThrow<[Nullable(2)] T>(
@@ -624,7 +624,7 @@ using EX = Diten.Parameters.Exceptions;
 
 //		internal static void ThrowInvalidTypeWithPointersNotSupported([Nullable(1)] Type targetType)
 //		{
-//			throw new ArgumentException(string.Format(EX.Argument_InvalidTypeWithPointersNotSupported, targetType));
+//			throw new ArgumentException(System.String.Format(EX.Argument_InvalidTypeWithPointersNotSupported, targetType));
 //		}
 
 //		internal static void ThrowKeyNotFoundException<[Nullable(2)] T>([Nullable(1)] T key)

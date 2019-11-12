@@ -34,7 +34,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="data">Text data for eecryption.</param>
 		/// <param name="password">Password for eecryption.</param>
 		/// <returns>Text decrypted data.</returns>
-		public static string Decrypt(string data,
+		public static System.String Decrypt(System.String data,
 		                             string password)
 		{
 			return Decrypt(data,
@@ -51,7 +51,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="salt">Salt data for eecryption.</param>
 		/// <param name="iv">16 byte IV data for eecryption.</param>
 		/// <returns>Text decrypted data.</returns>
-		public static string Decrypt(string data,
+		public static System.String Decrypt(System.String data,
 		                             string password,
 		                             string salt,
 		                             string iv)
@@ -78,7 +78,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="data">Text data for encryption.</param>
 		/// <param name="password">Password for eecryption.</param>
 		/// <returns>Text encrypted data.</returns>
-		public static string Encrypt(string data,
+		public static System.String Encrypt(System.String data,
 		                             string password)
 		{
 			return Encrypt(data,
@@ -95,7 +95,7 @@ namespace Diten.Security.Cryptography
 		/// <param name="salt">Salt data for eecryption.</param>
 		/// <param name="iv">16 byte IV data for eecryption.</param>
 		/// <returns>Text encrypted data.</returns>
-		public static string Encrypt(string data,
+		public static System.String Encrypt(System.String data,
 		                             string password,
 		                             string salt,
 		                             string iv)

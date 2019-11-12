@@ -133,34 +133,34 @@ namespace Diten.Globalization
 		/// <summary>
 		///    Gets the day of the month represented by this instance.
 		/// </summary>
-		public int Day => PersianCalendar.GetDayOfMonth(_dateTime);
+		public Int32 Day => PersianCalendar.GetDayOfMonth(_dateTime);
 
 		/// <summary>
 		///    Gets the name of the day of the week represented by this instance.
 		/// </summary>
-		public string DayName => DayNames[DayOfWeek];
+		public System.String DayName => DayNames[DayOfWeek];
 
 		/// <summary>
 		///    Gets the day of the week represented by this instance.
 		/// </summary>
-		public int DayOfWeek => ((int) _dateTime.DayOfWeek + 1) % 7;
+		public Int32 DayOfWeek => ((int) _dateTime.DayOfWeek + 1) % 7;
 
 		/// <summary>
 		///    Gets the day of the year represented by this instance.
 		/// </summary>
-		public int DayOfYear => PersianCalendar.GetDayOfYear(_dateTime);
+		public Int32 DayOfYear => PersianCalendar.GetDayOfYear(_dateTime);
 
 		/// <summary>
 		///    Returns the number of days in the month represented by this instance.
 		/// </summary>
-		public int DaysInMonth =>
+		public Int32 DaysInMonth =>
 			PersianCalendar.GetDaysInMonth(Year,
 			                               Month);
 
 		/// <summary>
 		///    Returns the number of days in the year represented by this instance.
 		/// </summary>
-		public int DaysInYear => PersianCalendar.GetDaysInYear(Year);
+		public Int32 DaysInYear => PersianCalendar.GetDaysInYear(Year);
 
 		/// <summary>
 		///    Gets the first day of the month represented by this instance.
@@ -180,7 +180,7 @@ namespace Diten.Globalization
 		/// <summary>
 		///    Gets the hour component of the date represented by this instance.
 		/// </summary>
-		public int Hour => _dateTime.Hour;
+		public Int32 Hour => _dateTime.Hour;
 
 		private bool IsInDaylightSavingTime
 		{
@@ -210,22 +210,22 @@ namespace Diten.Globalization
 		/// <summary>
 		///    Gets the milliseconds component of the date represented by this instance.
 		/// </summary>
-		public int Millisecond => _dateTime.Millisecond;
+		public Int32 Millisecond => _dateTime.Millisecond;
 
 		/// <summary>
 		///    Gets the minute component of the date represented by this instance.
 		/// </summary>
-		public int Minute => _dateTime.Minute;
+		public Int32 Minute => _dateTime.Minute;
 
 		/// <summary>
 		///    Gets the month component of the date represented by this instance.
 		/// </summary>
-		public int Month => PersianCalendar.GetMonth(_dateTime);
+		public Int32 Month => PersianCalendar.GetMonth(_dateTime);
 
 		/// <summary>
 		///    Gets the name of the month represented by this instance.
 		/// </summary>
-		public string MonthName => MonthNames[Month - 1];
+		public System.String MonthName => MonthNames[Month - 1];
 
 		/// <summary>
 		///    Gets a PersianDateTime object that is set to the current date and time in the persian calendar on this computer.
@@ -255,7 +255,7 @@ namespace Diten.Globalization
 		/// <summary>
 		///    Gets the seconds component of the date represented by this instance.
 		/// </summary>
-		public int Second => _dateTime.Second;
+		public Int32 Second => _dateTime.Second;
 
 		/// <summary>
 		///    Gets the number of ticks that represent the date and time of this instance.
@@ -285,7 +285,7 @@ namespace Diten.Globalization
 		/// <summary>
 		///    Gets the year component of the date represented by this instance.
 		/// </summary>
-		public int Year => PersianCalendar.GetYear(_dateTime);
+		public Int32 Year => PersianCalendar.GetYear(_dateTime);
 
 		private readonly DateTime _dateTime;
 
@@ -380,14 +380,14 @@ namespace Diten.Globalization
 		/// </summary>
 		/// <param name="value">An object to compare to this instance.</param>
 		/// <returns>true if value is an instance of PersianDateTime and equals the value of this instance; otherwise, false.</returns>
-		public override bool Equals(object value) { return Equals(value as PersianDateTime); }
+		public override bool Equals(System.Object value) { return Equals(value as PersianDateTime); }
 
 		/// <summary>
 		///    Returns a value indicating whether this instance is equal to the specified PersianDateTime instance.
 		/// </summary>
 		/// <param name="value">A PersianDateTime instance to compare to this instance.</param>
 		/// <returns>true if the value parameter equals the value of this instance; otherwise, false.</returns>
-		public bool Equals(PersianDateTime value)
+		public Boolean Equals(PersianDateTime value)
 		{
 			return !ReferenceEquals(value,
 			                        null) &&
@@ -399,7 +399,7 @@ namespace Diten.Globalization
 		/// </summary>
 		/// <param name="day">An integer that represents the day, and ranges from 0 through 6.</param>
 		/// <returns>The name of the specified day.</returns>
-		public static string GetDayName(int day) { return DayNames[day]; }
+		public static System.String GetDayName(int day) { return DayNames[day]; }
 
 		/// <summary>
 		///    Returns the number of days in the specified month of the specified year.
@@ -432,14 +432,14 @@ namespace Diten.Globalization
 		/// </summary>
 		/// <param name="month">An integer that represents the month, and ranges from 1 through 12.</param>
 		/// <returns>The name of the specified month.</returns>
-		public static string GetMonthName(int month) { return MonthNames[month + 1]; }
+		public static System.String GetMonthName(int month) { return MonthNames[month + 1]; }
 
 		/// <summary>
 		///    Returns the week of the year that includes the date represented by this instance.
 		/// </summary>
 		/// <param name="rule">An enumeration value that defines a calendar week.</param>
 		/// <returns>A positive integer that represents the week of the year that includes the date represented by this instance.</returns>
-		public int GetWeekOfYear(CalendarWeekRule rule)
+		public Int32 GetWeekOfYear(CalendarWeekRule rule)
 		{
 			return PersianCalendar.GetWeekOfYear(_dateTime,
 			                                     rule,
@@ -457,7 +457,7 @@ namespace Diten.Globalization
 		///    Determines whether the year represented by this instance is a leap year. The number of days is 366 in a leap year.
 		/// </summary>
 		/// <returns>true if the year represented by this instance is a leap year; otherwise, false.</returns>
-		public bool IsLeapYear() { return PersianCalendar.IsLeapYear(Year); }
+		public Boolean IsLeapYear() { return PersianCalendar.IsLeapYear(Year); }
 
 		/// <summary>
 		///    Adds a specified time interval to a specified date and time, yielding a new date and time.
@@ -579,7 +579,7 @@ namespace Diten.Globalization
 		/// </summary>
 		/// <param name="persianDate">A string containing a date to convert.</param>
 		/// <param name="time">A string containing a time to convert.</param>
-		public static PersianDateTime Parse(string persianDate,
+		public static PersianDateTime Parse(System.String persianDate,
 		                                    string time = "0")
 		{
 			return new PersianDateTime(int.Parse(persianDate.Replace("/",
@@ -620,7 +620,7 @@ namespace Diten.Globalization
 		///    Converts the date represented by this instance to an equivalent 32-bit signed integer.
 		/// </summary>
 		/// <returns>n 32-bit signed integer equivalent to the date represented by this instance.</returns>
-		public int ToInt()
+		public Int32 ToInt()
 		{
 			return int.Parse(Year +
 			                 Month.ToString()
@@ -643,7 +643,7 @@ namespace Diten.Globalization
 		/// </summary>
 		/// <param name="format">A custom date and time format string.</param>
 		/// <returns>A string representation of value of the current PersianDateTime object as specified by format.</returns>
-		public string ToString(string format)
+		public System.String ToString(System.String format)
 		{
 			var towDigitYear = (Year % 100).ToString();
 			var month = Month.ToString();
@@ -709,7 +709,7 @@ namespace Diten.Globalization
 		/// </summary>
 		/// <param name="format">A persian date and time format string.</param>
 		/// <returns>A string representation of value of the current PersianDateTime object as specified by format.</returns>
-		public string ToString(PersianDateTimeFormat format)
+		public System.String ToString(PersianDateTimeFormat format)
 		{
 			switch (format)
 			{

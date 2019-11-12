@@ -48,7 +48,7 @@ namespace Diten
 		/// <param name="value">
 		///    A <see cref="string" /> that must be set in Value property of <see cref="Diten.String" />
 		/// </param>
-		public String(string value): this()
+		public String(System.String value): this()
 		{
 			if (value == null) value = string.Empty;
 			Value = value;
@@ -60,7 +60,7 @@ namespace Diten
 		///    Value of string.
 		/// </summary>
 		[BsonIgnore]
-		public string Value
+		public System.String Value
 		{
 			get
 			{
@@ -74,7 +74,7 @@ namespace Diten
 					if (decryptedWord?.Value.IsNull() == true &&
 					    decryptedWord.HasItem()) Words.Load();
 
-					_return = Words.Aggregate(string.Empty,
+					_return = Words.Aggregate(System.String.Empty,
 					                          (current,
 					                           word) => current + $@"{word.Value} ");
 				}
@@ -132,13 +132,13 @@ namespace Diten
 		///    <see langword="false" />.
 		/// </returns>
 		/// <inheritdoc cref="string" />
-		public override bool Equals(object obj)
+		public override bool Equals(System.Object obj)
 		{
 			return RuntimeHelpers.Equals(this,
 			                             obj);
 		}
 
-		public bool Equals(string value) { return Value.Equals(value); }
+		public Boolean Equals(System.String value) { return Value.Equals(value); }
 
 		/// <summary>
 		///    Getting hash code of <see cref="Diten.String" /> value.
@@ -148,7 +148,7 @@ namespace Diten
 		{
 			var hashCode = -310749264;
 			//hashCode = hashCode * -1521134295 + EqualityComparer<String>.Default.GetHashCode(SerializedValue);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Value);
+			hashCode = hashCode * -1521134295 + EqualityComparer<System.String>.Default.GetHashCode(Value);
 			hashCode = hashCode * -1521134295 +
 			           EqualityComparer<Collections.Generic.List<Word>>.Default.GetHashCode(Words);
 
@@ -162,13 +162,13 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">An <see cref="string" />value.</param>
 		/// <returns>True if string is null.</returns>
-		public static bool IsNullString(string value) { return new String(value).IsNull(); }
+		public static bool IsNullString(System.String value) { return new String(value).IsNull(); }
 
 		/// <summary>
 		///    Detect that <see cref="Diten.String" /> is safe or not.
 		/// </summary>
 		/// <returns>True if string is safe.</returns>
-		public bool IsSafe()
+		public Boolean IsSafe()
 		{
 			var range = Char.PrintableChars.ToList();
 
@@ -193,7 +193,7 @@ namespace Diten
 		///    Casting <see cref="string" /> to <see cref="Diten.String" />
 		/// </summary>
 		/// <param name="value">A <see cref="System.String" />.</param>
-		public static implicit operator String(string value) { return new String {Value = value}; }
+		public static implicit operator String(System.String value) { return new String {Value = value}; }
 
 		/// <summary>
 		///    Casting <see cref="Diten.String" /> to <see cref="string" />
@@ -246,7 +246,7 @@ namespace Diten
 
 		/// <summary>Returns this instance of <see cref="System.String" />; no actual conversion is performed.</summary>
 		/// <returns>The current String value on System.String type.</returns>
-		public string ToSystemString() { return Value; }
+		public System.String ToSystemString() { return Value; }
 
 		/// <summary>
 		///    Converting current <see cref="Diten.String" /> into safe string.

@@ -575,6 +575,7 @@ Creation Date: $CREATED_YEAR$/$CREATED_MONTH$/$CREATED_DAY$ $CREATED_TIME$&#xD;
 	
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Sexagesimal/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=SHORTCUTURL/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=Shortener/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Signaturized/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Splitted/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Subscriptors/@EntryIndexedValue">True</s:Boolean>

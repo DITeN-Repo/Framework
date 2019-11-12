@@ -13,6 +13,7 @@
 
 #region Used Directives
 
+using System;
 using Diten.Collections.Generic;
 using System.Dynamic;
 
@@ -22,9 +23,9 @@ namespace Diten.Dynamic
 {
 	public class DynamicDictionary: DynamicObject
 	{
-		public int Count => Dictionary.Count;
-		public Dictionary<string, object> Dictionary => _dictionary ?? (_dictionary = new Dictionary<string, object>());
-		private Dictionary<string, object> _dictionary;
+		public Int32 Count => Dictionary.Count;
+		public Dictionary<System.String, object> Dictionary => _dictionary ?? (_dictionary = new Dictionary<System.String, object>());
+		private Dictionary<System.String, object> _dictionary;
 
 		public override bool TryGetMember(GetMemberBinder binder,
 		                                  out object result)

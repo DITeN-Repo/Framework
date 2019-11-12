@@ -66,7 +66,7 @@ namespace Diten.Numeric
 
 		public string ToString(IFormatProvider provider) { throw new NotImplementedException(); }
 
-		public string ToString(string format,
+		public string ToString(System.String format,
 		                       IFormatProvider formatProvider)
 		{
 			throw new NotImplementedException();

@@ -26,7 +26,7 @@ namespace Diten.Windows.Forms
 	{
 		public String() { Value = string.Empty; }
 
-		public String(string value,
+		public String(System.String value,
 		              Color color = default,
 		              Font font = default): this()
 		{
@@ -36,7 +36,7 @@ namespace Diten.Windows.Forms
 			_color = color;
 		}
 
-		public String(string value,
+		public String(System.String value,
 		              FontStyle fontStyle): this(value,
 		                                         default,
 		                                         new Font(new FontFamily(GenericFontFamilies.SansSerif),
@@ -99,7 +99,7 @@ namespace Diten.Windows.Forms
 		///    Casting <see cref="System.String" /> to <see cref="Diten.Windows.Forms.String" />
 		/// </summary>
 		/// <param name="value">A <see cref="Diten.Windows.Forms.String" />.</param>
-		public static implicit operator String(string value) { return new String {Value = value}; }
+		public static implicit operator String(System.String value) { return new String {Value = value}; }
 
 		/// <summary>
 		///    Casting <see cref="Diten.Windows.Forms.String" /> to <see cref="System.String" />

@@ -11,6 +11,11 @@
 // Author: Arash Rahimian
 // Creation Date: 2019/08/16 12:16 AM
 
+
+
+
+using System;
+
 namespace Diten.Globalization
 {
 	public class Weekday
@@ -29,16 +34,16 @@ namespace Diten.Globalization
 		/// <summary>
 		///    Name of the day in the week.
 		/// </summary>
-		public string Name {get; set;}
+		public System.String Name {get; set;}
 
 		/// <summary>
 		///    Number of the day in the week.
 		/// </summary>
-		public int Number {get; set;}
+		public Int32 Number {get; set;}
 
 		/// <summary>
 		///    Short name of the day in the week.
 		/// </summary>
-		public string ShortName {get; set;}
+		public System.String ShortName {get; set;}
 	}
 }

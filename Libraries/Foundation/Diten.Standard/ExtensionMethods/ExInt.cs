@@ -39,7 +39,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Integer value.</param>
 		/// <returns>A string that contains a vigesimal string.</returns>
-		public static string ToDuosexagesimal(this int value)
+		public static System.String ToDuosexagesimal(this int value)
 		{
 			return ToString(value,
 			                Duosexagesimal.Characters.ToArray());
@@ -50,7 +50,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Integer number.</param>
 		/// <returns>A hexadecimal number.</returns>
-		public static string ToHexadecimal(this int value) { return value.ToString("X"); }
+		public static System.String ToHexadecimal(this int value) { return value.ToString("X"); }
 
 		/// <summary>
 		///    Converting integer address into IP address.
@@ -68,7 +68,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Integer value.</param>
 		/// <returns>A string that contains a sexagesimal string.</returns>
-		public static string ToSexagesimal(this int value) { return ToString(value); }
+		public static System.String ToSexagesimal(this int value) { return ToString(value); }
 
 		/// <summary>
 		///    Convert an <see cref="int" /> to <see cref="string" />.
@@ -80,7 +80,7 @@ namespace Diten
 		///    <para>value</para>
 		///    .
 		/// </returns>
-		public static string ToString(this int value,
+		public static System.String ToString(this int value,
 		                              char[] baseChars)
 		{
 			var result = string.Empty;
@@ -104,7 +104,7 @@ namespace Diten
 		///    <para>value</para>
 		///    .
 		/// </returns>
-		public static string ToString(this int value)
+		public static System.String ToString(this int value)
 		{
 			return ToString(value,
 			                Duosexagesimal.Characters.ToArray());
@@ -119,7 +119,7 @@ namespace Diten
 		/// <param name="value">Integer value.</param>
 		/// <param name="baseChars">Characters that must be used in conversion.</param>
 		/// <returns>A string that contains a integer string.</returns>
-		public static string ToStringFast(this int value,
+		public static System.String ToStringFast(this int value,
 		                                  char[] baseChars)
 		{
 			// 32 is the worst cast buffer size for base 2 and int.MaxValue
@@ -148,7 +148,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Integer value.</param>
 		/// <returns>A string that contains a vigesimal string.</returns>
-		public static string ToVigesimal(this int value)
+		public static System.String ToVigesimal(this int value)
 		{
 			return ToString(value,
 			                Vigesimal.Characters.ToArray());

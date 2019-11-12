@@ -15,7 +15,7 @@ namespace Diten.Diagnostics
 {
 	public class StackTrace: System.Diagnostics.StackTrace
 	{
-		public static string GetFrameName()
+		public static System.String GetFrameName()
 		{
 			var _return = new StackTrace().GetFrame(2).GetMethod().Name;
 

@@ -56,7 +56,7 @@ namespace Diten
 			var _return = new List<Weekday>();
 
 			//Inline Function
-			List<string> tmpFunction1()
+			List<System.String> tmpFunction1()
 			{
 				switch (generation)
 				{
@@ -137,7 +137,7 @@ namespace Diten
 		///    dat of the week is monday).
 		/// </param>
 		/// <returns>A <see cref="IEnumerable{T}" /> of weekdays names.</returns>
-		public static IEnumerable<string> GetDaysNameInWeek([NotNull] this PersianCalendar calendar,
+		public static IEnumerable<System.String> GetDaysNameInWeek([NotNull] this PersianCalendar calendar,
 		                                                    Orders order = Orders.Standard)
 		{
 			if (calendar == null) throw new ArgumentNullException(nameof(calendar));
@@ -159,7 +159,7 @@ namespace Diten
 		///    dat of the week is monday).
 		/// </param>
 		/// <returns>A <see cref="IEnumerable{T}" /> of short weekdays names.</returns>
-		public static IEnumerable<string> GetDaysShortNameInWeek(this PersianCalendar calendar,
+		public static IEnumerable<System.String> GetDaysShortNameInWeek(this PersianCalendar calendar,
 		                                                         Orders order = Orders.Standard)
 		{
 			if (!System.Enum.IsDefined(typeof(Orders),
@@ -169,7 +169,7 @@ namespace Diten
 				                                       typeof(Orders));
 
 			return GetDaysNameInWeek(calendar)
-			       .Aggregate(string.Empty,
+			       .Aggregate(System.String.Empty,
 			                  (next,
 			                   day) => $",{next.PadRight(1)}")
 			       .Split(",".ToCharArray());
@@ -193,7 +193,7 @@ namespace Diten
 		///    dat of the week is monday).
 		/// </param>
 		/// <returns>A <see cref="IEnumerable{T}" /> of months names.</returns>
-		public static IEnumerable<string> GetMonthsNameInYear([NotNull] this PersianCalendar calendar,
+		public static IEnumerable<System.String> GetMonthsNameInYear([NotNull] this PersianCalendar calendar,
 		                                                      Orders order = Orders.Standard)
 		{
 			if (calendar == null) throw new ArgumentNullException(nameof(calendar));
@@ -215,7 +215,7 @@ namespace Diten
 		///    dat of the week is monday).
 		/// </param>
 		/// <returns>A <see cref="IEnumerable{T}" /> of short months names.</returns>
-		public static IEnumerable<string> GetMonthsShortNameInYear(this PersianCalendar calendar,
+		public static IEnumerable<System.String> GetMonthsShortNameInYear(this PersianCalendar calendar,
 		                                                           Orders order = Orders.Standard)
 		{
 			if (!System.Enum.IsDefined(typeof(Orders),
@@ -225,7 +225,7 @@ namespace Diten
 				                                       typeof(Orders));
 
 			return GetMonthsNameInYear(calendar)
-			       .Aggregate(string.Empty,
+			       .Aggregate(System.String.Empty,
 			                  (next,
 			                   day) => $",{next.PadRight(2)}")
 			       .Split(",".ToCharArray());

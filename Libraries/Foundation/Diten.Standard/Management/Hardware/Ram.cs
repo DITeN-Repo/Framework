@@ -13,6 +13,7 @@
 
 #region Used Directives
 
+using System;
 using Diten.Collections.Generic;
 
 #endregion
@@ -21,7 +22,7 @@ namespace Diten.Management.Hardware
 {
 	public class Ram: Hardware<Ram>
 	{
-		public int ClockSpeed {get; set;}
-		public string Type {get; set;}
+		public Int32 ClockSpeed {get; set;}
+		public System.String Type {get; set;}
 	}
 }

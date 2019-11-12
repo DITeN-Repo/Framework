@@ -27,7 +27,7 @@ namespace Diten.DirectoryServices.Local
 		/// </summary>
 		/// <param name="username">Username of a user that has privilege to do jobs on local machine.</param>
 		/// <param name="password">Password of user.</param>
-		public UserTasks(string username,
+		public UserTasks(System.String username,
 		                 string password): base(ContextType.Machine,
 		                                        Environment.MachineName,
 		                                        null,
@@ -43,7 +43,7 @@ namespace Diten.DirectoryServices.Local
 		/// <param name="description">Description.</param>
 		/// <param name="displayName">Fullname of user.</param>
 		/// <returns>GUID of user.</returns>
-		public void CreateUserAccount(string username,
+		public void CreateUserAccount(System.String username,
 		                              string password,
 		                              string description = "",
 		                              string displayName = "")

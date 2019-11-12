@@ -35,7 +35,7 @@ namespace Diten.IO
 			/// </summary>
 			/// <param name="path">Path of directory that must be created.</param>
 			/// <returns></returns>
-			public static DirectoryInfo CreateDirectory(string path)
+			public static DirectoryInfo CreateDirectory(System.String path)
 			{
 				return System.IO.Directory.Exists(path)
 					       ? new DirectoryInfo(path)
@@ -51,7 +51,7 @@ namespace Diten.IO
 			///    Username that must have full access to the
 			///    <param name="path"></param>
 			/// </param>
-			public static void SetFullAccessControl(string path,
+			public static void SetFullAccessControl(System.String path,
 			                                        string username)
 			{
 				var directoryInfo = new DirectoryInfo(path);

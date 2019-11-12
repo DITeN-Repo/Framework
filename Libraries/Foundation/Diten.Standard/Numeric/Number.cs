@@ -25,7 +25,7 @@ namespace Diten.Numeric
 	//{
 
 	//	/// <inheritdoc />
-	//	public int CompareTo(object value)
+	//	public Int32 CompareTo(System.Object value)
 	//	{
 	//		if(obj==null)
 	//			return 1;
@@ -39,7 +39,7 @@ namespace Diten.Numeric
 	//	}
 
 	//	/// <inheritdoc />
-	//	public int CompareTo(TNumeric other)
+	//	public Int32 CompareTo(TNumeric other)
 	//	{
 	//		throw new NotImplementedException();
 	//	}
@@ -51,7 +51,7 @@ namespace Diten.Numeric
 	//	}
 
 	//	/// <inheritdoc />
-	//	public bool ToBoolean(System.IFormatProvider provider)
+	//	public Boolean ToBoolean(System.IFormatProvider provider)
 	//	{
 	//		throw new NotImplementedException();
 	//	}
@@ -75,7 +75,7 @@ namespace Diten.Numeric
 	//	}
 
 	//	/// <inheritdoc />
-	//	public short ToInt16(System.IFormatProvider provider)
+	//	public Int16 ToInt16(System.IFormatProvider provider)
 	//	{
 	//		throw new NotImplementedException();
 	//	}
@@ -87,7 +87,7 @@ namespace Diten.Numeric
 	//	}
 
 	//	/// <inheritdoc />
-	//	public int ToInt32(System.IFormatProvider provider)
+	//	public Int32 ToInt32(System.IFormatProvider provider)
 	//	{
 	//		throw new NotImplementedException();
 	//	}
@@ -135,7 +135,7 @@ namespace Diten.Numeric
 	//	}
 
 	//	/// <inheritdoc />
-	//	public string ToString(System.IFormatProvider provider)
+	//	public System.String ToString(System.IFormatProvider provider)
 	//	{
 	//		throw new NotImplementedException();
 	//	}
@@ -147,13 +147,13 @@ namespace Diten.Numeric
 	//	}
 
 	//	/// <inheritdoc />
-	//	public bool Equals(TNumeric other)
+	//	public Boolean Equals(TNumeric other)
 	//	{
 	//		throw new NotImplementedException();
 	//	}
 
 	//	/// <inheritdoc />
-	//	public string ToString(string format, System.IFormatProvider formatProvider)
+	//	public System.String ToString(System.String format, System.IFormatProvider formatProvider)
 	//	{
 	//		throw new NotImplementedException();
 	//	}
@@ -197,7 +197,7 @@ namespace Diten.Numeric
 	//	/// <paramref name="value" /> is <see langword="null" />.</returns>
 	//	/// <exception cref="T:System.ArgumentException">
 	//	/// <paramref name="value" /> is not an <see cref="T:System.Int32" />.</exception>
-	//	public int CompareTo(object value)
+	//	public Int32 CompareTo(System.Object value)
 	//	{
 	//		if(value==null)
 	//			return 1;
@@ -228,7 +228,7 @@ namespace Diten.Numeric
 	//	/// 
 	//	/// This instance is greater than <paramref name="value" />.</returns>
 
-	//	public int CompareTo(int value)
+	//	public Int32 CompareTo(int value)
 	//	{
 	//		if(this<value)
 	//			return -1;
@@ -240,7 +240,7 @@ namespace Diten.Numeric
 	//	/// <returns>
 	//	/// <see langword="true" /> if <paramref name="obj" /> is an instance of <see cref="T:System.Int32" /> and equals the value of this instance; otherwise, <see langword="false" />.</returns>
 
-	//	public override bool Equals(object obj)
+	//	public override bool Equals(System.Object obj)
 	//	{
 	//		if(!(obj is int))
 	//			return false;
@@ -252,7 +252,7 @@ namespace Diten.Numeric
 	//	/// <returns>
 	//	/// <see langword="true" /> if <paramref name="obj" /> has the same value as this instance; otherwise, <see langword="false" />.</returns>
 
-	//	public bool Equals(int obj)
+	//	public Boolean Equals(int obj)
 	//	{
 	//		return this==obj;
 	//	}
@@ -271,7 +271,7 @@ namespace Diten.Numeric
 
 	//	public override string ToString()
 	//	{
-	//		return Number.FormatInt32(this, (string)null, NumberFormatInfo.CurrentInfo);
+	//		return Number.FormatInt32(this, (System.String)null, NumberFormatInfo.CurrentInfo);
 	//	}
 
 	//	/// <summary>Converts the numeric value of this instance to its equivalent string representation, using the specified format.</summary>
@@ -281,7 +281,7 @@ namespace Diten.Numeric
 	//	/// <paramref name="format" /> is invalid or not supported.</exception>
 	//	[SecuritySafeCritical]
 
-	//	public string ToString(string format)
+	//	public System.String ToString(System.String format)
 	//	{
 	//		return Number.FormatInt32(this, format, NumberFormatInfo.CurrentInfo);
 	//	}
@@ -291,9 +291,9 @@ namespace Diten.Numeric
 	//	/// <returns>The string representation of the value of this instance as specified by <paramref name="provider" />.</returns>
 	//	[SecuritySafeCritical]
 
-	//	public string ToString(System.IFormatProvider provider)
+	//	public System.String ToString(System.IFormatProvider provider)
 	//	{
-	//		return Number.FormatInt32(this, (string)null, NumberFormatInfo.GetInstance(provider));
+	//		return Number.FormatInt32(this, (System.String)null, NumberFormatInfo.GetInstance(provider));
 	//	}
 
 	//	/// <summary>Converts the numeric value of this instance to its equivalent string representation using the specified format and culture-specific format information.</summary>
@@ -304,7 +304,7 @@ namespace Diten.Numeric
 	//	/// <paramref name="format" /> is invalid or not supported.</exception>
 	//	[SecuritySafeCritical]
 
-	//	public string ToString(string format, System.IFormatProvider provider)
+	//	public System.String ToString(System.String format, System.IFormatProvider provider)
 	//	{
 	//		return Number.FormatInt32(this, format, NumberFormatInfo.GetInstance(provider));
 	//	}
@@ -319,7 +319,7 @@ namespace Diten.Numeric
 	//	/// <exception cref="T:System.OverflowException">
 	//	/// <paramref name="s" /> represents a number less than <see cref="F:System.Int32.MinValue" /> or greater than <see cref="F:System.Int32.MaxValue" />.</exception>
 
-	//	public static int Parse(string s)
+	//	public static int Parse(System.String s)
 	//	{
 	//		return Number.ParseInt32(s, NumberStyles.Integer, NumberFormatInfo.CurrentInfo);
 	//	}
@@ -341,7 +341,7 @@ namespace Diten.Numeric
 	//	/// -or-
 	//	/// <paramref name="s" /> includes non-zero, fractional digits.</exception>
 
-	//	public static int Parse(string s, NumberStyles style)
+	//	public static int Parse(System.String s, NumberStyles style)
 	//	{
 	//		NumberFormatInfo.ValidateParseStyleInteger(style);
 	//		return Number.ParseInt32(s, style, NumberFormatInfo.CurrentInfo);
@@ -358,7 +358,7 @@ namespace Diten.Numeric
 	//	/// <exception cref="T:System.OverflowException">
 	//	/// <paramref name="s" /> represents a number less than <see cref="F:System.Int32.MinValue" /> or greater than <see cref="F:System.Int32.MaxValue" />.</exception>
 
-	//	public static int Parse(string s, System.IFormatProvider provider)
+	//	public static int Parse(System.String s, System.IFormatProvider provider)
 	//	{
 	//		return Number.ParseInt32(s, NumberStyles.Integer, NumberFormatInfo.GetInstance(provider));
 	//	}
@@ -381,7 +381,7 @@ namespace Diten.Numeric
 	//	/// -or-
 	//	/// <paramref name="s" /> includes non-zero, fractional digits.</exception>
 
-	//	public static int Parse(string s, NumberStyles style, System.IFormatProvider provider)
+	//	public static int Parse(System.String s, NumberStyles style, System.IFormatProvider provider)
 	//	{
 	//		NumberFormatInfo.ValidateParseStyleInteger(style);
 	//		return Number.ParseInt32(s, style, NumberFormatInfo.GetInstance(provider));
@@ -393,7 +393,7 @@ namespace Diten.Numeric
 	//	/// <returns>
 	//	/// <see langword="true" /> if <paramref name="s" /> was converted successfully; otherwise, <see langword="false" />.</returns>
 
-	//	public static bool TryParse(string s, out int result)
+	//	public static bool TryParse(System.String s, out int result)
 	//	{
 	//		return Number.TryParseInt32(s, NumberStyles.Integer, NumberFormatInfo.CurrentInfo, out result);
 	//	}

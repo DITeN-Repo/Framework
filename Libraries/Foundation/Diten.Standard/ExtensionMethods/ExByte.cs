@@ -59,6 +59,6 @@ namespace Diten
 		///    bits.
 		/// </param>
 		/// <returns>An <see cref="System.Array" /> of <see cref="bool" />s bits.</returns>
-		public static BitArray ToBits(this IEnumerable<byte> value) { return new BitArray(value.ToBytes()); }
+		public static BitArray ToBits(this IEnumerable<System.Byte> value) { return new BitArray(value.ToBytes()); }
 	}
 }

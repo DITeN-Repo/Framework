@@ -21,7 +21,7 @@ RSA.getRandomNumber = randomNUmber => () =>
  * https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Code
  *
  * @param   {keysize} int, bitlength of desired RSA modulus n (should be even)
- * @returns {array} Result of RSA generation (object with three bigInt members: n, e, d)
+ * @returns {array} Result of RSA generation (System.Object with three bigInt members: n, e, d)
  */
 RSA.generate = keysize =>
 	{

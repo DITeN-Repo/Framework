@@ -13,6 +13,7 @@
 
 #region Used Directives
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -30,7 +31,7 @@ namespace Diten.Globalization
 
 		public void Clear() { HolderList.Clear(); }
 
-		public bool Contains(Weekday item) { return HolderList.Contains(item); }
+		public Boolean Contains(Weekday item) { return HolderList.Contains(item); }
 
 		public void CopyTo(Weekday[] array,
 		                   int arrayIndex)
@@ -39,14 +40,14 @@ namespace Diten.Globalization
 			                  arrayIndex);
 		}
 
-		public int Count => HolderList.Count;
+		public Int32 Count => HolderList.Count;
 
 		public IEnumerator<Weekday> GetEnumerator() { return HolderList.GetEnumerator(); }
 
 		IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
 
-		public bool IsReadOnly => false;
+		public Boolean IsReadOnly => false;
 
-		public bool Remove(Weekday item) { return HolderList.Remove(item); }
+		public Boolean Remove(Weekday item) { return HolderList.Remove(item); }
 	}
 }

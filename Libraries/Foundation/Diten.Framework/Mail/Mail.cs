@@ -24,7 +24,7 @@ namespace Diten.Net.Mail
 	{
 		public Mail() {}
 
-		public Mail(string to,
+		public Mail(System.String to,
 		            string subject,
 		            string body)
 		{

@@ -38,7 +38,7 @@ namespace Diten.Runtime
 			return new BinaryFormatter().Deserialize(memoryStream);
 		}
 
-		public static byte[] Serialize(object obj)
+		public static byte[] Serialize(System.Object obj)
 		{
 			var output = new MemoryStream();
 

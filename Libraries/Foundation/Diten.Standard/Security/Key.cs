@@ -86,7 +86,7 @@ namespace Diten.Security
 		/// </summary>
 		[BsonIgnore]
 		[NonSerializable]
-		public int Length => Value.Length;
+		public Int32 Length => Value.Length;
 
 		[BsonIgnore]
 		[NonSerializable]
@@ -124,7 +124,7 @@ namespace Diten.Security
 		/// </summary>
 		/// <param name="value">Source key to control.</param>
 		/// <returns>True if the source key is equal.</returns>
-		public bool Equals(Key value)
+		public Boolean Equals(Key value)
 		{
 			return Equals(value,
 			              this);
@@ -208,6 +208,6 @@ namespace Diten.Security
 		///    Converting the key value to hex.
 		/// </summary>
 		/// <returns>A hex string number.</returns>
-		public string ToHex() { return Value.ToHex(); }
+		public System.String ToHex() { return Value.ToHex(); }
 	}
 }

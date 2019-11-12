@@ -31,7 +31,7 @@ namespace Diten.Pdf
 		/// <param name="sourceFiles">PDF files being merged.</param>
 		/// <param name="watermark">Write watermark or not.</param>
 		/// <returns>Content of merged pdf.</returns>
-		public static byte[] Merge(IEnumerable<byte[]> sourceFiles,
+		public static byte[] Merge(IEnumerable<System.Byte[]> sourceFiles,
 		                           bool watermark)
 		{
 			var document = new Document();
@@ -101,22 +101,22 @@ namespace Diten.Pdf
 		/// <param name="sourceFiles">Full path of PDF files being merged.</param>
 		/// <param name="watermark">Write watermark or not.</param>
 		/// <returns>Content of merged pdf.</returns>
-		public static byte[] Merge(IEnumerable<string> sourceFiles,
+		public static byte[] Merge(IEnumerable<System.String> sourceFiles,
 		                           bool watermark = false)
 		{
 			return Merge(sourceFiles.Select(File.ReadAllBytes).ToList(),
 			             watermark);
 		}
 
-		public static byte[] Merge(string file1,
+		public static byte[] Merge(System.String file1,
 		                           string file2,
 		                           bool watermark = false)
 		{
-			return Merge(new Collections.Generic.List<string> {file1, file2},
+			return Merge(new Collections.Generic.List<System.String> {file1, file2},
 			             watermark);
 		}
 
-		public static void Merge(string file1,
+		public static void Merge(System.String file1,
 		                         string file2,
 		                         string exportFile,
 		                         bool watermark = false)

@@ -52,7 +52,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                 this.Relations.CollectionChanged += schemaChangedHandler1;
                 return;
             }
-            string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
+            string strSchema = ((System.String)(info.GetValue("XmlSchema", typeof(System.String))));
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
@@ -557,23 +557,23 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                 base.Columns.Add(this.columnID);
                 this.columnPID = new global::System.Data.DataColumn("PID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPID);
-                this.columnHTMLTAG = new global::System.Data.DataColumn("HTMLTAG", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnHTMLTAG = new global::System.Data.DataColumn("HTMLTAG", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHTMLTAG);
-                this.columnHREF = new global::System.Data.DataColumn("HREF", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnHREF = new global::System.Data.DataColumn("HREF", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHREF);
-                this.columnLAST_MODIFIED = new global::System.Data.DataColumn("LAST_MODIFIED", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnLAST_MODIFIED = new global::System.Data.DataColumn("LAST_MODIFIED", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLAST_MODIFIED);
-                this.columnICON = new global::System.Data.DataColumn("ICON", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnICON = new global::System.Data.DataColumn("ICON", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnICON);
-                this.columnSHORTCUTURL = new global::System.Data.DataColumn("SHORTCUTURL", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSHORTCUTURL = new global::System.Data.DataColumn("SHORTCUTURL", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSHORTCUTURL);
-                this.columnTAGS = new global::System.Data.DataColumn("TAGS", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTAGS = new global::System.Data.DataColumn("TAGS", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTAGS);
-                this.columnADD_DATE = new global::System.Data.DataColumn("ADD_DATE", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnADD_DATE = new global::System.Data.DataColumn("ADD_DATE", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnADD_DATE);
-                this.columnICON_URI = new global::System.Data.DataColumn("ICON_URI", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnICON_URI = new global::System.Data.DataColumn("ICON_URI", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnICON_URI);
-                this.columnTEXT = new global::System.Data.DataColumn("TEXT", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTEXT = new global::System.Data.DataColumn("TEXT", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTEXT);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
@@ -826,7 +826,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTableTreeNodesRow AddDataTableTreeNodesRow(string Title, int BookmarkID, string NodePath) {
+            public DataTableTreeNodesRow AddDataTableTreeNodesRow(System.String Title, int BookmarkID, string NodePath) {
                 DataTableTreeNodesRow rowDataTableTreeNodesRow = ((DataTableTreeNodesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -873,11 +873,11 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
                 this.columnBookmarkID = new global::System.Data.DataColumn("BookmarkID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBookmarkID);
-                this.columnNodePath = new global::System.Data.DataColumn("NodePath", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnNodePath = new global::System.Data.DataColumn("NodePath", typeof(System.String), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNodePath);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
@@ -1057,7 +1057,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                         return string.Empty;
                     }
                     else {
-                        return ((string)(this[this.tableDataTableBookmarks.HTMLTAGColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.HTMLTAGColumn]));
                     }
                 }
                 set {
@@ -1073,7 +1073,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                         return string.Empty;
                     }
                     else {
-                        return ((string)(this[this.tableDataTableBookmarks.HREFColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.HREFColumn]));
                     }
                 }
                 set {
@@ -1089,7 +1089,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                         return string.Empty;
                     }
                     else {
-                        return ((string)(this[this.tableDataTableBookmarks.LAST_MODIFIEDColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.LAST_MODIFIEDColumn]));
                     }
                 }
                 set {
@@ -1105,7 +1105,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                         return string.Empty;
                     }
                     else {
-                        return ((string)(this[this.tableDataTableBookmarks.ICONColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.ICONColumn]));
                     }
                 }
                 set {
@@ -1121,7 +1121,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                         return string.Empty;
                     }
                     else {
-                        return ((string)(this[this.tableDataTableBookmarks.SHORTCUTURLColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.SHORTCUTURLColumn]));
                     }
                 }
                 set {
@@ -1137,7 +1137,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                         return string.Empty;
                     }
                     else {
-                        return ((string)(this[this.tableDataTableBookmarks.TAGSColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.TAGSColumn]));
                     }
                 }
                 set {
@@ -1153,7 +1153,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                         return string.Empty;
                     }
                     else {
-                        return ((string)(this[this.tableDataTableBookmarks.ADD_DATEColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.ADD_DATEColumn]));
                     }
                 }
                 set {
@@ -1169,7 +1169,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
                         return string.Empty;
                     }
                     else {
-                        return ((string)(this[this.tableDataTableBookmarks.ICON_URIColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.ICON_URIColumn]));
                     }
                 }
                 set {
@@ -1182,7 +1182,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
             public string TEXT {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTableBookmarks.TEXTColumn]));
+                        return ((System.String)(this[this.tableDataTableBookmarks.TEXTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'TEXT\' in table \'DataTableBookmarks\' is DBNull.", e);
@@ -1332,7 +1332,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
             public string Title {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTableTreeNodes.TitleColumn]));
+                        return ((System.String)(this[this.tableDataTableTreeNodes.TitleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'DataTableTreeNodes\' is DBNull.", e);
@@ -1364,7 +1364,7 @@ namespace Diten.Windows.Applications.Tools.Official.Bookmarks {
             public string NodePath {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTableTreeNodes.NodePathColumn]));
+                        return ((System.String)(this[this.tableDataTableTreeNodes.NodePathColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'NodePath\' in table \'DataTableTreeNodes\' is DBNull.", e);

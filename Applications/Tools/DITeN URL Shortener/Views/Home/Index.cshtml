@@ -1,0 +1,63 @@
+﻿@model Diten.Web.App.Tools.URLShortener.Models.HomeModel
+@{
+	ViewData["Title"]="Home Page";
+}
+<div class="text-center bg-dark">
+	<div class="jumbotron text-center text-dark">
+		<h1 class="display-4">Welcome</h1>
+		<p>
+			Learn about
+			<a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
+		</p>
+	</div>
+	@using(Html.BeginForm("Shortening",
+								 "Home",
+								 FormMethod.Post))
+	{
+		<div class="container bg-primary border-0 w-100 rounded">
+			<div class="row p-2">
+				<div style="width: 80px;"
+					  class="text-light text-uppercase text-capitalize text-left">Original:</div>
+				<div class="col p-0 pl-2 w-100">
+					<input id="TextUrl"
+							 type="text"
+							 class="w-100 rounded-left border-0 bg-light text-dark" />
+				</div>
+				<div style="width: 100px;"
+					  class="p-0 pr-2">
+					<input id="ButtonGenerate"
+							 type="button"
+							 value="Generate"
+							 class="w-100 rounded-right bg-success text-light border-0 text-uppercase" />
+				</div>
+			</div>
+			<div class="row p-2">
+				<div style="width: 80px;"
+					  class="text-light text-uppercase text-capitalize text-left">Short URL:</div>
+				<div class="col p-0 pl-2 w-100">
+					<input id="TextShortUrl"
+							 type="text"
+							 class="w-100 rounded-left border-0 bg-light text-dark" />
+				</div>
+				<div style="width: 100px;"
+					  class="p-0 pr-2">
+					<input id="ButtonCopy"
+							 type="button"
+							 value="Copy"
+							 class="w-100 rounded-right bg-success text-light border-0 text-uppercase"
+							 onclick="CopyTextToClipboard('TextShortUrl')" />
+				</div>
+			</div>
+		</div>
+	}
+</div>
+<script type="text/javascript">
+	function CopyTextToClipboard(objId) {
+		var obj = document.getElementById(objId);
+		obj.select();
+		obj.setSelectionRange(0
+			, 99999);
+		document.execCommand("copy");
+		alert("Copied the text: " + obj.value);
+	}
+</script>

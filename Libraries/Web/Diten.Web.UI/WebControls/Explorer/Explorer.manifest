@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Configuration>
+  <RegisteredTypes>
+    <Type Name="__fldr" Title="Diten Folder" Description="Diten registered folder"
+          IconCls="Diten.Web.UI.Themes.Default.Icons.Folder.png" />
+    <Type Name="fil" Title="Diten File" Description="Diten registered file"
+          IconCls="Diten.Web.UI.Themes.Default.Icons.File.png" />
+  </RegisteredTypes>
+</Configuration>

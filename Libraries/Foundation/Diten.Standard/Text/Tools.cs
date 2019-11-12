@@ -44,7 +44,7 @@ namespace Diten.Text
 		/// <param name="indent"></param>
 		/// <param name="isMultiLine"></param>
 		/// <returns></returns>
-		public static string DesignMessage(string title,
+		public static System.String DesignMessage(System.String title,
 		                                   string body,
 		                                   int indent = 0,
 		                                   bool isMultiLine = false)
@@ -60,7 +60,7 @@ namespace Diten.Text
 		/// <param name="alphabetsType">Type of alphabets that used for random text generation.</param>
 		/// <param name="length">Length of the generated text.</param>
 		/// <returns>A random text.</returns>
-		public static string GetRandomText(AlphabetTypes alphabetsType = AlphabetTypes.Medium,
+		public static System.String GetRandomText(AlphabetTypes alphabetsType = AlphabetTypes.Medium,
 		                                   int length = 5)
 		{
 			var randomText = new StringBuilder();
@@ -112,7 +112,7 @@ namespace Diten.Text
 		/// <param name="text"></param>
 		/// <param name="length"></param>
 		/// <returns></returns>
-		public static string Repeat(string text,
+		public static System.String Repeat(System.String text,
 		                            int length = 10)
 		{
 			return string.Concat(Enumerable.Repeat(text,
@@ -124,10 +124,10 @@ namespace Diten.Text
 		/// <param name="ch"></param>
 		/// <param name="length"></param>
 		/// <returns></returns>
-		public static string Repeat(IEnumerable<char> ch,
+		public static System.String Repeat(IEnumerable<char> ch,
 		                            int length = 10)
 		{
-			return Repeat(ch.Aggregate(string.Empty,
+			return Repeat(ch.Aggregate(System.String.Empty,
 			                           (current,
 			                            c) => current + c),
 			              length);
@@ -138,7 +138,7 @@ namespace Diten.Text
 		/// <param name="ch"></param>
 		/// <param name="length"></param>
 		/// <returns></returns>
-		public static string Repeat(char ch,
+		public static System.String Repeat(char ch,
 		                            int length = 10)
 		{
 			return Repeat(ch.ToString(),
@@ -150,7 +150,7 @@ namespace Diten.Text
 		/// <param name="text"></param>
 		/// <param name="maxlength"></param>
 		/// <returns></returns>
-		public static string SetTemplate(string text,
+		public static System.String SetTemplate(System.String text,
 		                                 int maxlength = 150)
 		{
 			return SetTemplate(text,
@@ -164,7 +164,7 @@ namespace Diten.Text
 		/// <param name="template"></param>
 		/// <param name="maxlength"></param>
 		/// <returns></returns>
-		public static string SetTemplate(string text,
+		public static System.String SetTemplate(System.String text,
 		                                 char template,
 		                                 int maxlength = 150)
 		{
@@ -184,10 +184,10 @@ namespace Diten.Text
 		/// </summary>
 		/// <param name="source"></param>
 		/// <returns></returns>
-		public static List<string> SplitByUpper(string source)
+		public static List<System.String> SplitByUpper(System.String source)
 		{
 			//BeforeRecordInsertedEventArgs
-			var _return = new List<string>();
+			var _return = new List<System.String>();
 			var tmp = string.Empty;
 			var count = 0;
 

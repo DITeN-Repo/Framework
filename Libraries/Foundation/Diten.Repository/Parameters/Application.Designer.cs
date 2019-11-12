@@ -28,7 +28,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Dictionary")]
         public string Dictionary {
             get {
-                return ((string)(this["Dictionary"]));
+                return ((System.String)(this["Dictionary"]));
             }
         }
         
@@ -37,7 +37,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Icons")]
         public string Icons {
             get {
-                return ((string)(this["Icons"]));
+                return ((System.String)(this["Icons"]));
             }
         }
         
@@ -46,7 +46,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("SystemCultureId")]
         public string SystemCultureId {
             get {
-                return ((string)(this["SystemCultureId"]));
+                return ((System.String)(this["SystemCultureId"]));
             }
         }
         
@@ -55,7 +55,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Assemblies")]
         public string Assemblies {
             get {
-                return ((string)(this["Assemblies"]));
+                return ((System.String)(this["Assemblies"]));
             }
         }
         
@@ -64,7 +64,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("ManifestResourceStreams")]
         public string ManifestResourceStreams {
             get {
-                return ((string)(this["ManifestResourceStreams"]));
+                return ((System.String)(this["ManifestResourceStreams"]));
             }
         }
     }

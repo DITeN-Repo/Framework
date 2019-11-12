@@ -29,11 +29,11 @@ namespace Diten.Web
 		///    Get client local IP address.
 		/// </summary>
 		/// <returns>Client local IP address.</returns>
-		public static string GetIpAddress()
+		public static System.String GetIpAddress()
 		{
 			var ipAddress = Current.Request.ServerVariables[Constants.Default.ServerVariables000];
 
-			if (string.IsNullOrEmpty(ipAddress)) return Current.Request.ServerVariables[Constants.Default.ServerVariables001];
+			if (System.String.IsNullOrEmpty(ipAddress)) return Current.Request.ServerVariables[Constants.Default.ServerVariables001];
 
 			var addresses = ipAddress.Split(',');
 

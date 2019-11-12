@@ -62,7 +62,7 @@ namespace Diten
 		public static DTTag ConversationTag => new DTTag("DTCT");
 
 		/// <inheritdoc cref="System.Environment.CurrentDirectory" />
-		public static string CurrentDirectory => System.Environment.CurrentDirectory;
+		public static System.String CurrentDirectory => System.Environment.CurrentDirectory;
 
 		/// <summary>
 		///    Get EOF (End Of File) character.
@@ -84,23 +84,23 @@ namespace Diten
 		/// <summary>
 		///    Get folder divider.
 		/// </summary>
-		public static string FolderDivider => "\\";
+		public static System.String FolderDivider => "\\";
 
 		/// <summary>
 		///    Get identity of current user.
 		/// </summary>
-		public static string Identity => $@"{UserDomainName}.{MachineName}.{UserName}";
+		public static System.String Identity => $@"{UserDomainName}.{MachineName}.{UserName}";
 
 		/// <inheritdoc cref="System.Environment.MachineName" />
-		public static string MachineName => System.Environment.MachineName;
+		public static System.String MachineName => System.Environment.MachineName;
 
 		/// <inheritdoc cref="System.Environment.MachineName" />
-		public static string NewLine => System.Environment.NewLine;
+		public static System.String NewLine => System.Environment.NewLine;
 
 		/// <summary>
 		///    Get name of the root folder.
 		/// </summary>
-		public static string RootFolderName => ".";
+		public static System.String RootFolderName => ".";
 		////ToDo: System.Environment Part
 
 		///// <summary>Specifies options to use for getting the path to a special folder. </summary>
@@ -112,17 +112,6 @@ namespace Diten
 		//}
 
 		/// <summary>
-		///    Unique signature for the current <see cref="Unit{TObject,TKey}" />.
-		/// </summary>
-		protected Func<string> Signature =>
-			() =>
-			{
-				var k1 = new Key(new SHAKey<SHA256>(+
-					                                    $@"{Identity}")
-					                 .Value);
-			};
-
-		/// <summary>
 		///    Get tab character.
 		/// </summary>
 		public static char Tab => Char.ReservedChars.HorizontalTab.ToChar();
@@ -130,7 +119,7 @@ namespace Diten
 		/// <summary>
 		///    Get temp folder virtual path.
 		/// </summary>
-		public static string TempFolderVirtualPath => "~/TEMP";
+		public static System.String TempFolderVirtualPath => "~/TEMP";
 
 		/// <inheritdoc cref="Char.ReservedChars.Equals" />
 		public static char TextAssignmentSign => Char.ReservedChars.Equals.ToChar();
@@ -151,10 +140,10 @@ namespace Diten
 			          $@"{Char.ReservedChars.ShiftIn.ToChar().ToString()}{Char.ReservedChars.Ampersand.ToString()}");
 
 		/// <inheritdoc cref="System.Environment.UserDomainName" />
-		public static string UserDomainName => System.Environment.UserDomainName;
+		public static System.String UserDomainName => System.Environment.UserDomainName;
 
 		/// <inheritdoc cref="System.Environment.UserName" />
-		public static string UserName => System.Environment.UserName;
+		public static System.String UserName => System.Environment.UserName;
 
 		/// <inheritdoc cref="TextValuingSeparator" />
 		public static char ValuingSeparator => TextValuingSeparator;
@@ -164,7 +153,7 @@ namespace Diten
 		/// </summary>
 		public static char VTab => Char.ReservedChars.VerticalTab.ToChar();
 
-		public static string GetResourceString(string resource,
+		public static System.String GetResourceString(System.String resource,
 		                                       params object[] param)
 		{
 			return string.Format(resource,
@@ -175,7 +164,7 @@ namespace Diten
 		public struct SpecialFolders
 		{
 			/// <inheritdoc cref="System.Environment.GetFolderPath(System.Environment.SpecialFolder)" />
-			public static string GetFolderPath(System.Environment.SpecialFolder folder)
+			public static System.String GetFolderPath(System.Environment.SpecialFolder folder)
 			{
 				var path =
 					$@"{System.Environment.GetFolderPath(folder)}\{Names.Default.Diten}";
@@ -190,49 +179,49 @@ namespace Diten
 				                                                   .FirstOrDefault(p => p.Equals(new StackTrace().GetFrame(2).GetMethod().Name)));
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.MyDocuments" />
-			public static string MyDocuments => GetFolderPath(GetEnvironmentProperty);
+			public static System.String MyDocuments => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.MyMusic" />
-			public static string MyMusic => GetFolderPath(GetEnvironmentProperty);
+			public static System.String MyMusic => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.MyPictures" />
-			public static string MyPictures => GetFolderPath(GetEnvironmentProperty);
+			public static System.String MyPictures => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.MyVideos" />
-			public static string MyVideos => GetFolderPath(GetEnvironmentProperty);
+			public static System.String MyVideos => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.MyComputer" />
-			public static string MyComputer => GetFolderPath(GetEnvironmentProperty);
+			public static System.String MyComputer => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.Templates" />
-			public static string Templates => GetFolderPath(GetEnvironmentProperty);
+			public static System.String Templates => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.SendTo" />
-			public static string SendTo => GetFolderPath(GetEnvironmentProperty);
+			public static System.String SendTo => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.ApplicationData" />
-			public static string ApplicationData => GetFolderPath(GetEnvironmentProperty);
+			public static System.String ApplicationData => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.Desktop" />
-			public static string Desktop => GetFolderPath(GetEnvironmentProperty);
+			public static System.String Desktop => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.ProgramFiles" />
-			public static string ProgramFiles => GetFolderPath(GetEnvironmentProperty);
+			public static System.String ProgramFiles => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.ProgramFilesX86" />
-			public static string ProgramFilesX86 => GetFolderPath(GetEnvironmentProperty);
+			public static System.String ProgramFilesX86 => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.Windows" />
-			public static string WindowsFolder => GetFolderPath(GetEnvironmentProperty);
+			public static System.String WindowsFolder => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.SystemX86" />
-			public static string SystemX86 => GetFolderPath(GetEnvironmentProperty);
+			public static System.String SystemX86 => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.System" />
-			public static string SystemFolder => GetFolderPath(GetEnvironmentProperty);
+			public static System.String SystemFolder => GetFolderPath(GetEnvironmentProperty);
 
 			/// <inheritdoc cref="System.Environment.SpecialFolder.CommonTemplates" />
-			public static string CommonTemplates => GetFolderPath(GetEnvironmentProperty);
+			public static System.String CommonTemplates => GetFolderPath(GetEnvironmentProperty);
 		}
 	}
 }

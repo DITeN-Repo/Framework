@@ -29,7 +29,7 @@ namespace Diten.Net
 	{
 		private static byte[] _buffer;
 
-		public Tracert(string hostNameOrAddress)
+		public Tracert(System.String hostNameOrAddress)
 		{
 			HostNameOrAddress = hostNameOrAddress;
 			TimeOut = 5000; //Default timeout of Ping
@@ -54,12 +54,12 @@ namespace Diten.Net
 		/// <summary>
 		///    The host name or address of the destination node
 		/// </summary>
-		public string HostNameOrAddress {get;}
+		public System.String HostNameOrAddress {get;}
 
 		/// <summary>
 		///    Indicates whether the route tracing is complete
 		/// </summary>
-		public bool IsDone
+		public Boolean IsDone
 		{
 			get => _isDone;
 			private set
@@ -74,7 +74,7 @@ namespace Diten.Net
 			}
 		}
 
-		public int MaxHops {get; set;} = 30;
+		public Int32 MaxHops {get; set;} = 30;
 
 		/// <summary>
 		///    The list of nodes in the route
@@ -90,7 +90,7 @@ namespace Diten.Net
 		/// <summary>
 		///    The maximum amount of time to wait for the Ping request to an intermediate node
 		/// </summary>
-		public int TimeOut {get; set;}
+		public Int32 TimeOut {get; set;}
 
 		private IPAddress _destination;
 		private bool _isDone;
@@ -118,7 +118,7 @@ namespace Diten.Net
 		/// </summary>
 		public event EventHandler<RouteNodeFoundEventArgs> OnRouteNodeFound;
 
-		private void Ping_OnPingCompleted(object sender,
+		private void Ping_OnPingCompleted(System.Object sender,
 		                                  PingCompletedEventArgs e)
 		{
 			ProcessNode(e.Reply.Address,

@@ -70,7 +70,7 @@ namespace Diten.Net.Mail {
         ///baa tashakor^
         ///%SystemDomain%.
         /// </summary>
-        public static string ActivateUserAccount {
+        public static System.String ActivateUserAccount {
             get {
                 return ResourceManager.GetString("ActivateUserAccount", resourceCulture);
             }
@@ -88,7 +88,7 @@ namespace Diten.Net.Mail {
         ///baa tashakor^
         ///%SystemDomain%.
         /// </summary>
-        public static string ChangePassword {
+        public static System.String ChangePassword {
             get {
                 return ResourceManager.GetString("ChangePassword", resourceCulture);
             }
@@ -104,7 +104,7 @@ namespace Diten.Net.Mail {
         ///baa tashakor^
         ///%SystemDomain%.
         /// </summary>
-        public static string DomainJoinAdminAgreement {
+        public static System.String DomainJoinAdminAgreement {
             get {
                 return ResourceManager.GetString("DomainJoinAdminAgreement", resourceCulture);
             }
@@ -120,7 +120,7 @@ namespace Diten.Net.Mail {
         ///baa tashakor^
         ///%SystemDomain%.
         /// </summary>
-        public static string DomainJoinUserAgreement {
+        public static System.String DomainJoinUserAgreement {
             get {
                 return ResourceManager.GetString("DomainJoinUserAgreement", resourceCulture);
             }
@@ -140,7 +140,7 @@ namespace Diten.Net.Mail {
         ///baa tashakor^
         ///%SystemDomain%.
         /// </summary>
-        public static string NewUser {
+        public static System.String NewUser {
             get {
                 return ResourceManager.GetString("NewUser", resourceCulture);
             }

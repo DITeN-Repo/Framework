@@ -32,7 +32,7 @@ namespace Diten.Globalization
 
 		/// <param name="cultureName">fa-IR</param>
 		/// <param name="useUserOverride">true</param>
-		public PersianCulture(string cultureName,
+		public PersianCulture(System.String cultureName,
 		                      bool useUserOverride): base(cultureName,
 		                                                  useUserOverride)
 		{
@@ -104,7 +104,7 @@ namespace Diten.Globalization
 		/// <summary>
 		///    Get culture name.
 		/// </summary>
-		public string CultureName {get;}
+		public System.String CultureName {get;}
 
 		public override Calendar[] OptionalCalendars {get;}
 	}

@@ -15,6 +15,6 @@ namespace Diten
 {
 	public class HexString: String
 	{
-		public HexString(string value) { Value = value; }
+		public HexString(System.String value) { Value = value; }
 	}
 }

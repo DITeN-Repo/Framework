@@ -58,7 +58,7 @@ namespace Diten
 			typeof(decimal),
 			typeof(DateTime),
 			typeof(object),
-			typeof(string)
+			typeof(System.String)
 		};
 
 		private static readonly Type EnumType = typeof(Enum);
@@ -108,9 +108,9 @@ namespace Diten
 		/// </summary>
 		/// <param name="typeName">name of the type in diten framework.</param>
 		/// <returns>A type in diten framework.</returns>
-		public static Type ToDitenDataType(string typeName)
+		public static Type ToDitenDataType(System.String typeName)
 		{
-			if (string.IsNullOrEmpty(typeName) ||
+			if (System.String.IsNullOrEmpty(typeName) ||
 			    string.IsNullOrWhiteSpace(typeName))
 				throw new ArgumentOutOfRangeException(nameof(typeName),
 				                                      typeName,
@@ -154,21 +154,21 @@ namespace Diten
 		/// </summary>
 		/// <param name="time">a TimeSpan.</param>
 		/// <returns>A string of time in HH:MM format.</returns>
-		public static string ToHHMM(this TimeSpan time) { return time.ToString("hh\\:mm"); }
+		public static System.String ToHHMM(this TimeSpan time) { return time.ToString("hh\\:mm"); }
 
 		/// <summary>
 		///    Converting a TimeSpan into HH:MM:SS format.
 		/// </summary>
 		/// <param name="time">a TimeSpan.</param>
 		/// <returns>A string of time in HH:MM:SS format.</returns>
-		public static string ToHHMMSS(this TimeSpan time) { return time.ToString("hh\\:mm\\:ss"); }
+		public static System.String ToHHMMSS(this TimeSpan time) { return time.ToString("hh\\:mm\\:ss"); }
 
 		/// <summary>
 		///    Converting hexadecimal number into integer.
 		/// </summary>
 		/// <param name="hexValue">Hexadecimal number.</param>
 		/// <returns>An integer.</returns>
-		public static int ToInt(string hexValue)
+		public static int ToInt(System.String hexValue)
 		{
 			return int.Parse(hexValue,
 			                 NumberStyles.HexNumber);
@@ -207,7 +207,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="domainName">Friendly domain name.</param>
 		/// <returns>LDAP domain name.</returns>
-		public static string ToLdapDomain(string domainName)
+		public static System.String ToLdapDomain(System.String domainName)
 		{
 			return Domain.GetDomain(new DirectoryContext(DirectoryContextType.Domain,
 			                                             domainName))
@@ -219,7 +219,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">Separated string by main separator.</param>
 		/// <returns>A list of separated values of string.</returns>
-		public static List<string> ToList(string data) { return data.ToArray().ToList(); }
+		public static List<System.String> ToList(System.String data) { return data.ToArray().ToList(); }
 
 		/// <summary>
 		///    Converting byte array into object.
@@ -247,10 +247,10 @@ namespace Diten
 		/// </summary>
 		/// <param name="objectGuid">Object GUID.</param>
 		/// <returns>Octet string.</returns>
-		public static string ToOctetString(Guid objectGuid)
+		public static System.String ToOctetString(Guid objectGuid)
 		{
 			return objectGuid.ToByteArray()
-			                 .Aggregate(string.Empty,
+			                 .Aggregate(System.String.Empty,
 			                            (current,
 			                             b) => current + $@"\{b:x2}");
 		}
@@ -270,7 +270,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">A dictionary that contains string data and string keys for making separated value string.</param>
 		/// <returns>Separated keys and values string.</returns>
-		public static string ToSplittedData(Dictionary<string, string> data)
+		public static System.String ToSplittedData(Dictionary<System.String, string> data)
 		{
 			var _return = string.Empty;
 
@@ -291,9 +291,9 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">A list of string for making separated value string.</param>
 		/// <returns>Separated values string.</returns>
-		public static string ToSplittedData(IEnumerable<string> data)
+		public static System.String ToSplittedData(IEnumerable<System.String> data)
 		{
-			return data.Aggregate(string.Empty,
+			return data.Aggregate(System.String.Empty,
 			                      (current,
 			                       _string) => current + _string + Char.ReservedChars.Semicolon.ToChar());
 		}
@@ -304,9 +304,9 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">An array of string for making separated value string.</param>
 		/// <returns>Separated values string.</returns>
-		public static string ToSplittedData(string[] data)
+		public static System.String ToSplittedData(System.String[] data)
 		{
-			return data.Aggregate(string.Empty,
+			return data.Aggregate(System.String.Empty,
 			                      (current,
 			                       _string) => current + _string + EN.TextValuingSeparator);
 		}
@@ -316,7 +316,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="memoryStream"></param>
 		/// <returns></returns>
-		public static string ToString(MemoryStream memoryStream)
+		public static System.String ToString(MemoryStream memoryStream)
 		{
 			var position = memoryStream.Position;
 			memoryStream.Position = 0;
@@ -333,7 +333,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">A Diten.String array</param>
 		/// <returns>A System.String array</returns>
-		public static string[] ToStringArray(String[] value)
+		public static System.String[] ToStringArray(String[] value)
 		{
 			var _return = new string[value.Length];
 
@@ -350,7 +350,7 @@ namespace Diten
 		/// <param name="typeName">Type name for conversion.</param>
 		/// <param name="isReferenced">True if type is in referenced assembly.</param>
 		/// <returns>A n array that contains types who has the type name parameter value in it's name.</returns>
-		public static Type[] ToType(string typeName,
+		public static Type[] ToType(System.String typeName,
 		                            bool isReferenced = true)
 		{
 			return ToType(typeName,
@@ -365,16 +365,16 @@ namespace Diten
 		/// <param name="isReferenced">True if type is in referenced assembly.</param>
 		/// <param name="isGac">True if type is in GAC.</param>
 		/// <returns>A n array that contains types who has the type name parameter value in it's name.</returns>
-		private static Type[] ToType(string typeName,
+		private static Type[] ToType(System.String typeName,
 		                             bool isReferenced,
 		                             bool isGac)
 		{
-			if (string.IsNullOrEmpty(typeName) ||
+			if (System.String.IsNullOrEmpty(typeName) ||
 			    !isReferenced && !isGac) return new Type[] {};
 
 			var currentAssembly = Assembly.GetExecutingAssembly();
 
-			var assemblyFullNames = new List<string>();
+			var assemblyFullNames = new List<System.String>();
 			var types = new List<Type>();
 
 			if (isReferenced)

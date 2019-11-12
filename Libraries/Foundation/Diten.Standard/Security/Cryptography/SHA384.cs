@@ -33,6 +33,6 @@ namespace Diten.Security.Cryptography
 		protected SHA384() {}
 
 		/// <inheritdoc cref="SHA{TSHA}(object)" />
-		protected SHA384(IEnumerable<byte> value): base(value) {}
+		protected SHA384(IEnumerable<System.Byte> value): base(value) {}
 	}
 }

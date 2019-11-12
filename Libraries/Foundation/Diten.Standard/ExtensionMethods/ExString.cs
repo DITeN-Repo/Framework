@@ -61,7 +61,7 @@ namespace Diten
 		/// <param name="value">Current string that in stack.</param>
 		/// <param name="parameters">Values that must be inserted as parameter holders.</param>
 		/// <returns>A formatted <see cref="string" /> with parameters.</returns>
-		public static string Format(this string value,
+		public static System.String Format(this string value,
 		                            params object[] parameters)
 		{
 			return string.Format(value,
@@ -76,12 +76,12 @@ namespace Diten
 		///    Abbreviation of
 		///    <para><see cref="string" />value</para>
 		/// </returns>
-		public static string GetAbbreviation(this string value)
+		public static System.String GetAbbreviation(this string value)
 		{
 			return value.ToSafe()
 			            .ToCharArray()
 			            .Where(character => Char.UppercaseLetters.ToList().Any(c => c.Ascii == character))
-			            .Aggregate(string.Empty,
+			            .Aggregate(System.String.Empty,
 			                       (current,
 			                        character) => current + character);
 		}
@@ -106,7 +106,7 @@ namespace Diten
 			return Char.AsciiCharacters.FirstOrDefault(c => c.Character.Equals(holder00));
 		}
 
-		public static string Indent(this string value,
+		public static System.String Indent(this string value,
 		                            int indent = 1)
 		{
 			return $"{Tools.Repeat(Char.ReservedChars.HorizontalTab.ToChar(), indent)}{value}";
@@ -148,7 +148,7 @@ namespace Diten
 		///    of the string if not.
 		/// </returns>
 		[CanBeNull]
-		public static string IsNull(this string value,
+		public static System.String IsNull(this string value,
 		                            [CanBeNull] string returnMessage)
 		{
 			return IsNull(value) ? returnMessage : value;
@@ -184,10 +184,10 @@ namespace Diten
 		///    A <see cref="string" /> without
 		///    <para><see cref="IEnumerable{T}" /> of <see cref="char" /> contained <see cref="char" />s</para>
 		/// </returns>
-		public static string Remove(this string value,
+		public static System.String Remove(this string value,
 		                            IEnumerable<char> chars)
 		{
-			return chars.Aggregate(string.Empty,
+			return chars.Aggregate(System.String.Empty,
 			                       (result,
 			                        current) => value.Replace(current.ToString(),
 			                                                  string.Empty));
@@ -199,10 +199,10 @@ namespace Diten
 		/// <param name="value">An <see cref="string" />value.</param>
 		public static void Save(this string value) { new String(value).Save(); }
 
-		public static string SingleOutOn(this string value,
+		public static System.String SingleOutOn(this string value,
 		                                 char character)
 		{
-			return new System.Func<string, char, string>((s,
+			return new System.Func<System.String, char, string>((s,
 			                                              c) =>
 			                                             {
 				                                             var doubleC = Tools.Repeat(c,
@@ -223,7 +223,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">Separated value string.</param>
 		/// <returns>An array of separated values.</returns>
-		public static IEnumerable<string> ToArray(this string data)
+		public static IEnumerable<System.String> ToArray(this string data)
 		{
 			return data.Split(Char.ReservedChars.Space.ToCharArray(),
 			                  StringSplitOptions.RemoveEmptyEntries);
@@ -234,7 +234,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">The current entity that must be converted into Base64Text encryption.</param>
 		/// <returns>A Base64Text hashed string.</returns>
-		public static string ToBase64Text(this string value) { return Base64Text.Encrypt(value); }
+		public static System.String ToBase64Text(this string value) { return Base64Text.Encrypt(value); }
 
 		/// <summary>
 		///    Converting string into byte array.
@@ -248,7 +248,7 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">Data to convert</param>
 		/// <returns>A camel style converted string.</returns>
-		public static string ToCamel(this string data)
+		public static System.String ToCamel(this string data)
 		{
 			var output = string.Empty;
 
@@ -277,7 +277,7 @@ namespace Diten
 			                      " ");
 		}
 
-		public static string ToClosedTag(this string value,
+		public static System.String ToClosedTag(this string value,
 		                                 bool abbreviationTag = true)
 		{
 			return $@"{
@@ -297,17 +297,17 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">Key and value separated <see cref="string" />.</param>
 		/// <returns>A <see cref="Dictionary{TKey,TValue}" /> of key and value.</returns>
-		public static Dictionary<string, string> ToDictionary(this string value)
+		public static Dictionary<System.String, string> ToDictionary(this string value)
 		{
 			return ToArray(value)
 			       .Select(_string => _string.Split(EN.TextValuingSeparator.ToCharArray(),
 			                                        StringSplitOptions.RemoveEmptyEntries))
-			       .Where(word => !word[0].Equals(string.Empty))
+			       .Where(word => !word[0].Equals(System.String.Empty))
 			       .ToDictionary(word => word[0],
 			                     word => word[1]);
 		}
 
-		public static string ToFirstUpper(this string value)
+		public static System.String ToFirstUpper(this string value)
 		{
 			return $"{value.First().ToString().ToUpper()}{value.Substring(1, value.Length - 1).ToLower()}";
 		}
@@ -317,9 +317,9 @@ namespace Diten
 		/// </summary>
 		/// <param name="data">Data for conversion.</param>
 		/// <returns>Converted data.</returns>
-		public static string ToHexadecimal(this string data)
+		public static System.String ToHexadecimal(this string data)
 		{
-			return data.Aggregate(string.Empty,
+			return data.Aggregate(System.String.Empty,
 			                      (result,
 			                       current) => result + $"{System.Convert.ToInt32(current):X}");
 		}
@@ -372,11 +372,11 @@ namespace Diten
 			             Duosexagesimal.Characters.ToArray());
 		}
 
-		public static string ToOpenTag(this string value,
+		public static System.String ToOpenTag(this string value,
 		                               string innerText,
 		                               bool abbreviationTag = true)
 		{
-			return new Func<string, string, bool, string>((v,
+			return new Func<System.String, string, bool, string>((v,
 			                                               it,
 			                                               ab) =>
 			                                              {
@@ -396,14 +396,14 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">An <see cref="string" />value.</param>
 		/// <returns>An <see cref="string" /> that is converted to standard prefix.</returns>
-		public static string ToPrefix(this string value) { return $"{value.ToProtected()}_"; }
+		public static System.String ToPrefix(this string value) { return $"{value.ToProtected()}_"; }
 
 		/// <summary>
 		///    Converting string to standard protected string.
 		/// </summary>
 		/// <param name="value">An <see cref="string" />value.</param>
 		/// <returns>An <see cref="string" /> that safe and protected.</returns>
-		public static string ToProtected(this string value) { return value.ToProtectedString(); }
+		public static System.String ToProtected(this string value) { return value.ToProtectedString(); }
 
 		/// <summary>
 		///    Converting an string to standard protected string by replacing all <see cref="Char.UnsafeChars" /> characters with
@@ -411,10 +411,10 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">An <see cref="string" />value.</param>
 		/// <returns>An <see cref="string" /> that is safe and protected.</returns>
-		public static string ToProtectedString(this string value)
+		public static System.String ToProtectedString(this string value)
 		{
 			return Char.UnsafeChars.ToList()
-			           .Aggregate(string.Empty,
+			           .Aggregate(System.String.Empty,
 			                      (r,
 			                       c) => value.Replace(c.Ascii,
 			                                           Char.ReservedChars.Underline.ToChar()));
@@ -424,14 +424,14 @@ namespace Diten
 		///    Converting current <see cref="string" /> into safe string.
 		/// </summary>
 		/// <returns>Represent a safe <see cref="string" />.</returns>
-		public static string ToSafe(this string value) { return HttpUtility.UrlEncode(value); }
+		public static System.String ToSafe(this string value) { return HttpUtility.UrlEncode(value); }
 
 		/// <summary>
 		///    Convert from hex string into string.
 		/// </summary>
 		/// <param name="value">A hex string.</param>
 		/// <returns>Converted data</returns>
-		public static string ToString([MustUrlHex] this string value)
+		public static System.String ToString([MustUrlHex] this string value)
 		{
 			var param = new StackTrace().GetFrame(0).GetMethod().GetParameters()[0];
 
@@ -439,7 +439,7 @@ namespace Diten
 			                                              typeof(MustUrlHex)) !=
 			    null)
 				return value.Split('%')
-				            .Aggregate(string.Empty,
+				            .Aggregate(System.String.Empty,
 				                       (current,
 				                        hex) => current +
 				                                char.ConvertFromUtf32(System.Convert.ToInt32(hex,
@@ -453,13 +453,13 @@ namespace Diten
 		/// </summary>
 		/// <param name="value">An <see cref="string" />value.</param>
 		/// <returns>An <see cref="string" /> that is converted to standard suffix.</returns>
-		public static string ToSuffix(this string value) { return $"_{value.ToProtected()}"; }
+		public static System.String ToSuffix(this string value) { return $"_{value.ToProtected()}"; }
 
 		/// <summary>
 		///    Converting current <see cref="string" /> into safe string.
 		/// </summary>
 		/// <returns>Represent a safe <see cref="string" />.</returns>
-		public static string ToUnsafe(this string value) { return HttpUtility.UrlDecode(value); }
+		public static System.String ToUnsafe(this string value) { return HttpUtility.UrlDecode(value); }
 
 		/// <summary>
 		///    Get encrypted URL.
@@ -468,13 +468,13 @@ namespace Diten
 		/// <param name="parameter">Encrypted parameter.</param>
 		/// <param name="doPost">Send parameters by post method.</param>
 		/// <returns>Encrypted URL.</returns>
-		public static string ToUrl(this string value,
+		public static System.String ToUrl(this string value,
 		                           string parameter,
 		                           bool doPost = false)
 		{
 			var output = string.Empty;
 
-			if (!parameter.Equals(string.Empty))
+			if (!parameter.Equals(System.String.Empty))
 				if ($@"{value}?{parameter}".Length > SystemParams.Default.MaxUrlLength || doPost)
 				{
 					StreamWriter streamWriter = null;
@@ -545,7 +545,7 @@ namespace Diten
 		/// <param name="data">Data for translation.</param>
 		/// <param name="cultureName">Translation culture name.</param>
 		/// <returns>Translated data</returns>
-		public static string Translate(this string data,
+		public static System.String Translate(this string data,
 		                               string cultureName)
 		{
 			#if DEBUG
@@ -558,7 +558,7 @@ namespace Diten
 			//todo: This part is based on ADO and must be changed
 			//try
 			//{
-			//    if (string.IsNullOrEmpty(data) || string.IsNullOrWhiteSpace(data))
+			//    if (System.String.IsNullOrEmpty(data) || string.IsNullOrWhiteSpace(data))
 			//        return string.Empty;
 
 			//    var dataRows =
@@ -576,7 +576,7 @@ namespace Diten
 
 			//        UpdateApplicationDictionary();
 
-			//        return output.Equals(string.Empty) || string.IsNullOrEmpty(output) ||
+			//        return output.Equals(System.String.Empty) || string.IsNullOrEmpty(output) ||
 			//               string.IsNullOrWhiteSpace(output)
 			//            ? data.Replace("^", "<br />")
 			//            : output.Replace("^", "<br />");
@@ -584,7 +584,7 @@ namespace Diten
 
 			//    output = dataRows[0]["TranslatedText"].ToString();
 
-			//    return output.Equals(string.Empty) || string.IsNullOrEmpty(output) ||
+			//    return output.Equals(System.String.Empty) || string.IsNullOrEmpty(output) ||
 			//           string.IsNullOrWhiteSpace(output)
 			//        ? data
 			//        : output;
@@ -595,10 +595,10 @@ namespace Diten
 			//}
 		}
 
-		/// <inheritdoc cref="HttpUtility.UrlDecode(string)" />
-		public static string UrlDecode(this string value) { return value; }
+		/// <inheritdoc cref="HttpUtility.UrlDecode(System.String)" />
+		public static System.String UrlDecode(this string value) { return value; }
 
-		/// <inheritdoc cref="HttpUtility.UrlEncode(string)" />
-		public static string UrlEncode(this string data) { return HttpUtility.UrlEncode(data); }
+		/// <inheritdoc cref="HttpUtility.UrlEncode(System.String)" />
+		public static System.String UrlEncode(this string data) { return HttpUtility.UrlEncode(data); }
 	}
 }

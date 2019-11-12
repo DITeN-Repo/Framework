@@ -48,7 +48,7 @@
 //		}
 
 //		[Nullable(new byte[] {1, 0})]
-//		public short[] Int16View
+//		public Int16[] Int16View
 //		{
 //			[return: Nullable(new byte[] {1, 0})]
 //			get
@@ -60,7 +60,7 @@
 //		}
 
 //		[Nullable(new byte[] {1, 0})]
-//		public int[] Int32View
+//		public Int32[] Int32View
 //		{
 //			[return: Nullable(new byte[] {1, 0})]
 //			get

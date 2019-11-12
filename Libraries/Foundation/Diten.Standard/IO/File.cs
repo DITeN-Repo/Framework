@@ -36,7 +36,7 @@ namespace Diten.IO
 		/// <param name="fileName2">the other file to compare</param>
 		/// <param name="differentialDiagnosis">Number of bytes of differences between 2 files.</param>
 		/// <returns>a value indicating weather the file are identical</returns>
-		public static bool Compare(string fileName1,
+		public static bool Compare(System.String fileName1,
 		                           string fileName2,
 		                           int differentialDiagnosis = 1)
 		{
@@ -91,7 +91,7 @@ namespace Diten.IO
 		///    <param name="fileName"></param>
 		///    is exist.
 		/// </returns>
-		public static bool ExistInTemp(string fileName) { return System.IO.File.Exists($@"{SystemParams.Default.TempFolderPath}\{fileName}"); }
+		public static bool ExistInTemp(System.String fileName) { return System.IO.File.Exists($@"{SystemParams.Default.TempFolderPath}\{fileName}"); }
 
 		/// <summary>
 		///    Get file name parts form the
@@ -100,7 +100,7 @@ namespace Diten.IO
 		/// </summary>
 		/// <param name="source">Source file name that must be splitted to parts.</param>
 		/// <returns>Parts of the file name.</returns>
-		public static (string Soure, string Path, string FullName, string Name, string Extension) GetFileName(string source)
+		public static (System.String Soure, string Path, string FullName, string Name, string Extension) GetFileName(System.String source)
 		{
 			var fullFileName = source.Split("\\".ToCharArray()).Last();
 			var extenstion = fullFileName.Split(".".ToCharArray()).Last();
@@ -121,7 +121,7 @@ namespace Diten.IO
 		/// </summary>
 		/// <param name="fileName">File name that must be changed to safe.</param>
 		/// <returns>A safe file name that can be used in windows.</returns>
-		public static string ToSafeFileName(string fileName)
+		public static System.String ToSafeFileName(System.String fileName)
 		{
 			var _return = string.Empty;
 			var tmp1 = Char.UnsafeChars.ToList();
@@ -155,7 +155,7 @@ namespace Diten.IO
 		///    <param name="path"></param>
 		///    file.
 		/// </param>
-		public static void WriteAllText(string path,
+		public static void WriteAllText(System.String path,
 		                                string contents,
 		                                bool overwrite = false)
 		{

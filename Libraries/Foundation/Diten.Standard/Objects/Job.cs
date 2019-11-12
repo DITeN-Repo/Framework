@@ -28,7 +28,7 @@ namespace Diten.Objects
 	{
 		public Job() {}
 
-		public Job(object obj,
+		public Job(System.Object obj,
 		           Type objectType)
 		{
 			var xmlSerializer = new XmlSerializer(objectType);
@@ -38,15 +38,15 @@ namespace Diten.Objects
 			                        obj);
 			Data = new Byte(Serialization.Serialize(xmlSerializer.Deserialize(memoryStream)));
 			ObjectType = objectType;
-			Methods = new System.Collections.Generic.Dictionary<string, object[]>();
+			Methods = new System.Collections.Generic.Dictionary<System.String, object[]>();
 			Save(this);
 		}
 
 		public Byte Data {get;}
 
-		public bool IsDone {get; set;}
-		public System.Collections.Generic.Dictionary<string, object[]> Methods {get;}
+		public Boolean IsDone {get; set;}
+		public System.Collections.Generic.Dictionary<System.String, System.Object[]> Methods {get;}
 		public Type ObjectType {get;}
-		public string Sha1 => SHA1.Encrypt(Data);
+		public System.String Sha1 => SHA1.Encrypt(Data).ToHex();
 	}
 }

@@ -22,7 +22,7 @@ namespace Diten.Diagnostics
 {
 	public static class Process
 	{
-		public static void ExecuteCommand(string command,
+		public static void ExecuteCommand(System.String command,
 		                                  string username,
 		                                  string password)
 		{

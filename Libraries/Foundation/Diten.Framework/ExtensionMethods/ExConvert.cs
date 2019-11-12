@@ -51,7 +51,7 @@ namespace Diten
 			                             .FirstOrDefault(m => m.Name == "Create" && m.GetParameters().Length == 1);
 
 			if (createMethod == null) return null;
-			var virtualPath = (string) createMethod.Invoke(null,
+			var virtualPath = (System.String) createMethod.Invoke(null,
 			                                               new object[]
 			                                               {
 				                                               page?.AppRelativeVirtualPath

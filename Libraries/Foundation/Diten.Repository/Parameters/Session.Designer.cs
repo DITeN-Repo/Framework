@@ -28,7 +28,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("DomainId")]
         public string DomainId {
             get {
-                return ((string)(this["DomainId"]));
+                return ((System.String)(this["DomainId"]));
             }
         }
         
@@ -37,7 +37,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("EncryptionKey")]
         public string EncryptionKey {
             get {
-                return ((string)(this["EncryptionKey"]));
+                return ((System.String)(this["EncryptionKey"]));
             }
         }
         
@@ -46,7 +46,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("UserId")]
         public string UserId {
             get {
-                return ((string)(this["UserId"]));
+                return ((System.String)(this["UserId"]));
             }
         }
         
@@ -55,7 +55,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("CultureName")]
         public string CultureName {
             get {
-                return ((string)(this["CultureName"]));
+                return ((System.String)(this["CultureName"]));
             }
         }
         
@@ -64,7 +64,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("CultureId")]
         public string CultureId {
             get {
-                return ((string)(this["CultureId"]));
+                return ((System.String)(this["CultureId"]));
             }
         }
         
@@ -73,7 +73,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("EntityId")]
         public string EntityId {
             get {
-                return ((string)(this["EntityId"]));
+                return ((System.String)(this["EntityId"]));
             }
         }
         
@@ -82,7 +82,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("Theme")]
         public string Theme {
             get {
-                return ((string)(this["Theme"]));
+                return ((System.String)(this["Theme"]));
             }
         }
         
@@ -91,7 +91,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("CaptchaCode")]
         public string CaptchaCode {
             get {
-                return ((string)(this["CaptchaCode"]));
+                return ((System.String)(this["CaptchaCode"]));
             }
         }
         
@@ -100,7 +100,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("AnalyzedControlsList")]
         public string AnalyzedControlsList {
             get {
-                return ((string)(this["AnalyzedControlsList"]));
+                return ((System.String)(this["AnalyzedControlsList"]));
             }
         }
         
@@ -109,7 +109,7 @@ namespace Diten.Parameters {
         [global::System.Configuration.DefaultSettingValueAttribute("TempFolder")]
         public string TempFolder {
             get {
-                return ((string)(this["TempFolder"]));
+                return ((System.String)(this["TempFolder"]));
             }
         }
     }

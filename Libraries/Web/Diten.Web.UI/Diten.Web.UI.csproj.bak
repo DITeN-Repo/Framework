@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76CBA1A7-05F5-4474-AC20-CA01A932B046}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diten.Web.UI</RootNamespace>
+    <AssemblyName>Diten.Web.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <RestorePackages>true</RestorePackages>
+    <BuildPackage>true</BuildPackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Ext.NET.Utilities" Version="2.5.0" />
+    <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Transformer.NET" Version="2.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Ext.Net">
+      <HintPath>..\Diten.Web.UI.Apps\Bin\Ext.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Ext.NET\README.md" />
+    <Content Include="App_Readme\Ext.NET\LICENSE" />
+    <Content Include="App_Readme\Ext.NET\CHANGELOG.md" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <EmbeddedResource Include="WebControls\Explorer\Explorer.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Ext.NET.Utilities\BREAKING_CHANGES.txt" />
+    <Content Include="App_Readme\Ext.NET.Utilities\LICENSE.txt" />
+    <Content Include="App_Readme\Ext.NET.Utilities\README.txt" />
+    <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
+    <Content Include="App_Readme\Transformer.NET\README.txt" />
+    <Content Include="Ext.NET.Default.aspx" />
+    <Content Include="favicon.ico" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\Build\Ext.Net\extjs\PDate\form\field\PDate.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\Build\Ext.Net\extjs\PDate\grid\gridfilters\GridFilters.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\Build\Ext.Net\extjs\PDate\grid\gridfilters\PDateFilter.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\Build\Ext.Net\extjs\PDate\grid\PDateColumn.js" />
+    <EmbeddedResource Include="Scripts\PDate.js" />
+    <Content Include="Global.asax" />
+    <EmbeddedResource Include="Themes\Default\Icons\Accounting.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Add.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Application.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\BankCheck.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Check.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Computer.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\CoursesInformation.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Cultures.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Delete.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Dictionary.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Diten.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Domain.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Error.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\File.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Folder.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Group.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\History.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Information.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\InvertSelection.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Minus.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Money.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\MoneySafe.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Partitionmanager.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Person.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Pin.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\PortableComputer.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Programs.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Properties.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Refresh.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Rename.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\SelectAll.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\SelectNone.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\SmartFolder.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Stats.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\SystemInstall.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\TimeDrive.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\User.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Warning.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\Windows.png" />
+    <EmbeddedResource Include="Themes\Default\Icons\__.png" />
+    <EmbeddedResource Include="logo.png" />
+    <Content Include="WebControls\PersianCalendar\Build\Ext.Net\extjs\PDate\pdate.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\Build\Ext.Net\extjs\PDate\picker\PDate.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\Build\Ext.Net\extjs\PDate\picker\PMonth.js" />
+    <EmbeddedResource Include="WebControls\SearchTextField\SearchTextField.css" />
+    <EmbeddedResource Include="Pages\Desktop.aspx" />
+    <EmbeddedResource Include="Scripts\Main.js" />
+    <EmbeddedResource Include="Scripts\MD5Encryptor.js" />
+    <EmbeddedResource Include="Themes\Aria\Image.png" />
+    <EmbeddedResource Include="Themes\Aria\Main.css" />
+    <EmbeddedResource Include="Themes\CrispTouch\Image.png" />
+    <EmbeddedResource Include="Themes\CrispTouch\Main.css" />
+    <EmbeddedResource Include="Themes\Crisp\Image.png" />
+    <EmbeddedResource Include="Themes\Crisp\Main.css" />
+    <EmbeddedResource Include="Themes\Default\Icons.css" />
+    <EmbeddedResource Include="Themes\Default\Image.png" />
+    <EmbeddedResource Include="Themes\Default\Main.css" />
+    <EmbeddedResource Include="Themes\Default\Main.js" />
+    <EmbeddedResource Include="Themes\Gray\Image.png" />
+    <EmbeddedResource Include="Themes\Gray\Main.css" />
+    <EmbeddedResource Include="Themes\Main.css" />
+    <EmbeddedResource Include="Themes\Neptune\Image.png" />
+    <EmbeddedResource Include="Themes\Neptune\Main.css" />
+    <EmbeddedResource Include="Themes\Triton\Image.png" />
+    <EmbeddedResource Include="Themes\Triton\Main.css" />
+    <EmbeddedResource Include="WebControls\SearchTextField\SearchTextField.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="WebControls\PersianCalendar\PDate\form\field\PDate.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\PDate\grid\gridfilters\GridFilters.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\PDate\grid\gridfilters\PDateFilter.js" />
+    <EmbeddedResource Include="WebControls\DateColumn\DateColumn.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\PDate\pdate.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\PDate\picker\PDate.js" />
+    <EmbeddedResource Include="WebControls\PersianCalendar\PDate\picker\PMonth.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApplicationCollection.cs" />
+    <Compile Include="File.cs" />
+    <Compile Include="FileType.cs" />
+    <Compile Include="WebControls\Application\ApplicationModule.cs" />
+    <Compile Include="WebControls\Application\ApplicationModulesCollection.cs" />
+    <Compile Include="BaseUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlCollection.cs" />
+    <Compile Include="WebControls\Application\ApplicationPanel.cs" />
+    <Compile Include="WebControls\Browser.cs" />
+    <Compile Include="WebControls\CartesianChart.cs" />
+    <Compile Include="WebControls\Column.cs" />
+    <Compile Include="WebControls\ComboBox.cs" />
+    <Compile Include="WebControls\FormPanel.cs" />
+    <Compile Include="WebControls\GridPanel.cs" />
+    <Compile Include="WebControls\Hyperlink.cs" />
+    <Compile Include="WebControls\Icon.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Desktop.aspx.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Desktop.aspx.designer.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\ResourcesInfo.cs" />
+    <Compile Include="Sample.cs" />
+    <Compile Include="WebControls\BuilderFactoryExtension.cs" />
+    <Compile Include="WebControls\ContentPanel.cs" />
+    <Compile Include="WebControls\Application\ApplicationModuleProxy.cs" />
+    <Compile Include="WebControls\DataViewEntities.cs" />
+    <Compile Include="WebControls\Image.cs" />
+    <Compile Include="WebControls\IWebControl.cs" />
+    <Compile Include="WebControls\Label.cs" />
+    <Compile Include="WebControls\Layouts.cs" />
+    <Compile Include="WebControls\MenuItem.cs" />
+    <Compile Include="WebControls\SearchTextField\SearchTextField.cs" />
+    <Compile Include="UserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Button.cs" />
+    <Compile Include="WebControls\ButtonGroup.cs" />
+    <Compile Include="WebControls\ConfirmationDialog.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebControls\Desktop.cs" />
+    <Compile Include="WebControls\Explorer\Explorer.cs" />
+    <Compile Include="WebControls\Explorer\ExplorerDataView.cs" />
+    <Compile Include="WebControls\Explorer\ExplorerGridPanel.cs" />
+    <Compile Include="WebControls\FoldersPanel.cs" />
+    <Compile Include="WebControls\HelpWindow.cs" />
+    <Compile Include="WebControls\X.cs" />
+    <Compile Include="WebControls\Panel.cs" />
+    <Compile Include="WebControls\DateColumn\DateColumn.cs" />
+    <Compile Include="WebControls\PersianCalendar\Ext\Filter\PDateFilter.cs" />
+    <Compile Include="WebControls\PersianCalendar\Ext\Filter\PDatePickerOptions.cs" />
+    <Compile Include="WebControls\PersianCalendar\Ext\Filter\PGridFilters.cs" />
+    <Compile Include="WebControls\PersianCalendar\Ext\Form\PDateField.cs" />
+    <Compile Include="WebControls\PersianCalendar\Ext\Picker\PDatePicker.cs" />
+    <Compile Include="WebControls\PersianCalendar\Factory\Builder\PDateFieldBuilder.cs" />
+    <Compile Include="WebControls\PersianCalendar\Factory\Builder\PDateFilterBuilder.cs" />
+    <Compile Include="WebControls\PersianCalendar\Factory\Builder\PDatePickerBuilder.cs" />
+    <Compile Include="WebControls\PersianCalendar\Factory\Builder\PDatePickerOptionsBuilder.cs" />
+    <Compile Include="WebControls\PersianCalendar\Factory\Builder\PGridFiltersBuilder.cs" />
+    <Compile Include="WebControls\ProgressBar.cs" />
+    <Compile Include="WebControls\ResourceManager.cs" />
+    <Compile Include="WebControls\StatusBar.cs" />
+    <Compile Include="WebControls\TextField.cs" />
+    <Compile Include="WebControls\ToolbarShare.cs" />
+    <Compile Include="WebControls\SplitButton.cs" />
+    <Compile Include="WebControls\StandardContextMenu.cs" />
+    <Compile Include="WebControls\ToolbarHome.cs" />
+    <Compile Include="WebControls\TabPanel.cs" />
+    <Compile Include="WebControls\Toolbar.cs" />
+    <Compile Include="WebControls\ToolbarTextItem.cs" />
+    <Compile Include="WebControls\Window.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebControls\PersianCalendar\Ext\DateColumn\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Diten.Core\Diten.Core.csproj">
+      <Project>{a6770266-b0cc-4965-be7e-fda40003d3b4}</Project>
+      <Name>Diten.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Diten.Helper\Diten.Helper.csproj">
+      <Project>{390e52f6-c670-47ab-84b6-9615e4f699a0}</Project>
+      <Name>Diten.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Diten.Web\Diten.Web.csproj">
+      <Project>{b12d20d5-9bca-4d46-b78e-1594321425d5}</Project>
+      <Name>Diten.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Diten\Diten.csproj">
+      <Project>{09fee88c-705a-4c19-903a-3db3c437887d}</Project>
+      <Name>Diten</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WinApp|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WinApp|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WinApp|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WebApp|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WebApp|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WebApp|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Downloader|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Downloader|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Downloader|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|x64'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|x86'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Bridge|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Bridge|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Bridge|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WebApp %28Debug%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WebApp %28Debug%29|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WebApp %28Debug%29|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>16752</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/App.Diten.Net</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

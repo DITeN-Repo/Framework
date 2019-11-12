@@ -22,7 +22,7 @@ namespace Diten.Security.Cryptography
 	public class SHAKey<TKey>: IDisposable
 		where TKey: ISHA
 	{
-		public SHAKey(object obj) { Holder = obj; }
+		public SHAKey(System.Object obj) { Holder = obj; }
 
 		private object Holder {get;}
 

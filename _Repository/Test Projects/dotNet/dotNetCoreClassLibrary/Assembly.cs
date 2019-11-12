@@ -105,7 +105,7 @@ namespace Diten
 		///// <exception cref="T:System.IO.PathTooLongException">The assembly name is longer than MAX_PATH characters.</exception>
 		//[SecuritySafeCritical]
 		//[MethodImpl(MethodImplOptions.NoInlining)]
-		//public static Assembly LoadFrom(string assemblyFile)
+		//public static Assembly LoadFrom(System.String assemblyFile)
 		//{
 		//    var stackMark = ((FieldInfo) Type.GetType("System.Threading.StackCrawlMark")?.GetMembers()
 		//        .First(m => m.Name.Equals("LookForMyCaller")))?.GetValue(Assembly.GetExecutingAssembly());
@@ -135,7 +135,7 @@ namespace Diten
 
 		//[SecurityCritical]
 		//[MethodImpl(MethodImplOptions.NoInlining)]
-		//internal static RuntimeAssembly InternalLoadFrom(string assemblyFile, Evidence securityEvidence, byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, bool forIntrospection, bool suppressSecurityChecks, ref StackCrawlMark stackMark)
+		//internal static RuntimeAssembly InternalLoadFrom(System.String assemblyFile, Evidence securityEvidence, byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, bool forIntrospection, bool suppressSecurityChecks, ref StackCrawlMark stackMark)
 		//{
 		//    if (assemblyFile == null)
 		//        throw new ArgumentNullException(nameof(assemblyFile));
@@ -183,7 +183,7 @@ namespace Diten
 		//    string str = RuntimeAssembly.VerifyCodeBase(assemblyRef.CodeBase);
 		//    if (str != null && !suppressSecurityChecks)
 		//    {
-		//        if (string.Compare(str, 0, "file:", 0, 5, StringComparison.OrdinalIgnoreCase) != 0)
+		//        if (System.String.Compare(str, 0, "file:", 0, 5, StringComparison.OrdinalIgnoreCase) != 0)
 		//            RuntimeAssembly.CreateWebPermission(assemblyRef.EscapedCodeBase).Demand();
 		//        else
 		//            new FileIOPermission(FileIOPermissionAccess.Read | FileIOPermissionAccess.PathDiscovery, new URLString(str, true).GetFileName()).Demand();

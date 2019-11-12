@@ -13,6 +13,7 @@
 
 #region Used Directives
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -24,7 +25,7 @@ using Diten.Security.Cryptography;
 namespace Diten.Collections.Immutable
 {
 	public class HistoryDictionary<TObjectId, TObject>: IImmutableDictionary<TObjectId, TObject>
-		where TObject: Object<object, ISHA>
+		where TObject: IObject<System.Object, ISHA>
 	{
 		public IImmutableDictionary<TObjectId, TObject> Add(TObjectId key,
 		                                                    TObject value)
@@ -39,11 +40,11 @@ namespace Diten.Collections.Immutable
 
 		public IImmutableDictionary<TObjectId, TObject> Clear() { throw new NotImplementedException(); }
 
-		public bool Contains(KeyValuePair<TObjectId, TObject> pair) { throw new NotImplementedException(); }
+		public Boolean Contains(KeyValuePair<TObjectId, TObject> pair) { throw new NotImplementedException(); }
 
-		public bool ContainsKey(TObjectId key) { throw new NotImplementedException(); }
+		public Boolean ContainsKey(TObjectId key) { throw new NotImplementedException(); }
 
-		public int Count {get;}
+		public Int32 Count {get;}
 		public IEnumerator<KeyValuePair<TObjectId, TObject>> GetEnumerator() { throw new NotImplementedException(); }
 
 		IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
@@ -67,13 +68,13 @@ namespace Diten.Collections.Immutable
 			throw new NotImplementedException();
 		}
 
-		public bool TryGetKey(TObjectId equalKey,
+		public Boolean TryGetKey(TObjectId equalKey,
 		                      out TObjectId actualKey)
 		{
 			throw new NotImplementedException();
 		}
 
-		public bool TryGetValue(TObjectId key,
+		public Boolean TryGetValue(TObjectId key,
 		                        out TObject value)
 		{
 			throw new NotImplementedException();

@@ -35,7 +35,7 @@ namespace Diten.Net.NetworkInformation
 			                         .ToList();
 		}
 
-		public static PingReply Ping(string destination)
+		public static PingReply Ping(System.String destination)
 		{
 			return new Ping().Send(destination,
 			                       120,

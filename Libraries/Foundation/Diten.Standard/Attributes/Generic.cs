@@ -28,6 +28,6 @@ namespace Diten.Attributes
 	                AttributeTargets.Parameter)]
 	public class Generic: Type
 	{
-		public bool DoSave {get; set;} = true;
+		public Boolean DoSave {get; set;} = true;
 	}
 }

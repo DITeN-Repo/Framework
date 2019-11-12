@@ -1,0 +1,1 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ApplicationTemplateSouthPanel.ctrl.ascx.cs" inherits="Diten.Web.UI.Apps.Templates.Application.ApplicationTemplateSouthPanel" %>

@@ -33,7 +33,7 @@ namespace Diten
 		/// </summary>
 		public class DotNet
 		{
-			public DotNet(string versionName,
+			public DotNet(System.String versionName,
 			              string servicePack)
 			{
 				VersionName = versionName;
@@ -112,7 +112,7 @@ namespace Diten
 						var versionKey = ndpKey.OpenSubKey(versionKeyName);
 
 						if (versionKey == null) continue;
-						var name = (string) versionKey.GetValue("Version",
+						var name = (System.String) versionKey.GetValue("Version",
 						                                        "");
 						var sp = versionKey.GetValue("SP",
 						                             "")
@@ -138,7 +138,7 @@ namespace Diten
 						{
 							if (subKey != null)
 							{
-								name = (string) subKey.GetValue("Version",
+								name = (System.String) subKey.GetValue("Version",
 								                                "");
 								if (name != "")
 									sp = subKey.GetValue("SP",

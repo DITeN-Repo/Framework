@@ -66,17 +66,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Libraries\Diten.Core\Diten.Core.csproj">
-      <Project>{A6770266-B0CC-4965-BE7E-FDA40003D3B4}</Project>
-      <Name>Diten.Core</Name>
+    <ProjectReference Include="..\..\Foundation\Diten.Framework\Diten.Framework.csproj">
+      <Project>{129acdde-9d86-4596-be50-3326e26b9dbe}</Project>
+      <Name>Diten.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Foundation\Diten.Repository\Diten.Repository.csproj">
+      <Project>{497bfa7b-b6e5-4961-b0a7-8a350e7b98cf}</Project>
+      <Name>Diten.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Foundation\Diten.Standard\Diten.Standard.csproj">
+      <Project>{dc9fcf0d-0a97-4420-973f-646eef436f2a}</Project>
+      <Name>Diten.Standard</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Foundation\Diten.Web\Diten.Web.csproj">
       <Project>{B12D20D5-9BCA-4D46-B78E-1594321425D5}</Project>
       <Name>Diten.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Libraries\Diten\Diten.csproj">
-      <Project>{09fee88c-705a-4c19-903a-3db3c437887d}</Project>
-      <Name>Diten</Name>
     </ProjectReference>
     <ProjectReference Include="..\Diten.Web.UI.Apps\Diten.Web.UI.Apps.csproj">
       <Project>{6ddf7ce9-a9ae-4b18-a502-0b6956ddfa09}</Project>
